@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
@@ -506,141 +506,136 @@
 <p class="sp-info-main">The first verified traders will be displayed here.</p>
 <p class="sp-info-sub">This is your opportunity to be among the first to qualify through the Altivor validation process.</p>
 </div>
-<!-- Wall of Traders Tile Grid -->
-<div class="wot-tiles" data-reveal>
-<!-- Verified Trader Tile -->
-<button class="wot-tile wot-tile--verified" data-wot-trader="t017" type="button">
-<div class="wot-tile-accent"></div>
-<div class="wot-tile-rank">01</div>
-<div class="wot-tile-avatar">
+<!-- Wall of Traders — Accordion List -->
+<div class="wot-list" data-reveal>
+<!-- Verified Entry -->
+<div class="wot-entry wot-entry--verified" data-wot-trader="t017">
+<button class="wot-entry-header" type="button" aria-expanded="false">
+<span class="wot-entry-rank">01</span>
+<span class="wot-entry-avatar">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-</div>
-<span class="wot-tile-nick">Trader_017</span>
-<span class="wot-tile-flag">&#x1F1F5;&#x1F1F1;</span>
-<span class="wot-tile-status">Funded Ready</span>
+</span>
+<span class="wot-entry-nick">Trader_017</span>
+<span class="wot-entry-flag">&#x1F1F5;&#x1F1F1;</span>
+<span class="wot-entry-badge">Funded Ready</span>
+<span class="wot-entry-arrow">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</span>
 </button>
-<!-- Placeholder Tiles -->
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">02</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">03</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">04</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">05</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">06</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">07</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-<div class="wot-tile wot-tile--empty">
-<div class="wot-tile-rank">08</div>
-<div class="wot-tile-avatar wot-tile-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></div>
-<span class="wot-tile-nick wot-tile-nick--empty">Available</span>
-</div>
-</div>
-<!-- Trader Detail Overlay -->
-<div class="wot-detail-overlay" id="wotDetailOverlay" style="display:none;">
-<div class="wot-detail-panel">
-<button class="wot-detail-close" id="wotDetailClose" type="button">&times;</button>
-<div class="wot-detail-accent-bar"></div>
-<!-- Profile Header -->
-<div class="wot-detail-header">
-<div class="wot-detail-avatar-wrap">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-</div>
-<div class="wot-detail-identity">
-<span class="wot-detail-nickname" id="wotDetailNick">Trader_017</span>
-<span class="wot-detail-flag-region"><span id="wotDetailFlag">&#x1F1F5;&#x1F1F1;</span> <span id="wotDetailRegion">Poland</span></span>
-</div>
-<div class="wot-detail-badge-col">
-<span class="wot-detail-badge-funded">Funded Ready</span>
-<span class="wot-detail-registry-id" id="wotDetailRegId">REG-2026-0001</span>
-</div>
-</div>
-<!-- Score Section -->
-<div class="wot-detail-section">
-<div class="wot-detail-section-title">Trader Score</div>
-<div class="wot-detail-score-block">
-<div class="wot-detail-score-big" id="wotDetailScore">87<span class="wot-detail-score-max"> / 100</span></div>
-<div class="wot-detail-score-bars">
-<div class="wot-detail-bar-row"><span class="wot-detail-bar-label">Discipline</span><div class="wot-detail-bar-track"><div class="wot-detail-bar-fill" style="width:90%"></div></div><span class="wot-detail-bar-val">90</span></div>
-<div class="wot-detail-bar-row"><span class="wot-detail-bar-label">Consistency</span><div class="wot-detail-bar-track"><div class="wot-detail-bar-fill" style="width:84%"></div></div><span class="wot-detail-bar-val">84</span></div>
-<div class="wot-detail-bar-row"><span class="wot-detail-bar-label">Risk Governance</span><div class="wot-detail-bar-track"><div class="wot-detail-bar-fill" style="width:92%"></div></div><span class="wot-detail-bar-val">92</span></div>
-<div class="wot-detail-bar-row"><span class="wot-detail-bar-label">Execution</span><div class="wot-detail-bar-track"><div class="wot-detail-bar-fill" style="width:78%"></div></div><span class="wot-detail-bar-val">78</span></div>
-<div class="wot-detail-bar-row"><span class="wot-detail-bar-label">Performance</span><div class="wot-detail-bar-track"><div class="wot-detail-bar-fill" style="width:82%"></div></div><span class="wot-detail-bar-val">82</span></div>
+<div class="wot-entry-body" hidden>
+<div class="wot-entry-section">
+<div class="wot-entry-section-title">Trader Score</div>
+<div class="wot-entry-score-block">
+<div class="wot-entry-score-big">87<span class="wot-entry-score-max"> / 100</span></div>
+<div class="wot-entry-score-bars">
+<div class="wot-entry-bar-row"><span class="wot-entry-bar-label">Discipline</span><div class="wot-entry-bar-track"><div class="wot-entry-bar-fill" style="width:90%"></div></div><span class="wot-entry-bar-val">90</span></div>
+<div class="wot-entry-bar-row"><span class="wot-entry-bar-label">Consistency</span><div class="wot-entry-bar-track"><div class="wot-entry-bar-fill" style="width:84%"></div></div><span class="wot-entry-bar-val">84</span></div>
+<div class="wot-entry-bar-row"><span class="wot-entry-bar-label">Risk Governance</span><div class="wot-entry-bar-track"><div class="wot-entry-bar-fill" style="width:92%"></div></div><span class="wot-entry-bar-val">92</span></div>
+<div class="wot-entry-bar-row"><span class="wot-entry-bar-label">Execution Quality</span><div class="wot-entry-bar-track"><div class="wot-entry-bar-fill" style="width:78%"></div></div><span class="wot-entry-bar-val">78</span></div>
+<div class="wot-entry-bar-row"><span class="wot-entry-bar-label">Performance</span><div class="wot-entry-bar-track"><div class="wot-entry-bar-fill" style="width:82%"></div></div><span class="wot-entry-bar-val">82</span></div>
 </div>
 </div>
 </div>
-<!-- Key Metrics -->
-<div class="wot-detail-section">
-<div class="wot-detail-section-title">Key Metrics</div>
-<div class="wot-detail-metrics-grid">
-<div class="wot-detail-metric"><span class="wot-detail-metric-val">+7.4%</span><span class="wot-detail-metric-label">Cumulative Profit</span></div>
-<div class="wot-detail-metric"><span class="wot-detail-metric-val">6.2%</span><span class="wot-detail-metric-label">Max Drawdown</span></div>
-<div class="wot-detail-metric"><span class="wot-detail-metric-val">68%</span><span class="wot-detail-metric-label">Win Rate</span></div>
-<div class="wot-detail-metric"><span class="wot-detail-metric-val">2.1</span><span class="wot-detail-metric-label">Avg RR</span></div>
-<div class="wot-detail-metric"><span class="wot-detail-metric-val">55</span><span class="wot-detail-metric-label">Validated Trades</span></div>
-<div class="wot-detail-metric"><span class="wot-detail-metric-val">Sep 2026</span><span class="wot-detail-metric-label">Completion Date</span></div>
+<div class="wot-entry-section">
+<div class="wot-entry-section-title">Key Metrics</div>
+<div class="wot-entry-metrics-grid">
+<div class="wot-entry-metric"><span class="wot-entry-metric-val">+7.4%</span><span class="wot-entry-metric-label">Cumulative Profit</span></div>
+<div class="wot-entry-metric"><span class="wot-entry-metric-val">6.2%</span><span class="wot-entry-metric-label">Max Drawdown</span></div>
+<div class="wot-entry-metric"><span class="wot-entry-metric-val">68%</span><span class="wot-entry-metric-label">Win Rate</span></div>
+<div class="wot-entry-metric"><span class="wot-entry-metric-val">2.1</span><span class="wot-entry-metric-label">Avg RR</span></div>
+<div class="wot-entry-metric"><span class="wot-entry-metric-val">55</span><span class="wot-entry-metric-label">Validated Trades</span></div>
+<div class="wot-entry-metric"><span class="wot-entry-metric-val">Sep 2026</span><span class="wot-entry-metric-label">Completion Date</span></div>
 </div>
 </div>
-<!-- Compliance -->
-<div class="wot-detail-section">
-<div class="wot-detail-section-title">Compliance Verification</div>
-<div class="wot-detail-compliance-list">
-<div class="wot-detail-compliance-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>55 / 55 trades validated</span></div>
-<div class="wot-detail-compliance-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>8 / 8 weekly equity check-ins</span></div>
-<div class="wot-detail-compliance-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Risk governance within parameters</span></div>
-<div class="wot-detail-compliance-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Broker statement submitted</span></div>
-<div class="wot-detail-compliance-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>No rule violations or hard breaches</span></div>
-<div class="wot-detail-compliance-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Drawdown below 10% threshold</span></div>
+<div class="wot-entry-section">
+<div class="wot-entry-section-title">Compliance Verification</div>
+<div class="wot-entry-compliance">
+<div class="wot-entry-comp-row"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>55 / 55 trades validated</span></div>
+<div class="wot-entry-comp-row"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>8 / 8 weekly equity check-ins</span></div>
+<div class="wot-entry-comp-row"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Risk governance within parameters</span></div>
+<div class="wot-entry-comp-row"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Broker statement submitted</span></div>
+<div class="wot-entry-comp-row"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>No rule violations or hard breaches</span></div>
+<div class="wot-entry-comp-row"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Drawdown below 10% threshold</span></div>
 </div>
 </div>
-<!-- Challenge Info -->
-<div class="wot-detail-section">
-<div class="wot-detail-section-title">Challenge Details</div>
-<div class="wot-detail-info-grid">
-<div class="wot-detail-info-item"><span class="wot-detail-info-label">Challenge</span><span class="wot-detail-info-val">US100 Validation Challenge</span></div>
-<div class="wot-detail-info-item"><span class="wot-detail-info-label">Classification</span><span class="wot-detail-info-val wot-detail-info-val--green">Funded Ready</span></div>
-<div class="wot-detail-info-item"><span class="wot-detail-info-label">Duration</span><span class="wot-detail-info-val">Jul — Sep 2026</span></div>
-<div class="wot-detail-info-item"><span class="wot-detail-info-label">Instrument</span><span class="wot-detail-info-val">NAS100 (US Tech 100)</span></div>
+<div class="wot-entry-section">
+<div class="wot-entry-section-title">Challenge Details</div>
+<div class="wot-entry-info-grid">
+<div class="wot-entry-info-item"><span class="wot-entry-info-label">Challenge</span><span class="wot-entry-info-val">US100 Validation Challenge</span></div>
+<div class="wot-entry-info-item"><span class="wot-entry-info-label">Classification</span><span class="wot-entry-info-val wot-entry-info-val--green">Funded Ready</span></div>
+<div class="wot-entry-info-item"><span class="wot-entry-info-label">Duration</span><span class="wot-entry-info-val">Jul &mdash; Sep 2026</span></div>
+<div class="wot-entry-info-item"><span class="wot-entry-info-label">Instrument</span><span class="wot-entry-info-val">NAS100 (US Tech 100)</span></div>
 </div>
 </div>
-<!-- Footer Seal -->
-<div class="wot-detail-footer">
-<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-<span>Verified by ALTIVOR Institute</span>
+<div class="wot-entry-seal">
+<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+<span>Verified by ALTIVOR Institute &middot; REG-2026-0001</span>
+</div>
+</div>
+</div>
+<!-- Placeholder Entries -->
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">02</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
+</div>
+</div>
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">03</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
+</div>
+</div>
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">04</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
+</div>
+</div>
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">05</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
+</div>
+</div>
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">06</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
+</div>
+</div>
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">07</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
+</div>
+</div>
+<div class="wot-entry wot-entry--empty">
+<div class="wot-entry-header wot-entry-header--empty">
+<span class="wot-entry-rank">08</span>
+<span class="wot-entry-avatar wot-entry-avatar--empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></span>
+<span class="wot-entry-nick wot-entry-nick--empty">Available</span>
 </div>
 </div>
 </div>
 <p class="sp-micro-label" data-reveal>Verified completions will be listed as they occur.</p>
 <script>
 (function(){
-  var overlay = document.getElementById('wotDetailOverlay');
-  var closeBtn = document.getElementById('wotDetailClose');
-  var tiles = document.querySelectorAll('.wot-tile--verified');
-  function openDetail(btn){ overlay.style.display='flex'; document.body.classList.add('vs-modal-body-lock'); }
-  function closeDetail(){ overlay.style.display='none'; document.body.classList.remove('vs-modal-body-lock'); }
-  tiles.forEach(function(t){ t.addEventListener('click', function(){ openDetail(this); }); });
-  if(closeBtn) closeBtn.addEventListener('click', closeDetail);
-  if(overlay) overlay.addEventListener('click', function(e){ if(e.target===overlay) closeDetail(); });
+  document.querySelectorAll('.wot-entry--verified .wot-entry-header').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var entry = btn.closest('.wot-entry');
+      var body = entry.querySelector('.wot-entry-body');
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if(body) body.hidden = expanded;
+    });
+  });
 })();
 </script>
 </div>
@@ -1207,7 +1202,7 @@
 <p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
 </div>
 </footer>
-<!-- ─── LOGIN MODAL ─────────────────────────────────────────────────── -->
+<!-- LOGIN MODAL -->
 <div class="auth-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
 <div class="auth-modal">
 <button class="auth-close" onclick="closeModal('loginModal')" aria-label="Close">&#x2715;</button>
@@ -1216,26 +1211,33 @@
 </div>
 <h2 class="auth-title" id="loginTitle" data-i18n="login_title">Welcome Back</h2>
 <p class="auth-sub" data-i18n="login_sub">Sign in to your ALTIVOR account</p>
-<form class="auth-form" onsubmit="event.preventDefault();alert('Login — backend integration pending.');">
-<label class="auth-label" for="loginEmail" data-i18n="login_email">Email Address</label>
-<input class="auth-input" type="email" id="loginEmail" required placeholder="your@email.com" data-i18n-placeholder="login_email_placeholder" />
-<label class="auth-label" for="loginPw" data-i18n="login_pw">Password</label>
-<div class="auth-pw-wrap">
-<input class="auth-input" type="password" id="loginPw" required placeholder="Enter your password" data-i18n-placeholder="login_pw_placeholder" />
-<button type="button" class="auth-pw-toggle" onclick="togglePw('loginPw',this)" aria-label="Toggle password visibility" data-i18n-aria-label="toggle_password_visibility">
-<svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-<circle cx="12" cy="12" r="3"/>
-</svg>
-<svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-<line x1="1" y1="1" x2="23" y2="23"/>
+<form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+<div class="auth-field">
+<label for="loginEmail" data-i18n="login_email">Email Address</label>
+<input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="loginPassword" data-i18n="login_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+<button type="button" class="auth-eye" onclick="togglePw('loginPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
 </svg>
 </button>
 </div>
-<a href="#" class="auth-forgot" data-i18n="login_forgot">Forgot password?</a>
-<button class="btn btn-primary auth-btn" type="submit" data-i18n="login_btn">Sign In</button>
+</div>
+<div class="auth-remember-row">
+<label class="auth-remember-label">
+<input type="checkbox" id="loginRemember" name="remember" />
+<span class="auth-remember-box" aria-hidden="true">
+</span>
+<span data-i18n="login_remember">Remember me</span>
+</label>
+<a href="#" class="auth-forgot-link" onclick="switchModal('loginModal','forgotModal');return false;" data-i18n="login_forgot">Forgot password?</a>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="login_btn">Sign In</button>
 </form>
 <p class="auth-switch">
 <span data-i18n="login_switch">Don't have an account?</span>
@@ -1243,34 +1245,43 @@
 </p>
 </div>
 </div>
-<!-- ─── REGISTER MODAL ──────────────────────────────────────────────── -->
-<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+<!-- REGISTER MODAL -->
+<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
 <div class="auth-modal auth-modal--wide">
 <button class="auth-close" onclick="closeModal('registerModal')" aria-label="Close">&#x2715;</button>
 <div class="auth-logo">
 <img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
 </div>
-<h2 class="auth-title" id="regTitle" data-i18n="reg_title">Create Account</h2>
+<h2 class="auth-title" id="registerTitle" data-i18n="reg_title">Create Account</h2>
 <p class="auth-sub" data-i18n="reg_sub">Join ALTIVOR INSTITUTE</p>
-<form class="auth-form" id="registerForm" onsubmit="event.preventDefault();if(!document.getElementById('regConsent').checked){document.getElementById('consentError').style.display='block';return;}document.getElementById('consentError').style.display='none';alert('Registration — backend integration pending.');">
+<form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
 <div class="auth-row">
-<div class="auth-col">
-<label class="auth-label" for="regFirst" data-i18n="reg_first">First Name</label>
-<input class="auth-input" type="text" id="regFirst" required placeholder="John" data-i18n-placeholder="reg_first_placeholder" />
+<div class="auth-field">
+<label for="regFirstName" data-i18n="reg_first">First Name</label>
+<input type="text" id="regFirstName" name="firstName" placeholder="John" required autocomplete="given-name" />
 </div>
-<div class="auth-col">
-<label class="auth-label" for="regLast" data-i18n="reg_last">Last Name</label>
-<input class="auth-input" type="text" id="regLast" required placeholder="Doe" data-i18n-placeholder="reg_last_placeholder" />
+<div class="auth-field">
+<label for="regLastName" data-i18n="reg_last">Last Name</label>
+<input type="text" id="regLastName" name="lastName" placeholder="Doe" required autocomplete="family-name" />
 </div>
 </div>
-<label class="auth-label" for="regUsername" data-i18n="reg_username">Username</label>
-<input class="auth-input" type="text" id="regUsername" required placeholder="johndoe_trader" data-i18n-placeholder="reg_username_placeholder" />
-<label class="auth-label" for="regEmail" data-i18n="reg_email">Email Address</label>
-<input class="auth-input" type="email" id="regEmail" required placeholder="your@email.com" data-i18n-placeholder="reg_email_placeholder" />
-<label class="auth-label" for="regAddress" data-i18n="reg_address">Address</label>
-<input class="auth-input" type="text" id="regAddress" required placeholder="123 Street, City, Country" data-i18n-placeholder="reg_address_placeholder" />
+<div class="auth-field">
+<label for="regUsername" data-i18n="reg_username">Username</label>
+<input type="text" id="regUsername" name="username" placeholder="johndoe_trader" required autocomplete="username" />
+</div>
+<div class="auth-field">
+<label for="regEmail" data-i18n="reg_email">Email Address</label>
+<input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="regAddress" data-i18n="reg_address">Address</label>
+<input type="text" id="regAddress" name="address" placeholder="Start typing city or street..." required autocomplete="street-address" list="regAddressSuggestions" />
+<datalist id="regAddressSuggestions">
+</datalist>
+</div>
 
-<label class="auth-label" for="regCountry" data-i18n="reg_country">Country</label>
+<div class="auth-field">
+<label for="regCountry" data-i18n="reg_country">Country</label>
 <div class="auth-country-wrap">
 <select class="auth-country-select" id="regCountry" name="country" required>
 <option value="" disabled selected>Select your country</option>
@@ -1336,43 +1347,44 @@
 </select>
 <svg class="auth-country-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
 </div>
-<label class="auth-label" for="regPw" data-i18n="reg_pw">Password</label>
-<div class="auth-pw-wrap">
-<input class="auth-input" type="password" id="regPw" required placeholder="Create a password" data-i18n-placeholder="reg_pw_placeholder" />
-<button type="button" class="auth-pw-toggle" onclick="togglePw('regPw',this)" aria-label="Toggle password visibility" data-i18n-aria-label="toggle_password_visibility">
-<svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-<circle cx="12" cy="12" r="3"/>
-</svg>
-<svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-<line x1="1" y1="1" x2="23" y2="23"/>
+</div>
+<div class="auth-row">
+<div class="auth-field">
+<label for="regPassword" data-i18n="reg_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPassword" name="password" placeholder="Create a password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
 </svg>
 </button>
 </div>
-<label class="auth-label" for="regPw2" data-i18n="reg_pw2">Confirm Password</label>
-<div class="auth-pw-wrap">
-<input class="auth-input" type="password" id="regPw2" required placeholder="Repeat password" data-i18n-placeholder="reg_pw2_placeholder" />
-<button type="button" class="auth-pw-toggle" onclick="togglePw('regPw2',this)" aria-label="Toggle password visibility" data-i18n-aria-label="toggle_password_visibility">
-<svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-<circle cx="12" cy="12" r="3"/>
-</svg>
-<svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
-<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
-<line x1="1" y1="1" x2="23" y2="23"/>
+</div>
+<div class="auth-field">
+<label for="regPasswordConfirm" data-i18n="reg_pw2">Confirm Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPasswordConfirm" name="passwordConfirm" placeholder="Repeat password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPasswordConfirm', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
 </svg>
 </button>
 </div>
-<p class="auth-error" id="pwError" style="display:none;" data-i18n="pw_error">Passwords do not match.</p>
+</div>
+</div>
+<div class="auth-pw-error" id="regPwError" data-i18n="pw_error">Passwords do not match.</div>
 <div class="auth-consent">
-<input type="checkbox" id="regConsent" />
-<label for="regConsent" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a>, and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</label>
+<label class="auth-consent-label">
+<input type="checkbox" id="regConsent" name="consent" required />
+<span class="auth-consent-box" aria-hidden="true">
+</span>
+<span class="auth-consent-text" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a> and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</span>
+</label>
+<div class="auth-consent-error" id="regConsentError" data-i18n="reg_consent_error">You must accept the terms to create an account.</div>
 </div>
-<p class="auth-error" id="consentError" style="display:none;" data-i18n="reg_consent_error">You must accept the terms to create an account.</p>
-<button class="btn btn-primary auth-btn" type="submit" data-i18n="reg_btn">Create Account</button>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="reg_btn">Create Account</button>
 </form>
 <p class="auth-switch">
 <span data-i18n="reg_switch">Already have an account?</span>
@@ -1380,176 +1392,460 @@
 </p>
 </div>
 </div>
-<!-- ─── DOCUMENTS MODAL ─────────────────────────────────────────────── -->
-<div class="auth-overlay" id="docsModal" role="dialog" aria-modal="true" aria-labelledby="docsTitle">
-<div class="auth-modal auth-modal--docs">
-<button class="auth-close" onclick="closeModal('docsModal')" aria-label="Close">&#x2715;</button>
-<h2 class="auth-title" id="docsTitle" data-i18n="doc_heading">Documents</h2>
-<div class="docs-grid">
-<div class="docs-section">
-<h3 data-i18n="doc_legal_section">Legal Documents</h3>
-<a href="terms-of-service.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_terms_name">Terms &amp; Conditions</span>
-<span class="docs-desc" data-i18n="doc_terms_desc">Usage terms and service agreement</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="privacy-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_privacy_name">Privacy Policy</span>
-<span class="docs-desc" data-i18n="doc_privacy_desc">GDPR-compliant data processing</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="risk-disclosure.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_risk_name">Risk Disclosure</span>
-<span class="docs-desc" data-i18n="doc_risk_desc">Financial risk warnings</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="investment-disclaimer.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_invest_name">Investment &amp; Education Disclaimer</span>
-<span class="docs-desc" data-i18n="doc_invest_desc">No investment advice &mdash; educational services only</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="earnings-disclaimer.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_earnings_name">Earnings &amp; Performance Disclaimer</span>
-<span class="docs-desc" data-i18n="doc_earnings_desc">No guarantee of financial outcomes</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="acceptable-use-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_aup_name">Acceptable Use Policy</span>
-<span class="docs-desc" data-i18n="doc_aup_desc">Permitted conduct and prohibited activities</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="legal-notice.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_legal_name">Legal Notice</span>
-<span class="docs-desc" data-i18n="doc_legal_desc">Operator identity and legal information</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="complaints-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_complaints_name">Complaints Policy</span>
-<span class="docs-desc" data-i18n="doc_complaints_desc">Complaint procedure and resolution</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="anti-fraud-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_antifraud_name">Anti-Fraud Policy</span>
-<span class="docs-desc" data-i18n="doc_antifraud_desc">Fraud prevention and enforcement framework</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="security-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_security_name">Security Policy</span>
-<span class="docs-desc" data-i18n="doc_security_desc">Security measures and incident response</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="trust-and-safety.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_trust_name">Trust &amp; Safety</span>
-<span class="docs-desc" data-i18n="doc_trust_desc">Safety framework and user protection</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="refund-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_refund_name">Refund Policy</span>
-<span class="docs-desc" data-i18n="doc_refund_desc">Digital service refund conditions</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="cookies-policy.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_cookies_name">Cookie Policy</span>
-<span class="docs-desc" data-i18n="doc_cookies_desc">Cookie usage and consent management</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
+<!-- â•â•â• FORGOT PASSWORD MODAL â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="auth-overlay" id="forgotModal" role="dialog" aria-modal="true" aria-labelledby="forgotTitle">
+<div class="auth-modal">
+<button class="auth-close" onclick="closeModal('forgotModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
 </div>
-<div class="docs-section">
-<h3 data-i18n="doc_fw_section">Framework Documents</h3>
-<a href="us100-framework.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_us100_name">US100 Framework</span>
-<span class="docs-desc" data-i18n="doc_us100_desc">Nasdaq 100 CFD &mdash; operational execution framework</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="#" class="docs-item docs-item--locked" onclick="return false;">
-<span class="docs-name" data-i18n="doc_us30_name">US30 Framework</span>
-<span class="docs-desc" data-i18n="doc_us30_desc">Dow Jones 30 &mdash; in development</span>
-<span class="docs-badge docs-badge--locked" data-i18n="doc_badge_locked">Locked</span>
-</a>
+<h2 class="auth-title" id="forgotTitle" data-i18n="forgot_title">Reset Password</h2>
+<p class="auth-sub" data-i18n="forgot_sub">Enter your email to receive a reset code</p>
+<!-- Step 1: Email -->
+<div id="forgotStep1">
+<form class="auth-form" id="forgotEmailForm" onsubmit="handleForgotEmail(event)">
+<div class="auth-field">
+<label for="forgotEmail" data-i18n="forgot_email">Email Address</label>
+<input type="email" id="forgotEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
 </div>
-<div class="docs-section">
-<h3 data-i18n="doc_challenge_section">Challenge Documents</h3>
-<a href="challenge-rules.html" class="docs-item">
-<span class="docs-name" data-i18n="doc_challenge_name">Challenge Rules</span>
-<span class="docs-desc" data-i18n="doc_challenge_desc">Evaluation criteria and program structure</span>
-<span class="docs-badge" data-i18n="doc_badge_public">Public</span>
-</a>
-<a href="#" class="docs-item docs-item--locked" onclick="return false;">
-<span class="docs-name" data-i18n="doc_casestudy_name">Case Study Library</span>
-<span class="docs-desc" data-i18n="doc_casestudy_desc">Full access required &mdash; anonymized cycle reviews</span>
-<span class="docs-badge docs-badge--locked" data-i18n="doc_badge_locked">Locked</span>
-</a>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="forgot_send_code">Send Reset Code</button>
+</form>
+</div>
+<!-- Step 2: Code + New Password -->
+<div id="forgotStep2" style="display:none;">
+<form class="auth-form" id="forgotResetForm" onsubmit="handleForgotReset(event)">
+<p class="auth-info" data-i18n="forgot_code_sent">A 6-digit code has been sent to your email. Enter it below.</p>
+<div class="auth-field">
+<label for="forgotCode" data-i18n="forgot_code">Reset Code</label>
+<input type="text" id="forgotCode" name="code" placeholder="123456" required maxlength="6" pattern="[0-9]{6}" inputmode="numeric" style="text-align:center;font-size:1.5rem;letter-spacing:0.3em;font-weight:600;" />
+</div>
+<div class="auth-field">
+<label for="forgotNewPassword" data-i18n="forgot_new_pw">New Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="forgotNewPassword" name="newPassword" placeholder="Enter new password" required autocomplete="new-password" minlength="8" />
+<button type="button" class="auth-eye" onclick="togglePw('forgotNewPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
 </div>
 </div>
+<div class="auth-field">
+<label for="forgotConfirmPassword" data-i18n="forgot_confirm_pw">Confirm Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="forgotConfirmPassword" name="confirmPassword" placeholder="Confirm new password" required autocomplete="new-password" minlength="8" />
+<button type="button" class="auth-eye" onclick="togglePw('forgotConfirmPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
 </div>
 </div>
-<!-- ─── COOKIE CONSENT ──────────────────────────────────────────────── -->
-<div class="cookie-banner" id="cookieBanner" style="display:none;">
+<div class="auth-pw-error" id="forgotPwError" style="display:none;" data-i18n="pw_error">Passwords do not match.</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="forgot_reset_btn">Reset Password</button>
+</form>
+<p class="auth-resend">
+<a href="#" onclick="resetForgotFlow();return false;" data-i18n="forgot_resend">Didn't receive code? Try again</a>
+</p>
+</div>
+<!-- Step 3: Success -->
+<div id="forgotStep3" style="display:none;">
+<div class="auth-success">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#22c55e;margin-bottom:1rem;">
+<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+<polyline points="22 4 12 14.01 9 11.01"/>
+</svg>
+<h3 data-i18n="forgot_success_title">Password Reset Successfully</h3>
+<p data-i18n="forgot_success_desc">Your password has been changed. You can now log in with your new password.</p>
+<button class="btn btn-primary" onclick="switchModal('forgotModal','loginModal')" data-i18n="forgot_go_login">Go to Login</button>
+</div>
+</div>
+<p class="auth-switch">
+<span data-i18n="forgot_remember">Remember your password?</span>
+<a href="#" onclick="switchModal('forgotModal','loginModal');return false;" data-i18n="forgot_back_login">Back to Login</a>
+</p>
+</div>
+</div>
+<script src="script.js">
+</script>
+<script src="i18n.js">
+</script>
+<script src="auth-modals.js">
+</script>
+<script> function handleLogin(e) { e.preventDefault(); // TODO: wire to backend alert('Login submitted — backend integration pending.'); } function handleRegister(e) { e.preventDefault(); var pw = document.getElementById('regPassword').value; var pw2 = document.getElementById('regPasswordConfirm').value; var err = document.getElementById('regPwError'); var consent = document.getElementById('regConsent'); var consentErr = document.getElementById('regConsentError'); if (pw !== pw2) { err.textContent = 'Passwords do not match.'; err.style.display = 'block'; return; } var pwOk = pw.length >= 8 && /[A-Z]/.test(pw) && /[0-9]/.test(pw) && /[!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\/;'`~]/.test(pw); if (!pwOk) { err.textContent = 'Password must be at least 8 characters with one uppercase letter, one number, and one special character.'; err.style.display = 'block'; return; } err.style.display = 'none'; if (consent && !consent.checked) { consentErr.style.display = 'block'; consent.closest('.auth-consent').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; } if (consentErr) consentErr.style.display = 'none'; // TODO: wire to backend alert('Registration submitted — backend integration pending.'); } // â•â•â• FORGOT PASSWORD HANDLERS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• var forgotEmail = ''; function resetForgotFlow() { forgotEmail = ''; document.getElementById('forgotStep1').style.display = 'block'; document.getElementById('forgotStep2').style.display = 'none'; document.getElementById('forgotStep3').style.display = 'none'; document.getElementById('forgotEmailForm').reset(); document.getElementById('forgotResetForm').reset(); document.getElementById('forgotPwError').style.display = 'none'; } async function handleForgotEmail(e) { e.preventDefault(); var emailInput = document.getElementById('forgotEmail'); forgotEmail = emailInput.value.trim(); if (!forgotEmail) return; var btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Sending...'; try { var res = await fetch('/api/auth/forgot-password', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: forgotEmail }) }); var data = await res.json(); // Always show step 2 (security - don't reveal if email exists) document.getElementById('forgotStep1').style.display = 'none'; document.getElementById('forgotStep2').style.display = 'block'; } catch (err) { alert('Error sending reset code. Please try again.'); } finally { btn.disabled = false; btn.textContent = 'Send Reset Code'; } } async function handleForgotReset(e) { e.preventDefault(); var code = document.getElementById('forgotCode').value.trim(); var newPw = document.getElementById('forgotNewPassword').value; var confirmPw = document.getElementById('forgotConfirmPassword').value; var pwErr = document.getElementById('forgotPwError'); if (newPw !== confirmPw) { pwErr.textContent = 'Passwords do not match.'; pwErr.style.display = 'block'; return; } if (newPw.length < 8) { pwErr.textContent = 'Password must be at least 8 characters.'; pwErr.style.display = 'block'; return; } pwErr.style.display = 'none'; var btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Resetting...'; try { var res = await fetch('/api/auth/reset-password', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: forgotEmail, code: code, newPassword: newPw }) }); var data = await res.json(); if (!res.ok) { pwErr.textContent = data.error || 'Invalid code or error resetting password.'; pwErr.style.display = 'block'; return; } // Success document.getElementById('forgotStep2').style.display = 'none'; document.getElementById('forgotStep3').style.display = 'block'; } catch (err) { pwErr.textContent = 'Error resetting password. Please try again.'; pwErr.style.display = 'block'; } finally { btn.disabled = false; btn.textContent = 'Reset Password'; } } // Reset forgot flow when modal closes document.getElementById('forgotModal').addEventListener('click', function(e) { if (e.target === this) resetForgotFlow(); }); </script>
+<!-- COOKIE CONSENT BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-labelledby="cookieBannerTitle" aria-hidden="true">
 <div class="cookie-banner-inner">
-<p class="cookie-banner-text">
-<strong data-i18n="cookie_title">We use cookies</strong>
-<br>
-<span data-i18n="cookie_desc">We use cookies to secure the platform. <a href="cookies-policy.html" class="cookie-banner-link">Learn more</a>
-</span>
+<div class="cookie-banner-text">
+<p class="cookie-banner-title" id="cookieBannerTitle" data-i18n="cookie_title">We use cookies</p>
+<p class="cookie-banner-desc" data-i18n="cookie_desc">We use cookies and similar technologies to ensure the security of our platform, improve functionality and analyze usage. You can choose which cookies you allow. <a href="cookies-policy.html" class="cookie-banner-link">Learn more in our Cookies Policy</a>
 </p>
+</div>
 <div class="cookie-banner-actions">
-<button class="btn btn-primary btn-sm" id="cookieAccept" data-i18n="cookie_accept">Accept All</button>
-<button class="btn btn-outline btn-sm" id="cookieReject" data-i18n="cookie_reject">Reject Non-Essential</button>
-<button class="btn btn-ghost btn-sm" id="cookieManage" data-i18n="cookie_manage">Manage Preferences</button>
+<button class="btn btn-primary cookie-btn" id="cookieAcceptAll" data-i18n="cookie_accept">Accept all</button>
+<button class="btn btn-ghost cookie-btn" id="cookieRejectNon" data-i18n="cookie_reject">Reject non-essential</button>
+<button class="btn btn-ghost cookie-btn cookie-btn--prefs" id="cookieManagePrefs" data-i18n="cookie_manage">Manage preferences</button>
 </div>
 </div>
 </div>
-<div class="cookie-prefs-overlay" id="cookiePrefsOverlay" style="display:none;">
+<!-- COOKIE PREFERENCES PANEL -->
+<div class="cookie-prefs-overlay" id="cookiePrefsOverlay" role="dialog" aria-modal="true" aria-labelledby="cookiePrefsTitle" aria-hidden="true">
 <div class="cookie-prefs-modal">
-<button class="cookie-prefs-close" id="cookiePrefsClose" aria-label="Close">&#x2715;</button>
-<h2 class="cookie-prefs-title" data-i18n="cookie_prefs_title">Cookie Preferences</h2>
-<p class="cookie-prefs-sub" data-i18n="cookie_prefs_sub">Control which cookies may be used. <a href="cookies-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Cookie Policy</a> &middot; <a href="privacy-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Privacy</a>
+<button class="auth-close" id="cookiePrefsClose" aria-label="Close">&#x2715;</button>
+<h2 class="cookie-prefs-title" id="cookiePrefsTitle" data-i18n="cookie_prefs_title">Cookie Preferences</h2>
+<p class="cookie-prefs-sub" data-i18n="cookie_prefs_sub">Control which cookies ALTIVOR INSTITUTE may use. Necessary cookies cannot be disabled as they are required for platform security and core functionality. <a href="cookies-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Cookies Policy</a> &middot; <a href="privacy-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Privacy Policy</a>
 </p>
-<div class="cookie-prefs-list">
-<div class="cookie-pref-row">
+<div class="cookie-pref-item">
 <div class="cookie-pref-info">
-<strong data-i18n="cookie_necessary">Necessary</strong>
-<span data-i18n="cookie_necessary_desc">Required for login and core functionality.</span>
+<span class="cookie-pref-name" data-i18n="cookie_necessary">Necessary</span>
+<span class="cookie-pref-desc" data-i18n="cookie_necessary_desc">Required for login sessions, security tokens and core platform functionality. Cannot be disabled.</span>
 </div>
-<span class="cookie-pref-always" data-i18n="cookie_always_on">Always On</span>
+<div class="cookie-toggle cookie-toggle--locked" aria-label="Always active" data-i18n="cookie_always_on">Always on</div>
 </div>
-<div class="cookie-pref-row">
+<div class="cookie-pref-item">
 <div class="cookie-pref-info">
-<strong data-i18n="cookie_functional">Functional</strong>
-<span data-i18n="cookie_functional_desc">Remembers language, theme, and settings.</span>
+<span class="cookie-pref-name" data-i18n="cookie_functional">Functional</span>
+<span class="cookie-pref-desc" data-i18n="cookie_functional_desc">Remembers your language, theme preference and display settings.</span>
 </div>
-<label class="cookie-toggle">
-<input type="checkbox" id="prefFunctional" checked />
-<span class="cookie-slider">
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieFunctional" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
 </span>
 </label>
 </div>
-<div class="cookie-pref-row">
+<div class="cookie-pref-item">
 <div class="cookie-pref-info">
-<strong data-i18n="cookie_analytics">Analytics</strong>
-<span data-i18n="cookie_analytics_desc">Helps understand platform usage.</span>
+<span class="cookie-pref-name" data-i18n="cookie_analytics">Analytics</span>
+<span class="cookie-pref-desc" data-i18n="cookie_analytics_desc">Helps us understand how participants use the platform. Data is aggregated and anonymised.</span>
 </div>
-<label class="cookie-toggle">
-<input type="checkbox" id="prefAnalytics" />
-<span class="cookie-slider">
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieAnalytics" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
 </span>
 </label>
 </div>
-<div class="cookie-pref-row">
+<div class="cookie-pref-item">
 <div class="cookie-pref-info">
-<strong data-i18n="cookie_marketing">Marketing</strong>
-<span data-i18n="cookie_marketing_desc">Used to measure communication effectiveness.</span>
+<span class="cookie-pref-name" data-i18n="cookie_marketing">Marketing</span>
+<span class="cookie-pref-desc" data-i18n="cookie_marketing_desc">Used to measure the effectiveness of communications and deliver relevant content.</span>
 </div>
-<label class="cookie-toggle">
-<input type="checkbox" id="prefMarketing" />
-<span class="cookie-slider">
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieMarketing" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
 </span>
 </label>
-</div>
 </div>
 <div class="cookie-prefs-actions">
-<button class="btn btn-outline btn-sm" id="cookiePrefsSave" data-i18n="cookie_save">Save Preferences</button>
-<button class="btn btn-primary btn-sm" id="cookiePrefsAcceptAll" data-i18n="cookie_accept_all">Accept All</button>
+<button class="btn btn-primary" id="cookieSavePrefs" data-i18n="cookie_save">Save preferences</button>
+<button class="btn btn-ghost" id="cookieAcceptAllPrefs" data-i18n="cookie_accept_all">Accept all</button>
+</div>
+</div>
+</div>
+<script src="cookie-consent.js">
+</script>
+<!-- DOCUMENTS MODAL -->
+<div class="docs-overlay" id="docsModal" role="dialog" aria-modal="true" aria-labelledby="docsModalTitle">
+<div class="docs-modal">
+<div class="docs-modal-header">
+<div class="docs-modal-title">
+<span class="docs-modal-label">ALTIVOR INSTITUTE</span>
+<h2 class="docs-modal-heading" id="docsModalTitle" data-i18n="doc_heading">Documents</h2>
+</div>
+<button class="docs-modal-close" onclick="closeDocsModal()" aria-label="Close">&#x2715;</button>
+</div>
+<div class="docs-modal-body">
+<div class="docs-section-label" data-i18n="doc_legal_section">Legal Documents</div>
+<a href="terms-of-service.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+<polyline points="10 9 9 9 8 9"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_terms_name">Terms &amp; Conditions</span>
+<span class="docs-item-desc" data-i18n="doc_terms_desc">Platform usage terms, user obligations and service agreement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="privacy-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_privacy_name">Privacy Policy</span>
+<span class="docs-item-desc" data-i18n="doc_privacy_desc">GDPR-compliant data processing and privacy practices</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="risk-disclosure.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+<line x1="12" y1="9" x2="12" y2="13"/>
+<line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_risk_name">Risk Disclosure</span>
+<span class="docs-item-desc" data-i18n="doc_risk_desc">Financial risk warnings and regulatory disclaimers</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="investment-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_invest_name">Investment &amp; Educational Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_invest_desc">No investment advice &mdash; educational services only</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="earnings-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="12" y1="1" x2="12" y2="23"/>
+<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_earnings_name">Earnings &amp; Performance Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_earnings_desc">No guarantee of financial results or trading performance</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="acceptable-use-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 11l3 3L22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_aup_name">Acceptable Use Policy</span>
+<span class="docs-item-desc" data-i18n="doc_aup_desc">Permitted conduct, prohibited activities and enforcement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="legal-notice.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="16" x2="12" y2="12"/>
+<line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_legal_name">Legal Notice &amp; Imprint</span>
+<span class="docs-item-desc" data-i18n="doc_legal_desc">Operator identification, regulatory status and statutory information</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="complaints-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_complaints_name">Complaints &amp; Support Policy</span>
+<span class="docs-item-desc" data-i18n="doc_complaints_desc">Support scope, complaint procedure and resolution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="anti-fraud-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_antifraud_name">Anti-Fraud Policy</span>
+<span class="docs-item-desc" data-i18n="doc_antifraud_desc">Fraud prevention, prohibited conduct and enforcement framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="security-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_security_name">Security Policy</span>
+<span class="docs-item-desc" data-i18n="doc_security_desc">Platform security measures, incident response and vulnerability disclosure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="trust-and-safety.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_trust_name">Trust &amp; Safety</span>
+<span class="docs-item-desc" data-i18n="doc_trust_desc">Platform safety framework, values and user protection principles</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="refund-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="23 4 23 10 17 10"/>
+<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_refund_name">Refund Policy</span>
+<span class="docs-item-desc" data-i18n="doc_refund_desc">Digital services refund terms and withdrawal rights</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="cookies-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_cookies_name">Cookies Policy</span>
+<span class="docs-item-desc" data-i18n="doc_cookies_desc">Cookie usage, consent management and third-party tracking</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-section-label" data-i18n="doc_fw_section">Framework Documents</div>
+<a href="us100-framework.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us100_name">US100 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us100_desc">Nasdaq 100 CFD &mdash; operational execution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us30_name">US30 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us30_desc">Dow Jones 30 &mdash; in development</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+<div class="docs-section-label" data-i18n="doc_challenge_section">Challenge Documents</div>
+<a href="challenge-rules.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_challenge_name">Challenge Rules &amp; Programme Terms</span>
+<span class="docs-item-desc" data-i18n="doc_challenge_desc">Evaluation criteria, prohibited conduct and programme structure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_casestudy_name">Case Study Library</span>
+<span class="docs-item-desc" data-i18n="doc_casestudy_desc">Full Access required &mdash; anonymised cycle reviews</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
 </div>
 </div>
 </div>
