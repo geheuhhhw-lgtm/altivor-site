@@ -960,7 +960,7 @@ small {
 
   align-items: flex-start;
 
-  padding: 6rem 0 4.5rem;
+  padding: 6.5rem 0 4.5rem;
 
   min-height: calc(100vh - 64px);
 
@@ -4196,11 +4196,11 @@ small {
 
   display: grid;
 
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
 
   gap: 4rem;
 
-  align-items: center;
+  align-items: stretch;
 
 }
 
@@ -4208,23 +4208,23 @@ small {
 
   font-family: 'DM Serif Display', serif;
 
-  font-size: 2.4rem;
+  font-size: 2.8rem;
 
   font-weight: 400;
 
   color: var(--txt-primary);
 
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 
-  line-height: 1.15;
+  line-height: 1.1;
 
 }
 
 .wot-promo-lead {
 
-  font-size: 1rem;
+  font-size: 1.05rem;
 
   color: var(--txt-secondary);
 
@@ -4236,7 +4236,7 @@ small {
 
 .wot-promo-body {
 
-  font-size: 0.84rem;
+  font-size: 0.88rem;
 
   color: var(--txt-muted);
 
@@ -4310,7 +4310,7 @@ small {
 
 .wot-promo-feat-body strong {
 
-  font-size: 0.82rem;
+  font-size: 0.88rem;
 
   font-weight: 600;
 
@@ -4322,7 +4322,7 @@ small {
 
 .wot-promo-feat-body span {
 
-  font-size: 0.78rem;
+  font-size: 0.82rem;
 
   color: var(--txt-muted);
 
@@ -4338,6 +4338,203 @@ small {
 
   flex-wrap: wrap;
 
+}
+
+/* ── Right column layout ── */
+
+.wot-promo-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ── Spotlight Card ── */
+
+.wot-spotlight-card {
+  position: relative;
+  background: var(--bg-card, var(--bg-surface));
+  border: 1px solid var(--border-muted, rgba(255,255,255,0.08));
+  border-radius: 14px;
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wot-spotlight-accent {
+  height: 3px;
+  background: linear-gradient(90deg, rgba(34,197,94,0.6) 0%, rgba(214,190,150,0.25) 50%, transparent 100%);
+}
+
+.wot-spotlight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.1rem;
+  border-bottom: 1px solid var(--border-muted, rgba(255,255,255,0.06));
+}
+
+.wot-spotlight-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(34, 197, 94, 0.8);
+}
+
+.wot-spotlight-badge svg { color: rgba(34, 197, 94, 0.6); }
+
+.wot-spotlight-date {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--txt-muted);
+  letter-spacing: 0.06em;
+}
+
+.wot-spotlight-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--border-muted, rgba(255,255,255,0.04));
+}
+
+.wot-spotlight-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 197, 94, 0.08);
+  color: rgba(34, 197, 94, 0.6);
+  border: 1px solid rgba(34, 197, 94, 0.12);
+  flex-shrink: 0;
+}
+
+.wot-spotlight-avatar svg { width: 22px; height: 22px; }
+
+[data-theme="light"] .wot-spotlight-avatar {
+  background: rgba(34,197,94,0.06);
+  border-color: rgba(34,197,94,0.1);
+}
+
+.wot-spotlight-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.wot-spotlight-nick {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--txt-primary);
+}
+
+.wot-spotlight-region {
+  font-size: 0.82rem;
+  color: var(--txt-muted);
+}
+
+.wot-spotlight-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(34, 197, 94, 0.1);
+  color: rgba(34, 197, 94, 0.85);
+  white-space: nowrap;
+}
+
+.wot-spotlight-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0;
+}
+
+.wot-spotlight-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.6rem 0.35rem;
+  border-right: 1px solid var(--border-muted, rgba(255,255,255,0.04));
+}
+
+.wot-spotlight-metric:last-child { border-right: none; }
+
+.wot-spotlight-metric-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--txt-primary);
+  line-height: 1;
+}
+
+.wot-spotlight-metric-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--txt-muted);
+  text-align: center;
+}
+
+.wot-spotlight-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.6rem 1.1rem 0.75rem;
+  border-top: 1px solid var(--border-muted, rgba(255,255,255,0.04));
+  margin-top: auto;
+}
+
+.wot-spotlight-bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.wot-spotlight-bar-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--txt-secondary);
+}
+
+.wot-spotlight-bar-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border-muted, rgba(255,255,255,0.08));
+  overflow: hidden;
+}
+
+.wot-spotlight-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(34,197,94,0.5) 0%, rgba(214,190,150,0.5) 100%);
+  transition: width 0.6s ease;
+}
+
+[data-theme="light"] .wot-spotlight-bar-fill {
+  background: linear-gradient(90deg, rgba(34,197,94,0.4) 0%, rgba(130,110,70,0.35) 100%);
+}
+
+@media (max-width: 640px) {
+  .wot-spotlight-metrics { grid-template-columns: repeat(2, 1fr); }
+  .wot-spotlight-metric { border-bottom: 1px solid var(--border-muted, rgba(255,255,255,0.04)); }
+  .wot-spotlight-bar-row { grid-template-columns: 90px 1fr; }
 }
 
 /* ── Registry Card (right side) ── */
@@ -4386,7 +4583,7 @@ small {
 
   gap: 0.85rem;
 
-  padding: 1.5rem 1.75rem 1.25rem;
+  padding: 1.25rem 1.35rem 1rem;
 
 }
 
@@ -4486,7 +4683,7 @@ small {
 
   height: 1px;
 
-  margin: 0 1.75rem;
+  margin: 0 1.35rem;
 
   background: var(--border-muted, rgba(255,255,255,0.06));
 
@@ -4502,7 +4699,7 @@ small {
 
   gap: 0;
 
-  padding: 1.25rem 1.75rem;
+  padding: 0.75rem 1.35rem;
 
 }
 
@@ -4510,7 +4707,7 @@ small {
 
   position: relative;
 
-  padding: 0.85rem 0;
+  padding: 0.5rem 0;
 
   display: flex;
 
@@ -4576,7 +4773,7 @@ small {
 
 .wot-registry-footer {
 
-  padding: 1.25rem 1.75rem 1.5rem;
+  padding: 0.85rem 1.35rem 1rem;
 
   text-align: center;
 
@@ -4622,13 +4819,13 @@ small {
 
   position: absolute;
 
-  bottom: 1rem;
+  bottom: 0.5rem;
 
-  right: 1.25rem;
+  right: 0.75rem;
 
   pointer-events: none;
 
-  opacity: 0.6;
+  opacity: 0.4;
 
 }
 
@@ -4676,25 +4873,36 @@ small {
 
 }
 
+.support-section { overflow: hidden; }
 
+.support-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .support-inner { grid-template-columns: 1fr; }
+}
 
 .support-left,
-
 .support-right {
-
   min-width: 0;
-
 }
-
-
 
 .support-right {
-
   position: relative;
-
+  min-height: 500px;
 }
 
+@media (max-width: 900px) {
+  .support-right { min-height: 440px; }
+}
 
+@media (max-width: 480px) {
+  .support-right { min-height: 380px; }
+}
 
 .support-h2 {
 
@@ -13261,6 +13469,62 @@ body.rtl .doc-page .doc-section ul > li::before {
 
 }
 
+/* ─── WALL OF TRADERS — Graduate Search ────────────────────────────── */
+.wot-search-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.wot-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  background: var(--bg-card, var(--bg-surface));
+  transition: border-color 0.2s;
+  max-width: 420px;
+}
+
+.wot-search-bar:focus-within {
+  border-color: rgba(96, 165, 250, 0.4);
+}
+
+[data-theme="light"] .wot-search-bar:focus-within {
+  border-color: rgba(37, 99, 175, 0.3);
+}
+
+.wot-search-icon {
+  flex-shrink: 0;
+  color: var(--txt-muted);
+  opacity: 0.5;
+}
+
+.wot-search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: var(--txt-primary);
+  min-width: 0;
+}
+
+.wot-search-input::placeholder {
+  color: var(--txt-muted);
+  opacity: 0.5;
+}
+
+.wot-search-count {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--txt-muted);
+  white-space: nowrap;
+  display: none;
+}
+
 /* ─── WALL OF TRADERS — Tile Grid ────────────────────────────────────── */
 .wot-tiles {
   display: grid;
@@ -13372,7 +13636,7 @@ body.rtl .doc-page .doc-section ul > li::before {
 /* Profile header */
 .wot-detail-header {
   display: flex; align-items: center; gap: 1rem;
-  padding: 1.75rem 1.75rem 1.25rem;
+  padding: 1.75rem 3.5rem 1.25rem 1.75rem;
   border-bottom: 1px solid var(--border-muted, rgba(255,255,255,0.06));
   flex-wrap: wrap;
 }

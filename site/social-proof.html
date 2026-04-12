@@ -506,6 +506,14 @@
 <p class="sp-info-main">The first verified traders will be displayed here.</p>
 <p class="sp-info-sub">This is your opportunity to be among the first to qualify through the Altivor validation process.</p>
 </div>
+<!-- Graduate Search -->
+<div class="wot-search-wrap" data-reveal>
+<div class="wot-search-bar">
+<svg class="wot-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="wotSearchInput" class="wot-search-input" placeholder="Search by username or nickname..." autocomplete="off" spellcheck="false">
+<span class="wot-search-count" id="wotSearchCount"></span>
+</div>
+</div>
 <!-- Wall of Traders — Tile Grid (Gallery of Fame) -->
 <div class="wot-tiles" data-reveal>
 <!-- Verified Trader Tile -->
@@ -641,6 +649,68 @@
   tiles.forEach(function(t){ t.addEventListener('click', function(){ openDetail(); }); });
   if(closeBtn) closeBtn.addEventListener('click', closeDetail);
   if(overlay) overlay.addEventListener('click', function(e){ if(e.target===overlay) closeDetail(); });
+})();
+</script>
+<!-- Graduate Search Script -->
+<script>
+(function(){
+  var searchInput = document.getElementById('wotSearchInput');
+  var searchCount = document.getElementById('wotSearchCount');
+  if (!searchInput) return;
+
+  var tilesContainer = document.querySelector('#graduates .wot-tiles');
+  if (!tilesContainer) return;
+
+  function getAllTiles() {
+    return Array.prototype.slice.call(tilesContainer.querySelectorAll('.wot-tile'));
+  }
+
+  function filterTiles() {
+    var query = searchInput.value.trim().toLowerCase();
+    var tiles = getAllTiles();
+    var visibleCount = 0;
+    var totalVerified = 0;
+
+    tiles.forEach(function(tile) {
+      var isVerified = tile.classList.contains('wot-tile--verified');
+      var nickEl = tile.querySelector('.wot-tile-nick');
+      var nick = nickEl ? nickEl.textContent.toLowerCase() : '';
+
+      if (!query) {
+        tile.style.display = '';
+        if (isVerified) totalVerified++;
+        visibleCount++;
+        return;
+      }
+
+      if (isVerified) {
+        totalVerified++;
+        if (nick.indexOf(query) !== -1) {
+          tile.style.display = '';
+          visibleCount++;
+        } else {
+          tile.style.display = 'none';
+        }
+      } else {
+        tile.style.display = query ? 'none' : '';
+        if (!query) visibleCount++;
+      }
+    });
+
+    if (query) {
+      var matched = 0;
+      tiles.forEach(function(t) {
+        if (t.classList.contains('wot-tile--verified') && t.style.display !== 'none') matched++;
+      });
+      searchCount.textContent = matched + ' / ' + totalVerified + ' found';
+      searchCount.style.display = 'inline';
+    } else {
+      searchCount.textContent = '';
+      searchCount.style.display = 'none';
+    }
+  }
+
+  searchInput.addEventListener('input', filterTiles);
 })();
 </script>
 </div>
