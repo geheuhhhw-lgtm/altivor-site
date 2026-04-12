@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Profile — ALTIVOR INSTITUTE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style> .profile-layout { min-height: 100vh; padding-top: 8rem; padding-bottom: 4rem; } .profile-header { text-align: center; margin-bottom: 3rem; } .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(214, 190, 150, 0.15)); border: 2px solid var(--border-default); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; color: rgba(214, 190, 150, 0.8); } .profile-name { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: rgba(214, 190, 150, 0.9); margin: 0 0 0.25rem; } [data-theme="light"] .profile-name { color: rgba(130, 110, 70, 0.9); } .profile-email { font-size: 0.9rem; color: var(--txt-secondary); } .profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; } .profile-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 1rem; padding: 1.5rem; } .profile-card-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(96, 165, 250, 0.8); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); } [data-theme="light"] .profile-card-title { color: rgba(37, 99, 175, 0.85); } .profile-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border-subtle); } .profile-row:last-child { border-bottom: none; } .profile-label { font-size: 0.85rem; color: var(--txt-muted); } .profile-value { font-size: 0.85rem; font-weight: 500; color: var(--txt-primary); } .profile-status { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; } .status-not-started { background: rgba(100, 100, 100, 0.15); color: var(--txt-muted); } .status-active { background: rgba(96, 165, 250, 0.15); color: rgba(96, 165, 250, 0.9); } .status-qualified, .status-passed { background: rgba(34, 197, 94, 0.15); color: #22c55e; } .status-disqualified, .status-failed { background: rgba(239, 68, 68, 0.15); color: #ef4444; } .profile-progress { margin-top: 1rem; } .profile-progress-bar { height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden; margin-bottom: 0.5rem; } .profile-progress-fill { height: 100%; background: linear-gradient(90deg, rgba(96, 165, 250, 0.8), rgba(214, 190, 150, 0.8)); border-radius: 3px; transition: width 0.5s ease; } .profile-progress-text { font-size: 0.75rem; color: var(--txt-muted); text-align: center; } .profile-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; } .profile-loading { text-align: center; padding: 4rem 0; color: var(--txt-muted); } .profile-not-logged { text-align: center; padding: 4rem 0; } .profile-not-logged h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--txt-primary); margin-bottom: 1rem; } .profile-not-logged p { color: var(--txt-secondary); margin-bottom: 1.5rem; } </style>
+</head>
+<body>
+<!-- === NAVIGATION === -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss">&#x2715;</button>
+</div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+</nav>
+<div class="nav-actions">
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+</header>
+<!-- === MAIN CONTENT === -->
+<main class="profile-layout">
+<div class="container">
+<!-- Loading state -->
+<div id="profileLoading" class="profile-loading">
+<p>Loading profile...</p>
+</div>
+<!-- Not logged in state -->
+<div id="profileNotLogged" class="profile-not-logged" style="display:none;">
+<h2 data-i18n="profile_not_logged_title">Not Logged In</h2>
+<p data-i18n="profile_not_logged_desc">Please log in to view your profile.</p>
+<button class="btn btn-primary" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+</div>
+<!-- Profile content -->
+<div id="profileContent" style="display:none;">
+<div class="profile-header">
+<div class="profile-avatar" id="profileAvatar">👤</div>
+<h1 class="profile-name" id="profileName">—</h1>
+<p class="profile-email" id="profileEmail">—</p>
+</div>
+<div class="profile-grid">
+<!-- Account Info -->
+<div class="profile-card">
+<div class="profile-card-title" data-i18n="profile_account_info">Account Information</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_email">Email</span>
+<span class="profile-value" id="profileEmailValue">—</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_verified">Email Verified</span>
+<span class="profile-value" id="profileVerified">—</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_member_since">Member Since</span>
+<span class="profile-value" id="profileCreatedAt">—</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_last_login">Last Login</span>
+<span class="profile-value" id="profileLastLogin">—</span>
+</div>
+</div>
+<!-- PREPARE Status -->
+<div class="profile-card">
+<div class="profile-card-title" data-i18n="profile_prepare_status">PREPARE Status</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_status">Status</span>
+<span class="profile-status" id="profilePrepareStatus">—</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_compliant_trades">Compliant Trades</span>
+<span class="profile-value" id="profilePrepareCompliant">0 / 8</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_noncompliant_trades">Non-Compliant Trades</span>
+<span class="profile-value" id="profilePrepareNonCompliant">0 / 20</span>
+</div>
+<div class="profile-progress" id="profilePrepareProgress">
+<div class="profile-progress-bar">
+<div class="profile-progress-fill" id="profilePrepareProgressFill" style="width:0%">
+</div>
+</div>
+<p class="profile-progress-text" id="profilePrepareProgressText">0% complete</p>
+</div>
+</div>
+<!-- Challenge Status -->
+<div class="profile-card">
+<div class="profile-card-title" data-i18n="profile_challenge_status">Challenge Status</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_status">Status</span>
+<span class="profile-status" id="profileChallengeStatus">—</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_total_trades">Total Trades</span>
+<span class="profile-value" id="profileChallengeTotalTrades">0 / 55</span>
+</div>
+<div class="profile-row">
+<span class="profile-label" data-i18n="profile_compliant_trades">Compliant Trades</span>
+<span class="profile-value" id="profileChallengeCompliant">0</span>
+</div>
+<div class="profile-progress" id="profileChallengeProgress">
+<div class="profile-progress-bar">
+<div class="profile-progress-fill" id="profileChallengeProgressFill" style="width:0%">
+</div>
+</div>
+<p class="profile-progress-text" id="profileChallengeProgressText">0% complete</p>
+</div>
+</div>
+</div>
+<div class="profile-actions">
+<a href="prepare.html" class="btn btn-primary" data-i18n="profile_go_prepare">Go to PREPARE</a>
+<button class="btn btn-ghost" id="profileLogoutBtn" data-i18n="nav_logout">Logout</button>
+</div>
+</div>
+</div>
+</main>
+<!-- === FOOTER === -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+</div>
+</footer>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script> (function() { 'use strict'; const loadingEl = document.getElementById('profileLoading'); const notLoggedEl = document.getElementById('profileNotLogged'); const contentEl = document.getElementById('profileContent'); const logoutBtn = document.getElementById('profileLogoutBtn'); function formatDate(dateStr) { if (!dateStr) return '—'; const d = new Date(dateStr); return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); } function getStatusClass(status) { switch (status) { case 'NOT_STARTED': return 'status-not-started'; case 'ACTIVE': return 'status-active'; case 'QUALIFIED': case 'PASSED': return 'status-qualified'; case 'DISQUALIFIED': case 'FAILED': return 'status-disqualified'; default: return 'status-not-started'; } } function getStatusLabel(status) { switch (status) { case 'NOT_STARTED': return 'Not Started'; case 'ACTIVE': return 'Active'; case 'QUALIFIED': return 'Qualified'; case 'PASSED': return 'Passed'; case 'DISQUALIFIED': return 'Disqualified'; case 'FAILED': return 'Failed'; default: return status || 'Unknown'; } } function renderProfile(user) { loadingEl.style.display = 'none'; notLoggedEl.style.display = 'none'; contentEl.style.display = 'block'; // Header const displayName = user.displayName || user.firstName || user.email.split('@')[0]; document.getElementById('profileName').textContent = displayName; document.getElementById('profileEmail').textContent = user.email; document.getElementById('profileAvatar').textContent = displayName.charAt(0).toUpperCase(); // Account info document.getElementById('profileEmailValue').textContent = user.email; document.getElementById('profileVerified').textContent = user.emailVerified ? '✓ Yes' : '✗ No'; document.getElementById('profileCreatedAt').textContent = formatDate(user.createdAt); document.getElementById('profileLastLogin').textContent = formatDate(user.lastLoginAt); // PREPARE status const prepStatus = document.getElementById('profilePrepareStatus'); prepStatus.textContent = getStatusLabel(user.prepareStatus); prepStatus.className = 'profile-status ' + getStatusClass(user.prepareStatus); document.getElementById('profilePrepareCompliant').textContent = (user.prepareCompliantTrades || 0) + ' / 8'; document.getElementById('profilePrepareNonCompliant').textContent = (user.prepareNonCompliantTrades || 0) + ' / 20'; const prepProgress = Math.min(100, ((user.prepareCompliantTrades || 0) / 8) * 100); document.getElementById('profilePrepareProgressFill').style.width = prepProgress + '%'; document.getElementById('profilePrepareProgressText').textContent = Math.round(prepProgress) + '% complete'; // Challenge status const chalStatus = document.getElementById('profileChallengeStatus'); chalStatus.textContent = getStatusLabel(user.challengeStatus); chalStatus.className = 'profile-status ' + getStatusClass(user.challengeStatus); document.getElementById('profileChallengeTotalTrades').textContent = (user.challengeTotalTrades || 0) + ' / 55'; document.getElementById('profileChallengeCompliant').textContent = user.challengeCompliantTrades || 0; const chalProgress = Math.min(100, ((user.challengeTotalTrades || 0) / 55) * 100); document.getElementById('profileChallengeProgressFill').style.width = chalProgress + '%'; document.getElementById('profileChallengeProgressText').textContent = Math.round(chalProgress) + '% complete'; } function showNotLogged() { loadingEl.style.display = 'none'; notLoggedEl.style.display = 'block'; contentEl.style.display = 'none'; } async function loadProfile() { try { const res = await fetch('/api/auth/me', { credentials: 'include' }); const data = await res.json(); if (data.user) { renderProfile(data.user); } else { showNotLogged(); } } catch (err) { console.error('[Profile] Error loading:', err); showNotLogged(); } } if (logoutBtn) { logoutBtn.addEventListener('click', async function() { try { await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }); } catch (_) {} window.location.href = 'index.html'; }); } document.addEventListener('altivor:authchange', function(e) { if (e.detail && e.detail.user) { renderProfile(e.detail.user); } else { showNotLogged(); } }); loadProfile(); })(); </script>
+</body>
+</html> 

@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="ALTIVOR INSTITUTE — Operational frameworks for disciplined market execution. Structural validation, fixed risk governance, and measurable process accountability." />
+<title>ALTIVOR INSTITUTE — Operational Frameworks for Disciplined Market Execution</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+</head>
+<body class="home-legacy">
+<!-- TOP ANNOUNCEMENT BANNER -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<!-- NAVIGATION -->
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" draggable="false" />
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="#about" data-i18n="nav_about">About</a>
+<!-- Frameworks dropdown -->
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active" data-i18n="fw_active">Active</span>
+<span class="nav-drop-name" data-i18n="nav_us100">US100</span>
+<span class="nav-drop-desc" data-i18n="fw_us100_compact">Nasdaq 100 — CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev" data-i18n="fw_dev">In Dev</span>
+<span class="nav-drop-name" data-i18n="fw_us30_short">US30</span>
+<span class="nav-drop-desc" data-i18n="fw_coming_soon">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html" data-i18n="nav_updates">Updates</a>
+<!-- Accessories dropdown -->
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_accessories">Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_log">Trading Log</span>
+<span class="nav-drop-desc" data-i18n="acc_log_desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_wiki">Trading Wiki</span>
+<span class="nav-drop-desc" data-i18n="acc_wiki_desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_pnl">PnL Calendar</span>
+<span class="nav-drop-desc" data-i18n="acc_pnl_desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_cal">Economic Calendar</span>
+<span class="nav-drop-desc" data-i18n="acc_cal_desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_sym">Trading Symbols</span>
+<span class="nav-drop-desc" data-i18n="acc_sym_desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_checklist">Execution Checklist</span>
+<span class="nav-drop-desc" data-i18n="acc_checklist_desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_calc">Trading Calculators</span>
+<span class="nav-drop-desc" data-i18n="acc_calc_desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<!-- Search -->
+<button class="nav-search-btn" id="navSearchBtn" type="button" aria-label="Search">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="11" cy="11" r="8"/>
+<line x1="21" y1="21" x2="16.65" y2="16.65"/>
+</svg>
+</button>
+<!-- Language Picker (FTMO-style) -->
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">????</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<!-- Theme switcher -->
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="#about" data-i18n="nav_about">About</a>
+<a href="#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="#pricing" data-i18n="nav_access">Access</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-log.html" data-i18n="acc_log">Trading Log</a>
+<a href="trading-wiki.html" data-i18n="acc_wiki">Trading Wiki</a>
+<a href="pnl.html" data-i18n="acc_pnl">PnL Calendar</a>
+<a href="calendar.html" data-i18n="acc_cal">Economic Calendar</a>
+<a href="symbols.html" data-i18n="acc_sym">Trading Symbols</a>
+<a href="execution-checklist.html" data-i18n="acc_checklist">Execution Checklist</a>
+<a href="calculators.html" data-i18n="acc_calc">Trading Calculators</a>
+<a href="trading-updates.html" data-i18n="nav_updates">Updates</a>
+<a href="accessories.html" data-i18n="nav_accessories_hub">Accessories Hub</a>
+<a href="#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<!-- SECTION 1: HERO -->
+<section class="hero" id="hero" aria-label="Hero">
+<div class="hero-inner container">
+<!-- TOP: centered text block -->
+<div class="hero-center" data-reveal>
+<p class="label-tag" data-i18n="hero_tag">Structural Execution Institute</p>
+<h1 class="hero-h1" data-i18n="hero_h1">Execution&nbsp;Framework&nbsp;for<br>Funded-Level Trading</h1>
+<p class="hero-sub" data-i18n="hero_sub">Structured execution under funded constraints. Fixed risk. Measurable validation.</p>
+<div class="hero-buttons">
+<a href="#pricing" class="btn btn-primary" data-i18n="hero_btn_access">Get Access</a>
+</div>
+</div>
+<!-- FTMO-style mini promo (dark, neon accents) -->
+<div class="hero-mini-ad" data-reveal onclick="if(!event.target.closest('.hero-mini-ad-cta-primary'))window.location.href='us100-framework.html'" style="cursor:pointer">
+<div class="hero-mini-ad-inner">
+<span class="hero-mini-ad-badge" data-i18n="announce_badge">New</span>
+<div class="hero-mini-ad-content">
+<h3 class="hero-mini-ad-headline" data-i18n="hero_mini_ad_headline">Introducing the <strong>US100 Framework</strong>
+</h3>
+<p class="hero-mini-ad-desc" data-i18n="hero_mini_ad_desc">Validate your execution across 55 trades within a structured process-validation system.<br>The 55 Trade Cycle is designed to evaluate whether your trading behavior remains process-consistent under funded-style conditions, including fixed risk, execution discipline, and documentation standards.</p>
+<div class="hero-mini-ad-ctas">
+<a href="#pricing" class="hero-mini-ad-cta-primary" data-i18n="hero_mini_ad_cta" onclick="event.stopPropagation();event.preventDefault();document.getElementById('pricing').scrollIntoView({behavior:'smooth'});">Get Access</a>
+<span class="hero-mini-ad-cta-secondary" data-i18n="hero_mini_ad_cta_secondary">View details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px"><path d="M5 12h14"></path><polyline points="12 5 19 12 12 19"></polyline></svg></span>
+</div>
+</div>
+<div class="hero-mini-ad-gfx" aria-hidden="true">
+<span class="hero-mini-ad-num">55</span>
+<svg class="hero-mini-ad-chart" viewBox="0 0 80 60" fill="none">
+<polyline points="5,55 18,46 30,50 44,34 58,28 72,18 88,12 100,8" stroke="currentColor" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="10" y1="38" x2="16" y2="38" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+<line x1="35" y1="28" x2="41" y2="28" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+<line x1="60" y1="20" x2="66" y2="20" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+</svg>
+</div>
+</div>
+</div>
+<!-- CHALLENGE ANNOUNCEMENT BANNER -->
+<div class="hero-challenge-banner" data-reveal>
+<div class="hero-challenge-inner">
+<!-- INSTITUTIONAL GRAPHIC ACCENT -->
+<div class="hcb-gfx-accent" aria-hidden="true">
+<svg width="320" height="160" viewBox="0 0 320 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid lines -->
+<line x1="0" y1="40" x2="320" y2="40" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.18"/>
+<line x1="0" y1="80" x2="320" y2="80" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.18"/>
+<line x1="0" y1="120" x2="320" y2="120" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.18"/>
+<line x1="64" y1="0" x2="64" y2="160" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.12"/>
+<line x1="128" y1="0" x2="128" y2="160" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.12"/>
+<line x1="192" y1="0" x2="192" y2="160" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.12"/>
+<line x1="256" y1="0" x2="256" y2="160" stroke="currentColor" stroke-width="0.5" stroke-dasharray="3 5" opacity="0.12"/>
+<!-- Price chart line -->
+<polyline points="0,120 40,110 70,95 95,105 120,80 150,65 175,72 200,50 230,42 260,30 290,18 320,12" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.28" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- Area fill -->
+<polygon points="0,120 40,110 70,95 95,105 120,80 150,65 175,72 200,50 230,42 260,30 290,18 320,12 320,160 0,160" fill="currentColor" opacity="0.04"/>
+<!-- Data point markers -->
+<circle cx="120" cy="80" r="2.5" fill="currentColor" opacity="0.35"/>
+<circle cx="200" cy="50" r="2.5" fill="currentColor" opacity="0.35"/>
+<circle cx="290" cy="18" r="3" fill="currentColor" opacity="0.5"/>
+</svg>
+</div>
+<!-- TOP ROW: badge + live -->
+<div class="hcb-top">
+<div class="hcb-top-left">
+<span class="hero-challenge-badge" data-i18n="hcb_badge">NEW</span>
+<span class="hero-challenge-tag" data-i18n="hcb_tag">US100 — Process Validation Challenge</span>
+</div>
+<div class="hero-challenge-live">
+<span class="hc-live-dot">
+</span>
+<span data-i18n="hcb_live">Live Now</span>
+</div>
+</div>
+<!-- MAIN: headline + desc + CTAs -->
+<div class="hcb-main">
+<div class="hcb-content">
+<h2 class="hcb-headline" data-i18n="hcb_headline">Prove Your Discipline.<br>Trade the US100.</h2>
+<p class="hcb-desc" data-i18n="hcb_desc">A structured 55 trade Cycle on Nasdaq 100 CFD built for traders preparing for funded-account conditions. It measures whether execution remains stable under fixed risk, rule adherence, execution quality, and behavioral discipline across a documented sample.</p>
+</div>
+<div class="hcb-actions">
+<a href="prepare.html" class="btn btn-primary hcb-btn-primary" data-i18n="hcb_btn_prepare"> Begin PREPARE <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+<path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+<a href="us100-framework.html" class="btn btn-outline hcb-btn-outline" data-i18n="hcb_btn_framework"> View Framework </a>
+</div>
+</div>
+<!-- STATS BAR -->
+<div class="hcb-stats">
+<div class="hcb-stat">
+<span class="hcb-stat-val">55</span>
+<span class="hcb-stat-label" data-i18n="hcb_stat_cycle">Trade Cycle</span>
+</div>
+<div class="hcb-stat-divider" aria-hidden="true">
+</div>
+<div class="hcb-stat">
+<span class="hcb-stat-val">Fixed</span>
+<span class="hcb-stat-label" data-i18n="hcb_stat_risk">Risk Allocation</span>
+</div>
+<div class="hcb-stat-divider" aria-hidden="true">
+</div>
+<div class="hcb-stat">
+<span class="hcb-stat-val">Defined</span>
+<span class="hcb-stat-label" data-i18n="hcb_stat_rr">Risk-Reward</span>
+</div>
+<div class="hcb-stat-divider" aria-hidden="true">
+</div>
+<div class="hcb-stat">
+<span class="hcb-stat-val">Single</span>
+<span class="hcb-stat-label" data-i18n="hcb_stat_session">Session Window</span>
+</div>
+<div class="hcb-stat-divider" aria-hidden="true">
+</div>
+<div class="hcb-stat">
+<span class="hcb-stat-val">2mo</span>
+<span class="hcb-stat-label" data-i18n="hcb_stat_duration">Duration</span>
+</div>
+</div>
+</div>
+</div>
+<!-- DASHBOARD MOCKUP (hidden) -->
+<div class="hero-dashboard" data-reveal style="display:none">
+<div class="dashboard-card" aria-label="Operational dashboard mockup">
+<div class="dash-header">
+<div class="dash-title-group">
+<span class="dash-label">ALTIVOR PANEL</span>
+<span class="dash-status active-dot">Active Cycle</span>
+</div>
+<div class="dash-meta">US100 — Q1 2025</div>
+</div>
+<div class="dash-stats">
+<div class="dash-stat">
+<span class="stat-value" id="tradeCounter">55</span>
+<span class="stat-label">Trade Cycle Target</span>
+</div>
+<div class="dash-stat">
+<span class="stat-value" id="complianceVal">91<small>%</small>
+</span>
+<span class="stat-label">Protocol Compliance</span>
+</div>
+<div class="dash-stat">
+<span class="stat-value">28</span>
+<span class="stat-label">Trades Logged</span>
+</div>
+</div>
+<div class="dash-progress-wrap">
+<div class="dash-progress-label">
+<span>Cycle Progress</span>
+<span>28 / 55</span>
+</div>
+<div class="dash-progress-bar" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">
+<div class="dash-progress-fill" style="width:62%">
+</div>
+</div>
+</div>
+<div class="dash-calendar">
+<div class="cal-header">February 2025</div>
+<div class="cal-grid">
+<span class="cal-day header">Mo</span>
+<span class="cal-day header">Tu</span>
+<span class="cal-day header">We</span>
+<span class="cal-day header">Th</span>
+<span class="cal-day header">Fr</span>
+<span class="cal-day empty">
+</span>
+<span class="cal-day empty">
+</span>
+<span class="cal-day empty">
+</span>
+<span class="cal-day empty">
+</span>
+<span class="cal-day empty">
+</span>
+<span class="cal-day logged">3</span>
+<span class="cal-day logged">4</span>
+<span class="cal-day logged">5</span>
+<span class="cal-day">6</span>
+<span class="cal-day logged">7</span>
+<span class="cal-day logged">10</span>
+<span class="cal-day logged">11</span>
+<span class="cal-day">12</span>
+<span class="cal-day logged">13</span>
+<span class="cal-day logged">14</span>
+<span class="cal-day logged">17</span>
+<span class="cal-day logged">18</span>
+<span class="cal-day logged">19</span>
+<span class="cal-day">20</span>
+<span class="cal-day logged">21</span>
+<span class="cal-day">24</span>
+<span class="cal-day today">25</span>
+<span class="cal-day future">26</span>
+<span class="cal-day future">27</span>
+<span class="cal-day future">28</span>
+</div>
+</div>
+<div class="dash-footer-row">
+<div class="dash-tag">Risk: Governed</div>
+<div class="dash-tag">Drawdown Protocol: Active</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: ABOUT -->
+<section class="section about" id="about" aria-label="About ALTIVOR">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="about_tag">The Institute</p>
+<h2 data-i18n="about_h2">Built around funded-account<br>execution standards.</h2>
+<p class="section-body" data-i18n="about_body1"> ALTIVOR INSTITUTE provides structured execution frameworks designed to prepare traders for funded-account environments through discipline, fixed risk governance, and measurable validation. </p>
+<p class="section-body" data-i18n="about_body2"> The purpose of the system is not to generate predictions or guarantee performance, but to evaluate whether execution remains consistent under funded-style trading constraints. </p>
+</div>
+<div class="card-row three-col" data-reveal>
+<div class="card card-feature">
+<div class="card-icon-mark">01</div>
+<h3 data-i18n="card_da_title">Decision Architecture</h3>
+<p data-i18n="card_da_desc">Each framework defines the conditions under which an execution decision remains valid under funded-style constraints. Deviations are documented and reviewed within the validation cycle.</p>
+</div>
+<div class="card card-feature">
+<div class="card-icon-mark">02</div>
+<h3 data-i18n="card_rg_title">Risk Governance</h3>
+<p data-i18n="card_rg_desc">Fixed drawdown thresholds, position sizing constraints, and exposure limits are embedded structurally to reflect funded-level execution standards. No discretionary overrides.</p>
+</div>
+<div class="card card-feature">
+<div class="card-icon-mark">03</div>
+<h3 data-i18n="card_vs_title">Validation Systems</h3>
+<p data-i18n="card_vs_desc">The 55 trade Cycle evaluates whether execution remains process-consistent under funded-style conditions across 55 documented trades — exposing consistency, discipline, execution quality, and behavioral patterns.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: FRAMEWORK PORTFOLIO -->
+<section class="section frameworks" id="frameworks" aria-label="Framework Portfolio">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="fw_tag">Portfolio</p>
+<h2 data-i18n="fw_h2">Active and Development Frameworks</h2>
+<p class="section-body" data-i18n="fw_body">ALTIVOR frameworks are structured for funded-account conditions, with defined instruments, execution parameters, and review standards designed to support funded preparation without implying any external result.</p>
+</div>
+<div class="fw-showcase" data-reveal>
+<!-- "" US100 ACTIVE CHALLENGE CARD -->
+<div class="fw-challenge-card">
+<div class="fw-card-gfx" aria-hidden="true">
+<svg class="fw-card-chart" viewBox="0 0 100 70" fill="none">
+<polyline points="5,55 18,46 30,50 44,34 58,28 72,18 88,12 100,8" stroke="currentColor" stroke-width="1.5" opacity="0.5" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="10" y1="38" x2="16" y2="38" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+<line x1="35" y1="28" x2="41" y2="28" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+<line x1="60" y1="20" x2="66" y2="20" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+</svg>
+</div>
+<div class="fw-challenge-inner">
+<div class="fw-challenge-head">
+<div class="fw-challenge-labels">
+<span class="fw-new-badge" data-i18n="fw_badge_new">New</span>
+<span class="fw-active-badge" data-i18n="fw_badge_live">Live</span>
+</div>
+<div class="fw-challenge-instrument" data-i18n="fw_us100_instrument">Nasdaq 100 — CFD</div>
+</div>
+<h3 class="fw-challenge-name" data-i18n="fw_us100_name">US100 Framework</h3>
+<p class="fw-challenge-sub" data-i18n="fw_us100_desc">Structured process-validation product for US100 execution discipline, designed for traders preparing to operate under funded-account conditions. At its core is the 55 trade Cycle, which tests whether execution remains stable under fixed risk, documentation standards, and funded-style discipline requirements.</p>
+<div class="fw-spec-grid">
+<div class="fw-spec">
+<div class="fw-spec-value">55</div>
+<div class="fw-spec-label" data-i18n="fw_spec_cycle">Trade Cycle</div>
+</div>
+<div class="fw-spec">
+<div class="fw-spec-value">10%</div>
+<div class="fw-spec-label" data-i18n="fw_spec_drawdown">Max Drawdown</div>
+</div>
+<div class="fw-spec">
+<div class="fw-spec-value">Single</div>
+<div class="fw-spec-label" data-i18n="fw_spec_session">Session Window</div>
+</div>
+<div class="fw-spec">
+<div class="fw-spec-value">Defined</div>
+<div class="fw-spec-label" data-i18n="fw_spec_rr">Risk-Reward</div>
+</div>
+</div>
+<div class="fw-rule-list">
+<div class="fw-rule">
+<div class="fw-rule-dot">
+</div>
+<span data-i18n="fw_us100_rule1">Rule-based entries and exits — no discretionary overrides</span>
+</div>
+<div class="fw-rule">
+<div class="fw-rule-dot">
+</div>
+<span data-i18n="fw_us100_rule2">Fixed risk per trade — position sizing non-negotiable</span>
+</div>
+<div class="fw-rule">
+<div class="fw-rule-dot">
+</div>
+<span data-i18n="fw_us100_rule3">No revenge trading — losses do not justify additional entries</span>
+</div>
+</div>
+<div class="fw-challenge-actions">
+<a href="us100-framework.html" class="btn btn-primary" data-i18n="fw_btn_view">Discover Framework</a>
+<a href="prepare.html" class="btn btn-outline" data-i18n="fw_btn_prepare">Begin PREPARE</a>
+</div>
+</div>
+</div>
+<!-- "" US30 IN DEVELOPMENT CARD -->
+<div class="fw-dev-card">
+<div class="fw-card-gfx fw-card-gfx--dev" aria-hidden="true">
+<svg class="fw-card-chart" viewBox="0 0 100 70" fill="none">
+<line x1="10" y1="35" x2="90" y2="35" stroke="currentColor" stroke-width="1" opacity="0.2" stroke-dasharray="4 4"/>
+<line x1="10" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="1" opacity="0.12" stroke-dasharray="4 4"/>
+<line x1="10" y1="20" x2="90" y2="20" stroke="currentColor" stroke-width="1" opacity="0.12" stroke-dasharray="4 4"/>
+</svg>
+</div>
+<div class="fw-dev-card-inner">
+<div class="fw-challenge-head">
+<div class="fw-challenge-labels">
+<span class="fw-badge dev" style="margin-bottom:0" data-i18n="fw_badge_dev">In Development</span>
+</div>
+<div class="fw-challenge-instrument" data-i18n="fw_us30_instrument">Dow Jones Industrial Average — CFD</div>
+</div>
+<h3 class="fw-challenge-name" data-i18n="fw_us30_name">US30 Challenge</h3>
+<p class="fw-challenge-sub" data-i18n="fw_us30_desc">Currently in formalization phase. Execution parameters, session rules, and risk governance protocols are being developed. Framework is not yet available for participation.</p>
+<div class="fw-spec-grid">
+<div class="fw-spec">
+<div class="fw-spec-value">—</div>
+<div class="fw-spec-label" data-i18n="fw_spec_cycle">Trade Cycle</div>
+</div>
+<div class="fw-spec">
+<div class="fw-spec-value">—</div>
+<div class="fw-spec-label" data-i18n="fw_spec_drawdown">Max Drawdown</div>
+</div>
+<div class="fw-spec">
+<div class="fw-spec-value">—</div>
+<div class="fw-spec-label" data-i18n="fw_spec_session2">Session</div>
+</div>
+<div class="fw-spec">
+<div class="fw-spec-value">—</div>
+<div class="fw-spec-label" data-i18n="fw_spec_rr">Min R:R</div>
+</div>
+</div>
+<div class="fw-rule-list">
+<div class="fw-rule">
+<div class="fw-rule-dot" style="background:var(--clr-dev);">
+</div>
+<span data-i18n="fw_us30_rule1">Parameters pending — execution rules not yet finalized</span>
+</div>
+<div class="fw-rule">
+<div class="fw-rule-dot" style="background:var(--clr-dev);">
+</div>
+<span data-i18n="fw_us30_rule2">Validation cycle specifications under review</span>
+</div>
+<div class="fw-rule">
+<div class="fw-rule-dot" style="background:var(--clr-dev);">
+</div>
+<span data-i18n="fw_us30_rule3">Release timeline not confirmed</span>
+</div>
+</div>
+<div class="fw-challenge-actions">
+<button class="btn btn-ghost fw-dev-btn" disabled aria-disabled="true" style="margin-top:0;opacity:0.45;cursor:not-allowed;">
+<svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+</svg>
+<span data-i18n="fw_btn_locked">Not Yet Available</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: OPERATIONAL INFRASTRUCTURE -->
+<section class="section infra" id="infrastructure" aria-label="Operational Infrastructure">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="infra_tag">Operational Infrastructure</p>
+<h2 data-i18n="infra_h2">The Altivor Operational Panel</h2>
+<p class="section-body" data-i18n="infra_body"> The ALTIVOR Operational Panel is the participant's primary interface during an active validation cycle. It is a structured logging and compliance environment — not a performance dashboard. The panel captures process data, not financial results. </p>
+</div>
+<div class="card-row three-col infra-cards" data-reveal>
+<div class="card card-infra">
+<div class="infra-icon" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+<rect x="1" y="1" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.4" />
+<line x1="1" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="1.4" />
+<line x1="7" y1="7" x2="7" y2="21" stroke="currentColor" stroke-width="1.4" />
+</svg>
+</div>
+<h3 data-i18n="infra_log_title">Trade Log</h3>
+<p data-i18n="infra_log_desc">A structured, session-by-session trade entry interface. Participants document each trade including instrument, direction, entry and exit points, size, and protocol compliance notes.</p>
+</div>
+<div class="card card-infra">
+<div class="infra-icon" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+<circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.4" />
+<path d="M11 6v5l3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+</svg>
+</div>
+<h3 data-i18n="infra_cycle_title">55 trade Cycle Counter</h3>
+<p data-i18n="infra_cycle_desc">Real-time tracking of the 55 trade Cycle — a process-validation system that measures whether execution remains consistent under funded-style conditions across the full documented trade sequence.</p>
+</div>
+<div class="card card-infra">
+<div class="infra-icon" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+<path d="M11 2L2 7v8l9 5 9-5V7L11 2z" stroke="currentColor" stroke-width="1.4" />
+<path d="M11 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" stroke="currentColor" stroke-width="1.4" />
+</svg>
+</div>
+<h3 data-i18n="infra_risk_title">Risk Governance Module</h3>
+<p data-i18n="infra_risk_desc">A live display of current drawdown position relative to defined maximum thresholds. Includes daily exposure utilization and position-level risk allocation monitoring.</p>
+</div>
+<div class="card card-infra">
+<div class="infra-icon" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+<path d="M3 17l4-4 4 4 4-6 4 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+</div>
+<h3 data-i18n="infra_audit_title">Behavioral Audit</h3>
+<p data-i18n="infra_audit_desc">A structured review module that flags protocol deviations, records decision rationale, and maintains a complete chronological audit record across the full validation cycle.</p>
+</div>
+<div class="card card-infra">
+<div class="infra-icon" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+<rect x="1" y="1" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.4" />
+<line x1="1" y1="7" x2="21" y2="7" stroke="currentColor" stroke-width="1.4" />
+<line x1="7" y1="7" x2="7" y2="21" stroke="currentColor" stroke-width="1.4" />
+</svg>
+</div>
+<h3 data-i18n="infra_report_title">Monthly Report Export</h3>
+<p data-i18n="infra_report_desc">At the end of each calendar month, participants may export a structured PDF behavioral audit report covering all trade activity, compliance metrics, and deviation events within that period.</p>
+</div>
+<div class="card card-infra">
+<div class="infra-icon" aria-hidden="true">
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+<circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.4" />
+<path d="M11 7v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+<circle cx="11" cy="15" r="0.8" fill="currentColor" />
+</svg>
+</div>
+<h3 data-i18n="infra_score_title">Execution Compliance Score</h3>
+<p data-i18n="infra_score_desc">A per-rule breakdown of compliance across the active validation cycle. Each of the six protocol rules is tracked independently, exposing which specific conditions are generating non-compliant outcomes.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION PNL: PNL CALENDAR FEATURE -->
+<section class="section pnl-section" id="pnl" aria-label="PnL Calendar">
+<div class="container">
+<div class="pnl-inner">
+<div class="pnl-content" data-reveal>
+<svg class="pnl-logo-svg" viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE">
+<!-- Outer wing -->
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<!-- Inner wing -->
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<!-- Center spine -->
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<!-- ALTIVOR text -->
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<!-- Left dash -->
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<!-- INSTITUTE text -->
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<!-- Right dash -->
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="label-tag" data-i18n="pnl_tag">PnL</p>
+<h2 data-i18n="pnl_h2">Know Exactly Where<br>You Stand. Every Day.</h2>
+<p class="section-body" data-i18n="pnl_body"> The ALTIVOR PnL Calendar transforms your trade activity into a clear, session-by-session record. Each day is marked with its outcome — logged trades, session result, and protocol compliance status — giving you an unfiltered view of your behavioral patterns across the month. </p>
+<div class="pnl-feature-list">
+<div class="pnl-feature">
+<div class="pnl-feature-dot">
+</div>
+<div>
+<strong data-i18n="pnl_feat1_title">Daily Session Overview</strong>
+<p data-i18n="pnl_feat1_desc">Each calendar day displays trade count and session outcome, color-coded by protocol compliance — not by sentiment.</p>
+</div>
+</div>
+<div class="pnl-feature">
+<div class="pnl-feature-dot">
+</div>
+<div>
+<strong data-i18n="pnl_feat2_title">Monthly Cycle Tracking</strong>
+<p data-i18n="pnl_feat2_desc">Navigate across weeks and months to review the full arc of a validation cycle. No aggregated noise — only structured session data.</p>
+</div>
+</div>
+<div class="pnl-feature">
+<div class="pnl-feature-dot">
+</div>
+<div>
+<strong data-i18n="pnl_feat3_title">Goal Reference Layer</strong>
+<p data-i18n="pnl_feat3_desc">Set a monthly reference point and track progress against it without attaching outcome dependency to it. Discipline first, results follow.</p>
+</div>
+</div>
+<div class="pnl-feature">
+<div class="pnl-feature-dot">
+</div>
+<div>
+<strong data-i18n="pnl_feat4_title">Structural Consistency View</strong>
+<p data-i18n="pnl_feat4_desc">The calendar is a behavioral mirror. It shows not what you earned, but how consistently you operated within the defined framework across every session.</p>
+</div>
+</div>
+</div>
+<div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;">
+<a href="#pricing" class="btn btn-primary" data-i18n="pnl_btn_access">Access Full Panel</a>
+</div>
+</div>
+<div class="pnl-visual" data-reveal>
+<div class="pnl-mock-wrap" aria-hidden="true">
+<div class="pnl-mock">
+<div class="pnl-mock-header">
+<div class="pnl-mock-title">PnL Calendar</div>
+<div class="pnl-mock-nav">
+<span class="pnl-mock-arrow">&#8249;</span>
+<span class="pnl-mock-month">March 2026</span>
+<span class="pnl-mock-arrow">&#8250;</span>
+</div>
+</div>
+<div class="pnl-mock-stats">
+<div class="pnl-mock-stat">
+<span class="pnl-mock-stat-val positive">+$2,140</span>
+<span class="pnl-mock-stat-lbl">Monthly PnL</span>
+</div>
+<div class="pnl-mock-stat">
+<span class="pnl-mock-stat-val positive">+$610</span>
+<span class="pnl-mock-stat-lbl">This Week</span>
+</div>
+<div class="pnl-mock-stat">
+<span class="pnl-mock-stat-val">68%</span>
+<span class="pnl-mock-stat-lbl">Win Rate</span>
+</div>
+<div class="pnl-mock-stat">
+<span class="pnl-mock-stat-val positive">+$8,340</span>
+<span class="pnl-mock-stat-lbl">Overall PnL</span>
+</div>
+<div class="pnl-mock-stat">
+<span class="pnl-mock-stat-val positive">+$980</span>
+<span class="pnl-mock-stat-lbl">Best Day</span>
+</div>
+<div class="pnl-mock-stat">
+<span class="pnl-mock-stat-val negative">-$340</span>
+<span class="pnl-mock-stat-lbl">Worst Day</span>
+</div>
+</div>
+<div class="pnl-mock-days-header">
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+<span>Sun</span>
+</div>
+<div class="pnl-mock-grid">
+<!-- Row 1 -->
+<div class="pnl-mock-day empty">
+</div>
+<div class="pnl-mock-day empty">
+</div>
+<div class="pnl-mock-day empty">
+</div>
+<div class="pnl-mock-day empty">
+</div>
+<div class="pnl-mock-day empty">
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">1</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">2</span>
+</div>
+<!-- Row 2 -->
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">3</span>
+<span class="pnl-mock-amt">+$480</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">4</span>
+<span class="pnl-mock-amt">+$210</span>
+</div>
+<div class="pnl-mock-day sl">
+<span class="pnl-mock-dn">5</span>
+<span class="pnl-mock-amt">-$180</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">6</span>
+<span class="pnl-mock-amt">+$330</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">7</span>
+<span class="pnl-mock-amt">+$980</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">8</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">9</span>
+</div>
+<!-- Row 3 -->
+<div class="pnl-mock-day">
+<span class="pnl-mock-dn">10</span>
+</div>
+<div class="pnl-mock-day sl">
+<span class="pnl-mock-dn">11</span>
+<span class="pnl-mock-amt">-$340</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">12</span>
+<span class="pnl-mock-amt">+$150</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">13</span>
+<span class="pnl-mock-amt">+$290</span>
+</div>
+<div class="pnl-mock-day">
+<span class="pnl-mock-dn">14</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">15</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">16</span>
+</div>
+<!-- Row 4 -->
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">17</span>
+<span class="pnl-mock-amt">+$520</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">18</span>
+<span class="pnl-mock-amt">+$610</span>
+</div>
+<div class="pnl-mock-day sl">
+<span class="pnl-mock-dn">19</span>
+<span class="pnl-mock-amt">-$220</span>
+</div>
+<div class="pnl-mock-day tp">
+<span class="pnl-mock-dn">20</span>
+<span class="pnl-mock-amt">+$390</span>
+</div>
+<div class="pnl-mock-day tp today">
+<span class="pnl-mock-dn">21</span>
+<span class="pnl-mock-amt">+$110</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">22</span>
+</div>
+<div class="pnl-mock-day weekend">
+<span class="pnl-mock-dn">23</span>
+</div>
+<!-- Row 5 -->
+<div class="pnl-mock-day future">
+<span class="pnl-mock-dn">24</span>
+</div>
+<div class="pnl-mock-day future">
+<span class="pnl-mock-dn">25</span>
+</div>
+<div class="pnl-mock-day future">
+<span class="pnl-mock-dn">26</span>
+</div>
+<div class="pnl-mock-day future">
+<span class="pnl-mock-dn">27</span>
+</div>
+<div class="pnl-mock-day future">
+<span class="pnl-mock-dn">28</span>
+</div>
+<div class="pnl-mock-day weekend future">
+<span class="pnl-mock-dn">29</span>
+</div>
+<div class="pnl-mock-day weekend future">
+<span class="pnl-mock-dn">30</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: CLIENT EDITION DOCUMENTATION -->
+<section class="section docs" id="documentation" aria-label="Client Edition Documentation">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="docs_tag">Documentation</p>
+<h2 data-i18n="docs_h2">Client Edition Documentation</h2>
+<p class="section-body" data-i18n="docs_body"> The ALTIVOR documentation suite provides the operational specifications, regulatory structure context, and reference material required to engage with the US100 framework. Documentation access is tiered by plan. </p>
+</div>
+<div class="card-row three-col" data-reveal>
+<div class="card card-doc">
+<div class="doc-access-tag full" data-i18n="docs_tag_full">Framework Pack +</div>
+<h3 data-i18n="docs_fw_title">Client Edition Framework</h3>
+<p data-i18n="docs_fw_desc">The complete operational specification document for the US100 framework. Defines all execution conditions, risk governance parameters, documentation requirements, and validation cycle criteria in full technical detail.</p>
+<p class="doc-note" data-i18n="docs_fw_note">Included in Framework Pack and US100 Challenge.</p>
+</div>
+<div class="card card-doc">
+<div class="doc-access-tag full" data-i18n="docs_tag_full">Framework Pack +</div>
+<h3 data-i18n="docs_reg_title">Regulatory and Evaluation Structure</h3>
+<p data-i18n="docs_reg_desc">A structured overview of the compliance criteria, behavioral assessment methodology, and validation thresholds applied within the US100 framework. Defines how process consistency is measured and reported.</p>
+<p class="doc-note" data-i18n="docs_reg_note">Included in Framework Pack and US100 Challenge.</p>
+</div>
+<div class="card card-doc">
+<div class="doc-access-tag locked" data-i18n="docs_tag_locked">US100 Challenge Only</div>
+<h3 data-i18n="docs_case_title">Case Study Library</h3>
+<p data-i18n="docs_case_desc">A curated collection of anonymized cycle review documents drawn from completed validation cycles. Each case study presents a complete behavioral audit without financial performance data — structure, deviation events, and process outcomes only.</p>
+<p class="doc-note" data-i18n="docs_case_note">Exclusive to US100 Challenge. One case study preview available to Framework Pack holders.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: OPERATING ENVIRONMENT -->
+<section class="section environment" id="environment" aria-label="Operating Environment">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="env_tag">Operating Environment</p>
+<h2 data-i18n="env_h2">Integrated Toolchain</h2>
+<p class="section-body" data-i18n="env_body">The US100 framework operates across three distinct functional environments, each serving a specific role in the execution and validation workflow.</p>
+</div>
+<div class="card-row three-col toolchain-cards" data-reveal>
+<div class="card card-env">
+<div class="env-label" data-i18n="env_analysis_label">Market Analysis</div>
+<div class="env-platform">TradingView</div>
+<p data-i18n="env_analysis_desc">The designated charting and structural analysis environment. All pre-session structural reference identification and documented level mapping is conducted within TradingView prior to session commencement.</p>
+<div class="env-role-tag" data-i18n="env_analysis_tag">Analysis Layer</div>
+</div>
+<div class="card card-env">
+<div class="env-label" data-i18n="env_exec_label">Execution</div>
+<div class="env-platform">MetaTrader 5</div>
+<p data-i18n="env_exec_desc">The designated execution platform for all US100 CFD trades. Order placement, position management, and trade closure occur within MT5 in accordance with the framework's execution constraints.</p>
+<div class="env-role-tag" data-i18n="env_exec_tag">Execution Layer</div>
+</div>
+<div class="card card-env">
+<div class="env-label" data-i18n="env_log_label">Logging and Validation</div>
+<div class="env-platform" data-i18n="env_log_platform">Altivor Operational Panel</div>
+<p data-i18n="env_log_desc">The primary data capture and compliance monitoring interface. All trade documentation, cycle tracking, risk governance monitoring, and audit reporting functions are centralized here.</p>
+<div class="env-role-tag" data-i18n="env_log_tag">Validation Layer</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 9: PRICING -->
+<section class="section pricing" id="pricing" aria-label="Access and Pricing">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="price_tag">Access</p>
+<h2 data-i18n="price_h2">Structure Your Participation</h2>
+<p class="section-body" data-i18n="price_body"> Access to ALTIVOR INSTITUTE is structured to support preparation for funded-account conditions: first through PREPARE as a procedural qualification gate, then through a framework product built around fixed risk, execution discipline, and measurable validation. </p>
+</div>
+<div class="pricing-step-flow" data-reveal>
+<div class="pricing-step">
+<div class="pricing-step-num">01</div>
+<div class="pricing-step-body">
+<div class="pricing-step-name" data-i18n="price_step1_name">Complete PREPARE</div>
+<div class="pricing-step-desc" data-i18n="price_step1_desc">Mandatory procedural gate. Universal — applies to all challenges. One-time.</div>
+</div>
+</div>
+<div class="pricing-step-arrow">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+<div class="pricing-step">
+<div class="pricing-step-num">02</div>
+<div class="pricing-step-body">
+<div class="pricing-step-name" data-i18n="price_step2_name">Select a Challenge</div>
+<div class="pricing-step-desc" data-i18n="price_step2_desc">Select the framework that matches your funded-preparation path. US100 active. US30 in development. Unlocked only after PREPARE.</div>
+</div>
+</div>
+<div class="pricing-step-arrow">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</div>
+<div class="pricing-step">
+<div class="pricing-step-num">03</div>
+<div class="pricing-step-body">
+<div class="pricing-step-name" data-i18n="price_step3_name">Accessories Access</div>
+<div class="pricing-step-desc" data-i18n="price_step3_desc">Available separately. Discounted to 59 &euro; / mo on successful challenge pass.</div>
+</div>
+</div>
+</div>
+<div class="pricing-cards pricing-cards--four" data-reveal style="margin-top:2.5rem;">
+<!-- PREPARE -->
+<div class="card card-pricing">
+<div class="pricing-plan-label" data-i18n="price_prepare_label">PREPARE</div>
+<div class="pricing-amount">
+<span>29</span>
+<span class="currency">&euro;</span>
+</div>
+<p class="pricing-desc" data-i18n="price_prepare_desc">Procedural qualification gate designed to test whether your execution can remain consistent before entering funded-style framework conditions.</p>
+<ul class="pricing-list" role="list">
+<li data-i18n="price_prepare_li1">Trade submission &amp; compliance tracking</li>
+<li data-i18n="price_prepare_li2">Designated session execution window</li>
+<li data-i18n="price_prepare_li3">Regulated risk allocation per trade</li>
+<li data-i18n="price_prepare_li4">10-trade qualification threshold</li>
+<li data-i18n="price_prepare_li5">Unlocks Framework Pack &amp; US100 Challenge</li>
+<li class="excluded" data-i18n="price_prepare_li6">Framework Documentation</li>
+<li class="excluded" data-i18n="price_prepare_li7">Accessories Suite</li>
+</ul>
+<div class="pricing-card-footer">
+<a href="prepare.html" class="btn btn-outline pricing-btn" data-i18n="price_prepare_btn">Begin PREPARE</a>
+<p class="pricing-fine" data-i18n="price_prepare_fine">One-time purchase. Required before challenge products.</p>
+</div>
+</div>
+<!-- FRAMEWORK PACK -->
+<div class="card card-pricing">
+<div class="pricing-plan-label" data-i18n="price_fwpack_label">Framework Pack</div>
+<div class="pricing-amount">
+<span>59</span>
+<span class="currency">&euro;</span>
+</div>
+<p class="pricing-desc" data-i18n="price_fwpack_desc">Core framework documentation with operational parameters. Requires completed PREPARE.</p>
+<ul class="pricing-list" role="list">
+<li data-i18n="price_fwpack_li1">Everything from PREPARE included</li>
+<li data-i18n="price_fwpack_li2">Product Files 01, 02, 03, 04</li>
+<li data-i18n="price_fwpack_li3">Operational parameters &amp; execution rules</li>
+<li class="excluded" data-i18n="price_fwpack_li4">Product Files 05, 06</li>
+<li class="excluded" data-i18n="price_fwpack_li5">Monthly Performance Report</li>
+<li class="excluded" data-i18n="price_fwpack_li6">Accessories Suite</li>
+</ul>
+<div class="pricing-card-footer">
+<a href="prepare.html" class="btn btn-outline pricing-btn" data-i18n="price_fwpack_btn">Access Framework Pack</a>
+<p class="pricing-fine" data-i18n="price_fwpack_fine">Requires completed PREPARE. One-time payment.</p>
+</div>
+</div>
+<!-- US100 CHALLENGE -->
+<div class="card card-pricing card-pricing--featured">
+<div class="pricing-plan-label" data-i18n="price_us100_label">US100 Challenge</div>
+<div class="pricing-amount">
+<span>129</span>
+<span class="currency">&euro;</span>
+</div>
+<p class="pricing-desc" data-i18n="price_us100_desc">Full US100 process-validation environment for traders preparing for funded-account conditions. Includes framework access, documentation standards, and validation infrastructure. Requires completed PREPARE.</p>
+<ul class="pricing-list" role="list">
+<li data-i18n="price_us100_li1">Everything from PREPARE included</li>
+<li data-i18n="price_us100_li2">All Product Files (01–06)</li>
+<li data-i18n="price_us100_li3">Full Accessories Suite included</li>
+<li data-i18n="price_us100_li4">55-trade process-validation cycle</li>
+<li data-i18n="price_us100_li5">Structured for funded-style execution conditions</li>
+<li data-i18n="price_us100_li6">10% max drawdown — breach = fail</li>
+</ul>
+<div class="pricing-card-footer">
+<a href="prepare.html" class="btn btn-primary pricing-btn" data-i18n="price_us100_btn">Start US100 Challenge</a>
+<p class="pricing-fine" data-i18n="price_us100_fine">Requires completed PREPARE. One-time payment.</p>
+</div>
+</div>
+<!-- ACCESSORIES SUBSCRIPTION -->
+<div class="card card-pricing">
+<div class="pricing-plan-label" data-i18n="price_acc_label">Accessories Subscription</div>
+<div class="pricing-amount">
+<span>79</span>
+<span class="currency">&euro;</span>
+<span style="font-size:0.7rem;font-weight:500;color:var(--txt-muted);">/mo</span>
+</div>
+<p class="pricing-desc" data-i18n="price_acc_desc">Standalone monthly access to the full Accessories suite. No PREPARE required. Subscribe independently.</p>
+<ul class="pricing-list" role="list">
+<li data-i18n="price_acc_li1">Trading Log — Daily Journal</li>
+<li data-i18n="price_acc_li2">PnL Calendar — Heatmap Tracker</li>
+<li data-i18n="price_acc_li3">Economic Calendar</li>
+<li data-i18n="price_acc_li4">Trading Symbols — Spreads &amp; Swaps</li>
+<li data-i18n="price_acc_li5">Execution Checklist</li>
+<li data-i18n="price_acc_li6">Trading Calculators</li>
+<li class="excluded" data-i18n="price_acc_li7">Framework Documentation</li>
+</ul>
+<div class="pricing-card-footer">
+<a href="accessories.html" class="btn btn-outline pricing-btn" data-i18n="price_acc_btn">Subscribe — Accessories</a>
+<p class="pricing-fine" data-i18n="price_acc_fine">Monthly subscription. No PREPARE required.</p>
+</div>
+</div>
+</div>
+<div class="pricing-discount-notice" data-reveal>
+<svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+<circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.4"/>
+<path d="M6.5 10.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<span data-i18n="price_discount_notice">US100 Challenge includes full Accessories access. Accessories Subscription available separately without PREPARE.</span>
+</div>
+<div class="pricing-note" data-reveal>
+<p data-i18n="price_note">PREPARE is required before purchasing Framework Pack or US100 Challenge. Complete 10 compliant trades to qualify. Accessories Subscription is standalone — no PREPARE required. All challenge products are one-time purchases with lifetime access.</p>
+</div>
+</div>
+</section>
+<!-- CUSTOMER SUPPORT SECTION -->
+<section class="section support-section" id="support" aria-label="Customer Support">
+<div class="container">
+<div class="support-inner revealed" data-reveal>
+<div class="support-left">
+<p class="label-tag" style="border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);" data-i18n="sup_tag">Support</p>
+<h2 class="support-h2" data-i18n="sup_h2">Expert Support,<br>Mon—Sat</h2>
+<p class="support-sub" data-i18n="sup_sub">Our dedicated support team is available <strong>Monday to Saturday</strong> in <strong>10 languages</strong>. Sundays are off. No bots. No queues. Real answers.</p>
+<div class="support-stats">
+<div class="support-stat">
+<span class="support-stat-num">Mon—Sat</span>
+<span class="support-stat-label" data-i18n="sup_stat1_label">Availability</span>
+</div>
+<div class="support-stat">
+<span class="support-stat-num">10</span>
+<span class="support-stat-label" data-i18n="sup_stat2_label">Languages Spoken</span>
+</div>
+<div class="support-stat">
+<span class="support-stat-num">&lt;8h</span>
+<span class="support-stat-label" data-i18n="sup_stat3_label">Avg. Response Time</span>
+</div>
+</div>
+<div class="support-channels">
+<a href="mailto:support@altivor.institute" class="support-channel">
+<div class="support-channel-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="2" y="4" width="20" height="16" rx="2" />
+<path d="M2 7l10 7 10-7" />
+</svg>
+</div>
+<div class="support-channel-info">
+<span class="support-channel-label" data-i18n="sup_ch_email">Email</span>
+<span class="support-channel-value">support@altivor.institute</span>
+</div>
+</a>
+<a href="#support" class="support-channel" id="supportLiveChatLink">
+<div class="support-channel-icon">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+</svg>
+</div>
+<div class="support-channel-info">
+<span class="support-channel-label" data-i18n="sup_ch_chat">Live Chat</span>
+<span class="support-channel-value" data-i18n="sup_ch_chat_val">Start conversation</span>
+</div>
+</a>
+<a href="https://wa.me/" class="support-channel" target="_blank" rel="noopener">
+<div class="support-channel-icon support-channel-icon--wa">
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+</svg>
+</div>
+<div class="support-channel-info">
+<span class="support-channel-label" data-i18n="sup_ch_wa">WhatsApp</span>
+<span class="support-channel-value" data-i18n="sup_ch_wa_val">Message us directly</span>
+</div>
+</a>
+</div>
+</div>
+<div class="support-right">
+<div class="support-visual">
+<div class="support-vis-header">
+<div class="support-vis-dot support-vis-dot--green">
+</div>
+<div class="support-vis-dot support-vis-dot--yellow">
+</div>
+<div class="support-vis-dot support-vis-dot--red">
+</div>
+<span class="support-vis-title">ALTIVOR SUPPORT</span>
+</div>
+<div class="support-vis-body">
+<div class="support-msg support-msg--agent">
+<div class="support-msg-bubble">
+<strong data-i18n="sup_vis_agent">Support Agent</strong>
+<p data-i18n="sup_vis_msg1">Welcome to ALTIVOR. How can I assist you with the US100 framework today?</p>
+</div>
+</div>
+<div class="support-msg support-msg--user">
+<div class="support-msg-bubble">
+<p data-i18n="sup_vis_msg2">I need help understanding the 55 trade Cycle requirements.</p>
+</div>
+</div>
+<div class="support-msg support-msg--agent">
+<div class="support-msg-bubble">
+<p data-i18n="sup_vis_msg3">Of course. The Client Edition Framework document explains the cycle structure, documentation standard and validation logic. I'll send you a direct link now.</p>
+</div>
+</div>
+<div class="support-msg support-msg--user">
+<div class="support-msg-bubble">
+<p data-i18n="sup_vis_msg4">Which plan gives me access to the full documentation?</p>
+</div>
+</div>
+<div class="support-msg support-msg--agent">
+<div class="support-msg-bubble">
+<p data-i18n="sup_vis_msg5">Both the Framework Pack and the US100 Challenge include the full documentation suite. The Challenge also unlocks the Operational Panel.</p>
+</div>
+</div>
+<div class="support-typing support-typing--animated support-typing--visible">
+<div class="support-typing-bubble">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</div>
+</div>
+</div>
+<div class="support-vis-footer">
+<div class="support-vis-input-row">
+<input type="text" class="support-vis-input" placeholder="Type a message..." id="supportVisInput" />
+<button class="support-vis-send" id="supportVisSend" aria-label="Send">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<line x1="22" y1="2" x2="11" y2="13"/>
+<polygon points="22 2 15 22 11 13 2 9 22 2"/>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 10: FAQ -->
+<section class="section faq" id="faq" aria-label="Frequently Asked Questions">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="faq_tag">FAQ</p>
+<h2 data-i18n="faq_h2">Frequently Asked Questions</h2>
+</div>
+<div class="faq-grid" data-reveal>
+<details class="faq-item">
+<summary data-i18n="faq_q1">What is ALTIVOR INSTITUTE?</summary>
+<div class="faq-body" data-i18n="faq_a1">ALTIVOR INSTITUTE provides structured execution frameworks designed to prepare traders for funded-account environments through discipline, fixed risk governance, and measurable validation. It does not provide signals, advisory services, investment management, or guaranteed trading outcomes.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q2">What is the US100 framework?</summary>
+<div class="faq-body" data-i18n="faq_a2">The US100 Framework is ALTIVOR's active process-validation product for Nasdaq 100 CFD. It is designed for traders who want to operate under funded-account conditions before entering external evaluation environments, using strict execution rules, fixed risk governance, documentation standards, and the 55 trade Cycle.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q3">What is the 55 trade Cycle?</summary>
+<div class="faq-body" data-i18n="faq_a3">The 55 trade Cycle is the framework's process-validation system. It is not a promise of funded success and it is not profit-based. Across 55 documented trades, it measures whether execution remains stable under funded-style constraints through rule adherence, risk discipline, execution quality, and behavioral consistency.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q4">What is the access structure?</summary>
+<div class="faq-body" data-i18n="faq_a4">Access at ALTIVOR INSTITUTE is structured in three layers. First, PREPARE — a mandatory procedural qualification gate. Second, a framework product such as US100, designed to support preparation for funded-style conditions through fixed rules and measurable validation. Third, the Accessories suite, available separately.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q5">Is this a funded trading programme?</summary>
+<div class="faq-body" data-i18n="faq_a5">No. ALTIVOR does not provide capital, funded accounts, or any form of financial allocation. References to funded accounts describe preparation standards and execution conditions only, and should not be understood as a promise of qualification, acceptance, or financial performance.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q6">What are the subscription fees for Accessories?</summary>
+<div class="faq-body" data-i18n="faq_a6">The Accessories suite is available via a monthly subscription at 79 &euro; / month. Participants who successfully pass a Challenge are permanently eligible for a discounted rate of 59 &euro; / month.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q7">What broker or platform do I need?</summary>
+<div class="faq-body" data-i18n="faq_a7">The US100 framework is designed for execution via MetaTrader 5 on a CFD instrument linked to the Nasdaq 100. Structural analysis is conducted via TradingView. ALTIVOR INSTITUTE does not recommend, endorse, or partner with any specific brokerage.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q8">Does ALTIVOR provide trading signals or advice?</summary>
+<div class="faq-body" data-i18n="faq_a8">No. ALTIVOR does not provide investment advice, portfolio management, market signals, or guaranteed outcomes. The platform supports structured execution review and process validation; final trading outcomes remain dependent on the user's own decisions, discipline, and market conditions.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q9">How is payment processed?</summary>
+<div class="faq-body" data-i18n="faq_a9">Payment is processed via Stripe. All transactions are secured via industry-standard encryption. ALTIVOR INSTITUTE does not store card details. Upon successful payment confirmation, an account is created and access is provisioned automatically.</div>
+</details>
+<details class="faq-item">
+<summary data-i18n="faq_q10">Can I upgrade from Framework Pack to Full Access?</summary>
+<div class="faq-body" data-i18n="faq_a10">Yes. Participants holding Framework Pack access may upgrade to Full Access at any time by completing an additional payment equivalent to the difference in plan pricing.</div>
+</details>
+</div>
+</div>
+</section>
+<!-- FINAL CTA -->
+<section class="section final-cta" id="cta" aria-label="Final call to action" hidden>
+<div class="container">
+<div class="cta-block" data-reveal>
+<p class="label-tag" data-i18n="cta_tag">Discipline is a structure</p>
+<h2 class="cta-headline" data-i18n="cta_h2">Institutional discipline<br>is a decision.</h2>
+<p class="cta-body" data-i18n="cta_body">The frameworks are available. The infrastructure is operational. What remains is the decision to participate within a defined structural process rather than without one.</p>
+<a href="#pricing" class="btn btn-primary btn-lg" data-i18n="cta_btn">Access US100</a>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img footer-logo-img" style="height:28px;width:auto;display:block;opacity:0.85;" draggable="false" />
+<p class="footer-tagline" data-i18n="footer_tagline">Structured execution frameworks for funded-account preparation. </p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc"> ALTIVOR supports structured execution review and process validation for traders preparing for funded-style environments. It does not provide investment advice, market signals, portfolio management, or guaranteed funded outcomes. Use of the platform does not guarantee success in any third-party funded program, prop evaluation, or live trading environment. </p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+</footer>
+<!-- LOGIN MODAL -->
+<div class="auth-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeModal('loginModal')" aria-label="Close">&#x2715;</button>
+    <div class="auth-logo">
+      <img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
+    </div>
+    <h2 class="auth-title" id="loginTitle" data-i18n="login_title">Welcome Back</h2>
+    <p class="auth-sub" data-i18n="login_sub">Sign in to your ALTIVOR account</p>
+    <form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+      <div class="auth-field">
+        <label for="loginEmail" data-i18n="login_email">Email Address</label>
+        <input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+      </div>
+      <div class="auth-field">
+        <label for="loginPassword" data-i18n="login_pw">Password</label>
+        <div class="auth-password-wrap">
+          <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+          <button type="button" class="auth-eye" onclick="togglePw('loginPassword', this)" aria-label="Toggle password visibility">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="auth-remember-row">
+        <label class="auth-remember-label">
+          <input type="checkbox" id="loginRemember" name="remember" />
+          <span class="auth-remember-box" aria-hidden="true">
+          </span>
+          <span data-i18n="login_remember">Remember me</span>
+        </label>
+        <a href="#" class="auth-forgot-link" onclick="switchModal('loginModal','forgotModal');return false;" data-i18n="login_forgot">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary auth-submit" data-i18n="login_btn">Sign In</button>
+    </form>
+    <p class="auth-switch">
+      <span data-i18n="login_switch">Don't have an account?</span>
+      <a href="#" onclick="switchModal('loginModal','registerModal');return false;" data-i18n="login_switch_link">Register</a>
+    </p>
+  </div>
+</div>
+</div>
+</div>
+<div class="auth-remember-row">
+<label class="auth-remember-label">
+<input type="checkbox" id="loginRemember" name="remember" />
+<span class="auth-remember-box" aria-hidden="true">
+</span>
+<span data-i18n="login_remember">Remember me</span>
+</label>
+<a href="#" class="auth-forgot-link" onclick="switchModal('loginModal','forgotModal');return false;" data-i18n="login_forgot">Forgot password?</a>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="login_btn">Sign In</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="login_switch">Don't have an account?</span>
+<a href="#" onclick="switchModal('loginModal','registerModal');return false;" data-i18n="login_switch_link">Register</a>
+</p>
+</div>
+</div>
+<!-- REGISTER MODAL -->
+<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+<div class="auth-modal auth-modal--wide">
+<button class="auth-close" onclick="closeModal('registerModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
+</div>
+<h2 class="auth-title" id="registerTitle" data-i18n="reg_title">Create Account</h2>
+<p class="auth-sub" data-i18n="reg_sub">Join ALTIVOR INSTITUTE</p>
+<form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+<div class="auth-row">
+<div class="auth-field">
+<label for="regFirstName" data-i18n="reg_first">First Name</label>
+<input type="text" id="regFirstName" name="firstName" placeholder="John" required autocomplete="given-name" />
+</div>
+<div class="auth-field">
+<label for="regLastName" data-i18n="reg_last">Last Name</label>
+<input type="text" id="regLastName" name="lastName" placeholder="Doe" required autocomplete="family-name" />
+</div>
+</div>
+<div class="auth-field">
+<label for="regUsername" data-i18n="reg_username">Username</label>
+<input type="text" id="regUsername" name="username" placeholder="johndoe_trader" required autocomplete="username" />
+</div>
+<div class="auth-field">
+<label for="regEmail" data-i18n="reg_email">Email Address</label>
+<input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="regAddress" data-i18n="reg_address">Address</label>
+<input type="text" id="regAddress" name="address" placeholder="Start typing city or street..." required autocomplete="street-address" list="regAddressSuggestions" />
+<datalist id="regAddressSuggestions">
+</datalist>
+</div>
+<div class="auth-row">
+<div class="auth-field">
+<label for="regPassword" data-i18n="reg_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPassword" name="password" placeholder="Create a password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-field">
+<label for="regPasswordConfirm" data-i18n="reg_pw2">Confirm Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPasswordConfirm" name="passwordConfirm" placeholder="Repeat password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPasswordConfirm', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+</div>
+<div class="auth-pw-error" id="regPwError" data-i18n="pw_error">Passwords do not match.</div>
+<div class="auth-consent">
+<label class="auth-consent-label">
+<input type="checkbox" id="regConsent" name="consent" required />
+<span class="auth-consent-box" aria-hidden="true">
+</span>
+<span class="auth-consent-text" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a> and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</span>
+</label>
+<div class="auth-consent-error" id="regConsentError" data-i18n="reg_consent_error">You must accept the terms to create an account.</div>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="reg_btn">Create Account</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="reg_switch">Already have an account?</span>
+<a href="#" onclick="switchModal('registerModal','loginModal');return false;" data-i18n="reg_switch_link">Sign In</a>
+</p>
+</div>
+</div>
+<!-- â•â•â• FORGOT PASSWORD MODAL â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+<div class="auth-overlay" id="forgotModal" role="dialog" aria-modal="true" aria-labelledby="forgotTitle">
+<div class="auth-modal">
+<button class="auth-close" onclick="closeModal('forgotModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
+</div>
+<h2 class="auth-title" id="forgotTitle" data-i18n="forgot_title">Reset Password</h2>
+<p class="auth-sub" data-i18n="forgot_sub">Enter your email to receive a reset code</p>
+<!-- Step 1: Email -->
+<div id="forgotStep1">
+<form class="auth-form" id="forgotEmailForm" onsubmit="handleForgotEmail(event)">
+<div class="auth-field">
+<label for="forgotEmail" data-i18n="forgot_email">Email Address</label>
+<input type="email" id="forgotEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="forgot_send_code">Send Reset Code</button>
+</form>
+</div>
+<!-- Step 2: Code + New Password -->
+<div id="forgotStep2" style="display:none;">
+<form class="auth-form" id="forgotResetForm" onsubmit="handleForgotReset(event)">
+<p class="auth-info" data-i18n="forgot_code_sent">A 6-digit code has been sent to your email. Enter it below.</p>
+<div class="auth-field">
+<label for="forgotCode" data-i18n="forgot_code">Reset Code</label>
+<input type="text" id="forgotCode" name="code" placeholder="123456" required maxlength="6" pattern="[0-9]{6}" inputmode="numeric" style="text-align:center;font-size:1.5rem;letter-spacing:0.3em;font-weight:600;" />
+</div>
+<div class="auth-field">
+<label for="forgotNewPassword" data-i18n="forgot_new_pw">New Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="forgotNewPassword" name="newPassword" placeholder="Enter new password" required autocomplete="new-password" minlength="8" />
+<button type="button" class="auth-eye" onclick="togglePw('forgotNewPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-field">
+<label for="forgotConfirmPassword" data-i18n="forgot_confirm_pw">Confirm Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="forgotConfirmPassword" name="confirmPassword" placeholder="Confirm new password" required autocomplete="new-password" minlength="8" />
+<button type="button" class="auth-eye" onclick="togglePw('forgotConfirmPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-pw-error" id="forgotPwError" style="display:none;" data-i18n="pw_error">Passwords do not match.</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="forgot_reset_btn">Reset Password</button>
+</form>
+<p class="auth-resend">
+<a href="#" onclick="resetForgotFlow();return false;" data-i18n="forgot_resend">Didn't receive code? Try again</a>
+</p>
+</div>
+<!-- Step 3: Success -->
+<div id="forgotStep3" style="display:none;">
+<div class="auth-success">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#22c55e;margin-bottom:1rem;">
+<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+<polyline points="22 4 12 14.01 9 11.01"/>
+</svg>
+<h3 data-i18n="forgot_success_title">Password Reset Successfully</h3>
+<p data-i18n="forgot_success_desc">Your password has been changed. You can now log in with your new password.</p>
+<button class="btn btn-primary" onclick="switchModal('forgotModal','loginModal')" data-i18n="forgot_go_login">Go to Login</button>
+</div>
+</div>
+<p class="auth-switch">
+<span data-i18n="forgot_remember">Remember your password?</span>
+<a href="#" onclick="switchModal('forgotModal','loginModal');return false;" data-i18n="forgot_back_login">Back to Login</a>
+</p>
+</div>
+</div>
+<script src="script.js">
+</script>
+<script src="i18n.js">
+</script>
+<script> function openModal(id) { document.querySelectorAll('.auth-overlay.active').forEach(function (m) { if (m.id !== id) m.classList.remove('active'); }); document.getElementById(id).classList.add('active'); document.body.classList.add('modal-open'); } function closeModal(id) { document.getElementById(id).classList.remove('active'); if (!document.querySelector('.auth-overlay.active')) { document.body.classList.remove('modal-open'); } } function switchModal(from, to) { closeModal(from); setTimeout(function () { openModal(to); }, 220); } function togglePw(inputId, btn) { var input = document.getElementById(inputId); input.type = input.type === 'password' ? 'text' : 'password'; btn.classList.toggle('active'); } // Close on backdrop click document.querySelectorAll('.auth-overlay').forEach(function (overlay) { overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(overlay.id); }); }); // Close on Escape document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { document.querySelectorAll('.auth-overlay.active').forEach(function (m) { closeModal(m.id); }); } }); function handleLogin(e) { e.preventDefault(); // TODO: wire to backend alert('Login submitted — backend integration pending.'); } function handleRegister(e) { e.preventDefault(); var pw = document.getElementById('regPassword').value; var pw2 = document.getElementById('regPasswordConfirm').value; var err = document.getElementById('regPwError'); var consent = document.getElementById('regConsent'); var consentErr = document.getElementById('regConsentError'); if (pw !== pw2) { err.textContent = 'Passwords do not match.'; err.style.display = 'block'; return; } var pwOk = pw.length >= 8 && /[A-Z]/.test(pw) && /[0-9]/.test(pw) && /[!@#$%^&*(),.?":{}|<>_\-+=\[\]\\\/;'`~]/.test(pw); if (!pwOk) { err.textContent = 'Password must be at least 8 characters with one uppercase letter, one number, and one special character.'; err.style.display = 'block'; return; } err.style.display = 'none'; if (consent && !consent.checked) { consentErr.style.display = 'block'; consent.closest('.auth-consent').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; } if (consentErr) consentErr.style.display = 'none'; // TODO: wire to backend alert('Registration submitted — backend integration pending.'); } // â•â•â• FORGOT PASSWORD HANDLERS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• var forgotEmail = ''; function resetForgotFlow() { forgotEmail = ''; document.getElementById('forgotStep1').style.display = 'block'; document.getElementById('forgotStep2').style.display = 'none'; document.getElementById('forgotStep3').style.display = 'none'; document.getElementById('forgotEmailForm').reset(); document.getElementById('forgotResetForm').reset(); document.getElementById('forgotPwError').style.display = 'none'; } async function handleForgotEmail(e) { e.preventDefault(); var emailInput = document.getElementById('forgotEmail'); forgotEmail = emailInput.value.trim(); if (!forgotEmail) return; var btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Sending...'; try { var res = await fetch('/api/auth/forgot-password', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: forgotEmail }) }); var data = await res.json(); // Always show step 2 (security - don't reveal if email exists) document.getElementById('forgotStep1').style.display = 'none'; document.getElementById('forgotStep2').style.display = 'block'; } catch (err) { alert('Error sending reset code. Please try again.'); } finally { btn.disabled = false; btn.textContent = 'Send Reset Code'; } } async function handleForgotReset(e) { e.preventDefault(); var code = document.getElementById('forgotCode').value.trim(); var newPw = document.getElementById('forgotNewPassword').value; var confirmPw = document.getElementById('forgotConfirmPassword').value; var pwErr = document.getElementById('forgotPwError'); if (newPw !== confirmPw) { pwErr.textContent = 'Passwords do not match.'; pwErr.style.display = 'block'; return; } if (newPw.length < 8) { pwErr.textContent = 'Password must be at least 8 characters.'; pwErr.style.display = 'block'; return; } pwErr.style.display = 'none'; var btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Resetting...'; try { var res = await fetch('/api/auth/reset-password', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: forgotEmail, code: code, newPassword: newPw }) }); var data = await res.json(); if (!res.ok) { pwErr.textContent = data.error || 'Invalid code or error resetting password.'; pwErr.style.display = 'block'; return; } // Success document.getElementById('forgotStep2').style.display = 'none'; document.getElementById('forgotStep3').style.display = 'block'; } catch (err) { pwErr.textContent = 'Error resetting password. Please try again.'; pwErr.style.display = 'block'; } finally { btn.disabled = false; btn.textContent = 'Reset Password'; } } // Reset forgot flow when modal closes document.getElementById('forgotModal').addEventListener('click', function(e) { if (e.target === this) resetForgotFlow(); }); </script>
+<!-- COOKIE CONSENT BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-labelledby="cookieBannerTitle" aria-hidden="true">
+<div class="cookie-banner-inner">
+<div class="cookie-banner-text">
+<p class="cookie-banner-title" id="cookieBannerTitle" data-i18n="cookie_title">We use cookies</p>
+<p class="cookie-banner-desc" data-i18n="cookie_desc">We use cookies and similar technologies to ensure the security of our platform, improve functionality and analyze usage. You can choose which cookies you allow. <a href="cookies-policy.html" class="cookie-banner-link">Learn more in our Cookies Policy</a>
+</p>
+</div>
+<div class="cookie-banner-actions">
+<button class="btn btn-primary cookie-btn" id="cookieAcceptAll" data-i18n="cookie_accept">Accept all</button>
+<button class="btn btn-ghost cookie-btn" id="cookieRejectNon" data-i18n="cookie_reject">Reject non-essential</button>
+<button class="btn btn-ghost cookie-btn cookie-btn--prefs" id="cookieManagePrefs" data-i18n="cookie_manage">Manage preferences</button>
+</div>
+</div>
+</div>
+<!-- COOKIE PREFERENCES PANEL -->
+<div class="cookie-prefs-overlay" id="cookiePrefsOverlay" role="dialog" aria-modal="true" aria-labelledby="cookiePrefsTitle" aria-hidden="true">
+<div class="cookie-prefs-modal">
+<button class="auth-close" id="cookiePrefsClose" aria-label="Close">&#x2715;</button>
+<h2 class="cookie-prefs-title" id="cookiePrefsTitle" data-i18n="cookie_prefs_title">Cookie Preferences</h2>
+<p class="cookie-prefs-sub" data-i18n="cookie_prefs_sub">Control which cookies ALTIVOR INSTITUTE may use. Necessary cookies cannot be disabled as they are required for platform security and core functionality. <a href="cookies-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Cookies Policy</a> &middot; <a href="privacy-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Privacy Policy</a>
+</p>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_necessary">Necessary</span>
+<span class="cookie-pref-desc" data-i18n="cookie_necessary_desc">Required for login sessions, security tokens and core platform functionality. Cannot be disabled.</span>
+</div>
+<div class="cookie-toggle cookie-toggle--locked" aria-label="Always active" data-i18n="cookie_always_on">Always on</div>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_functional">Functional</span>
+<span class="cookie-pref-desc" data-i18n="cookie_functional_desc">Remembers your language, theme preference and display settings.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieFunctional" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_analytics">Analytics</span>
+<span class="cookie-pref-desc" data-i18n="cookie_analytics_desc">Helps us understand how participants use the platform. Data is aggregated and anonymised.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieAnalytics" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_marketing">Marketing</span>
+<span class="cookie-pref-desc" data-i18n="cookie_marketing_desc">Used to measure the effectiveness of communications and deliver relevant content.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieMarketing" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-prefs-actions">
+<button class="btn btn-primary" id="cookieSavePrefs" data-i18n="cookie_save">Save preferences</button>
+<button class="btn btn-ghost" id="cookieAcceptAllPrefs" data-i18n="cookie_accept_all">Accept all</button>
+</div>
+</div>
+</div>
+<script src="cookie-consent.js">
+</script>
+<!-- DOCUMENTS MODAL -->
+<div class="docs-overlay" id="docsModal" role="dialog" aria-modal="true" aria-labelledby="docsModalTitle">
+<div class="docs-modal">
+<div class="docs-modal-header">
+<div class="docs-modal-title">
+<span class="docs-modal-label">ALTIVOR INSTITUTE</span>
+<h2 class="docs-modal-heading" id="docsModalTitle" data-i18n="doc_heading">Documents</h2>
+</div>
+<button class="docs-modal-close" onclick="closeDocsModal()" aria-label="Close">&#x2715;</button>
+</div>
+<div class="docs-modal-body">
+<div class="docs-section-label" data-i18n="doc_legal_section">Legal Documents</div>
+<a href="terms-of-service.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+<polyline points="10 9 9 9 8 9"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_terms_name">Terms &amp; Conditions</span>
+<span class="docs-item-desc" data-i18n="doc_terms_desc">Platform usage terms, user obligations and service agreement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="privacy-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_privacy_name">Privacy Policy</span>
+<span class="docs-item-desc" data-i18n="doc_privacy_desc">GDPR-compliant data processing and privacy practices</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="risk-disclosure.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+<line x1="12" y1="9" x2="12" y2="13"/>
+<line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_risk_name">Risk Disclosure</span>
+<span class="docs-item-desc" data-i18n="doc_risk_desc">Financial risk warnings and regulatory disclaimers</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="investment-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_invest_name">Investment &amp; Educational Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_invest_desc">No investment advice &mdash; educational services only</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="earnings-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="12" y1="1" x2="12" y2="23"/>
+<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_earnings_name">Earnings &amp; Performance Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_earnings_desc">No guarantee of financial results or trading performance</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="acceptable-use-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 11l3 3L22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_aup_name">Acceptable Use Policy</span>
+<span class="docs-item-desc" data-i18n="doc_aup_desc">Permitted conduct, prohibited activities and enforcement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="legal-notice.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="16" x2="12" y2="12"/>
+<line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_legal_name">Legal Notice &amp; Imprint</span>
+<span class="docs-item-desc" data-i18n="doc_legal_desc">Operator identification, regulatory status and statutory information</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="complaints-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_complaints_name">Complaints &amp; Support Policy</span>
+<span class="docs-item-desc" data-i18n="doc_complaints_desc">Support scope, complaint procedure and resolution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="anti-fraud-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_antifraud_name">Anti-Fraud Policy</span>
+<span class="docs-item-desc" data-i18n="doc_antifraud_desc">Fraud prevention, prohibited conduct and enforcement framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="security-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_security_name">Security Policy</span>
+<span class="docs-item-desc" data-i18n="doc_security_desc">Platform security measures, incident response and vulnerability disclosure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="trust-and-safety.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_trust_name">Trust &amp; Safety</span>
+<span class="docs-item-desc" data-i18n="doc_trust_desc">Platform safety framework, values and user protection principles</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="refund-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="23 4 23 10 17 10"/>
+<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_refund_name">Refund Policy</span>
+<span class="docs-item-desc" data-i18n="doc_refund_desc">Digital services refund terms and withdrawal rights</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="cookies-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_cookies_name">Cookies Policy</span>
+<span class="docs-item-desc" data-i18n="doc_cookies_desc">Cookie usage, consent management and third-party tracking</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-section-label" data-i18n="doc_fw_section">Framework Documents</div>
+<a href="us100-framework.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us100_name">US100 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us100_desc">Nasdaq 100 CFD &mdash; operational execution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us30_name">US30 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us30_desc">Dow Jones 30 &mdash; in development</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+<div class="docs-section-label" data-i18n="doc_challenge_section">Challenge Documents</div>
+<a href="challenge-rules.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_challenge_name">Challenge Rules &amp; Programme Terms</span>
+<span class="docs-item-desc" data-i18n="doc_challenge_desc">Evaluation criteria, prohibited conduct and programme structure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_casestudy_name">Case Study Library</span>
+<span class="docs-item-desc" data-i18n="doc_casestudy_desc">Full Access required &mdash; anonymised cycle reviews</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html> 

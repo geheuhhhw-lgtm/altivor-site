@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Challenge Status ALTIVOR INSTITUTE</title>
+<meta name="description" content="View your final ALTIVOR Challenge evaluation, download certification upon passing, and claim your 20% Accessories discount." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="verification.css" />
+</head>
+<body>
+<!-- NAVIGATION -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active">Active</span>
+<span class="nav-drop-name">US100</span>
+<span class="nav-drop-desc">Nasdaq 100 CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev">In Dev</span>
+<span class="nav-drop-name">US30</span>
+<span class="nav-drop-desc">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span>Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Log</span>
+<span class="nav-drop-desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Wiki</span>
+<span class="nav-drop-desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">PnL Calendar</span>
+<span class="nav-drop-desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Economic Calendar</span>
+<span class="nav-drop-desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Symbols</span>
+<span class="nav-drop-desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Execution Checklist</span>
+<span class="nav-drop-desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Calculators</span>
+<span class="nav-drop-desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">??</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="accessories.html">Accessories</a>
+<a href="index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="verif-page vs-status-page">
+<div class="container">
+<div class="verif-page-header">
+<a href="verification.html" class="verif-page-back">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M19 12H5M12 19l-7-7 7-7"/>
+</svg>
+<span data-i18n="verif_back">Back to Verification Center</span>
+</a>
+<p class="verif-page-tag" data-i18n="verif_status_label">US100 Validation Challenge</p>
+<h1 data-i18n="verif_status_title">Qualification Dashboard</h1>
+<p class="verif-page-desc" data-i18n="verif_status_desc">Real-time qualification assessment under ALTIVOR evaluation protocol. Your progression, risk state, and eligibility status are determined by validated performance data.</p>
+</div>
+<!-- QUALIFICATION VERDICT -->
+<div class="vs-verdict-block" id="vsVerdictBlock">
+<div class="vs-verdict-top">
+<div class="vs-verdict-icon" id="vsVerdictIcon">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+</div>
+<div class="vs-verdict-status" id="vsVerdictStatus">Classification Pending</div>
+</div>
+<div class="vs-verdict-desc" id="vsVerdictDesc">Insufficient validated trade data to establish qualification state. Log trades to begin assessment.</div>
+<div class="vs-verdict-risk" id="vsVerdictRisk">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+<span id="vsVerdictRiskText">No active risk conditions detected.</span>
+</div>
+</div>
+<!-- OVERALL CHALLENGE PROGRESS -->
+<div class="vs-progress-block">
+<div class="vs-progress-header">
+<span class="vs-progress-label">Validation Progress</span>
+<span class="vs-progress-pct" id="vsProgressPct">0%</span>
+</div>
+<div class="vs-progress-track">
+<div class="vs-progress-fill" id="vsProgressFill" style="width:0%"></div>
+</div>
+<div class="vs-progress-milestones">
+<span class="vs-milestone" data-threshold="0">Start</span>
+<span class="vs-milestone" data-threshold="25">Initial Classification</span>
+<span class="vs-milestone" data-threshold="50">Evaluation Active</span>
+<span class="vs-milestone" data-threshold="75">Qualification Review</span>
+<span class="vs-milestone" data-threshold="100">Funded Ready</span>
+</div>
+</div>
+<!-- MAIN CARD: Challenge status + Trader Level + Score + KPI -->
+<div class="vs-main-card">
+<div class="vs-card-header">
+<div class="vs-status-badge" id="vsStatusBadge">
+<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<circle cx="12" cy="12" r="10"/>
+<polyline points="12 6 12 12 16 14"/>
+</svg>
+</div>
+<div class="vs-card-header-text">
+<div class="vs-challenge-title" id="vsStatusTitle">Qualification in Progress</div>
+<div class="vs-challenge-sub" id="vsStatusSub">Awaiting validated performance data</div>
+</div>
+</div>
+<div class="vs-classification-row">
+<div class="vs-level-block">
+<div class="vs-bl-label">Trader Classification</div>
+<div class="vs-level-value" id="vsTraderLevel">—</div>
+<div class="vs-level-desc" id="vsLevelDesc">Not enough validated trades to establish an initial classification baseline.</div>
+</div>
+<div class="vs-score-block">
+<div class="vs-bl-label">Trader Score</div>
+<div class="vs-score-value" id="vsTraderScore">— / 100</div>
+<button class="vs-score-btn" id="vsScoreBtn" type="button">View breakdown</button>
+</div>
+</div>
+<div class="vs-kpi-grid">
+<div class="vs-kpi"><span class="vs-kpi-label">Weekly Check-ins</span><span class="vs-kpi-value" id="vsKpiWeekly">0 / 8</span></div>
+<div class="vs-kpi"><span class="vs-kpi-label">Validated Trades</span><span class="vs-kpi-value" id="vsKpiTrades">0 / 55</span></div>
+<div class="vs-kpi"><span class="vs-kpi-label">Cumulative Profit</span><span class="vs-kpi-value" id="vsKpiProfit">0.00%</span></div>
+<div class="vs-kpi"><span class="vs-kpi-label">Max Drawdown</span><span class="vs-kpi-value" id="vsKpiDrawdown">0.00%</span></div>
+<div class="vs-kpi"><span class="vs-kpi-label">Statement</span><span class="vs-kpi-value" id="vsKpiStatement">Not Submitted</span></div>
+<div class="vs-kpi"><span class="vs-kpi-label">Qualification State</span><span class="vs-kpi-value" id="vsKpiFinal">Pending</span></div>
+</div>
+</div>
+<!-- ANALYSIS ROW: Performance Profile + Readiness Interpretation -->
+<div class="vs-analysis-row">
+<div class="vs-profile-card">
+<h3 class="vs-card-title">Performance Profile</h3>
+<div class="vs-profile-rows">
+<div class="vs-pr-row">
+<span class="vs-pr-label">Discipline</span>
+<div class="vs-pr-bar-track"><div class="vs-pr-bar-fill" id="vsBarDiscipline" style="width:0%"></div></div>
+<span class="vs-pr-val" id="vsValDiscipline">—</span>
+<span class="vs-pr-weight">30%</span>
+</div>
+<div class="vs-pr-row">
+<span class="vs-pr-label">Consistency</span>
+<div class="vs-pr-bar-track"><div class="vs-pr-bar-fill" id="vsBarConsistency" style="width:0%"></div></div>
+<span class="vs-pr-val" id="vsValConsistency">—</span>
+<span class="vs-pr-weight">25%</span>
+</div>
+<div class="vs-pr-row">
+<span class="vs-pr-label">Risk Governance</span>
+<div class="vs-pr-bar-track"><div class="vs-pr-bar-fill" id="vsBarRiskGov" style="width:0%"></div></div>
+<span class="vs-pr-val" id="vsValRiskGov">—</span>
+<span class="vs-pr-weight">20%</span>
+</div>
+<div class="vs-pr-row">
+<span class="vs-pr-label">Execution Quality</span>
+<div class="vs-pr-bar-track"><div class="vs-pr-bar-fill" id="vsBarExecQuality" style="width:0%"></div></div>
+<span class="vs-pr-val" id="vsValExecQuality">—</span>
+<span class="vs-pr-weight">15%</span>
+</div>
+<div class="vs-pr-row">
+<span class="vs-pr-label">Performance</span>
+<div class="vs-pr-bar-track"><div class="vs-pr-bar-fill" id="vsBarPerformance" style="width:0%"></div></div>
+<span class="vs-pr-val" id="vsValPerformance">—</span>
+<span class="vs-pr-weight">10%</span>
+</div>
+</div>
+<div class="vs-score-total-row">
+<span>Trader Score</span>
+<span id="vsProfileTotalScore">— / 100</span>
+</div>
+<div class="vs-profile-divider"></div>
+<div class="vs-profile-stats-grid">
+<div class="vs-profile-stat">
+<span class="vs-profile-stat-val" id="vsStatWinRate">—</span>
+<span class="vs-profile-stat-label">Win Rate</span>
+</div>
+<div class="vs-profile-stat">
+<span class="vs-profile-stat-val" id="vsStatAvgRR">—</span>
+<span class="vs-profile-stat-label">Avg RR</span>
+</div>
+<div class="vs-profile-stat">
+<span class="vs-profile-stat-val" id="vsStatTotalTrades">0</span>
+<span class="vs-profile-stat-label">Trades Logged</span>
+</div>
+<div class="vs-profile-stat">
+<span class="vs-profile-stat-val" id="vsStatBestRR">—</span>
+<span class="vs-profile-stat-label">Best RR</span>
+</div>
+<div class="vs-profile-stat">
+<span class="vs-profile-stat-val" id="vsStatWinStreak">0</span>
+<span class="vs-profile-stat-label">Best Streak</span>
+</div>
+<div class="vs-profile-stat">
+<span class="vs-profile-stat-val" id="vsStatLossStreak">0</span>
+<span class="vs-profile-stat-label">Worst Streak</span>
+</div>
+</div>
+</div>
+<div class="vs-interp-card">
+<h3 class="vs-card-title">Qualification Assessment</h3>
+<p class="vs-readiness-text" id="vsReadinessText">Readiness assessment unavailable until minimum validated trade threshold is reached.</p>
+<div class="vs-constraint-block">
+<div class="vs-constraint-label">Primary Constraint</div>
+<div class="vs-constraint-value" id="vsPrimaryConstraint">Insufficient validated trade sample</div>
+</div>
+<div class="vs-constraint-block">
+<div class="vs-constraint-label">Rule Compliance</div>
+<div class="vs-constraint-value" id="vsAssessmentCompliance">VALID — No active rule violations detected.</div>
+</div>
+<div class="vs-constraint-block">
+<div class="vs-constraint-label">Qualification Blocker</div>
+<div class="vs-constraint-value" id="vsQualBlocker">You are not yet eligible for classification.</div>
+</div>
+<div class="vs-threshold-block">
+<div class="vs-threshold-label">Next Required Action</div>
+<div class="vs-threshold-value" id="vsNextThreshold">Log a minimum of 10 validated trades to unlock initial classification baseline.</div>
+</div>
+<div class="vs-threshold-block">
+<div class="vs-threshold-label">Current Assessment State</div>
+<div class="vs-threshold-value" id="vsAssessmentState">Validation pending — awaiting sufficient trade data.</div>
+</div>
+<div class="vs-threshold-block vs-risk-condition-block" id="vsRiskConditionBlock">
+<div class="vs-threshold-label">Risk Condition</div>
+<div class="vs-threshold-value" id="vsRiskCondition">Within allowed parameters</div>
+</div>
+</div>
+</div>
+<!-- QUALIFICATION REQUIREMENTS -->
+<div class="vs-requirements-block">
+<h3 class="vs-card-title">Qualification Requirements</h3>
+<p class="vs-req-intro">Each requirement below must be satisfied for final qualification. Incomplete items block funded-ready classification. Breached items result in immediate challenge failure.</p>
+<div class="vs-req-list">
+<div class="vs-req-item" id="vsReqWeekly">
+<div class="vs-req-indicator vs-req-ind-incomplete"></div>
+<div class="vs-req-content">
+<div class="vs-req-title">8 Weekly Equity Check-Ins</div>
+<div class="vs-req-meta">Required for final validation continuity review &middot; Affects Risk Governance Score</div>
+<div class="vs-req-warn" id="vsReqWeeklyWarn">Incomplete weekly check-ins will block final verification.</div>
+</div>
+<div class="vs-req-right">
+<span class="vs-req-badge vs-req-incomplete" id="vsReqWeeklyBadge">Incomplete</span>
+<span class="vs-req-count" id="vsReqWeeklyCount">0 / 8</span>
+</div>
+</div>
+<div class="vs-req-item" id="vsReqTrades">
+<div class="vs-req-indicator vs-req-ind-incomplete"></div>
+<div class="vs-req-content">
+<div class="vs-req-title">55 Validated Trades</div>
+<div class="vs-req-meta">Required for full execution and discipline classification &middot; Affects Discipline Score</div>
+<div class="vs-req-warn" id="vsReqTradesWarn">Qualification cannot proceed without a complete validated trade sample.</div>
+</div>
+<div class="vs-req-right">
+<span class="vs-req-badge vs-req-incomplete" id="vsReqTradesBadge">Incomplete</span>
+<span class="vs-req-count" id="vsReqTradesCount">0 / 55</span>
+</div>
+</div>
+<div class="vs-req-item" id="vsReqProfit">
+<div class="vs-req-indicator vs-req-ind-incomplete"></div>
+<div class="vs-req-content">
+<div class="vs-req-title">Minimum 6% Cumulative Profit</div>
+<div class="vs-req-meta">Required for performance efficiency validation &middot; Affects Performance Score</div>
+<div class="vs-req-warn" id="vsReqProfitWarn">Below-target profit will prevent qualification regardless of other metrics.</div>
+</div>
+<div class="vs-req-right">
+<span class="vs-req-badge vs-req-incomplete" id="vsReqProfitBadge">Incomplete</span>
+<span class="vs-req-count" id="vsReqProfitCount">0.00%</span>
+</div>
+</div>
+<div class="vs-req-item vs-req-item--critical" id="vsReqDrawdown">
+<div class="vs-req-indicator vs-req-ind-safe"></div>
+<div class="vs-req-content">
+<div class="vs-req-title">Maximum 10% Drawdown</div>
+<div class="vs-req-meta">Breach results in immediate challenge failure &middot; Highest-weight risk parameter</div>
+<div class="vs-req-fail-warn" id="vsReqDrawdownWarn">Risk breach will result in immediate challenge failure. This requirement cannot be recovered.</div>
+</div>
+<div class="vs-req-right">
+<span class="vs-req-badge vs-req-safe" id="vsReqDrawdownBadge">Under Control</span>
+<span class="vs-req-count" id="vsReqDrawdownCount">0.00%</span>
+</div>
+</div>
+<div class="vs-req-item" id="vsReqStatement">
+<div class="vs-req-indicator vs-req-ind-incomplete"></div>
+<div class="vs-req-content">
+<div class="vs-req-title">Broker Statement Submitted</div>
+<div class="vs-req-meta">Required for final verification &middot; Validation cannot be completed without broker statement</div>
+<div class="vs-req-warn" id="vsReqStatementWarn">Final qualification is blocked until broker statement is submitted and verified.</div>
+</div>
+<div class="vs-req-right">
+<span class="vs-req-badge vs-req-incomplete" id="vsReqStatementBadge">Incomplete</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RULE COMPLIANCE STATUS -->
+<div class="vs-compliance-block" id="vsComplianceBlock">
+<div class="vs-compliance-header">
+<div class="vs-compliance-icon" id="vsComplianceIcon">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</div>
+<div class="vs-compliance-title-row">
+<h3 class="vs-card-title">Rule Compliance Status</h3>
+<button class="vs-rules-link-btn" id="vsViewRulesBtn" type="button">View Challenge Rules</button>
+</div>
+</div>
+<div class="vs-compliance-status" id="vsComplianceStatus">
+<span class="vs-compliance-badge vs-comp-valid" id="vsCompBadge">VALID</span>
+<span class="vs-compliance-text" id="vsCompText">No active rule violations detected.</span>
+</div>
+<div class="vs-compliance-details" id="vsComplianceDetails">
+<div class="vs-comp-detail-row">
+<span class="vs-comp-detail-label">Trades Evaluated</span>
+<span class="vs-comp-detail-value" id="vsCompTradesEval">0</span>
+</div>
+<div class="vs-comp-detail-row">
+<span class="vs-comp-detail-label">Valid Trades</span>
+<span class="vs-comp-detail-value vs-comp-val-valid" id="vsCompValidCount">0</span>
+</div>
+<div class="vs-comp-detail-row">
+<span class="vs-comp-detail-label">Invalid Trades</span>
+<span class="vs-comp-detail-value vs-comp-val-invalid" id="vsCompInvalidCount">0</span>
+</div>
+<div class="vs-comp-detail-row">
+<span class="vs-comp-detail-label">Breach Trades</span>
+<span class="vs-comp-detail-value vs-comp-val-breach" id="vsCompBreachCount">0</span>
+</div>
+<div class="vs-comp-detail-row">
+<span class="vs-comp-detail-label">Warnings</span>
+<span class="vs-comp-detail-value vs-comp-val-warning" id="vsCompWarningCount">0</span>
+</div>
+</div>
+<div class="vs-comp-failure-reason" id="vsCompFailureReason" style="display:none;">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+<span id="vsCompFailureText"></span>
+</div>
+</div>
+<!-- RULE VIOLATION LOG -->
+<div class="vs-violation-log" id="vsViolationLog">
+<div class="vs-violation-log-header">
+<h3 class="vs-card-title">Rule Violations Log</h3>
+<span class="vs-violation-count" id="vsViolationCount">0 entries</span>
+</div>
+<div class="vs-violation-list" id="vsViolationList">
+<div class="vs-violation-empty">No rule violations recorded.</div>
+</div>
+</div>
+<!-- SCORING ENGINE: Grade Distribution + Behavioral Flags -->
+<div class="vs-analysis-row" id="seEngineRow" style="display:none;">
+<div class="vs-profile-card se-grades-card">
+<h3 class="vs-card-title">Trade Grade Distribution</h3>
+<div class="se-grade-bars">
+<div class="se-grade-bar-row">
+<span class="se-grade-label se-grade-ap">A+</span>
+<div class="se-grade-track"><div class="se-grade-fill se-fill-ap" id="seBarAP" style="width:0%"></div></div>
+<span class="se-grade-count" id="seCountAP">0</span>
+</div>
+<div class="se-grade-bar-row">
+<span class="se-grade-label se-grade-a">A</span>
+<div class="se-grade-track"><div class="se-grade-fill se-fill-a" id="seBarA" style="width:0%"></div></div>
+<span class="se-grade-count" id="seCountA">0</span>
+</div>
+<div class="se-grade-bar-row">
+<span class="se-grade-label se-grade-b">B</span>
+<div class="se-grade-track"><div class="se-grade-fill se-fill-b" id="seBarB" style="width:0%"></div></div>
+<span class="se-grade-count" id="seCountB">0</span>
+</div>
+<div class="se-grade-bar-row">
+<span class="se-grade-label se-grade-f">F</span>
+<div class="se-grade-track"><div class="se-grade-fill se-fill-f" id="seBarF" style="width:0%"></div></div>
+<span class="se-grade-count" id="seCountF">0</span>
+</div>
+</div>
+<div class="se-grade-summary">
+<span>Average Trade Score</span>
+<span id="seAvgScore">— / 100</span>
+</div>
+</div>
+<div class="vs-interp-card se-flags-card">
+<h3 class="vs-card-title">Behavioral Flags</h3>
+<div class="se-flags-list" id="seFlagsList">
+<div class="se-flag-empty">No behavioral anomalies detected in the current evaluation window.</div>
+</div>
+<div class="se-tier-block">
+<div class="se-tier-label">Readiness Classification</div>
+<div class="se-tier-value" id="seTierValue">UNVERIFIED</div>
+<div class="se-tier-desc" id="seTierDesc">Insufficient data for classification.</div>
+</div>
+</div>
+</div>
+<!-- SCORING ENGINE: Score Evolution -->
+<div class="se-evolution-block" id="seEvolutionBlock" style="display:none;">
+<h3 class="vs-card-title">Score Evolution</h3>
+<div class="se-chart-wrap">
+<div class="se-chart-y-axis">
+<span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+</div>
+<div class="se-chart-area" id="seChartArea">
+<div class="se-chart-line se-line-fundable" style="bottom:65%;" title="Fundable threshold (65)"></div>
+<div class="se-chart-line se-line-institutional" style="bottom:85%;" title="Institutional Ready threshold (85)"></div>
+<div class="se-chart-bars" id="seChartBars"></div>
+</div>
+</div>
+<div class="se-chart-legend">
+<span class="se-legend-item"><span class="se-legend-dot se-dot-ap"></span>A+</span>
+<span class="se-legend-item"><span class="se-legend-dot se-dot-a"></span>A</span>
+<span class="se-legend-item"><span class="se-legend-dot se-dot-b"></span>B</span>
+<span class="se-legend-item"><span class="se-legend-dot se-dot-f"></span>F</span>
+</div>
+</div>
+<!-- SCORING ENGINE: Trade Evaluation Log -->
+<div class="se-tradelog-block" id="seTradeLogBlock" style="display:none;">
+<h3 class="vs-card-title">Trade Evaluation Log</h3>
+<div class="se-tradelog-list" id="seTradeLogList"></div>
+</div>
+<!-- PASS STATE -->
+<div id="vsPassState" style="display:none;">
+<div class="vs-outcome-block vs-outcome-pass">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.9)" stroke-width="1.5" style="margin-bottom:1rem;">
+<circle cx="12" cy="8" r="7"/>
+<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+</svg>
+<h2 class="vs-outcome-title">Qualification Complete</h2>
+<p class="vs-outcome-desc">All qualification requirements have been satisfied. Your verification profile meets ALTIVOR funded-readiness standards. You are now eligible for funded-account classification.</p>
+<div class="vs-outcome-actions">
+<button class="btn btn-primary" id="vsDownloadCertBtn">Download Certificate</button>
+<button class="btn btn-outline" id="vsClaimDiscountBtn">Claim 20% Discount</button>
+</div>
+</div>
+</div>
+<!-- FAIL STATE -->
+<div id="vsFailState" style="display:none;">
+<div class="vs-outcome-block vs-outcome-fail">
+<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.9)" stroke-width="1.5" style="margin-bottom:1rem;">
+<circle cx="12" cy="12" r="10"/>
+<line x1="15" y1="9" x2="9" y2="15"/>
+<line x1="9" y1="9" x2="15" y2="15"/>
+</svg>
+<h2 class="vs-outcome-title">Qualification Failed</h2>
+<p class="vs-outcome-desc" id="vsFailReason">A critical requirement was breached during the evaluation period. The qualification process has been permanently terminated.</p>
+<a href="index.html#pricing" class="btn btn-outline">Restart Qualification</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- PRE-CHALLENGE RULE ACKNOWLEDGMENT OVERLAY -->
+<div class="vs-ack-overlay" id="vsAckOverlay" style="display:none;">
+<div class="vs-ack-panel">
+<div class="vs-ack-header">
+<div class="vs-ack-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</div>
+<h2 class="vs-ack-title">Challenge Rule Framework</h2>
+<p class="vs-ack-sub">The US100 Validation Challenge is evaluated on procedural compliance, not financial outcome alone. Before activation, you must acknowledge and accept the following rule framework.</p>
+</div>
+<div class="vs-ack-rules-summary">
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label">Session Window</span>
+<span class="vs-ack-rule-desc">Trades may only be opened within the permitted challenge execution window.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label">Maximum Risk</span>
+<span class="vs-ack-rule-desc">Risk per trade must not exceed the defined maximum allocation threshold.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label">Stop Loss Requirement</span>
+<span class="vs-ack-rule-desc">Every trade must have a stop loss defined at entry. Trades without stop loss are treated as hard breaches.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label">Trade Documentation</span>
+<span class="vs-ack-rule-desc">Each trade must include valid documentation (entry, exit, screenshot, notes). Incomplete trades may be invalidated.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label">Framework Compliance</span>
+<span class="vs-ack-rule-desc">Each trade must comply with the defined execution framework. Non-framework trades may be invalidated or treated as breaches.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label">Invalidation vs Disqualification</span>
+<span class="vs-ack-rule-desc">Some violations invalidate a single trade (it does not count). Others disqualify the entire challenge immediately and permanently.</span>
+</div>
+</div>
+<div class="vs-ack-checkboxes">
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that challenge evaluation is based on rule compliance, not financial outcome alone.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that some violations invalidate a trade, while others can disqualify the entire challenge.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that trading outside the permitted framework may result in challenge failure.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that all challenge rules are fixed and cannot be changed during evaluation.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that ALTIVOR evaluates execution behavior according to predefined validation rules.</label>
+</div>
+<div class="vs-ack-actions">
+<button class="btn btn-primary vs-ack-activate-btn" id="vsAckActivateBtn" disabled type="button">Activate Challenge</button>
+<button class="vs-rules-link-btn" id="vsAckViewFullRules" type="button">View full challenge rules</button>
+</div>
+</div>
+</div>
+<!-- CHALLENGE RULES MODAL -->
+<div class="vs-modal-overlay vs-rules-modal-overlay" id="vsRulesModal" aria-hidden="true">
+<div class="vs-modal vs-rules-modal" role="dialog" aria-modal="true" aria-labelledby="vsRulesModalTitle">
+<button class="vs-modal-close" id="vsRulesModalClose" type="button" aria-label="Close">&#x2715;</button>
+<h3 class="vs-modal-title" id="vsRulesModalTitle">Challenge Rule Matrix</h3>
+<p class="vs-modal-desc">Complete rule framework for the US100 Validation Challenge. All rules are fixed and deterministic.</p>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat vs-rules-cat-breach">Hard Fail — Challenge Disqualification</h4>
+<p class="vs-rules-cat-desc">Any single occurrence results in immediate and permanent challenge failure.</p>
+<ul class="vs-rules-list">
+<li>Trade opened outside the permitted challenge session window</li>
+<li>Risk per trade exceeds the maximum allowed threshold</li>
+<li>No stop loss defined at trade entry</li>
+<li>Manual widening of stop loss beyond original structural invalidation level</li>
+<li>Trade documentation intentionally missing where submission is required</li>
+<li>Maximum challenge drawdown (10%) breached</li>
+<li>Broker statement requirement not fulfilled by final verification stage</li>
+<li>Any explicitly prohibited execution behavior defined by the challenge framework</li>
+</ul>
+</div>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat vs-rules-cat-invalid">Invalid Trade Rules</h4>
+<p class="vs-rules-cat-desc">Trade is excluded from validated count but does not disqualify the challenge.</p>
+<ul class="vs-rules-list">
+<li>Trade not assigned to a recognized strategy or framework type</li>
+<li>Required structure confirmation missing at entry</li>
+<li>Entry taken without required pullback condition (where applicable)</li>
+<li>Incomplete trade log, missing screenshots, or missing required metadata</li>
+<li>Missing required validation fields (entry, exit, stop loss, take profit)</li>
+<li>Trade cannot be mapped to a valid execution setup under challenge rules</li>
+</ul>
+</div>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat vs-rules-cat-warning">Warning Rules</h4>
+<p class="vs-rules-cat-desc">Affect discipline, consistency, or trader score. Do not directly invalidate or disqualify.</p>
+<ul class="vs-rules-list">
+<li>Overtrading pattern detected (excessive trades per session)</li>
+<li>Revenge-trade timing pattern (post-loss impulsive re-entry)</li>
+<li>Repeated inconsistency between declared and executed risk</li>
+<li>Repeated non-fatal checklist deviations</li>
+<li>Quality degradation patterns across multiple trades</li>
+</ul>
+</div>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat">What Counts as a Valid Trade</h4>
+<ul class="vs-rules-list">
+<li>Trade opened within the permitted session window</li>
+<li>Risk allocation within maximum threshold</li>
+<li>Stop loss defined at entry</li>
+<li>Complete trade documentation (entry, exit, SL, TP, screenshots, notes)</li>
+<li>Trade mapped to a recognized framework setup</li>
+<li>No active hard-fail or invalidation rule triggered</li>
+</ul>
+</div>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat">Required Evidence and Documentation</h4>
+<ul class="vs-rules-list">
+<li>Trade entry and exit prices with timestamps</li>
+<li>Stop loss and take profit levels</li>
+<li>Trade screenshot (chart or platform confirmation)</li>
+<li>Trade notes describing setup rationale</li>
+<li>Broker statement (required once, before final verification)</li>
+<li>Weekly equity check-ins (8 required across the evaluation period)</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- SCORE BREAKDOWN MODAL -->
+<div class="vs-modal-overlay" id="vsScoreModal" aria-hidden="true">
+<div class="vs-modal" role="dialog" aria-modal="true" aria-labelledby="vsModalTitle">
+<button class="vs-modal-close" id="vsModalClose" type="button" aria-label="Close">&#x2715;</button>
+<h3 class="vs-modal-title" id="vsModalTitle">Score Breakdown</h3>
+<p class="vs-modal-desc">Your Trader Score is a weighted composite of four evaluation dimensions. Risk governance carries the highest weight — poor risk control caps the overall score.</p>
+<div class="vs-bd-rows">
+<div class="vs-bd-row">
+<span class="vs-bd-label">Risk Governance</span>
+<span class="vs-bd-weight">40%</span>
+<div class="vs-bd-bar-track"><div class="vs-bd-bar-fill" id="vsBdBarRisk" style="width:0%"></div></div>
+<span class="vs-bd-val" id="vsBdValRisk">—</span>
+</div>
+<div class="vs-bd-row">
+<span class="vs-bd-label">Discipline</span>
+<span class="vs-bd-weight">30%</span>
+<div class="vs-bd-bar-track"><div class="vs-bd-bar-fill" id="vsBdBarDiscipline" style="width:0%"></div></div>
+<span class="vs-bd-val" id="vsBdValDiscipline">—</span>
+</div>
+<div class="vs-bd-row">
+<span class="vs-bd-label">Consistency</span>
+<span class="vs-bd-weight">15%</span>
+<div class="vs-bd-bar-track"><div class="vs-bd-bar-fill" id="vsBdBarConsistency" style="width:0%"></div></div>
+<span class="vs-bd-val" id="vsBdValConsistency">—</span>
+</div>
+<div class="vs-bd-row">
+<span class="vs-bd-label">Performance (R-based)</span>
+<span class="vs-bd-weight">15%</span>
+<div class="vs-bd-bar-track"><div class="vs-bd-bar-fill" id="vsBdBarPerformance" style="width:0%"></div></div>
+<span class="vs-bd-val" id="vsBdValPerformance">—</span>
+</div>
+</div>
+<div class="vs-bd-total">
+<span>Trader Score</span>
+<span id="vsBdTotal">— / 100</span>
+</div>
+</div>
+</div>
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc">ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only.</p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="index.html#about" data-i18n="footer_about">About</a>
+<a href="index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="if(typeof altCookies!=='undefined')altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="if(typeof openDocsModal!=='undefined')openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script src="auth-modals.js">
+</script>
+<script src="trade-scoring-engine.js">
+</script>
+<script>
+(function () {
+  function loadAllData() {
+    var weekly = JSON.parse(localStorage.getItem('altivor_verification_weekly_v1') || '{"checkins":[]}');
+    var trades = JSON.parse(localStorage.getItem('altivor_verification_trades_v1') || '{"trades":[]}');
+    var drawdown = JSON.parse(localStorage.getItem('altivor_verification_drawdown_v1') || '{"peakEquity":10000,"currentEquity":10000,"failed":false}');
+    var profit = JSON.parse(localStorage.getItem('altivor_verification_profit_v1') || '{"startingBalance":10000,"month1Balance":null,"month2Balance":null}');
+    var statement = JSON.parse(localStorage.getItem('altivor_verification_statement_v1') || '{"submitted":false}');
+    return { weekly: weekly, trades: trades, drawdown: drawdown, profit: profit, statement: statement };
+  }
+
+  function calcDD(peak, current) {
+    if (!peak || peak <= 0) return 0;
+    return Math.max(0, ((peak - current) / peak) * 100);
+  }
+  function calcProfit(start, end) {
+    if (!start || start <= 0 || !end) return 0;
+    return ((end - start) / start) * 100;
+  }
+  function calcWinRate(trades) {
+    if (!trades || trades.length === 0) return null;
+    var wins = trades.filter(function(t){ return (parseFloat(t.pnl || t.profit || 0)) > 0; }).length;
+    return (wins / trades.length) * 100;
+  }
+  function calcAvgRR(trades) {
+    if (!trades || trades.length === 0) return null;
+    var total = 0, count = 0;
+    trades.forEach(function(t) {
+      if (t.rr && t.rr > 0) { total += parseFloat(t.rr); count++; }
+      else if (t.takeProfit && t.stopLoss && t.entryPrice) {
+        var risk = Math.abs(t.entryPrice - t.stopLoss);
+        var reward = Math.abs(t.takeProfit - t.entryPrice);
+        if (risk > 0) { total += reward / risk; count++; }
+      }
+    });
+    return count > 0 ? total / count : null;
+  }
+
+  function calcDiscipline(trades, checkins) {
+    if (!trades || trades.length < 5) return null;
+    var compliant = trades.filter(function(t){ return t.compliant !== false; }).length;
+    var score = (compliant / trades.length) * 70;
+    var withScreenshot = trades.filter(function(t){ return t.screenshot || t.screenshotFile || t.hasScreenshot; }).length;
+    score += (withScreenshot / trades.length) * 20;
+    var checkinRatio = Math.min(1, (checkins ? checkins.length : 0) / 8);
+    score += checkinRatio * 10;
+    return Math.round(Math.min(100, score));
+  }
+  function calcConsistency(trades) {
+    if (!trades || trades.length < 5) return null;
+    var pnls = trades.map(function(t){ return parseFloat(t.pnlPercent || t.pnl || 0); });
+    var avg = pnls.reduce(function(a,b){ return a+b; },0) / pnls.length;
+    var variance = pnls.reduce(function(a,b){ return a + Math.pow(b-avg,2); },0) / pnls.length;
+    var stdDev = Math.sqrt(variance);
+    return Math.round(Math.min(100, Math.max(0, 100 - stdDev * 12)));
+  }
+  function calcRiskGov(ddData, trades) {
+    if (!ddData) return null;
+    var dd = calcDD(ddData.peakEquity, ddData.currentEquity);
+    if (ddData.failed || dd >= 10) return 0;
+    var score = Math.max(0, 60 - dd * 6);
+    if (trades && trades.length > 0) {
+      var withSL = trades.filter(function(t){ return t.stopLoss && parseFloat(t.stopLoss) > 0; }).length;
+      score += (withSL / trades.length) * 40;
+    } else { score += 40; }
+    return Math.round(Math.min(100, score));
+  }
+  function calcExecution(trades) {
+    if (!trades || trades.length < 5) return null;
+    var score = 0;
+    var withPrices = trades.filter(function(t){ return t.entryPrice && t.exitPrice; }).length;
+    score += (withPrices / trades.length) * 50;
+    var withScreenshot = trades.filter(function(t){ return t.screenshot || t.screenshotFile || t.hasScreenshot; }).length;
+    score += (withScreenshot / trades.length) * 30;
+    var withNotes = trades.filter(function(t){ return t.notes && t.notes.trim().length > 0; }).length;
+    score += (withNotes / trades.length) * 20;
+    return Math.round(Math.min(100, score));
+  }
+  function calcPerformance(trades) {
+    if (!trades || trades.length < 5) return null;
+    var score = 0;
+    var wr = calcWinRate(trades);
+    if (wr !== null) score += Math.min(50, (wr / 100) * 70);
+    var rr = calcAvgRR(trades);
+    if (rr !== null) score += Math.min(50, rr * 20);
+    return Math.round(Math.min(100, score));
+  }
+
+  function calcTraderScore(d, c, r, e, p) {
+    if (d === null || c === null || r === null || e === null || p === null) return null;
+    return Math.round(d * 0.30 + c * 0.25 + r * 0.20 + e * 0.15 + p * 0.10);
+  }
+
+  function getTraderLevel(score, drawdownFailed, tradesCount, weeklyCount, dScore) {
+    var isBlocked = drawdownFailed || tradesCount < 55 || weeklyCount < 8 || (dScore !== null && dScore < 70);
+    if (score === null || tradesCount < 5) return { level: null, desc: 'Not enough validated trades to establish an initial classification baseline.' };
+    var level, desc;
+    if (score < 40) {
+      level = 'Not Ready';
+      desc = 'Execution remains inconsistent. Risk control or discipline does not yet meet ALTIVOR qualification standards.';
+    } else if (score < 55) {
+      level = 'Emerging Trader';
+      desc = 'Early structure is visible, but execution remains uneven across qualification criteria. Not yet eligible for funded-readiness assessment.';
+    } else if (score < 70) {
+      level = 'Developing Trader';
+      desc = 'Execution shows emerging consistency. Important weaknesses remain under structured review before qualification can proceed.';
+    } else if (score < 80) {
+      level = 'Process-Consistent Trader';
+      desc = 'Trading behavior is process-consistent across key validation metrics. Approaching qualification threshold with growing control.';
+    } else if (score < 90) {
+      level = isBlocked ? 'Process-Consistent Trader' : 'Funded-Ready Trader';
+      desc = isBlocked
+        ? 'Execution quality approaches funded-ready standards, but outstanding requirements block qualification at this level.'
+        : 'Execution meets ALTIVOR standards for funded-style trading conditions. Qualification criteria satisfied.';
+    } else {
+      level = isBlocked ? 'Process-Consistent Trader' : 'Elite Execution Trader';
+      desc = isBlocked
+        ? 'Execution quality approaches funded-ready standards, but outstanding requirements block qualification at this level.'
+        : 'Execution quality, discipline, and consistency operate at exceptional qualification standards.';
+    }
+    return { level: level, desc: desc };
+  }
+
+  function getReadinessText(level) {
+    var map = {
+      'Not Ready': 'Your execution does not meet the minimum consistency and discipline standards required for qualification. Significant improvement is required across multiple validation dimensions.',
+      'Emerging Trader': 'Your trading process shows early structure, but your qualification profile remains below funded-readiness standards. Classification cannot advance until execution quality improves.',
+      'Developing Trader': 'Execution shows emerging consistency under structured review. Continue improving discipline and risk governance to advance toward qualification.',
+      'Process-Consistent Trader': 'Your execution is increasingly stable and approaching funded-readiness threshold. Complete remaining requirements to advance qualification.',
+      'Funded-Ready Trader': 'Your behavior meets ALTIVOR internal standards for funded-style trading environments. Qualification criteria have been satisfied.',
+      'Elite Execution Trader': 'Your qualification profile reflects exceptional process consistency, execution control, and risk governance across all validation dimensions.'
+    };
+    return map[level] || 'Readiness assessment unavailable until minimum validated trade threshold is reached.';
+  }
+
+  function getPrimaryConstraint(dScore, cScore, rScore, eScore, tradesCount, drawdownFailed) {
+    if (drawdownFailed) return 'Active risk breach — challenge evaluation terminated';
+    if (tradesCount < 10) return 'Insufficient validated trade sample for classification';
+    if (tradesCount < 55) return (55 - tradesCount) + ' validated trades remaining in evaluation cycle';
+    if (dScore !== null && dScore < 60) return 'Inconsistent documentation and compliance blocking qualification';
+    if (dScore !== null && dScore < 75) return 'Execution discipline below qualification threshold';
+    if (rScore !== null && rScore < 60) return 'Risk governance does not meet qualification standards';
+    if (cScore !== null && cScore < 60) return 'Execution consistency below qualification baseline';
+    if (eScore !== null && eScore < 60) return 'Incomplete trade documentation blocking verification';
+    return 'Maintain current standards through the full evaluation cycle';
+  }
+
+  function getNextThreshold(score, level, tradesCount, weeklyCount) {
+    if (tradesCount < 10) return 'Log a minimum of 10 validated trades to unlock initial classification baseline.';
+    if (score === null) return 'Complete additional validated trades to receive a score-based qualification assessment.';
+    if (level === 'Not Ready') return 'Improve documentation completeness and trade compliance to reach Emerging Trader classification.';
+    if (level === 'Emerging Trader') return 'Improve Discipline Score above 60 and reduce execution variance to advance toward Developing Trader classification.';
+    if (level === 'Developing Trader') return 'Improve Consistency Score above 70 and complete the full 55-trade evaluation cycle to advance qualification.';
+    if (level === 'Process-Consistent Trader') {
+      if (tradesCount < 55) return 'Complete ' + (55 - tradesCount) + ' additional validated trades to advance toward Funded-Ready classification.';
+      if (weeklyCount < 8) return 'Submit ' + (8 - weeklyCount) + ' remaining weekly check-ins to unblock final qualification review.';
+      return 'Maintain current process standards and improve Discipline Score above 80 to reach Funded-Ready classification.';
+    }
+    if (level === 'Funded-Ready Trader') return 'Maintain all current standards and improve overall Trader Score above 90 to reach Elite Execution classification.';
+    return 'You are operating at the highest classification level within the qualification framework.';
+  }
+
+  function getQualificationVerdict(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, score, dd, allComplete) {
+    if (drawdownFailed) return { status: 'Challenge Failed', desc: 'Drawdown limit exceeded. The qualification evaluation has been terminated. This decision is final and cannot be reversed.', css: 'verdict-failed', icon: 'fail' };
+    if (allComplete && score !== null && score >= 65) return { status: 'Funded Ready', desc: 'All qualification requirements have been satisfied. Your verification profile meets ALTIVOR funded-readiness standards. Pending final review.', css: 'verdict-qualified', icon: 'pass' };
+    if (allComplete) return { status: 'Qualified', desc: 'All completion requirements have been met. Your qualification profile is under final review.', css: 'verdict-qualified', icon: 'pass' };
+    if (dd >= 7) return { status: 'At Risk', desc: 'Your drawdown is approaching the maximum threshold. Breach of 10% drawdown will result in immediate and irreversible challenge failure.', css: 'verdict-at-risk', icon: 'warn' };
+    if (score !== null && score < 40 && tradesCount >= 10) return { status: 'Not Yet Qualified', desc: 'Your current execution profile does not meet qualification standards. Significant improvement is required across multiple validation dimensions.', css: '', icon: 'clock' };
+    if (tradesCount >= 40 && weeklyCount >= 6 && profit >= 3) return { status: 'Approaching Qualification', desc: 'Your validation profile is nearing completion. Maintain current standards and complete remaining requirements to finalize qualification.', css: '', icon: 'clock' };
+    if (tradesCount >= 10 || weeklyCount >= 2) return { status: 'In Qualification Progress', desc: 'Evaluation data is being collected and assessed. Continue logging validated trades and meeting weekly check-in requirements.', css: '', icon: 'clock' };
+    if (tradesCount < 5) return { status: 'Classification Pending', desc: 'Insufficient validated trade data to establish qualification state. Log trades to begin the assessment process.', css: '', icon: 'clock' };
+    return { status: 'Classification Pending', desc: 'Awaiting sufficient validated performance data to determine initial qualification state.', css: '', icon: 'clock' };
+  }
+
+  function getQualBlocker(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, score) {
+    if (drawdownFailed) return 'Qualification permanently blocked — drawdown threshold breached.';
+    var blockers = [];
+    if (tradesCount < 55) blockers.push((55 - tradesCount) + ' validated trades remaining');
+    if (weeklyCount < 8) blockers.push((8 - weeklyCount) + ' weekly check-ins remaining');
+    if (profit < 6) blockers.push('Cumulative profit below 6% target');
+    if (!statementSubmitted) blockers.push('Broker statement not submitted');
+    if (score !== null && score < 65) blockers.push('Trader Score below funded-readiness threshold (65)');
+    if (blockers.length === 0) return 'No active blockers — all qualification criteria satisfied.';
+    return blockers.join(' · ');
+  }
+
+  function getAssessmentState(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, allComplete, score) {
+    if (drawdownFailed) return 'Challenge terminated — risk breach on record.';
+    if (allComplete && score !== null && score >= 65) return 'Qualification complete — funded-readiness confirmed.';
+    if (allComplete) return 'All requirements met — pending final verification review.';
+    if (tradesCount >= 40) return 'Evaluation active — nearing completion threshold.';
+    if (tradesCount >= 10) return 'Assessment in progress — collecting validation data.';
+    return 'Validation pending — awaiting sufficient trade data.';
+  }
+
+  function getRiskCondition(dd, drawdownFailed, tradesCount, score) {
+    if (drawdownFailed) return { text: 'BREACHED — Maximum drawdown exceeded. Challenge failed.', css: 'risk-danger' };
+    if (dd >= 8) return { text: 'CRITICAL — Drawdown at ' + dd.toFixed(1) + '%. Immediate risk of challenge failure.', css: 'risk-danger' };
+    if (dd >= 6) return { text: 'ELEVATED — Drawdown at ' + dd.toFixed(1) + '%. Approaching failure threshold.', css: 'risk-warning' };
+    if (score !== null && score < 40 && tradesCount >= 10) return { text: 'PERFORMANCE WARNING — Trader Score below minimum qualification standard.', css: 'risk-warning' };
+    return { text: 'Within allowed parameters — no active risk conditions.', css: '' };
+  }
+
+  function calcOverallProgress(tradesCount, weeklyCount, profit, dd, drawdownFailed, statementSubmitted) {
+    var tradesPct = Math.min(100, (tradesCount / 55) * 100) * 0.35;
+    var weeklyPct = Math.min(100, (weeklyCount / 8) * 100) * 0.20;
+    var profitPct = Math.min(100, Math.max(0, (profit / 6) * 100)) * 0.20;
+    var ddPct = drawdownFailed ? 0 : (dd < 10 ? 100 : 0) * 0.10;
+    var stmtPct = statementSubmitted ? 100 * 0.15 : 0;
+    return Math.round(tradesPct + weeklyPct + profitPct + ddPct + stmtPct);
+  }
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // RULE COMPLIANCE & DISQUALIFICATION ENGINE
+  // ═══════════════════════════════════════════════════════════════════════
+
+  var CHALLENGE_STATE_KEY = 'altivor_challenge_state_v1';
+  var VIOLATION_LOG_KEY = 'altivor_violation_log_v1';
+  var ACK_KEY = 'altivor_challenge_ack_v1';
+
+  // ── Challenge State Machine ────────────────────────────────────────────
+  // NOT_STARTED → RULES_ACKNOWLEDGED → ACTIVE → WARNING_ACTIVE / INVALID_TRADE_PRESENT / BREACH_DETECTED → FAILED
+  //                                           → QUALIFICATION_PENDING → QUALIFIED
+  function loadChallengeState() {
+    try { return JSON.parse(localStorage.getItem(CHALLENGE_STATE_KEY)) || null; }
+    catch(e) { return null; }
+  }
+  function saveChallengeState(state) {
+    localStorage.setItem(CHALLENGE_STATE_KEY, JSON.stringify(state));
+  }
+  function getDefaultChallengeState() {
+    return {
+      status: 'NOT_STARTED',
+      failedAt: null,
+      failReason: null,
+      failTradeId: null,
+      tradeClassifications: {},
+      lastUpdated: new Date().toISOString()
+    };
+  }
+  function loadViolationLog() {
+    try { return JSON.parse(localStorage.getItem(VIOLATION_LOG_KEY)) || []; }
+    catch(e) { return []; }
+  }
+  function saveViolationLog(log) {
+    localStorage.setItem(VIOLATION_LOG_KEY, JSON.stringify(log));
+  }
+  function isAcknowledged() {
+    return localStorage.getItem(ACK_KEY) === '1';
+  }
+
+  // ── Per-Trade Classification Engine ────────────────────────────────────
+  // Returns { status: 'VALID'|'INVALID'|'BREACH', violations: [...] }
+  function classifyTrade(trade, tradeIndex, allTrades) {
+    var violations = [];
+    var status = 'VALID';
+
+    // ── HARD FAIL / BREACH RULES ─────────────────────────────────────────
+
+    // 1. No stop loss defined
+    if (!trade.stopLoss || parseFloat(trade.stopLoss) <= 0) {
+      violations.push({ severity: 'BREACH', category: 'Missing Stop Loss', reason: 'No stop loss defined at trade entry.', action: 'Challenge failed' });
+      status = 'BREACH';
+    }
+
+    // 2. Risk per trade exceeds maximum threshold (>2% of account)
+    if (trade.riskPercent !== undefined && parseFloat(trade.riskPercent) > 2) {
+      violations.push({ severity: 'BREACH', category: 'Excessive Risk', reason: 'Risk per trade (' + parseFloat(trade.riskPercent).toFixed(1) + '%) exceeds maximum allowed threshold (2%).', action: 'Challenge failed' });
+      status = 'BREACH';
+    } else if (trade.riskValue !== undefined && trade.accountBalance !== undefined) {
+      var riskPct = (parseFloat(trade.riskValue) / parseFloat(trade.accountBalance)) * 100;
+      if (riskPct > 2) {
+        violations.push({ severity: 'BREACH', category: 'Excessive Risk', reason: 'Calculated risk (' + riskPct.toFixed(1) + '%) exceeds maximum allowed threshold (2%).', action: 'Challenge failed' });
+        status = 'BREACH';
+      }
+    }
+
+    // 3. Trade outside session window (if timestamp data available)
+    if (trade.openTime || trade.entryTime) {
+      var openTS = trade.openTime || trade.entryTime;
+      var d = new Date(openTS);
+      var hour = d.getUTCHours();
+      // Permitted window: 07:00–21:00 UTC (configurable)
+      if (hour < 7 || hour >= 21) {
+        violations.push({ severity: 'BREACH', category: 'Session Violation', reason: 'Trade opened outside the permitted challenge session window (' + d.toISOString().substring(11, 16) + ' UTC).', action: 'Challenge failed' });
+        status = 'BREACH';
+      }
+    }
+
+    // 4. SL widening detection (if originalSL field exists)
+    if (trade.originalStopLoss && trade.stopLoss) {
+      var origSL = parseFloat(trade.originalStopLoss);
+      var currentSL = parseFloat(trade.stopLoss);
+      if (origSL > 0 && currentSL > 0) {
+        var entry = parseFloat(trade.entryPrice || 0);
+        if (entry > 0) {
+          var origDist = Math.abs(entry - origSL);
+          var newDist = Math.abs(entry - currentSL);
+          if (newDist > origDist * 1.15) {
+            violations.push({ severity: 'BREACH', category: 'Stop Loss Widening', reason: 'Manual widening of stop loss beyond original structural invalidation level.', action: 'Challenge failed' });
+            status = 'BREACH';
+          }
+        }
+      }
+    }
+
+    // If already BREACH, return immediately
+    if (status === 'BREACH') return { status: status, violations: violations };
+
+    // ── INVALID TRADE RULES ──────────────────────────────────────────────
+
+    // 5. Missing required validation fields
+    var missingFields = [];
+    if (!trade.entryPrice || parseFloat(trade.entryPrice) <= 0) missingFields.push('entry price');
+    if (!trade.exitPrice && !trade.closePrice && parseFloat(trade.exitPrice || trade.closePrice || 0) <= 0) missingFields.push('exit price');
+    if (!trade.takeProfit || parseFloat(trade.takeProfit) <= 0) missingFields.push('take profit');
+    if (missingFields.length > 0) {
+      violations.push({ severity: 'INVALID', category: 'Missing Fields', reason: 'Missing required validation fields: ' + missingFields.join(', ') + '.', action: 'Trade not counted' });
+      status = 'INVALID';
+    }
+
+    // 6. No strategy/framework type assigned
+    if (!trade.strategy && !trade.setup && !trade.frameworkType) {
+      violations.push({ severity: 'INVALID', category: 'No Framework Type', reason: 'Trade not assigned to a recognized strategy or framework type.', action: 'Trade not counted' });
+      if (status !== 'INVALID') status = 'INVALID';
+    }
+
+    // 7. Missing trade documentation
+    var hasScreenshot = trade.screenshot || trade.screenshotFile || trade.hasScreenshot;
+    var hasNotes = trade.notes && trade.notes.trim().length > 0;
+    if (!hasScreenshot && !hasNotes) {
+      violations.push({ severity: 'INVALID', category: 'Incomplete Documentation', reason: 'Incomplete trade log — missing screenshot and trade notes.', action: 'Trade not counted' });
+      if (status !== 'INVALID') status = 'INVALID';
+    } else if (!hasScreenshot) {
+      violations.push({ severity: 'INVALID', category: 'Missing Screenshot', reason: 'Required trade screenshot not provided.', action: 'Trade not counted' });
+      if (status !== 'INVALID') status = 'INVALID';
+    }
+
+    // 8. Structure confirmation missing (if field exists and is false)
+    if (trade.structureConfirmed === false) {
+      violations.push({ severity: 'INVALID', category: 'Structure Not Confirmed', reason: 'Required structure confirmation missing at entry.', action: 'Trade not counted' });
+      if (status !== 'INVALID') status = 'INVALID';
+    }
+
+    // 9. Trade marked as non-compliant by PREPARE system
+    if (trade.compliant === false && status !== 'INVALID') {
+      violations.push({ severity: 'INVALID', category: 'Non-Compliant Trade', reason: 'Trade flagged as non-compliant by the execution validation system.', action: 'Trade not counted' });
+      status = 'INVALID';
+    }
+
+    return { status: status, violations: violations };
+  }
+
+  // ── Warning Detection (behavioral patterns across all trades) ──────────
+  function detectWarnings(trades, classifications) {
+    var warnings = [];
+
+    // Overtrading: >5 trades in a single day
+    var tradeDays = {};
+    trades.forEach(function(t, i) {
+      var dateKey = (t.openTime || t.entryTime || t.date || '').substring(0, 10);
+      if (dateKey) {
+        if (!tradeDays[dateKey]) tradeDays[dateKey] = [];
+        tradeDays[dateKey].push(i);
+      }
+    });
+    Object.keys(tradeDays).forEach(function(day) {
+      if (tradeDays[day].length > 5) {
+        warnings.push({ tradeIds: tradeDays[day], category: 'Overtrading', reason: tradeDays[day].length + ' trades on ' + day + ' — exceeds session limit.', action: 'Discipline score reduced' });
+      }
+    });
+
+    // Revenge trading: loss followed by trade within 10 minutes
+    for (var i = 1; i < trades.length; i++) {
+      var prev = trades[i - 1];
+      var curr = trades[i];
+      var prevPnl = parseFloat(prev.pnl || prev.profit || 0);
+      if (prevPnl < 0 && prev.closeTime && (curr.openTime || curr.entryTime)) {
+        var closedAt = new Date(prev.closeTime).getTime();
+        var openedAt = new Date(curr.openTime || curr.entryTime).getTime();
+        if (openedAt - closedAt < 600000 && openedAt > closedAt) {
+          warnings.push({ tradeIds: [i], category: 'Revenge Trading', reason: 'Trade #' + (i + 1) + ' opened within 10 minutes of a losing trade — revenge-trade pattern.', action: 'Discipline score reduced' });
+        }
+      }
+    }
+
+    // Repeated risk inconsistency: declared vs executed risk differs > 50% multiple times
+    var riskInconsistencies = 0;
+    trades.forEach(function(t) {
+      if (t.plannedRisk && t.riskValue) {
+        var planned = parseFloat(t.plannedRisk);
+        var actual = parseFloat(t.riskValue);
+        if (planned > 0 && Math.abs(actual - planned) / planned > 0.5) {
+          riskInconsistencies++;
+        }
+      }
+    });
+    if (riskInconsistencies >= 3) {
+      warnings.push({ tradeIds: [], category: 'Risk Inconsistency', reason: riskInconsistencies + ' instances of significant deviation between declared and executed risk.', action: 'Consistency score reduced' });
+    }
+
+    return warnings;
+  }
+
+  // ── Compliance Summary ─────────────────────────────────────────────────
+  // Returns { complianceStatus, complianceBadgeClass, complianceText, validCount, invalidCount, breachCount, warningCount, failReason, failTradeId, classifications, violations }
+  function evaluateCompliance(trades, drawdownData, statementSubmitted, existingState) {
+    var challengeState = existingState || loadChallengeState() || getDefaultChallengeState();
+    var violationLog = loadViolationLog();
+    var classifications = {};
+    var validCount = 0, invalidCount = 0, breachCount = 0;
+    var firstBreach = null;
+
+    // If already FAILED and locked, preserve that
+    if (challengeState.status === 'FAILED' && challengeState.failReason) {
+      // Reclassify trades for display but keep failed state
+      trades.forEach(function(t, i) {
+        var result = classifyTrade(t, i, trades);
+        classifications[i] = result.status;
+        if (result.status === 'VALID') validCount++;
+        else if (result.status === 'INVALID') invalidCount++;
+        else if (result.status === 'BREACH') breachCount++;
+      });
+      var warnings = detectWarnings(trades, classifications);
+      return {
+        complianceStatus: 'CHALLENGE_FAILED',
+        complianceBadgeClass: 'vs-comp-failed',
+        complianceText: 'Challenge disqualified — ' + challengeState.failReason,
+        validCount: validCount,
+        invalidCount: invalidCount,
+        breachCount: breachCount,
+        warningCount: warnings.length,
+        failReason: challengeState.failReason,
+        failTradeId: challengeState.failTradeId,
+        classifications: classifications,
+        violations: violationLog,
+        warnings: warnings,
+        challengeState: challengeState
+      };
+    }
+
+    // Classify every trade
+    var newViolations = [];
+    trades.forEach(function(t, i) {
+      var result = classifyTrade(t, i, trades);
+      classifications[i] = result.status;
+      if (result.status === 'VALID') validCount++;
+      else if (result.status === 'INVALID') invalidCount++;
+      else if (result.status === 'BREACH') {
+        breachCount++;
+        if (!firstBreach) firstBreach = { index: i, violations: result.violations };
+      }
+      // Add to new violations (will be merged with existing log)
+      result.violations.forEach(function(v) {
+        newViolations.push({
+          tradeIndex: i + 1,
+          tradeId: t.id || ('T' + (i + 1)),
+          severity: v.severity,
+          category: v.category,
+          reason: v.reason,
+          action: v.action,
+          timestamp: t.openTime || t.entryTime || t.date || new Date().toISOString()
+        });
+      });
+    });
+
+    // Check drawdown breach (hard fail at system level)
+    var dd = calcDD(drawdownData.peakEquity, drawdownData.currentEquity);
+    var drawdownFailed = dd >= 10 || drawdownData.failed;
+    if (drawdownFailed && !firstBreach) {
+      firstBreach = { index: -1, violations: [{ severity: 'BREACH', category: 'Drawdown Breach', reason: 'Maximum challenge drawdown (10%) breached.', action: 'Challenge failed' }] };
+      newViolations.push({
+        tradeIndex: 0, tradeId: 'SYSTEM', severity: 'BREACH',
+        category: 'Drawdown Breach', reason: 'Maximum challenge drawdown (10%) breached.',
+        action: 'Challenge failed', timestamp: new Date().toISOString()
+      });
+    }
+
+    var warnings = detectWarnings(trades, classifications);
+    // Add warnings to violation log
+    warnings.forEach(function(w) {
+      newViolations.push({
+        tradeIndex: w.tradeIds.length > 0 ? w.tradeIds[0] + 1 : 0,
+        tradeId: w.tradeIds.length > 0 ? 'T' + (w.tradeIds[0] + 1) : 'PATTERN',
+        severity: 'WARNING', category: w.category,
+        reason: w.reason, action: w.action,
+        timestamp: new Date().toISOString()
+      });
+    });
+
+    // Merge violations (deduplicate by tradeIndex + category)
+    var existingKeys = {};
+    violationLog.forEach(function(v) { existingKeys[v.tradeIndex + ':' + v.category] = true; });
+    newViolations.forEach(function(v) {
+      var key = v.tradeIndex + ':' + v.category;
+      if (!existingKeys[key]) {
+        violationLog.push(v);
+        existingKeys[key] = true;
+      }
+    });
+    saveViolationLog(violationLog);
+
+    // Determine compliance status
+    var complianceStatus, badgeClass, text;
+    if (firstBreach) {
+      complianceStatus = 'CHALLENGE_FAILED';
+      badgeClass = 'vs-comp-failed';
+      var reason = firstBreach.violations[0].reason;
+      text = 'Challenge disqualified — ' + reason;
+      challengeState.status = 'FAILED';
+      challengeState.failedAt = new Date().toISOString();
+      challengeState.failReason = reason;
+      challengeState.failTradeId = firstBreach.index >= 0 ? firstBreach.index + 1 : 'SYSTEM';
+    } else if (invalidCount > 0 && warnings.length > 0) {
+      complianceStatus = 'INVALID_TRADE_PRESENT';
+      badgeClass = 'vs-comp-invalid-trade';
+      text = invalidCount + ' invalid trade(s) detected. ' + warnings.length + ' warning(s) active.';
+      challengeState.status = 'INVALID_TRADE_PRESENT';
+    } else if (invalidCount > 0) {
+      complianceStatus = 'INVALID_TRADE_PRESENT';
+      badgeClass = 'vs-comp-invalid-trade';
+      text = invalidCount + ' submitted trade(s) do not qualify for validation.';
+      challengeState.status = 'INVALID_TRADE_PRESENT';
+    } else if (warnings.length > 0) {
+      complianceStatus = 'WARNING_ACTIVE';
+      badgeClass = 'vs-comp-warning';
+      text = warnings.length + ' non-disqualifying issue(s) detected. Score may be affected.';
+      challengeState.status = 'WARNING_ACTIVE';
+    } else {
+      complianceStatus = 'VALID';
+      badgeClass = 'vs-comp-valid';
+      text = 'No active rule violations detected.';
+      if (challengeState.status !== 'QUALIFIED' && challengeState.status !== 'QUALIFICATION_PENDING') {
+        challengeState.status = trades.length > 0 ? 'ACTIVE' : (isAcknowledged() ? 'RULES_ACKNOWLEDGED' : 'NOT_STARTED');
+      }
+    }
+
+    challengeState.tradeClassifications = classifications;
+    challengeState.lastUpdated = new Date().toISOString();
+    saveChallengeState(challengeState);
+
+    return {
+      complianceStatus: complianceStatus,
+      complianceBadgeClass: badgeClass,
+      complianceText: text,
+      validCount: validCount,
+      invalidCount: invalidCount,
+      breachCount: breachCount,
+      warningCount: warnings.length,
+      failReason: firstBreach ? firstBreach.violations[0].reason : null,
+      failTradeId: firstBreach ? (firstBreach.index >= 0 ? firstBreach.index + 1 : 'SYSTEM') : null,
+      classifications: classifications,
+      violations: violationLog,
+      warnings: warnings,
+      challengeState: challengeState
+    };
+  }
+
+  // ── Render Compliance UI ───────────────────────────────────────────────
+  function renderComplianceUI(result) {
+    var block = document.getElementById('vsComplianceBlock');
+    var badge = document.getElementById('vsCompBadge');
+    var text = document.getElementById('vsCompText');
+
+    // State class on block
+    var stateMap = {
+      'VALID': '', 'WARNING_ACTIVE': 'vs-comp-state-warning',
+      'INVALID_TRADE_PRESENT': 'vs-comp-state-invalid',
+      'BREACH_DETECTED': 'vs-comp-state-breach', 'CHALLENGE_FAILED': 'vs-comp-state-failed'
+    };
+    if (block) block.className = 'vs-compliance-block ' + (stateMap[result.complianceStatus] || '');
+
+    // Badge
+    var badgeLabels = {
+      'VALID': 'VALID', 'WARNING_ACTIVE': 'WARNING',
+      'INVALID_TRADE_PRESENT': 'INVALID TRADE DETECTED',
+      'BREACH_DETECTED': 'BREACH DETECTED', 'CHALLENGE_FAILED': 'CHALLENGE FAILED'
+    };
+    if (badge) {
+      badge.className = 'vs-compliance-badge ' + result.complianceBadgeClass;
+      badge.textContent = badgeLabels[result.complianceStatus] || 'VALID';
+    }
+    if (text) text.textContent = result.complianceText;
+
+    // Detail counters
+    setEl('vsCompTradesEval', (result.validCount + result.invalidCount + result.breachCount).toString());
+    setEl('vsCompValidCount', result.validCount.toString());
+    setEl('vsCompInvalidCount', result.invalidCount.toString());
+    setEl('vsCompBreachCount', result.breachCount.toString());
+    setEl('vsCompWarningCount', result.warningCount.toString());
+
+    // Failure reason
+    var failBlock = document.getElementById('vsCompFailureReason');
+    if (failBlock) {
+      if (result.failReason) {
+        failBlock.style.display = '';
+        var failText = 'Challenge Status: FAILED';
+        if (result.failTradeId && result.failTradeId !== 'SYSTEM') {
+          failText += ' — Trade #' + result.failTradeId + ': ' + result.failReason;
+        } else {
+          failText += ' — ' + result.failReason;
+        }
+        setEl('vsCompFailureText', failText);
+      } else {
+        failBlock.style.display = 'none';
+      }
+    }
+
+    // Assessment compliance line
+    var assessComp = document.getElementById('vsAssessmentCompliance');
+    if (assessComp) {
+      var labelMap = {
+        'VALID': 'VALID — No active rule violations detected.',
+        'WARNING_ACTIVE': 'WARNING — ' + result.warningCount + ' non-disqualifying issue(s) detected.',
+        'INVALID_TRADE_PRESENT': 'INVALID TRADE DETECTED — ' + result.invalidCount + ' trade(s) excluded from validation.',
+        'BREACH_DETECTED': 'BREACH DETECTED — A challenge-level rule breach has been identified.',
+        'CHALLENGE_FAILED': 'CHALLENGE FAILED — ' + (result.failReason || 'Challenge disqualified due to rule violation.')
+      };
+      assessComp.textContent = labelMap[result.complianceStatus] || 'VALID — No active rule violations detected.';
+    }
+  }
+
+  // ── Render Violation Log ───────────────────────────────────────────────
+  function renderViolationLog(result) {
+    var list = document.getElementById('vsViolationList');
+    var countEl = document.getElementById('vsViolationCount');
+    var violations = result.violations || [];
+
+    if (countEl) countEl.textContent = violations.length + ' entr' + (violations.length === 1 ? 'y' : 'ies');
+
+    if (!list) return;
+    if (violations.length === 0) {
+      list.innerHTML = '<div class="vs-violation-empty">No rule violations recorded.</div>';
+      return;
+    }
+    // Sort by most recent first
+    var sorted = violations.slice().sort(function(a, b) { return (b.timestamp || '').localeCompare(a.timestamp || ''); });
+    var html = '';
+    sorted.forEach(function(v) {
+      var sevClass = v.severity === 'BREACH' ? 'vs-viol-sev-breach' : v.severity === 'INVALID' ? 'vs-viol-sev-invalid' : 'vs-viol-sev-warning';
+      var dateStr = v.timestamp ? new Date(v.timestamp).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '';
+      html += '<div class="vs-viol-item">' +
+        '<span class="vs-viol-severity ' + sevClass + '">' + v.severity + '</span>' +
+        '<div class="vs-viol-content">' +
+          '<div class="vs-viol-header">' +
+            '<span class="vs-viol-trade">Trade #' + (v.tradeIndex || '—') + '</span>' +
+            '<span class="vs-viol-cat">' + v.category + '</span>' +
+          '</div>' +
+          '<div class="vs-viol-reason">' + v.reason + '</div>' +
+          '<div class="vs-viol-action">Action: ' + v.action + '</div>' +
+        '</div>' +
+        '<span class="vs-viol-time">' + dateStr + '</span>' +
+      '</div>';
+    });
+    list.innerHTML = html;
+  }
+
+  function setEl(id, text) { var el = document.getElementById(id); if (el) el.textContent = text; }
+  function setBar(id, val) { var el = document.getElementById(id); if (el) el.style.width = Math.min(100, Math.max(0, val || 0)) + '%'; }
+  function setReqBadge(badgeId, status) {
+    var el = document.getElementById(badgeId);
+    if (!el) return;
+    var map = {
+      complete: ['vs-req-badge vs-req-complete', 'Verified'],
+      incomplete: ['vs-req-badge vs-req-incomplete', 'Incomplete'],
+      'in-progress': ['vs-req-badge vs-req-in-progress', 'In Progress'],
+      breached: ['vs-req-badge vs-req-breached', 'Failed'],
+      safe: ['vs-req-badge vs-req-safe', 'Under Control']
+    };
+    var cfg = map[status] || map.incomplete;
+    el.className = cfg[0]; el.textContent = cfg[1];
+  }
+  function setReqIndicator(itemId, status) {
+    var el = document.querySelector('#' + itemId + ' .vs-req-indicator');
+    if (el) el.className = 'vs-req-indicator vs-req-ind-' + status;
+  }
+
+  function updateUI() {
+    var data = loadAllData();
+    var trades = data.trades.trades || [];
+    var checkins = data.weekly.checkins || [];
+    var weeklyCount = checkins.length;
+    var tradesCount = trades.length;
+    var dd = calcDD(data.drawdown.peakEquity, data.drawdown.currentEquity);
+    var drawdownFailed = dd >= 10 || data.drawdown.failed;
+    var currentBal = data.profit.month2Balance || data.profit.month1Balance || data.profit.startingBalance;
+    var profit = calcProfit(data.profit.startingBalance, currentBal);
+    var statementSubmitted = data.statement.submitted;
+
+    setEl('vsKpiWeekly', weeklyCount + ' / 8');
+    setEl('vsKpiTrades', tradesCount + ' / 55');
+    setEl('vsKpiProfit', profit.toFixed(2) + '%');
+    setEl('vsKpiDrawdown', dd.toFixed(2) + '%');
+    setEl('vsKpiStatement', statementSubmitted ? 'Submitted' : 'Not Submitted');
+
+    var dScore = calcDiscipline(trades, checkins);
+    var cScore = calcConsistency(trades);
+    var rScore = calcRiskGov(data.drawdown, trades);
+    var eScore = calcExecution(trades);
+    var pScore = calcPerformance(trades);
+    var totalScore = calcTraderScore(dScore, cScore, rScore, eScore, pScore);
+
+    var levelData = getTraderLevel(totalScore, drawdownFailed, tradesCount, weeklyCount, dScore);
+    var level = levelData.level;
+
+    var allComplete = weeklyCount >= 8 && tradesCount >= 55 && profit >= 6 && !drawdownFailed && statementSubmitted;
+    var badge = document.getElementById('vsStatusBadge');
+
+    // ── Qualification Verdict Block ─────────────────────────────────────
+    var verdict = getQualificationVerdict(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, totalScore, dd, allComplete);
+    var verdictBlock = document.getElementById('vsVerdictBlock');
+    var verdictIcon = document.getElementById('vsVerdictIcon');
+    if (verdictBlock) verdictBlock.className = 'vs-verdict-block ' + verdict.css;
+    setEl('vsVerdictStatus', verdict.status);
+    setEl('vsVerdictDesc', verdict.desc);
+    if (verdictIcon) {
+      var iconSvgs = {
+        fail: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>',
+        pass: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>',
+        warn: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        clock: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>'
+      };
+      verdictIcon.innerHTML = iconSvgs[verdict.icon] || iconSvgs.clock;
+    }
+    // Verdict risk line
+    var verdictRiskEl = document.getElementById('vsVerdictRisk');
+    var riskCond = getRiskCondition(dd, drawdownFailed, tradesCount, totalScore);
+    setEl('vsVerdictRiskText', riskCond.text);
+    if (verdictRiskEl) {
+      verdictRiskEl.className = 'vs-verdict-risk' + (riskCond.css === 'risk-danger' ? ' risk-active' : riskCond.css === 'risk-warning' ? ' risk-warning' : '');
+    }
+
+    // ── Overall Progress ────────────────────────────────────────────────
+    var overallPct = drawdownFailed ? 0 : calcOverallProgress(tradesCount, weeklyCount, profit, dd, drawdownFailed, statementSubmitted);
+    setEl('vsProgressPct', overallPct + '%');
+    var progressFill = document.getElementById('vsProgressFill');
+    if (progressFill) progressFill.style.width = overallPct + '%';
+    // Milestones
+    var milestones = document.querySelectorAll('.vs-milestone');
+    milestones.forEach(function(m) {
+      var threshold = parseInt(m.getAttribute('data-threshold'), 10);
+      if (overallPct >= threshold) { m.classList.add('vs-milestone-reached'); }
+      else { m.classList.remove('vs-milestone-reached'); }
+    });
+
+    // ── Main Card Status ────────────────────────────────────────────────
+    if (drawdownFailed) {
+      setEl('vsStatusTitle', 'Challenge Failed');
+      setEl('vsStatusSub', 'Drawdown limit exceeded — evaluation terminated');
+      setEl('vsKpiFinal', 'Failed');
+      if (badge) { badge.className = 'vs-status-badge badge-fail'; badge.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'; }
+      document.getElementById('vsFailState').style.display = 'block';
+      setEl('vsFailReason', 'Your drawdown exceeded the 10% maximum limit. The qualification evaluation has been permanently terminated.');
+    } else if (allComplete) {
+      setEl('vsStatusTitle', 'Qualification Complete');
+      setEl('vsStatusSub', 'All requirements satisfied — pending final review');
+      setEl('vsKpiFinal', 'Qualified');
+      if (badge) { badge.className = 'vs-status-badge badge-pass'; badge.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>'; }
+      document.getElementById('vsPassState').style.display = 'block';
+    } else {
+      setEl('vsStatusTitle', 'Qualification in Progress');
+      setEl('vsStatusSub', 'Awaiting validated performance data');
+      setEl('vsKpiFinal', verdict.status);
+    }
+
+    setEl('vsTraderLevel', level || '—');
+    setEl('vsLevelDesc', levelData.desc);
+    setEl('vsTraderScore', totalScore !== null ? totalScore + ' / 100' : '— / 100');
+
+    // ── Performance Profile: Score Bars ────────────────────────────────
+    setEl('vsValDiscipline', dScore !== null ? dScore + ' / 100' : '—');
+    setBar('vsBarDiscipline', dScore);
+    setEl('vsValConsistency', cScore !== null ? cScore + ' / 100' : '—');
+    setBar('vsBarConsistency', cScore);
+    setEl('vsValRiskGov', rScore !== null ? rScore + ' / 100' : '—');
+    setBar('vsBarRiskGov', rScore);
+    setEl('vsValExecQuality', eScore !== null ? eScore + ' / 100' : '—');
+    setBar('vsBarExecQuality', eScore);
+    setEl('vsValPerformance', pScore !== null ? pScore + ' / 100' : '—');
+    setBar('vsBarPerformance', pScore);
+    setEl('vsProfileTotalScore', totalScore !== null ? totalScore + ' / 100' : '— / 100');
+
+    // ── Performance Profile: Stats Grid ─────────────────────────────────
+    var wr = calcWinRate(trades);
+    var avgRR = calcAvgRR(trades);
+    setEl('vsStatWinRate', wr !== null ? wr.toFixed(0) + '%' : '—');
+    setEl('vsStatAvgRR', avgRR !== null ? avgRR.toFixed(2) : '—');
+    setEl('vsStatTotalTrades', tradesCount);
+    // Best single RR
+    var bestRR = 0;
+    trades.forEach(function(t) {
+      var rr = parseFloat(t.rr || t.rewardRisk || 0);
+      if (rr > bestRR) bestRR = rr;
+    });
+    setEl('vsStatBestRR', bestRR > 0 ? bestRR.toFixed(2) : '—');
+    // Win/Loss streaks
+    var curWS = 0, maxWS = 0, curLS = 0, maxLS = 0;
+    trades.forEach(function(t) {
+      var pnl = parseFloat(t.pnl || t.profit || 0);
+      if (pnl > 0) { curWS++; curLS = 0; if (curWS > maxWS) maxWS = curWS; }
+      else if (pnl < 0) { curLS++; curWS = 0; if (curLS > maxLS) maxLS = curLS; }
+      else { curWS = 0; curLS = 0; }
+    });
+    setEl('vsStatWinStreak', maxWS);
+    setEl('vsStatLossStreak', maxLS);
+
+    // ── Qualification Assessment Section ────────────────────────────────
+    setEl('vsReadinessText', getReadinessText(level));
+    setEl('vsPrimaryConstraint', getPrimaryConstraint(dScore, cScore, rScore, eScore, tradesCount, drawdownFailed));
+    setEl('vsQualBlocker', getQualBlocker(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, totalScore));
+    setEl('vsNextThreshold', getNextThreshold(totalScore, level, tradesCount, weeklyCount));
+    setEl('vsAssessmentState', getAssessmentState(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, allComplete, totalScore));
+    var riskCondData = getRiskCondition(dd, drawdownFailed, tradesCount, totalScore);
+    setEl('vsRiskCondition', riskCondData.text);
+    var riskBlock = document.getElementById('vsRiskConditionBlock');
+    if (riskBlock) riskBlock.className = 'vs-threshold-block vs-risk-condition-block' + (riskCondData.css ? ' ' + riskCondData.css : '');
+
+    // ── Qualification Requirements ──────────────────────────────────────
+    var weeklySt = weeklyCount >= 8 ? 'complete' : weeklyCount > 0 ? 'in-progress' : 'incomplete';
+    setReqBadge('vsReqWeeklyBadge', weeklySt); setReqIndicator('vsReqWeekly', weeklySt);
+    setEl('vsReqWeeklyCount', weeklyCount + ' / 8');
+    if (weeklySt === 'complete') { var ww = document.getElementById('vsReqWeeklyWarn'); if (ww) ww.style.display = 'none'; document.getElementById('vsReqWeekly').classList.add('vs-req-item--verified'); }
+    var tradesSt = tradesCount >= 55 ? 'complete' : tradesCount > 0 ? 'in-progress' : 'incomplete';
+    setReqBadge('vsReqTradesBadge', tradesSt); setReqIndicator('vsReqTrades', tradesSt);
+    setEl('vsReqTradesCount', tradesCount + ' / 55');
+    if (tradesSt === 'complete') { var tw = document.getElementById('vsReqTradesWarn'); if (tw) tw.style.display = 'none'; document.getElementById('vsReqTrades').classList.add('vs-req-item--verified'); }
+    var profitSt = profit >= 6 ? 'complete' : profit > 0 ? 'in-progress' : 'incomplete';
+    setReqBadge('vsReqProfitBadge', profitSt); setReqIndicator('vsReqProfit', profitSt);
+    setEl('vsReqProfitCount', profit.toFixed(2) + '%');
+    if (profitSt === 'complete') { var pw = document.getElementById('vsReqProfitWarn'); if (pw) pw.style.display = 'none'; document.getElementById('vsReqProfit').classList.add('vs-req-item--verified'); }
+    var ddSt = drawdownFailed ? 'breached' : 'safe';
+    setReqBadge('vsReqDrawdownBadge', ddSt); setReqIndicator('vsReqDrawdown', ddSt);
+    setEl('vsReqDrawdownCount', dd.toFixed(2) + '%');
+    if (drawdownFailed) { var dw = document.getElementById('vsReqDrawdownWarn'); if (dw) dw.textContent = 'BREACHED — Maximum drawdown exceeded. Challenge failed. This cannot be reversed.'; }
+    var stSt = statementSubmitted ? 'complete' : 'incomplete';
+    setReqBadge('vsReqStatementBadge', stSt); setReqIndicator('vsReqStatement', stSt);
+    if (stSt === 'complete') { var sw = document.getElementById('vsReqStatementWarn'); if (sw) sw.style.display = 'none'; document.getElementById('vsReqStatement').classList.add('vs-req-item--verified'); }
+
+    // ── Rule Compliance Integration ────────────────────────────────────
+    var compResult = evaluateCompliance(trades, data.drawdown, statementSubmitted, null);
+    renderComplianceUI(compResult);
+    renderViolationLog(compResult);
+
+    // If challenge is FAILED via rule engine, freeze progress and override verdict
+    if (compResult.complianceStatus === 'CHALLENGE_FAILED' && !drawdownFailed) {
+      // Rule-engine failure (not already handled by drawdown logic above)
+      var rfr = compResult.failReason || 'Rule violation detected.';
+      setEl('vsStatusTitle', 'Challenge Failed');
+      setEl('vsStatusSub', 'Rule compliance breach — evaluation terminated');
+      setEl('vsKpiFinal', 'Failed');
+      if (badge) { badge.className = 'vs-status-badge badge-fail'; badge.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'; }
+      document.getElementById('vsFailState').style.display = 'block';
+      setEl('vsFailReason', rfr + ' The qualification evaluation has been permanently terminated.');
+      // Override verdict
+      var verdictBlock2 = document.getElementById('vsVerdictBlock');
+      if (verdictBlock2) verdictBlock2.className = 'vs-verdict-block verdict-failed';
+      setEl('vsVerdictStatus', 'Challenge Failed');
+      setEl('vsVerdictDesc', rfr + ' The qualification process has been permanently terminated. This decision is final.');
+      // Zero progress
+      setEl('vsProgressPct', '0%');
+      if (progressFill) progressFill.style.width = '0%';
+    }
+
+    // ── Scoring Engine Integration ───────────────────────────────────────
+    var engineComponents = null;
+    var engineTraderScore = null;
+    if (window.AltivorScoringEngine && trades.length > 0) {
+      try {
+        var engineResult = window.AltivorScoringEngine.evaluateAll(trades);
+        window.AltivorScoringEngine.saveEvaluation(engineResult);
+        renderScoringEngine(engineResult);
+        engineComponents = engineResult.globalScore.components;
+        engineTraderScore = engineResult.globalScore.traderScore;
+      } catch (e) {
+        console.warn('[ScoringEngine] UI integration error:', e);
+      }
+    }
+
+    // ── Score Breakdown Modal ─────────────────────────────────────────────
+    // Use engine component scores when available, fall back to legacy scores
+    var modalRisk = engineComponents ? engineComponents.riskGovernance : rScore;
+    var modalDisc = engineComponents ? engineComponents.discipline : dScore;
+    var modalCons = engineComponents ? engineComponents.consistency : cScore;
+    var modalPerf = engineComponents ? engineComponents.performance : pScore;
+    var modalTotal = engineTraderScore !== null ? engineTraderScore : totalScore;
+    setEl('vsBdValRisk', modalRisk !== null ? modalRisk : '—');
+    setEl('vsBdValDiscipline', modalDisc !== null ? modalDisc : '—');
+    setEl('vsBdValConsistency', modalCons !== null ? modalCons : '—');
+    setEl('vsBdValPerformance', modalPerf !== null ? modalPerf : '—');
+    setEl('vsBdTotal', modalTotal !== null ? modalTotal + ' / 100' : '— / 100');
+    setBar('vsBdBarRisk', modalRisk); setBar('vsBdBarDiscipline', modalDisc);
+    setBar('vsBdBarConsistency', modalCons); setBar('vsBdBarPerformance', modalPerf);
+  }
+
+  // ═══ SCORING ENGINE UI RENDERING ═════════════════════════════════════════
+  function renderScoringEngine(result) {
+    var gs = result.globalScore;
+    var bh = result.behavior;
+    var evals = result.evaluations;
+    var total = evals.length;
+    if (total === 0) return;
+
+    // Show engine sections
+    var engineRow = document.getElementById('seEngineRow');
+    var evoBlock = document.getElementById('seEvolutionBlock');
+    var logBlock = document.getElementById('seTradeLogBlock');
+    if (engineRow) engineRow.style.display = '';
+    if (evoBlock) evoBlock.style.display = '';
+    if (logBlock) logBlock.style.display = '';
+
+    // ── Grade Distribution ───────────────────────────────────────────────
+    var gd = gs.gradeDistribution;
+    var maxGrade = Math.max(gd['A+'], gd['A'], gd['B'], gd['F'], 1);
+    setEl('seCountAP', gd['A+']);
+    setEl('seCountA', gd['A']);
+    setEl('seCountB', gd['B']);
+    setEl('seCountF', gd['F']);
+    setBar('seBarAP', (gd['A+'] / maxGrade) * 100);
+    setBar('seBarA', (gd['A'] / maxGrade) * 100);
+    setBar('seBarB', (gd['B'] / maxGrade) * 100);
+    setBar('seBarF', (gd['F'] / maxGrade) * 100);
+    setEl('seAvgScore', result.summary.averageScore + ' / 100');
+
+    // ── Behavioral Flags ─────────────────────────────────────────────────
+    var flagsList = document.getElementById('seFlagsList');
+    if (flagsList) {
+      if (bh.flags.length === 0) {
+        flagsList.innerHTML = '<div class="se-flag-empty">No behavioral anomalies detected in the current evaluation window.</div>';
+      } else {
+        var flagsHTML = '';
+        var flagLabels = {
+          OVERTRADING: { icon: '⚡', label: 'Overtrading', desc: bh.summary.overtradeDays + ' day(s) exceeded trade limit' },
+          REVENGE_TRADING: { icon: '🔄', label: 'Revenge Trading', desc: bh.summary.revengeTrades + ' instance(s) of post-loss impulsive entry' },
+          LATE_ENTRIES: { icon: '⏱', label: 'Late Entries', desc: bh.summary.lateEntries + ' entry(s) after move completion' },
+          LACK_OF_PATIENCE: { icon: '⚠', label: 'Lack of Patience', desc: bh.summary.impatienceEvents + ' entry(s) before confirmation' },
+          BIAS_PERSISTENCE: { icon: '↻', label: 'Bias Persistence', desc: bh.summary.biasPersistence + ' instance(s) of unresolved directional bias' },
+          SESSION_VIOLATIONS: { icon: '🕐', label: 'Session Violations', desc: bh.summary.sessionViolations + ' trade(s) outside allowed window' }
+        };
+        bh.flags.forEach(function(f) {
+          var info = flagLabels[f] || { icon: '●', label: f, desc: '' };
+          flagsHTML += '<div class="se-flag-item">' +
+            '<span class="se-flag-icon">' + info.icon + '</span>' +
+            '<div class="se-flag-text"><span class="se-flag-label">' + info.label + '</span>' +
+            '<span class="se-flag-desc">' + info.desc + '</span></div></div>';
+        });
+        flagsList.innerHTML = flagsHTML;
+      }
+    }
+
+    // ── Readiness Tier ───────────────────────────────────────────────────
+    var tier = gs.tier;
+    setEl('seTierValue', tier.label.toUpperCase());
+    var tierDescs = {
+      UNVERIFIED: 'Insufficient data for classification.',
+      UNSTABLE: 'Execution behavior is inconsistent. Risk control does not meet evaluation standards.',
+      STRUCTURED: 'Rule adherence is visible, but execution remains uneven across validation criteria.',
+      FUNDABLE: 'Consistent, rule-based execution. Behavior meets funded-style evaluation standards.',
+      INSTITUTIONAL_READY: 'High discipline and consistency. Execution operates at institutional verification standards.'
+    };
+    setEl('seTierDesc', tierDescs[tier.id] || '');
+    var tierEl = document.getElementById('seTierValue');
+    if (tierEl) {
+      tierEl.className = 'se-tier-value se-tier-' + tier.id.toLowerCase().replace('_', '-');
+    }
+
+    // ── Score Evolution Chart ────────────────────────────────────────────
+    var chartBars = document.getElementById('seChartBars');
+    if (chartBars && gs.scoreHistory.length > 0) {
+      var barsHTML = '';
+      var history = gs.scoreHistory;
+      var maxBars = 30;
+      var displayHistory = history.length > maxBars ? history.slice(-maxBars) : history;
+      displayHistory.forEach(function(h) {
+        var gradeClass = 'se-bar-' + (h.grade === 'A+' ? 'ap' : h.grade.toLowerCase());
+        barsHTML += '<div class="se-bar ' + gradeClass + '" style="height:' + h.score + '%;" title="Trade #' + h.tradeIndex + ': ' + h.score + '/100 (' + h.grade + ')"></div>';
+      });
+      chartBars.innerHTML = barsHTML;
+    }
+
+    // ── Trade Evaluation Log ─────────────────────────────────────────────
+    var logList = document.getElementById('seTradeLogList');
+    if (logList) {
+      var logHTML = '';
+      var displayEvals = evals.slice().reverse().slice(0, 20);
+      displayEvals.forEach(function(ev) {
+        var gradeClass = 'se-log-grade-' + (ev.grade === 'A+' ? 'ap' : ev.grade.toLowerCase());
+        var dateStr = ev.date ? new Date(ev.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '—';
+        var penaltyHTML = '';
+        if (ev.penalties.length > 0) {
+          penaltyHTML = '<div class="se-log-penalties">';
+          ev.penalties.forEach(function(p) {
+            penaltyHTML += '<span class="se-penalty-tag se-sev-' + p.severity.toLowerCase() + '">−' + p.points + ' ' + p.label + '</span>';
+          });
+          penaltyHTML += '</div>';
+        }
+        var strengthHTML = '';
+        if (ev.strengths.length > 0) {
+          strengthHTML = '<div class="se-log-strengths">';
+          ev.strengths.forEach(function(s) {
+            strengthHTML += '<span class="se-strength-tag">✓ ' + s + '</span>';
+          });
+          strengthHTML += '</div>';
+        }
+        var rText = ev.rMultiple !== null ? (ev.rMultiple >= 0 ? '+' : '') + ev.rMultiple + 'R' : '';
+        logHTML += '<div class="se-log-item">' +
+          '<div class="se-log-header">' +
+            '<span class="se-log-num">#' + (ev.tradeNumber || ev.tradeId) + '</span>' +
+            '<span class="se-log-date">' + dateStr + '</span>' +
+            '<span class="se-log-grade ' + gradeClass + '">' + ev.grade + '</span>' +
+            '<span class="se-log-score">' + ev.score + '/100</span>' +
+            (rText ? '<span class="se-log-r">' + rText + '</span>' : '') +
+          '</div>' +
+          penaltyHTML + strengthHTML +
+        '</div>';
+      });
+      logList.innerHTML = logHTML;
+    }
+  }
+
+  var scoreBtn = document.getElementById('vsScoreBtn');
+  var modal = document.getElementById('vsScoreModal');
+  var modalClose = document.getElementById('vsModalClose');
+  if (scoreBtn) scoreBtn.addEventListener('click', function() { modal.classList.add('vs-modal-open'); modal.removeAttribute('aria-hidden'); });
+  function closeModal() { modal.classList.remove('vs-modal-open'); modal.setAttribute('aria-hidden', 'true'); }
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modal) modal.addEventListener('click', function(e) { if (e.target === modal) closeModal(); });
+
+  var dlBtn = document.getElementById('vsDownloadCertBtn');
+  var claimBtn = document.getElementById('vsClaimDiscountBtn');
+  if (dlBtn) dlBtn.addEventListener('click', function() { alert('Certificate download will be available after manual verification by ALTIVOR team.'); });
+  if (claimBtn) claimBtn.addEventListener('click', function() { var code = 'ALTIVOR-GRAD-' + Math.random().toString(36).substring(2, 8).toUpperCase(); alert('Your 20% discount code: ' + code + '\n\nUse this code at checkout for any ALTIVOR Accessories.'); });
+
+  // ═══ PRE-CHALLENGE ACKNOWLEDGMENT ═══════════════════════════════════════
+  var ackOverlay = document.getElementById('vsAckOverlay');
+  var ackBtn = document.getElementById('vsAckActivateBtn');
+  var ackCheckboxes = document.querySelectorAll('.vs-ack-cb');
+
+  function updateAckBtnState() {
+    var allChecked = true;
+    ackCheckboxes.forEach(function(cb) { if (!cb.checked) allChecked = false; });
+    if (ackBtn) ackBtn.disabled = !allChecked;
+  }
+  ackCheckboxes.forEach(function(cb) {
+    cb.addEventListener('change', updateAckBtnState);
+  });
+
+  if (ackBtn) {
+    ackBtn.addEventListener('click', function() {
+      localStorage.setItem(ACK_KEY, '1');
+      if (ackOverlay) ackOverlay.style.display = 'none';
+      // Initialize challenge state
+      var cs = loadChallengeState();
+      if (!cs || cs.status === 'NOT_STARTED') {
+        var newState = getDefaultChallengeState();
+        newState.status = 'RULES_ACKNOWLEDGED';
+        saveChallengeState(newState);
+      }
+    });
+  }
+
+  // Show acknowledgment overlay if rules not yet acknowledged
+  if (!isAcknowledged() && ackOverlay) {
+    ackOverlay.style.display = '';
+  }
+
+  // ═══ CHALLENGE RULES MODAL ════════════════════════════════════════════
+  var rulesModal = document.getElementById('vsRulesModal');
+  var rulesClose = document.getElementById('vsRulesModalClose');
+  var viewRulesBtn = document.getElementById('vsViewRulesBtn');
+  var ackViewFullRules = document.getElementById('vsAckViewFullRules');
+
+  function openRulesModal() {
+    if (rulesModal) { rulesModal.classList.add('vs-modal-open'); rulesModal.removeAttribute('aria-hidden'); document.body.classList.add('vs-modal-body-lock'); }
+  }
+  function closeRulesModal() {
+    if (rulesModal) { rulesModal.classList.remove('vs-modal-open'); rulesModal.setAttribute('aria-hidden', 'true'); document.body.classList.remove('vs-modal-body-lock'); }
+  }
+  if (viewRulesBtn) viewRulesBtn.addEventListener('click', openRulesModal);
+  if (ackViewFullRules) ackViewFullRules.addEventListener('click', openRulesModal);
+  if (rulesClose) rulesClose.addEventListener('click', closeRulesModal);
+  if (rulesModal) rulesModal.addEventListener('click', function(e) { if (e.target === rulesModal) closeRulesModal(); });
+
+  updateUI();
+})();
+</script>
+</body>
+</html>

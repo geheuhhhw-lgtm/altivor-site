@@ -1,0 +1,720 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Behavioral Compliance Standards — ALTIVOR INSTITUTE</title>
+    <meta name="description" content="PREPARE Behavioral Standards — Trader OS integration, behavioral scoring metrics, discipline tracking, and control-loss detection." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        .pdoc-hero {
+            padding: 9rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdoc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--txt-muted);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .pdoc-back:hover {
+            color: var(--txt-primary);
+        }
+
+        .pdoc-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(96, 165, 250, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-tag {
+            color: rgba(37, 99, 175, 0.85);
+        }
+
+        .pdoc-hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: rgba(214, 190, 150, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-hero h1 {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-hero p {
+            font-size: 0.92rem;
+            color: var(--txt-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .pdoc-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--txt-muted);
+        }
+
+        .pdoc-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .pdoc-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .pdoc-section {
+            margin-bottom: 3rem;
+        }
+
+        .pdoc-section-num {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(96, 165, 250, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="light"] .pdoc-section-num {
+            color: rgba(37, 99, 175, 0.75);
+        }
+
+        .pdoc-section h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.4rem;
+            color: rgba(214, 190, 150, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="light"] .pdoc-section h2 {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-section h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: rgba(214, 190, 150, 0.85);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-section h3 {
+            color: rgba(130, 110, 70, 0.85);
+        }
+
+        .pdoc-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--txt-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pdoc-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .pdoc-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--txt-secondary);
+            margin-bottom: 0.6rem;
+        }
+
+        .pdoc-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.6);
+        }
+
+        [data-theme="light"] .pdoc-section ul li::before {
+            background: rgba(37, 99, 175, 0.5);
+        }
+
+        .pdoc-highlight {
+            background: rgba(96, 165, 250, 0.08);
+            border-left: 3px solid rgba(96, 165, 250, 0.5);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        [data-theme="light"] .pdoc-highlight {
+            background: rgba(37, 99, 175, 0.05);
+            border-left-color: rgba(37, 99, 175, 0.4);
+        }
+
+        .pdoc-highlight p {
+            margin: 0;
+            font-size: 0.88rem;
+        }
+
+        .pdoc-highlight strong {
+            color: rgba(214, 190, 150, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-highlight strong {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--border) 15%, var(--border) 85%, transparent 100%);
+            margin: 2.5rem 0;
+        }
+
+        .pdoc-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .pdoc-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--txt-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pdoc-nav a:hover {
+            color: var(--txt-primary);
+        }
+
+        .pdoc-toc {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        [data-theme="light"] .pdoc-toc {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .pdoc-toc-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--txt-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .pdoc-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .pdoc-toc ul li a {
+            font-size: 0.82rem;
+            color: var(--txt-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pdoc-toc ul li a:hover {
+            color: rgba(96, 165, 250, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-toc ul li a:hover {
+            color: rgba(37, 99, 175, 0.85);
+        }
+
+        .pdoc-score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .pdoc-score-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        [data-theme="light"] .pdoc-score-card {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .pdoc-score-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--txt-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pdoc-score-value {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.8rem;
+            color: rgba(214, 190, 150, 0.9);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        [data-theme="light"] .pdoc-score-value {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-score-desc {
+            font-size: 0.78rem;
+            color: var(--txt-muted);
+        }
+
+        .pdoc-zone-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .pdoc-zone-table th,
+        .pdoc-zone-table td {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdoc-zone-table th {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--txt-muted);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        [data-theme="light"] .pdoc-zone-table th {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .pdoc-zone-table td {
+            color: var(--txt-secondary);
+        }
+
+        .pdoc-zone-green {
+            color: rgba(34, 197, 94, 0.9);
+            font-weight: 600;
+        }
+
+        .pdoc-zone-yellow {
+            color: rgba(234, 179, 8, 0.9);
+            font-weight: 600;
+        }
+
+        .pdoc-zone-red {
+            color: rgba(239, 68, 68, 0.9);
+            font-weight: 600;
+        }
+
+        .pdoc-behavior-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        [data-theme="light"] .pdoc-behavior-card {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .pdoc-behavior-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pdoc-behavior-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(96, 165, 250, 0.12);
+            color: rgba(96, 165, 250, 0.9);
+            border-radius: 8px;
+        }
+
+        [data-theme="light"] .pdoc-behavior-icon {
+            background: rgba(37, 99, 175, 0.1);
+            color: rgba(37, 99, 175, 0.85);
+        }
+
+        .pdoc-behavior-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.05rem;
+            color: rgba(214, 190, 150, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-behavior-title {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-behavior-desc {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--txt-secondary);
+        }
+        .pdoc-hero .container { display: flex; flex-direction: column; align-items: center; }
+        .pdoc-back { align-self: flex-start; }    </style>
+</head>
+
+<body>
+<div class="promo-bar" id="promoBar"><a href="../us100-framework.html" class="promo-bar-inner"><span class="promo-bar-badge" data-i18n="announce_badge">NEW</span><span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span><span class="promo-bar-cta" data-i18n="announce_cta">Start now</span></a><button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button></div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="../index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink"><img src="../logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" draggable="false" /></a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="../index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav_frameworks">Frameworks</span><svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="../us100-framework.html" class="nav-dropdown-item"><span class="nav-drop-badge active">Active</span><span class="nav-drop-name">US100</span><span class="nav-drop-desc">Nasdaq 100 CFD</span></a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;"><span class="nav-drop-badge dev">In Dev</span><span class="nav-drop-name">US30</span><span class="nav-drop-desc">Coming soon</span></a>
+</div>
+</div>
+<a href="../index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="../verification.html" data-i18n="nav_verification">Verification</a>
+<a href="../faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="../trading-updates.html">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true"><span>Accessories</span><svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="../trading-log.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Log</span><span class="nav-drop-desc">Daily trading journal</span></span></a>
+<a href="../trading-wiki.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Wiki</span><span class="nav-drop-desc">Institutional market concepts</span></span></a>
+<a href="../symbols.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Symbols</span><span class="nav-drop-desc">Spreads, swaps &amp; hours</span></span></a>
+<a href="../execution-checklist.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Execution Checklist</span><span class="nav-drop-desc">6-stage trade decision engine</span></span></a>
+<a href="../calculators.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Calculators</span><span class="nav-drop-desc">Position size, RR &amp; more</span></span></a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker"><button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language"><span class="lang-flag-circle">🇬🇧</span><span class="lang-code">EN</span><svg class="lang-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button><div class="lang-dropdown" id="langDropdown"></div></div>
+<div class="theme-switcher" role="group" aria-label="Select color theme"><button class="theme-btn active" data-theme="dark" data-i18n="theme_dark">Dark</button><button class="theme-btn" data-theme="light" data-i18n="theme_light">Light</button><button class="theme-btn" data-theme="navy" data-i18n="theme_navy">Navy</button></div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="../index.html#about" data-i18n="nav_about">About</a>
+<a href="../index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="../index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="../faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="../trading-log.html">Trading Log</a>
+<a href="../symbols.html">Trading Symbols</a>
+<a href="../execution-checklist.html">Execution Checklist</a>
+<a href="../calculators.html">Trading Calculators</a>
+<a href="../index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+
+    <main>
+        <section class="pdoc-hero">
+            <div class="container">
+                <a href="../prepare.html#prepAccessSection" class="pdoc-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <span data-i18n="pdoc_back">Back to PREPARE</span>
+                </a>
+                <p class="pdoc-tag" data-i18n="pdoc_bs_tag">PREPARE Document 06</p>
+                <h1 data-i18n="pdoc_bs_title">Behavioral Compliance Standards</h1>
+                <p data-i18n="pdoc_bs_desc">Trader OS integration, behavioral scoring metrics, discipline tracking, and control-loss detection within the PREPARE qualification system.</p>
+                <div class="pdoc-meta">
+                    <div class="pdoc-meta-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span data-i18n="pdoc_type_behavioral">Behavioral Document</span>
+                    </div>
+                    <div class="pdoc-meta-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span data-i18n="pdoc_read_time_12">12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="pdoc-content">
+            <div class="pdoc-toc">
+                <div class="pdoc-toc-title" data-i18n="pdoc_toc">Table of Contents</div>
+                <ul>
+                    <li><a href="#overview" data-i18n="pdoc_bs_toc1">1. Behavioral Analysis Overview</a></li>
+                    <li><a href="#tradescore" data-i18n="pdoc_bs_toc2">2. TradeScore System</a></li>
+                    <li><a href="#zones" data-i18n="pdoc_bs_toc3">3. Session Zones</a></li>
+                    <li><a href="#patterns" data-i18n="pdoc_bs_toc4">4. Pattern Detection</a></li>
+                    <li><a href="#integration" data-i18n="pdoc_bs_toc5">5. PREPARE Integration</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider-full"></div>
+            <section class="pdoc-section" id="overview">
+                <span class="pdoc-section-num" data-i18n="pdoc_bs_s1_num">Section 01</span>
+                <h2 data-i18n="pdoc_bs_s1_title">Behavioral Analysis Overview</h2>
+                <p data-i18n="pdoc_bs_s1_p1">Beyond structural compliance, PREPARE incorporates behavioral analysis through the Trader OS integration. This system evaluates not just whether you followed the rules, but how you followed them — detecting patterns that indicate control loss, emotional trading, or process degradation.</p>
+                <p data-i18n="pdoc_bs_s1_p2">Behavioral metrics provide diagnostic feedback. They do not directly affect compliance status but offer insight into trading patterns that may predict future non-compliance or indicate areas requiring development.</p>
+
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_bs_s1_purpose_label">Purpose:</strong> <span data-i18n="pdoc_bs_s1_purpose">Structural compliance tells you IF you followed the process. Behavioral analysis tells you HOW you followed it — and whether your execution quality is sustainable.</span></p>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="tradescore">
+                <span class="pdoc-section-num" data-i18n="pdoc_bs_s2_num">Section 02</span>
+                <h2 data-i18n="pdoc_bs_s2_title">TradeScore System</h2>
+                <p data-i18n="pdoc_bs_s2_p1">Each trade submission receives a TradeScore from 0-100, calculated from four weighted components:</p>
+
+                <div class="pdoc-score-grid">
+                    <div class="pdoc-score-card">
+                        <div class="pdoc-score-label" data-i18n="pdoc_bs_score1_label">Compliance</div>
+                        <div class="pdoc-score-value">40%</div>
+                        <div class="pdoc-score-desc" data-i18n="pdoc_bs_score1_desc">Rule adherence weight</div>
+                    </div>
+                    <div class="pdoc-score-card">
+                        <div class="pdoc-score-label" data-i18n="pdoc_bs_score2_label">Risk</div>
+                        <div class="pdoc-score-value">25%</div>
+                        <div class="pdoc-score-desc" data-i18n="pdoc_bs_score2_desc">Risk management quality</div>
+                    </div>
+                    <div class="pdoc-score-card">
+                        <div class="pdoc-score-label" data-i18n="pdoc_bs_score3_label">Quality</div>
+                        <div class="pdoc-score-value">20%</div>
+                        <div class="pdoc-score-desc" data-i18n="pdoc_bs_score3_desc">Execution precision</div>
+                    </div>
+                    <div class="pdoc-score-card">
+                        <div class="pdoc-score-label" data-i18n="pdoc_bs_score4_label">Behavior</div>
+                        <div class="pdoc-score-value">15%</div>
+                        <div class="pdoc-score-desc" data-i18n="pdoc_bs_score4_desc">Pattern analysis</div>
+                    </div>
+                </div>
+
+                <h3 data-i18n="pdoc_bs_s2_h3_compliance">Compliance Component (40%)</h3>
+                <p data-i18n="pdoc_bs_s2_p2">Measures adherence to the six structural criteria. Full compliance scores 100%. Any violation drops this component to 0%.</p>
+
+                <h3 data-i18n="pdoc_bs_s2_h3_risk">Risk Component (25%)</h3>
+                <p data-i18n="pdoc_bs_s2_p3">Evaluates risk management quality. Factors include: risk percentage relative to 0.25% limit, stop loss placement logic, and position sizing accuracy.</p>
+
+                <h3 data-i18n="pdoc_bs_s2_h3_quality">Quality Component (20%)</h3>
+                <p data-i18n="pdoc_bs_s2_p4">Assesses execution precision. Factors include: data completeness, screenshot quality, timestamp accuracy, and documentation thoroughness.</p>
+
+                <h3 data-i18n="pdoc_bs_s2_h3_behavior">Behavior Component (15%)</h3>
+                <p data-i18n="pdoc_bs_s2_p5">Analyzes trading patterns. Factors include: time between trades, same-day trade frequency, post-loss behavior, and session consistency.</p>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="zones">
+                <span class="pdoc-section-num" data-i18n="pdoc_bs_s3_num">Section 03</span>
+                <h2 data-i18n="pdoc_bs_s3_title">Session Zones</h2>
+                <p data-i18n="pdoc_bs_s3_p1">Your cumulative behavioral performance places you in one of three session zones. These zones provide real-time feedback on your trading state.</p>
+
+                <table class="pdoc-zone-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="pdoc_bs_th_zone">Zone</th>
+                            <th data-i18n="pdoc_bs_th_score">Score Range</th>
+                            <th data-i18n="pdoc_bs_th_indication">Indication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pdoc-zone-green" data-i18n="pdoc_bs_z1_name">GREEN</td>
+                            <td data-i18n="pdoc_bs_z1_range">80-100</td>
+                            <td data-i18n="pdoc_bs_z1_indication">Optimal execution. Process discipline maintained. Continue current approach.</td>
+                        </tr>
+                        <tr>
+                            <td class="pdoc-zone-yellow" data-i18n="pdoc_bs_z2_name">YELLOW</td>
+                            <td data-i18n="pdoc_bs_z2_range">50-79</td>
+                            <td data-i18n="pdoc_bs_z2_indication">Caution zone. Minor deviations detected. Review recent patterns.</td>
+                        </tr>
+                        <tr>
+                            <td class="pdoc-zone-red" data-i18n="pdoc_bs_z3_name">RED</td>
+                            <td data-i18n="pdoc_bs_z3_range">0-49</td>
+                            <td data-i18n="pdoc_bs_z3_indication">Control loss indicated. Process breakdown likely. Consider pausing activity.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_bs_s3_note_label">Note:</strong> <span data-i18n="pdoc_bs_s3_note">Session zones are diagnostic, not punitive. A RED zone does not automatically trigger disqualification. However, participants consistently in RED zone typically accumulate non-compliant trades rapidly.</span></p>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="patterns">
+                <span class="pdoc-section-num" data-i18n="pdoc_bs_s4_num">Section 04</span>
+                <h2 data-i18n="pdoc_bs_s4_title">Pattern Detection</h2>
+                <p data-i18n="pdoc_bs_s4_p1">The behavioral system monitors for specific patterns that indicate control loss or emotional trading:</p>
+
+                <div class="pdoc-behavior-card">
+                    <div class="pdoc-behavior-header">
+                        <div class="pdoc-behavior-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span class="pdoc-behavior-title" data-i18n="pdoc_bs_p1_title">Rapid Succession Trading</span>
+                    </div>
+                    <p class="pdoc-behavior-desc" data-i18n="pdoc_bs_p1_desc">Multiple trades within a short time window, especially following a loss. This pattern often indicates revenge trading or emotional decision-making rather than systematic execution.</p>
+                </div>
+
+                <div class="pdoc-behavior-card">
+                    <div class="pdoc-behavior-header">
+                        <div class="pdoc-behavior-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <span class="pdoc-behavior-title" data-i18n="pdoc_bs_p2_title">Post-Loss Escalation</span>
+                    </div>
+                    <p class="pdoc-behavior-desc" data-i18n="pdoc_bs_p2_desc">Increased position sizing or trading frequency immediately after a losing trade. This pattern suggests emotional response to loss rather than adherence to a systematic approach.</p>
+                </div>
+
+                <div class="pdoc-behavior-card">
+                    <div class="pdoc-behavior-header">
+                        <div class="pdoc-behavior-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        </div>
+                        <span class="pdoc-behavior-title" data-i18n="pdoc_bs_p3_title">Same-Day Overtrading</span>
+                    </div>
+                    <p class="pdoc-behavior-desc" data-i18n="pdoc_bs_p3_desc">Excessive number of trades within a single session. High trade frequency often correlates with reduced decision quality and increased non-compliance rates.</p>
+                </div>
+
+                <div class="pdoc-behavior-card">
+                    <div class="pdoc-behavior-header">
+                        <div class="pdoc-behavior-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <span class="pdoc-behavior-title" data-i18n="pdoc_bs_p4_title">Risk Boundary Testing</span>
+                    </div>
+                    <p class="pdoc-behavior-desc" data-i18n="pdoc_bs_p4_desc">Consistently sizing positions at or near the 0.25% limit. While technically compliant, this pattern suggests the participant is pushing against constraints rather than operating comfortably within them.</p>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="integration">
+                <span class="pdoc-section-num" data-i18n="pdoc_bs_s5_num">Section 05</span>
+                <h2 data-i18n="pdoc_bs_s5_title">PREPARE Integration</h2>
+                <p data-i18n="pdoc_bs_s5_p1">Behavioral metrics integrate with PREPARE in the following ways:</p>
+                <ul>
+                    <li data-i18n="pdoc_bs_s5_li1"><strong>Real-time feedback:</strong> TradeScore and session zone displayed after each submission</li>
+                    <li data-i18n="pdoc_bs_s5_li2"><strong>Pattern alerts:</strong> Warnings when behavioral patterns indicate elevated risk</li>
+                    <li data-i18n="pdoc_bs_s5_li3"><strong>History analysis:</strong> Cumulative behavioral trends visible in trade history</li>
+                    <li data-i18n="pdoc_bs_s5_li4"><strong>Qualification context:</strong> Behavioral summary included in qualification status</li>
+                </ul>
+
+                <h3 data-i18n="pdoc_bs_s5_h3_use">Using Behavioral Data</h3>
+                <p data-i18n="pdoc_bs_s5_p2">Behavioral metrics are most valuable as early warning indicators. A declining TradeScore trend or shift toward YELLOW/RED zone often precedes non-compliant submissions. Participants who monitor and respond to these signals can adjust their approach before accumulating violations.</p>
+
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_bs_s5_insight_label">Key Insight:</strong> <span data-i18n="pdoc_bs_s5_insight">The behavioral system reveals what structural compliance cannot: whether your process execution is stable and sustainable, or whether you are operating at the edge of control loss. Use this information proactively.</span></p>
+                </div>
+            </section>
+
+            <nav class="pdoc-nav">
+                <a href="fail-conditions.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <span data-i18n="pdoc_nav_prev_fc">Previous: Fail Conditions</span>
+                </a>
+                <a href="../prepare.html#prepAccessSection">
+                    <span data-i18n="pdoc_nav_back_prepare">Back to PREPARE</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </nav>
+        </div>
+    </main>
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<img src="../logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img footer-logo-img" style="height:28px;width:auto;display:block;opacity:0.85;" draggable="false" />
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc"> ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only. Market participation involves risk. Past process consistency does not indicate future behavioral or financial outcomes. </p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="../index.html#about" data-i18n="footer_about">About</a>
+<a href="../index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="../index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="../accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="../verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="../faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="../press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="../social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="../partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="../invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="../terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="../privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="../risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="../refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<script src="../i18n.js"></script>
+<script src="../script.js"></script>
+<script src="../cookie-consent.js"></script>
+</body>
+
+</html>

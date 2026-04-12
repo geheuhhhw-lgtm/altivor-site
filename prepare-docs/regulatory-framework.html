@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PREPARE Regulatory Framework — ALTIVOR INSTITUTE</title>
+    <meta name="description" content="PREPARE Regulatory Framework — governing document defining scope, authority, binary evaluation standard, and participant obligations." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        .pdoc-hero {
+            padding: 9rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdoc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--txt-muted);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .pdoc-back:hover {
+            color: var(--txt-primary);
+        }
+
+        .pdoc-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(96, 165, 250, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-tag {
+            color: rgba(37, 99, 175, 0.85);
+        }
+
+        .pdoc-hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: rgba(214, 190, 150, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-hero h1 {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-hero p {
+            font-size: 0.92rem;
+            color: var(--txt-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .pdoc-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--txt-muted);
+        }
+
+        .pdoc-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .pdoc-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .pdoc-section {
+            margin-bottom: 3rem;
+        }
+
+        .pdoc-section-num {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(96, 165, 250, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="light"] .pdoc-section-num {
+            color: rgba(37, 99, 175, 0.75);
+        }
+
+        .pdoc-section h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.4rem;
+            color: rgba(214, 190, 150, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="light"] .pdoc-section h2 {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--txt-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pdoc-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .pdoc-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--txt-secondary);
+            margin-bottom: 0.6rem;
+        }
+
+        .pdoc-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.6);
+        }
+
+        [data-theme="light"] .pdoc-section ul li::before {
+            background: rgba(37, 99, 175, 0.5);
+        }
+
+        .pdoc-highlight {
+            background: rgba(96, 165, 250, 0.08);
+            border-left: 3px solid rgba(96, 165, 250, 0.5);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        [data-theme="light"] .pdoc-highlight {
+            background: rgba(37, 99, 175, 0.05);
+            border-left-color: rgba(37, 99, 175, 0.4);
+        }
+
+        .pdoc-highlight p {
+            margin: 0;
+            font-size: 0.88rem;
+        }
+
+        .pdoc-highlight strong {
+            color: rgba(214, 190, 150, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-highlight strong {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--border) 15%, var(--border) 85%, transparent 100%);
+            margin: 2.5rem 0;
+        }
+
+        .pdoc-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .pdoc-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--txt-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pdoc-nav a:hover {
+            color: var(--txt-primary);
+        }
+
+        .pdoc-toc {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        [data-theme="light"] .pdoc-toc {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .pdoc-toc-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--txt-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .pdoc-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .pdoc-toc ul li a {
+            font-size: 0.82rem;
+            color: var(--txt-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pdoc-toc ul li a:hover {
+            color: rgba(96, 165, 250, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-toc ul li a:hover {
+            color: rgba(37, 99, 175, 0.85);
+        }
+        .pdoc-hero .container { display: flex; flex-direction: column; align-items: center; }
+        .pdoc-back { align-self: flex-start; }    </style>
+</head>
+
+<body>
+<div class="promo-bar" id="promoBar"><a href="../us100-framework.html" class="promo-bar-inner"><span class="promo-bar-badge" data-i18n="announce_badge">NEW</span><span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span><span class="promo-bar-cta" data-i18n="announce_cta">Start now</span></a><button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button></div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="../index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink"><img src="../logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" draggable="false" /></a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="../index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav_frameworks">Frameworks</span><svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="../us100-framework.html" class="nav-dropdown-item"><span class="nav-drop-badge active">Active</span><span class="nav-drop-name">US100</span><span class="nav-drop-desc">Nasdaq 100 CFD</span></a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;"><span class="nav-drop-badge dev">In Dev</span><span class="nav-drop-name">US30</span><span class="nav-drop-desc">Coming soon</span></a>
+</div>
+</div>
+<a href="../index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="../verification.html" data-i18n="nav_verification">Verification</a>
+<a href="../faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="../trading-updates.html">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true"><span>Accessories</span><svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="../trading-log.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Log</span><span class="nav-drop-desc">Daily trading journal</span></span></a>
+<a href="../trading-wiki.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Wiki</span><span class="nav-drop-desc">Institutional market concepts</span></span></a>
+<a href="../symbols.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Symbols</span><span class="nav-drop-desc">Spreads, swaps &amp; hours</span></span></a>
+<a href="../execution-checklist.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Execution Checklist</span><span class="nav-drop-desc">6-stage trade decision engine</span></span></a>
+<a href="../calculators.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Calculators</span><span class="nav-drop-desc">Position size, RR &amp; more</span></span></a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker"><button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language"><span class="lang-flag-circle">🇬🇧</span><span class="lang-code">EN</span><svg class="lang-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button><div class="lang-dropdown" id="langDropdown"></div></div>
+<div class="theme-switcher" role="group" aria-label="Select color theme"><button class="theme-btn active" data-theme="dark" data-i18n="theme_dark">Dark</button><button class="theme-btn" data-theme="light" data-i18n="theme_light">Light</button><button class="theme-btn" data-theme="navy" data-i18n="theme_navy">Navy</button></div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="../index.html#about" data-i18n="nav_about">About</a>
+<a href="../index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="../index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="../faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="../trading-log.html">Trading Log</a>
+<a href="../symbols.html">Trading Symbols</a>
+<a href="../execution-checklist.html">Execution Checklist</a>
+<a href="../calculators.html">Trading Calculators</a>
+<a href="../index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+
+    <main>
+        <section class="pdoc-hero">
+            <div class="container">
+                <a href="../prepare.html#prepAccessSection" class="pdoc-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <span data-i18n="pdoc_back">Back to PREPARE</span>
+                </a>
+                <p class="pdoc-tag" data-i18n="pdoc_rf_tag">PREPARE Document 01</p>
+                <h1 data-i18n="pdoc_rf_title">Regulatory Framework</h1>
+                <p data-i18n="pdoc_rf_desc">Governing document defining scope, authority, binary evaluation standard, and participant obligations within the PREPARE qualification system.</p>
+                <div class="pdoc-meta">
+                    <div class="pdoc-meta-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span data-i18n="pdoc_type_regulatory">Regulatory Document</span>
+                    </div>
+                    <div class="pdoc-meta-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span data-i18n="pdoc_read_time">8 min read</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="pdoc-content">
+            <div class="pdoc-toc">
+                <div class="pdoc-toc-title" data-i18n="pdoc_toc">Table of Contents</div>
+                <ul>
+                    <li><a href="#purpose" data-i18n="pdoc_rf_toc1">1. Purpose & Authority</a></li>
+                    <li><a href="#scope" data-i18n="pdoc_rf_toc2">2. Scope of Application</a></li>
+                    <li><a href="#definitions" data-i18n="pdoc_rf_toc3">3. Definitions</a></li>
+                    <li><a href="#evaluation" data-i18n="pdoc_rf_toc4">4. Evaluation Standard</a></li>
+                    <li><a href="#obligations" data-i18n="pdoc_rf_toc5">5. Participant Obligations</a></li>
+                    <li><a href="#enforcement" data-i18n="pdoc_rf_toc6">6. Enforcement & Finality</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider-full"></div>
+            <section class="pdoc-section" id="purpose">
+                <span class="pdoc-section-num" data-i18n="pdoc_rf_s1_num">Section 01</span>
+                <h2 data-i18n="pdoc_rf_s1_title">Purpose & Authority</h2>
+                <p data-i18n="pdoc_rf_s1_p1">This Regulatory Framework establishes the governing principles, operational boundaries, and evaluation standards for the PREPARE qualification system. It serves as the authoritative reference for all procedural matters within the qualification process.</p>
+                <p data-i18n="pdoc_rf_s1_p2">PREPARE exists as a mandatory procedural gate. Its purpose is to validate whether a participant can execute a declared trading process without deviation, prior to gaining access to advanced framework products.</p>
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_rf_s1_mandate_label">Mandate:</strong> <span data-i18n="pdoc_rf_s1_mandate">No participant may access the US100 Challenge or Framework Pack without first demonstrating procedural compliance through PREPARE qualification.</span></p>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="scope">
+                <span class="pdoc-section-num" data-i18n="pdoc_rf_s2_num">Section 02</span>
+                <h2 data-i18n="pdoc_rf_s2_title">Scope of Application</h2>
+                <p data-i18n="pdoc_rf_s2_p1">This framework applies to all participants who have purchased PREPARE access and are actively engaged in the qualification process. The scope includes:</p>
+                <ul>
+                    <li data-i18n="pdoc_rf_s2_li1">All trade submissions within the PREPARE qualification system</li>
+                    <li data-i18n="pdoc_rf_s2_li2">All compliance evaluations and status determinations</li>
+                    <li data-i18n="pdoc_rf_s2_li3">All disqualification events and cooldown periods</li>
+                    <li data-i18n="pdoc_rf_s2_li4">All documentation requirements and submission standards</li>
+                </ul>
+                <p data-i18n="pdoc_rf_s2_p2">The framework does not govern trading activity outside the PREPARE system. Participants remain solely responsible for their own trading decisions, risk management, and financial outcomes.</p>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="definitions">
+                <span class="pdoc-section-num" data-i18n="pdoc_rf_s3_num">Section 03</span>
+                <h2 data-i18n="pdoc_rf_s3_title">Definitions</h2>
+                <p data-i18n="pdoc_rf_s3_p1">The following terms carry specific meaning within this framework:</p>
+                <ul>
+                    <li><strong data-i18n="pdoc_rf_s3_def1_term">Compliant Trade:</strong> <span data-i18n="pdoc_rf_s3_def1_desc">A trade submission that meets all structural requirements and passes compliance evaluation.</span></li>
+                    <li><strong data-i18n="pdoc_rf_s3_def2_term">Non-Compliant Trade:</strong> <span data-i18n="pdoc_rf_s3_def2_desc">A trade submission that fails one or more compliance criteria, regardless of financial outcome.</span></li>
+                    <li><strong data-i18n="pdoc_rf_s3_def3_term">Qualification Threshold:</strong> <span data-i18n="pdoc_rf_s3_def3_desc">The minimum number of compliant trades required to achieve QUALIFIED status (10 compliant trades).</span></li>
+                    <li><strong data-i18n="pdoc_rf_s3_def4_term">Disqualification Limit:</strong> <span data-i18n="pdoc_rf_s3_def4_desc">The maximum number of non-compliant trades before mandatory cooldown (20 non-compliant trades).</span></li>
+                    <li><strong data-i18n="pdoc_rf_s3_def5_term">Cooldown Period:</strong> <span data-i18n="pdoc_rf_s3_def5_desc">A mandatory 7-day suspension following disqualification, during which no submissions are accepted.</span></li>
+                </ul>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="evaluation">
+                <span class="pdoc-section-num" data-i18n="pdoc_rf_s4_num">Section 04</span>
+                <h2 data-i18n="pdoc_rf_s4_title">Evaluation Standard</h2>
+                <p data-i18n="pdoc_rf_s4_p1">PREPARE operates on a binary evaluation model. Each trade submission is classified as either PASS (compliant) or FAIL (non-compliant). There is no partial compliance, no weighted scoring for individual submissions, and no consideration of financial outcome.</p>
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_rf_s4_principle_label">Core Principle:</strong> <span data-i18n="pdoc_rf_s4_principle">Financial outcome carries zero evaluative weight. A losing trade that follows all structural requirements is compliant. A profitable trade that violates any requirement is non-compliant.</span></p>
+                </div>
+                <p data-i18n="pdoc_rf_s4_p2">The evaluation system measures procedural discipline, not trading skill. It validates whether the participant can follow a declared process consistently, regardless of market conditions or trade results.</p>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="obligations">
+                <span class="pdoc-section-num" data-i18n="pdoc_rf_s5_num">Section 05</span>
+                <h2 data-i18n="pdoc_rf_s5_title">Participant Obligations</h2>
+                <p data-i18n="pdoc_rf_s5_p1">By engaging with the PREPARE qualification system, participants accept the following obligations:</p>
+                <ul>
+                    <li data-i18n="pdoc_rf_s5_li1">Submit only genuine trades executed on a live or demo trading account</li>
+                    <li data-i18n="pdoc_rf_s5_li2">Provide accurate data that matches broker records exactly</li>
+                    <li data-i18n="pdoc_rf_s5_li3">Include required TradingView chart screenshots for each submission</li>
+                    <li data-i18n="pdoc_rf_s5_li4">Accept all compliance evaluations as final and non-negotiable</li>
+                    <li data-i18n="pdoc_rf_s5_li5">Respect cooldown periods without attempting circumvention</li>
+                    <li data-i18n="pdoc_rf_s5_li6">Maintain sole responsibility for all trading decisions and outcomes</li>
+                </ul>
+                <p data-i18n="pdoc_rf_s5_p2">Violation of these obligations may result in immediate disqualification, account suspension, or permanent access revocation at the sole discretion of ALTIVOR INSTITUTE.</p>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="enforcement">
+                <span class="pdoc-section-num" data-i18n="pdoc_rf_s6_num">Section 06</span>
+                <h2 data-i18n="pdoc_rf_s6_title">Enforcement & Finality</h2>
+                <p data-i18n="pdoc_rf_s6_p1">All determinations made under this framework are final. The evaluation system does not recognize appeals based on:</p>
+                <ul>
+                    <li data-i18n="pdoc_rf_s6_li1">Good intentions or honest mistakes</li>
+                    <li data-i18n="pdoc_rf_s6_li2">Strong profit or favorable market conditions</li>
+                    <li data-i18n="pdoc_rf_s6_li3">Technical difficulties or platform issues</li>
+                    <li data-i18n="pdoc_rf_s6_li4">Emotional explanations or external circumstances</li>
+                </ul>
+                <p data-i18n="pdoc_rf_s6_p2">The framework exists to remove negotiation. The moment a participant requires flexibility beyond the stated rules, the framework has already performed its diagnostic function — revealing that the participant is not yet operating with the procedural discipline required for advanced framework access.</p>
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_rf_s6_final_label">Finality Statement:</strong> <span data-i18n="pdoc_rf_s6_final">PREPARE is designed to be strict. Disqualification is expected. The system functions correctly when it identifies participants who are not yet ready for advanced framework products.</span></p>
+                </div>
+            </section>
+
+            <nav class="pdoc-nav">
+                <a href="../prepare.html#prepAccessSection">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <span data-i18n="pdoc_nav_back">Back to PREPARE</span>
+                </a>
+                <a href="qualification-rules.html">
+                    <span data-i18n="pdoc_nav_next">Next: Qualification Rules</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </nav>
+        </div>
+    </main>
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<img src="../logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img footer-logo-img" style="height:28px;width:auto;display:block;opacity:0.85;" draggable="false" />
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc"> ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only. Market participation involves risk. Past process consistency does not indicate future behavioral or financial outcomes. </p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="../index.html#about" data-i18n="footer_about">About</a>
+<a href="../index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="../index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="../accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="../verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="../faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="../press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="../social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="../partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="../invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="../terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="../privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="../risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="../refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<script src="../i18n.js"></script>
+<script src="../script.js"></script>
+<script src="../cookie-consent.js"></script>
+</body>
+
+</html>

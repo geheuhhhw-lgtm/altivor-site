@@ -1,0 +1,46 @@
+{
+  "en": {
+    "reg_consent": "I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href=\"terms-of-service.html\" target=\"_blank\">Terms &amp; Conditions</a>, <a href=\"privacy-policy.html\" target=\"_blank\">Privacy Policy</a>, <a href=\"risk-disclosure.html\" target=\"_blank\">Risk Disclosure</a>, <a href=\"refund-policy.html\" target=\"_blank\">Refund Policy</a> and <a href=\"challenge-rules.html\" target=\"_blank\">Challenge Rules</a>.",
+    "reg_consent_error": "You must accept the terms to create an account."
+  },
+  "it": {
+    "reg_consent": "Riconosco che il trading comporta rischi e che i servizi forniti sono di natura educativa. Accetto i <a href=\"terms-of-service.html\" target=\"_blank\">Termini e Condizioni</a>, l'<a href=\"privacy-policy.html\" target=\"_blank\">Informativa sulla Privacy</a>, l'<a href=\"risk-disclosure.html\" target=\"_blank\">Informativa sui Rischi</a>, la <a href=\"refund-policy.html\" target=\"_blank\">Politica di Rimborso</a> e le <a href=\"challenge-rules.html\" target=\"_blank\">Regole della Sfida</a>.",
+    "reg_consent_error": "Devi accettare i termini per creare un account."
+  },
+  "de": {
+    "reg_consent": "Ich erkenne an, dass der Handel mit Risiken verbunden ist und die angebotenen Dienstleistungen bildungsbezogen sind. Ich stimme den <a href=\"terms-of-service.html\" target=\"_blank\">AGB</a>, der <a href=\"privacy-policy.html\" target=\"_blank\">Datenschutzrichtlinie</a>, dem <a href=\"risk-disclosure.html\" target=\"_blank\">Risikohinweis</a>, der <a href=\"refund-policy.html\" target=\"_blank\">Rückerstattungsrichtlinie</a> und den <a href=\"challenge-rules.html\" target=\"_blank\">Challenge-Regeln</a> zu.",
+    "reg_consent_error": "Sie müssen die Bedingungen akzeptieren, um ein Konto zu erstellen."
+  },
+  "pl": {
+    "reg_consent": "Potwierdzam, że trading wiąże się z ryzykiem, a świadczone usługi mają charakter edukacyjny. Akceptuję <a href=\"terms-of-service.html\" target=\"_blank\">Regulamin</a>, <a href=\"privacy-policy.html\" target=\"_blank\">Politykę prywatności</a>, <a href=\"risk-disclosure.html\" target=\"_blank\">Ujawnienie ryzyka</a>, <a href=\"refund-policy.html\" target=\"_blank\">Politykę zwrotów</a> i <a href=\"challenge-rules.html\" target=\"_blank\">Zasady wyzwania</a>.",
+    "reg_consent_error": "Musisz zaakceptować warunki, aby utworzyć konto."
+  },
+  "es": {
+    "reg_consent": "Reconozco que el trading implica riesgo y que los servicios proporcionados son de naturaleza educativa. Acepto los <a href=\"terms-of-service.html\" target=\"_blank\">Términos y Condiciones</a>, la <a href=\"privacy-policy.html\" target=\"_blank\">Política de Privacidad</a>, la <a href=\"risk-disclosure.html\" target=\"_blank\">Divulgación de Riesgos</a>, la <a href=\"refund-policy.html\" target=\"_blank\">Política de Reembolso</a> y las <a href=\"challenge-rules.html\" target=\"_blank\">Reglas del Desafío</a>.",
+    "reg_consent_error": "Debes aceptar los términos para crear una cuenta."
+  },
+  "pt": {
+    "reg_consent": "Reconheço que o trading envolve risco e que os serviços prestados são de natureza educativa. Aceito os <a href=\"terms-of-service.html\" target=\"_blank\">Termos e Condições</a>, a <a href=\"privacy-policy.html\" target=\"_blank\">Política de Privacidade</a>, a <a href=\"risk-disclosure.html\" target=\"_blank\">Divulgação de Riscos</a>, a <a href=\"refund-policy.html\" target=\"_blank\">Política de Reembolso</a> e as <a href=\"challenge-rules.html\" target=\"_blank\">Regras do Desafio</a>.",
+    "reg_consent_error": "Deve aceitar os termos para criar uma conta."
+  },
+  "ar": {
+    "reg_consent": "أقر بأن التداول ينطوي على مخاطر وأن الخدمات المقدمة ذات طبيعة تعليمية. أوافق على <a href=\"terms-of-service.html\" target=\"_blank\">الشروط والأحكام</a> و<a href=\"privacy-policy.html\" target=\"_blank\">سياسة الخصوصية</a> و<a href=\"risk-disclosure.html\" target=\"_blank\">إفصاح المخاطر</a> و<a href=\"refund-policy.html\" target=\"_blank\">سياسة الاسترداد</a> و<a href=\"challenge-rules.html\" target=\"_blank\">قواعد التحدي</a>.",
+    "reg_consent_error": "يجب قبول الشروط لإنشاء حساب."
+  },
+  "zh": {
+    "reg_consent": "我承认交易涉及风险，所提供的服务本质上是教育性的。我同意<a href=\"terms-of-service.html\" target=\"_blank\">条款与条件</a>、<a href=\"privacy-policy.html\" target=\"_blank\">隐私政策</a>、<a href=\"risk-disclosure.html\" target=\"_blank\">风险披露</a>、<a href=\"refund-policy.html\" target=\"_blank\">退款政策</a>和<a href=\"challenge-rules.html\" target=\"_blank\">挑战规则</a>。",
+    "reg_consent_error": "您必须接受条款才能创建账户。"
+  },
+  "ru": {
+    "reg_consent": "Я подтверждаю, что торговля связана с рисками, а предоставляемые услуги носят образовательный характер. Я принимаю <a href=\"terms-of-service.html\" target=\"_blank\">Условия использования</a>, <a href=\"privacy-policy.html\" target=\"_blank\">Политику конфиденциальности</a>, <a href=\"risk-disclosure.html\" target=\"_blank\">Раскрытие рисков</a>, <a href=\"refund-policy.html\" target=\"_blank\">Политику возврата</a> и <a href=\"challenge-rules.html\" target=\"_blank\">Правила челленджа</a>.",
+    "reg_consent_error": "Необходимо принять условия для создания аккаунта."
+  },
+  "hi": {
+    "reg_consent": "मैं स्वीकार करता/करती हूं कि ट्रेडिंग में जोखिम शामिल है और प्रदान की जाने वाली सेवाएं शैक्षिक प्रकृति की हैं। मैं <a href=\"terms-of-service.html\" target=\"_blank\">नियम और शर्तें</a>, <a href=\"privacy-policy.html\" target=\"_blank\">गोपनीयता नीति</a>, <a href=\"risk-disclosure.html\" target=\"_blank\">जोखिम प्रकटीकरण</a>, <a href=\"refund-policy.html\" target=\"_blank\">वापसी नीति</a> और <a href=\"challenge-rules.html\" target=\"_blank\">चुनौती नियम</a> से सहमत हूं।",
+    "reg_consent_error": "खाता बनाने के लिए शर्तें स्वीकार करनी होंगी।"
+  },
+  "fr": {
+    "reg_consent": "Je reconnais que le trading comporte des risques et que les services fournis sont de nature éducative. J'accepte les <a href=\"terms-of-service.html\" target=\"_blank\">Conditions Générales</a>, la <a href=\"privacy-policy.html\" target=\"_blank\">Politique de Confidentialité</a>, l'<a href=\"risk-disclosure.html\" target=\"_blank\">Avertissement sur les Risques</a>, la <a href=\"refund-policy.html\" target=\"_blank\">Politique de Remboursement</a> et les <a href=\"challenge-rules.html\" target=\"_blank\">Règles du Défi</a>.",
+    "reg_consent_error": "Vous devez accepter les conditions pour créer un compte."
+  }
+}

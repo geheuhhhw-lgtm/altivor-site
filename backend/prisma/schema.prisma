@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  passwordHash      String    @map("password_hash")
+  emailVerified     Boolean   @default(false) @map("email_verified")
+  verificationToken String?   @map("verification_token")
+  tokenExpiresAt    DateTime? @map("token_expires_at")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+  lastLoginAt       DateTime? @map("last_login_at")
+  
+  // Profile fields
+  firstName         String?   @map("first_name")
+  lastName          String?   @map("last_name")
+  displayName       String?   @map("display_name")
+  country           String?
+  role              String    @default("user")
+  
+  // PREPARE status
+  prepareStatus     String    @default("NOT_STARTED") @map("prepare_status")
+  prepareStartedAt  DateTime? @map("prepare_started_at")
+  prepareCompletedAt DateTime? @map("prepare_completed_at")
+  prepareCompliantTrades Int  @default(0) @map("prepare_compliant_trades")
+  prepareNonCompliantTrades Int @default(0) @map("prepare_noncompliant_trades")
+  
+  // Challenge status
+  challengeStatus   String    @default("NOT_STARTED") @map("challenge_status")
+  challengeStartedAt DateTime? @map("challenge_started_at")
+  challengeCompletedAt DateTime? @map("challenge_completed_at")
+  challengeTotalTrades Int    @default(0) @map("challenge_total_trades")
+  challengeCompliantTrades Int @default(0) @map("challenge_compliant_trades")
+  
+  // Password reset
+  resetCode         String?   @map("reset_code")
+  resetCodeExpires  DateTime? @map("reset_code_expires")
+
+  @@map("users")
+}

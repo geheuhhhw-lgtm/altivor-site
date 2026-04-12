@@ -1,0 +1,1990 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FAQ ALTIVOR INSTITUTE</title>
+<meta name="description" content="Frequently Asked Questions about ALTIVOR INSTITUTE US100 Challenge, PREPARE Qualification, pricing, account management, and platform features." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style> /* === FAQ PAGE === */ .faq-hero { padding: 7rem 0 2.5rem; text-align: center; border-bottom: 2px solid rgba(214, 190, 150, 0.2); margin-bottom: 2rem; } .faq-hero h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: clamp(2rem, 4vw, 3rem); color: rgba(214, 190, 150, 0.9); margin-bottom: 0.6rem; } [data-theme="light"] .faq-hero h1 { color: rgba(130, 110, 70, 0.9); } .faq-hero p { font-size: 0.95rem; color: var(--txt-secondary); max-width: 560px; margin: 0 auto; line-height: 1.7; } /* Search */ .faq-search-wrap { max-width: 520px; margin: 2rem auto 0; position: relative; } .faq-search-icon { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--txt-muted); pointer-events: none; } .faq-search { width: 100%; padding: 0.75rem 1rem 0.75rem 2.8rem; font-family: 'Inter', sans-serif; font-size: 0.88rem; background: var(--bg-elevated); border: 1px solid var(--border-default); border-radius: 8px; color: var(--txt-primary); outline: none; transition: border-color 0.2s; } .faq-search::placeholder { color: var(--txt-muted); } .faq-search:focus { border-color: rgba(96, 165, 250, 0.5); box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.08); } [data-theme="light"] .faq-search:focus { border-color: rgba(37, 99, 175, 0.4); box-shadow: 0 0 0 3px rgba(37, 99, 175, 0.06); } .faq-no-results { text-align: center; padding: 3rem 1rem; color: var(--txt-muted); font-size: 0.9rem; display: none; } /* Category */ .faq-category { margin-bottom: 2.5rem; } .faq-category-title { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.4rem; color: rgba(214, 190, 150, 0.85); margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 2px solid rgba(214, 190, 150, 0.2); } [data-theme="light"] .faq-category-title { color: rgba(130, 110, 70, 0.85); border-bottom-color: rgba(130, 110, 70, 0.15); } .faq-category-num { display: inline-block; font-family: 'Inter', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(96, 165, 250, 0.85); border: 1px solid rgba(96, 165, 250, 0.25); background: rgba(96, 165, 250, 0.05); padding: 0.15rem 0.5rem; border-radius: 3px; margin-right: 0.6rem; vertical-align: middle; } [data-theme="light"] .faq-category-num { color: rgba(37, 99, 175, 0.85); border-color: rgba(37, 99, 175, 0.2); background: rgba(37, 99, 175, 0.05); } /* Accordion item */ .faq-item { border: 1px solid var(--border-default); border-radius: 8px; margin-bottom: 0.5rem; overflow: hidden; transition: border-color 0.2s; } .faq-item:hover { border-color: rgba(96, 165, 250, 0.25); } .faq-item.open { border-color: rgba(96, 165, 250, 0.3); border-left: 2px solid rgba(96, 165, 250, 0.5); } [data-theme="light"] .faq-item:hover { border-color: rgba(37, 99, 175, 0.2); } [data-theme="light"] .faq-item.open { border-color: rgba(37, 99, 175, 0.25); border-left-color: rgba(37, 99, 175, 0.4); } .faq-question { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 1rem 1.25rem; background: none; border: none; font-family: 'Inter', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--txt-primary); cursor: pointer; text-align: left; line-height: 1.5; transition: background 0.15s; } .faq-question:hover { background: var(--bg-elevated); } .faq-chevron { width: 16px; height: 16px; flex-shrink: 0; margin-left: 1rem; transition: transform 0.25s ease; color: var(--txt-muted); } .faq-item.open .faq-chevron { transform: rotate(180deg); color: rgba(96, 165, 250, 0.85); } [data-theme="light"] .faq-item.open .faq-chevron { color: rgba(37, 99, 175, 0.85); } .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; } .faq-answer-inner { padding: 0 1.25rem 1.2rem; font-size: 0.85rem; line-height: 1.75; color: var(--txt-secondary); } .faq-answer-inner p { margin-bottom: 0.6rem; } .faq-answer-inner p:last-child { margin-bottom: 0; } .faq-answer-inner strong { color: var(--txt-primary); } .faq-answer-inner ul { padding-left: 1.2rem; margin: 0.5rem 0; } .faq-answer-inner li { margin-bottom: 0.3rem; } .faq-item.open .faq-answer { max-height: 600px; } /* Section */ .faq-section { max-width: 780px; margin: 0 auto; padding: 2rem 0 4rem; } /* Back link */ .faq-back { display: inline-flex; align-items: center; gap: 0.4rem; color: rgba(96, 165, 250, 0.85); text-decoration: none; font-size: 0.82rem; font-weight: 500; margin-bottom: 1rem; transition: opacity 0.2s; } [data-theme="light"] .faq-back { color: rgba(37, 99, 175, 0.85); } .faq-back:hover { opacity: 0.7; } /* Responsive */ @media (max-width: 600px) { .faq-hero { padding: 5.5rem 0 1.5rem; } .faq-question { font-size: 0.82rem; padding: 0.85rem 1rem; } .faq-answer-inner { padding: 0 1rem 1rem; font-size: 0.8rem; } } </style>
+</head>
+<body>
+<!-- === NAVIGATION === -->
+<!-- --- TOP ANNOUNCEMENT BANNER ---------------------------------------- -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<!-- Frameworks dropdown -->
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active">Active</span>
+<span class="nav-drop-name">US100</span>
+<span class="nav-drop-desc">Nasdaq 100 CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev">In Dev</span>
+<span class="nav-drop-name">US30</span>
+<span class="nav-drop-desc">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html">Updates</a>
+<!-- Accessories dropdown -->
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span>Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Log</span>
+<span class="nav-drop-desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Wiki</span>
+<span class="nav-drop-desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">PnL Calendar</span>
+<span class="nav-drop-desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Economic Calendar</span>
+<span class="nav-drop-desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Symbols</span>
+<span class="nav-drop-desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Execution Checklist</span>
+<span class="nav-drop-desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Calculators</span>
+<span class="nav-drop-desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<!-- Language Picker (FTMO-style) -->
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">????</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<!-- Theme switcher -->
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-log.html">Trading Log</a>
+<a href="trading-wiki.html">Trading Wiki</a>
+<a href="pnl.html">PnL Calendar</a>
+<a href="calendar.html">Economic Calendar</a>
+<a href="symbols.html">Trading Symbols</a>
+<a href="execution-checklist.html">Execution Checklist</a>
+<a href="calculators.html">Trading Calculators</a>
+<a href="trading-updates.html">Trading Updates</a>
+<a href="accessories.html">Accessories Hub</a>
+<a href="index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<!-- === HERO === -->
+<section class="faq-hero">
+<div class="container">
+<a href="index.html" class="faq-back" data-i18n="faq_back"> Back to Home</a>
+<h1 data-i18n="faq_title">Frequently Asked Questions</h1>
+<p data-i18n="faq_sub">Everything you need to know about ALTIVOR INSTITUTE, the US100 Challenge, PREPARE Qualification, and how the platform works.</p>
+<div class="faq-search-wrap">
+<svg class="faq-search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5" />
+<path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+<input type="text" class="faq-search" id="faqSearch" placeholder="Search questions" aria-label="Search FAQ" />
+</div>
+</div>
+</section>
+<!-- === FAQ CONTENT === -->
+<div class="container">
+<div class="faq-section" id="faqSection">
+<div class="faq-no-results" id="faqNoResults">
+<p data-i18n="faq_no_results">No questions match your search. Try a different keyword.</p>
+</div>
+<!-- === -->
+<!-- CATEGORY 1: Getting Started -->
+<!-- === -->
+<div class="faq-category" data-category="getting-started">
+<h2 class="faq-category-title">
+<span class="faq-category-num">01</span><span data-i18n="faq_cat1_title">Getting Started</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q01">What is ALTIVOR INSTITUTE?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q01_html">
+<p>ALTIVOR INSTITUTE is an operational framework provider focused on structured, rules-based trading discipline. We provide behavioral and procedural validation systems not investment advice, signals, or managed execution services.</p>
+<p>Our core product is the <strong>US100 Process Validation Challenge</strong>, a 2-month discipline framework for NASDAQ-100 Index CFD trading.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q02">How do I get started with ALTIVOR?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q02_html">
+<p>To begin, you must first complete the <strong>PREPARE Qualification Stage</strong> (29 ). This is a mandatory procedural gate that validates your ability to execute a declared trading process without deviation.</p>
+<p>After completing the required compliance threshold in PREPARE, you gain access to purchase the US100 Challenge.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q03">Is ALTIVOR suitable for beginners?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q03_html">
+<p>Our frameworks are designed for participants who already trade live or simulated accounts with regularity and possess understanding of market structure, price action, and risk management fundamentals.</p>
+<p>If you are a complete beginner, we recommend building foundational knowledge before enrolling. ALTIVOR evaluates <strong>behavioral execution</strong>, not trading education.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q04">What themes and languages does the platform support?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q04_html">
+<p>The platform supports three visual themes <strong>Dark</strong>, <strong>Light</strong>, and <strong>Navy</strong> switchable via the top bar controls.</p>
+<p>Multiple languages are available including English, Polish, German, French, Spanish, Hindi, and Russian.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 2: US100 Challenge -->
+<!-- === -->
+<div class="faq-category" data-category="us100-challenge">
+<h2 class="faq-category-title">
+<span class="faq-category-num">02</span><span data-i18n="faq_cat2_title">US100 Challenge</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q05">What is the US100 Process Validation Challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q05_html">
+<p>The US100 Challenge is a 2-month, rules-based trading discipline framework focused exclusively on the <strong>NASDAQ-100 Index CFD (US100)</strong> during the New York session (09:3016:00 ET).</p>
+<p>It evaluates process adherence not financial performance. A participant who follows all rules and incurs a loss has performed at a higher standard than one who violates rules and generates profit.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q06">Can I trade instruments other than US100?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q06_html">
+<p>
+<strong>No.</strong> The challenge is confined exclusively to US100 (NASDAQ-100 Index CFD). Any execution on a non-designated instrument constitutes an immediate and irrevocable invalidation of the challenge.</p>
+<p>Other instruments listed in our Trading Symbols section (Forex, Metals, Crypto, etc.) are planned for future challenge cycles but are currently available for reference only.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q07">What happens if I violate a rule during the challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q07_html">
+<p>Violation of any single provision <strong>immediately invalidates the challenge</strong>. There are no warnings, no second chances, and no exceptions. </p>
+<p>The rules exist as the structural boundary of the challenge. Removal of any boundary renders the exercise void. Financial performance is irrelevant to the evaluation. </p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q08">Does profitability matter for passing the challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q08_html">
+<p>
+<strong>No.</strong> Financial outcome carries zero evaluative weight. A participant who concludes the 2-month period with a 30% gain but documented rule violations has failed. A participant who concludes with a 10% loss and zero violations has passed. </p>
+<p>Completion of the 2-month period with full procedural compliance irrespective of financial outcome constitutes a passed challenge.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 3: PREPARE Qualification -->
+<!-- === -->
+<div class="faq-category" data-category="prepare">
+<h2 class="faq-category-title">
+<span class="faq-category-num">03</span><span data-i18n="faq_cat3_title">PREPARE Qualification</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q09">What is the PREPARE Stage?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q09_html">
+<p>PREPARE is a <strong>procedural gate</strong>, not a performance benchmark. Its sole objective is to validate your ability to execute a declared execution process under funded-style conditions without deviation.</p>
+<p>You must complete the required compliance threshold to qualify. Each trade is classified strictly as PASS or FAIL based on rule compliance financial outcome has no evaluative value.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q10">What happens if I accumulate too many non-compliant trades?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q10_html">
+<p>If you reach the disqualification threshold, PREPARE access is temporarily suspended with a mandatory <strong>cooldown period</strong>.</p>
+<p>This mechanism exists to prevent reactive execution patterns following consecutive procedural failures. Access is automatically restored after the cooldown expires. </p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q11">What data do I need to submit for each trade?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q11_html">
+<p>Each trade submission requires MT5 History Data including:</p>
+<ul>
+<li>Symbol, Ticket ID</li>
+<li>Open Time and Close Time (CET)</li>
+<li>Entry Price, Stop Loss, Volume (lots)</li>
+<li>Profit/Loss (USD)</li>
+<li>A mandatory screenshot of your MT5 account history</li>
+</ul>
+<p>You must confirm the data matches your MT5 Account History export exactly.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 4: Account & Billing -->
+<!-- === -->
+<div class="faq-category" data-category="billing">
+<h2 class="faq-category-title">
+<span class="faq-category-num">04</span><span data-i18n="faq_cat4_title">Account & Billing</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q12">What are the pricing tiers?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q12_html">
+<p>ALTIVOR offers three pricing tiers:</p>
+<ul>
+<li>
+<strong>PREPARE</strong> 29 (mandatory procedural qualification gate)</li>
+<li>
+<strong>Framework Pack</strong> 89 (the US100 Challenge framework)</li>
+<li>
+<strong>Full Access</strong> 129 (PREPARE + Framework Pack bundled)</li>
+</ul>
+<p>Purchase of the Framework Pack or Full Access requires prior completion of PREPARE qualification.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q13">How do I pay? What payment methods are accepted?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q13_html">
+<p>Payments are processed through <strong>Stripe</strong>. Accepted methods include credit/debit cards (Visa, Mastercard, AMEX), Apple Pay, Google Pay, and select bank transfers depending on your region.</p>
+<p>All transactions are securely encrypted and processed in EUR.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q14">Is there a refund policy?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q14_html">
+<p>Due to the nature of digital educational frameworks, refunds are handled on a case-by-case basis. If you have not accessed or downloaded any framework materials, contact us at <strong>contact@altivor.institute</strong> within 14 days of purchase. </p>
+<p>Once PREPARE qualification has been activated or framework materials have been accessed, refunds cannot be processed.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 5: Technical & Platform -->
+<!-- === -->
+<div class="faq-category" data-category="technical">
+<h2 class="faq-category-title">
+<span class="faq-category-num">05</span><span data-i18n="faq_cat5_title">Technical & Platform</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q15">Where is my PnL Calendar data stored?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q15_html">
+<p>All PnL Calendar data is stored <strong>locally in your browser</strong> using localStorage. No data is transmitted to our servers.</p>
+<p>This means your data is private and instant, but clearing your browser data will remove it. We recommend periodically exporting your records if needed.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q16">What is the Economic Calendar used for?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q16_html">
+<p>The Economic Calendar is a reference tool to track high-impact economic events that may affect US100 price action during your trading sessions. It includes impact ratings, previous/forecast/actual values, and currency filters.</p>
+<p>You can access it via the <strong>Accessories</strong> menu in the navigation bar. </p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q17">Does ALTIVOR work on mobile devices?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q17_html">
+<p>Yes. The platform is fully responsive and works on desktop, tablet, and mobile browsers. All features including the PnL Calendar, Economic Calendar, Trading Symbols, and PREPARE System are accessible on mobile.</p>
+<p>For the best trade submission experience, we recommend using a desktop or tablet with a larger screen.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q18">How do I contact support?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q18_html">
+<p>You can reach us at <strong>contact@altivor.institute</strong>. Our support operates Monday through Friday with typical response times under 24 hours.</p>
+<p>
+<strong>Note:</strong> Support is closed on weekends and public holidays.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 6: Risk, Documentation & Process -->
+<!-- === -->
+<div class="faq-category" data-category="risk-documentation">
+<h2 class="faq-category-title">
+<span class="faq-category-num">06</span><span data-i18n="faq_cat6_title">Risk, Documentation & Process</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q19">What is the fixed risk per trade in the US100 Challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q19_html">
+<p>The framework specifies a <strong>fixed fractional risk allocation per trade</strong> as the default parameter. This is defined at cycle commencement and is non-modifiable during the active period. Complete operational parameters are documented in the Framework Pack.</p>
+<p>Participants declare their risk allocation as part of their process documentation. Deviation from the declared risk constitutes a rule violation.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q20">Why is the Trading Ledger mandatory?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q20_html">
+<p>The ledger is a <strong>factual record</strong> of execution not a diary or narrative. It provides an auditable trail of entry, exit, risk, and outcome for each trade.</p>
+<p>Failure to maintain the ledger according to the defined structure constitutes an automatic challenge invalidation. The journal component is optional and must never be used to justify ledger results.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q21">Can I modify my trading plan mid-cycle?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q21_html">
+<p>
+<strong>No.</strong> Risk parameters, session windows, and execution criteria are defined before the cycle commences and are non-adjustable during the active period.</p>
+<p>Modifying your declared process mid-cycle including position sizing, stop placement, or session hours constitutes a rule violation and immediate challenge failure.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q22">What happens if I miss a trade that met my setup criteria?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q22_html">
+<p>The framework enforces <strong>zero re-entries after missed trades</strong>. If you miss a compliant setup, it remains missed. Chasing price or taking a late entry after a missed opportunity is not permitted.</p>
+<p>This rule exists to prevent reactive, emotionally-driven entries that deviate from the declared process.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q23">Is the Execution Checklist part of the validation?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q23_html">
+<p>The Execution Checklist is an <strong>accessory tool</strong> a 6-stage trade decision engine available in the Accessories menu. It is not mandatory for challenge participation.</p>
+<p>However, using it as part of your documented pre-trade process can help reinforce structural discipline. Your process documentation should clearly state which tools you use.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q24">What is the minimum risk-reward ratio required?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q24_html">
+<p>The framework specifies a <strong>minimum risk-reward ratio</strong>. Each trade must have predefined exit conditions that meet the declared structure. Full specifications are available in the Framework Pack.</p>
+<p>Scenario-based profit taking means exits are defined before entry, not after. Ad-hoc early exits or moving stops to breakeven without prior declaration may violate the rule set.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q25">Can I trade during pre-market or after hours?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q25_html">
+<p>
+<strong>No.</strong> Execution is confined exclusively to authorized New York session windows. No pre-market, London, or Asian session trading is authorized.</p>
+<p>Any trade opened or closed outside this window constitutes immediate and irrevocable challenge invalidation. Session discipline is non-negotiable.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q26">What documents do I need to complete before starting?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q26_html">
+<p>You should read the <strong>Regulatory &amp; Evaluation Document</strong>, <strong>Fail Conditions</strong>, <strong>Ledger &amp; Journal Templates</strong>, and <strong>Candidate Overview</strong> before activation.</p>
+<p>These are available in the US100 Product Files library. Acknowledgment of the PREPARE regulatory statements is required before activation.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q27">How does ALTIVOR handle timezone differences?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q27_html">
+<p>All session windows are defined in <strong>Eastern Time (ET)</strong>. Participants in other timezones must convert accordingly 09:3016:00 ET is the only permitted execution window.</p>
+<p>The PREPARE submission form and Trading Log use CET for timestamps. Ensure your broker and MT5 platform times are correctly configured before submitting trades.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q28">What counts as a compliant PREPARE trade submission?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q28_html">
+<p>A compliant submission must: use US100 or approved alias, have Stop Loss set at entry, be opened and closed during authorized session windows, respect position size limits, include an MT5 History screenshot, and match Account History data exactly.</p>
+<p>Financial outcome is irrelevant. Classification is strictly PASS or FAIL based on structural rule compliance.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 7: Accessories, Tools & Integration -->
+<!-- === -->
+<div class="faq-category" data-category="accessories-tools">
+<h2 class="faq-category-title">
+<span class="faq-category-num">07</span><span data-i18n="faq_cat7_title">Accessories, Tools &amp; Integration</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q29">What is the Trading Wiki and how can I use it?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q29_html">
+<p>The <strong>Trading Wiki</strong> is a reference library of institutional market concepts structure, order flow, liquidity, and execution principles. It is available in the Accessories menu.</p>
+<p>It is designed to support your understanding of market mechanics. It is not a substitute for a declared trading process or challenge documentation.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q30">Do the Trading Calculators affect my challenge evaluation?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q30_html">
+<p>No. The calculators (position size, risk-reward, etc.) are standalone tools. They do not transmit data to ALTIVOR and do not influence challenge evaluation.</p>
+<p>They are provided to help you compute lot sizes and R:R ratios in line with your declared risk parameters. Your actual execution and documentation are what matter.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q31">Does ALTIVOR integrate with MT5 or other platforms?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q31_html">
+<p>ALTIVOR does not integrate directly with MT5 or any broker platform. Trade submission is manual you enter data and upload screenshots via the PREPARE interface.</p>
+<p>This design ensures you maintain full control over your execution environment. We validate process through documentation, not live feed integration.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q32">What brokers are compatible with the US100 framework?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q32_html">
+<p>Any broker offering NASDAQ-100 Index CFD (or equivalent under names like US100, USTEC, NDX) is compatible. We do not endorse or recommend specific brokers.</p>
+<p>You must ensure your broker provides MT5 (or equivalent) with reliable NY session execution and accurate Account History export for submission verification.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q33">Can I use the Trading Log for PREPARE or Challenge tracking?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q33_html">
+<p>The <strong>Trading Log</strong> is a daily journal accessory for recording session notes, discipline self-assessment, and reflection. It stores data locally in your browser.</p>
+<p>It is separate from the mandatory Ledger required by the framework. The Ledger has a defined structure; the Trading Log is for behavioral and reflective documentation.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q34">Where can I find spread and swap information for US100?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q34_html">
+<p>The <strong>Trading Symbols</strong> section (Accessories menu) provides reference data for US100 and other instruments spreads, swap rates, trading hours, and session windows.</p>
+<p>Broker-specific values may differ. Always verify with your broker before execution. The Symbols page is for planning, not real-time execution.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q35">How often does the Economic Calendar update?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q35_html">
+<p>The Economic Calendar is a static reference tool. Event listings, impact ratings, and previous/forecast values are loaded with the page. It does not auto-refresh.</p>
+<p>For real-time event updates, participants may use external calendar services. ALTIVOR provides it for session planning and awareness of high-impact releases.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q36">Is my PnL Calendar data synced across devices?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q36_html">
+<p>
+<strong>No.</strong> PnL Calendar data is stored locally in your browser (localStorage). It does not sync across devices or browsers.</p>
+<p>If you use multiple devices, you will need to re-enter data or use a manual export/import process. We recommend sticking to one primary device for consistency.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q37">What is the Trading Updates page for?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q37_html">
+<p>The <strong>Trading Updates</strong> page provides changelog and release notes for the platform new features, documentation changes, and framework amendments.</p>
+<p>Participants should periodically check it to stay informed of any updates that may affect their declared process or compliance obligations.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q38">Can I export my PREPARE submission history?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q38_html">
+<p>PREPARE submission data is stored in your account. Export functionality depends on your access tier and the operational panel features available at the time.</p>
+<p>We recommend keeping your own records MT5 History exports and Ledger entries as a backup.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 8: Advanced Framework & Compliance -->
+<!-- === -->
+<div class="faq-category" data-category="advanced-compliance">
+<h2 class="faq-category-title">
+<span class="faq-category-num">08</span><span data-i18n="faq_cat8_title">Advanced Framework &amp; Compliance</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q39">What happens if my broker renames the US100 symbol during an active cycle?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q39_html">
+<p>The framework accepts all <strong>approved aliases</strong> for the NASDAQ-100 Index CFD including USTEC, NAS100, NDX100, NQ100, and variants with broker prefixes or suffixes.</p>
+<p>Symbol renaming alone does not invalidate a cycle document it in your Ledger.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q40">Is there a maximum number of trades per day during the Challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q40_html">
+<p>The Challenge does not impose a hard daily limit. Your <strong>declared process</strong> defines frequency. PREPARE enforces a <strong>daily submission limit</strong>.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q41">Can I hold trades overnight within the US100 Challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q41_html">
+<p>
+<strong>No.</strong> All positions must be opened and closed within the same authorized session window. Overnight holding is not permitted.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q42">What is the 55 trade Cycle and why is it structured this way?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q42_html">
+<p>The 55 trade Cycle is an <strong>execution validation system under funded-level conditions</strong>. Over 55 documented trades, it determines whether your execution process holds under funded-style constraints — measuring rule adherence, risk discipline, and behavioral stability. Profit is irrelevant; the question is whether your execution process holds.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q43">What are the minimum performance thresholds for the Challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q43_html">
+<p>The framework specifies <strong>3% monthly</strong> and <strong>6% over 2 months</strong>. Meeting the threshold while violating rules does not constitute a pass.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q44">How does ALTIVOR differentiate itself from prop firm challenges?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q44_html">
+<p>ALTIVOR is <strong>not a proprietary trading firm</strong>. We do not provide funded accounts, capital allocation, or profit splits. We validate process consistency, not returns.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q45">Can two participants use the same trading strategy?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q45_html">
+<p>Each participant must declare their <strong>own process</strong>. Copy-trading, signal following, or submitting trades not independently executed results in permanent disqualification.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q46">What happens if I accidentally submit a trade with incorrect data?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q46_html">
+<p>In PREPARE, submitted trades can be edited or deleted before the cycle completes. During the Challenge, data accuracy is your responsibility.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q47">Are there any restrictions on the type of analysis I use?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q47_html">
+<p>No. You may use any methodology provided it is <strong>declared before the cycle begins</strong> and executed consistently. Switching mid-cycle is a violation.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q48">Is the PREPARE qualification transferable between accounts?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q48_html">
+<p>
+<strong>No.</strong> PREPARE qualification is bound to the registered account. Account sharing or delegation of submissions is prohibited.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q49">What constitutes a &quot;structural violation&quot; in the framework?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q49_html">
+<p>Any deviation from your declared process: trading outside session windows, exceeding lot size, missing Stop Loss at entry, modifying risk mid-cycle, or incomplete Ledger entries.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q50">Can I pause my Challenge cycle and resume later?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q50_html">
+<p>No. Once commenced, the 55 trade Cycle your execution validation period under funded-level conditions runs continuously until completion, failure, or expiration. The cycle clock does not pause.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q51">Does ALTIVOR store my MT5 screenshots permanently?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q51_html">
+<p>Screenshots are processed for verification and stored locally in your browser session. They are not uploaded to ALTIVOR servers. Keep your own archive as backup.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q52">What is the Accessories Suite and is it mandatory?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q52_html">
+<p>The <strong>Accessories Suite</strong> includes Trading Log, PnL Calendar, Economic Calendar, Trading Symbols, Execution Checklist, and Calculators. Available at 79 EUR/mo or 59 EUR/mo after passing. None are mandatory.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q53">How is the 7-day cooldown period calculated?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q53_html">
+<p>The cooldown begins at your 20th non-compliant submission and runs for exactly <strong>7 calendar days</strong> (168 hours). After expiration, PREPARE resets automatically.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q54">Can I run multiple Challenge cycles simultaneously?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q54_html">
+<p>
+<strong>No.</strong> Only one active cycle per account. Creating multiple accounts to circumvent this results in permanent disqualification.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q55">What data is included in the monthly PDF Report?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q55_html">
+<p>Cycle progress, compliance metrics, rule adherence statistics, risk allocation summary, session discipline data, and behavioral pattern analysis. It is a structural audit document.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q56">Is there an age or geographic restriction for participation?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q56_html">
+<p>Participants must be at least <strong>18 years old</strong>. The platform is globally accessible but participants must comply with their local regulations.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q57">What happens after I pass the US100 Challenge?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q57_html">
+<p>You receive a completion certificate and unlock the Accessories Suite at 59 EUR/mo for 12 months. ALTIVOR does not allocate capital or provide funded accounts.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q58">How does ALTIVOR protect my personal data?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q58_html">
+<p>Account data is stored with encrypted passwords and session-based auth. Accessory tools store data locally in your browser. See our <strong>Privacy Policy</strong> for details.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 9: Behavioral Discipline & Process Control -->
+<!-- === -->
+<div class="faq-category" data-category="behavioral-discipline">
+<h2 class="faq-category-title">
+<span class="faq-category-num">09</span><span data-i18n="faq_cat9_title">Behavioral Discipline &amp; Process Control</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q59">What is a revenge trade and how does the framework handle it?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q59_html">
+<p>A revenge trade is any execution taken in direct reaction to a previous loss typically with increased size, weakened criteria, or outside the declared plan. The framework classifies this as a <strong>CRITICAL behavioral violation</strong>.</p>
+<p>The Execution Checklist includes no-trade filters specifically designed to detect revenge-trading patterns before entry. Repeated revenge trades trigger escalating override warnings.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q60">What is the difference between a soft and critical violation?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q60_html">
+<p>
+<strong>Soft violations</strong> reduce your compliance score but do not automatically fail the session examples include suboptimal entry timing or incomplete journal notes.</p>
+<p>
+<strong>Critical violations</strong> such as missing Stop Loss, exceeding risk limits, or trading outside session hours result in immediate trade failure regardless of financial outcome.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q61">How does the override warning system work in the Execution Checklist?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q61_html">
+<p>When the Execution Checklist determines a trade should not be taken, the override system presents <strong>escalating warnings</strong>. The first override shows a base warning. At 2+ session violations, a pattern-recognition layer appears. At 3+ violations, a red-state layer indicates potential loss of control.</p>
+<p>You may still proceed, but every override decision is audited. The system is designed to create friction against impulsive execution, not to prevent trading entirely.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q62">What is the Trade Alignment percentage?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q62_html">
+<p>Trade Alignment is a <strong>context quality score</strong> generated by the Execution Checklist. It evaluates market type, volatility, session conditions, ADR usage, selected liquidity anchors, and directional bias to produce a percentage from 0100.</p>
+<p>This score explains how well current conditions match your declared process. It does not override hard blockers those are binary PASS/FAIL.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q63">Can I trade after a winning day? Is there a restriction?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q63_html">
+<p>The framework identifies the <strong>Post-Win Day</strong> as a hidden risk scenario. After a strong positive result, the correct behavior is to maintain or reduce exposure not increase it.</p>
+<p>There is no hard restriction, but the behavioral model flags post-win overconfidence patterns. If your declared process does not account for post-win behavior, additional trades may be flagged.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q64">What is the no-trade filter and when should I use it?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q64_html">
+<p>No-trade filters are hard blockers in the Execution Checklist that prevent trade execution when structural conditions are not met FOMC days, first 15 minutes of session, incomplete ADR levels, or active emotional state indicators.</p>
+<p>The framework validates <strong>correct inaction</strong> as a legitimate behavioral outcome. Not trading when conditions are wrong is as important as trading when they are right.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q65">How does ALTIVOR define overtrading?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q65_html">
+<p>Overtrading is executing more trades than your declared process authorizes in a given session. The framework tracks same-day trade count against your stated maximum frequency.</p>
+<p>Exceeding your declared daily limit even with compliant trades constitutes a behavioral violation. The system treats frequency discipline as a structural rule.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q66">What is the purpose of the discipline streak metric?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q66_html">
+<p>The discipline streak counts <strong>consecutive compliant trades</strong>. It measures behavioral consistency over time not profit. Breaking the streak through a violation resets the counter.</p>
+<p>A long streak demonstrates sustained adherence to your declared process. It is a behavioral indicator, not a performance metric.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q67">Does the framework penalize me for not trading on a given day?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q67_html">
+<p>
+<strong>No.</strong> Zero-trade days are valid. The framework does not require daily execution. If your declared process has no qualifying setup on a given day, not trading is the correct decision.</p>
+<p>Forced trading to maintain activity is a behavioral red flag, not a positive signal.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q68">What happens to my compliance score if I make a mistake but correct it immediately?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q68_html">
+<p>The framework evaluates <strong>execution as submitted</strong>. A trade that violates rules at the point of execution is classified as non-compliant regardless of post-execution corrections.</p>
+<p>In PREPARE, you may edit or delete trades before cycle completion. During the Challenge, submitted data is final. Self-correction is encouraged but does not retroactively alter compliance status.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 10: Security, Privacy & Platform Operations -->
+<!-- === -->
+<div class="faq-category" data-category="security-operations">
+<h2 class="faq-category-title">
+<span class="faq-category-num">10</span><span data-i18n="faq_cat10_title">Security, Privacy &amp; Platform Operations</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q69">How are passwords stored on the platform?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q69_html">
+<p>Passwords are hashed using industry-standard algorithms before storage. ALTIVOR never stores plain-text passwords. Session tokens are used for authentication after login.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q70">What does the "Remember me" option do?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q70_html">
+<p>When checked, your email address is saved locally in your browser so it pre-fills on your next visit. The server also extends your session duration so you remain logged in longer.</p>
+<p>No password is stored locally. You can clear remembered credentials by unchecking the option or clearing browser storage.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q71">Does ALTIVOR use cookies and can I control them?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q71_html">
+<p>Yes. ALTIVOR uses essential cookies for authentication and session management, plus optional functional cookies for language and theme preferences. Analytics cookies are used only with your explicit consent.</p>
+<p>You can manage preferences via the <strong>Cookie Settings</strong> link in the footer at any time. See our Cookies Policy for full details.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q72">Can I delete my account and all associated data?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q72_html">
+<p>Yes. Contact <strong>contact@altivor.institute</strong> with a deletion request. We will remove your account data in accordance with our Privacy Policy and applicable data protection regulations.</p>
+<p>Locally stored data (PnL Calendar, Trading Log) must be cleared manually from your browser.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q73">What happens if the platform is unavailable during my active cycle?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q73_html">
+<p>Platform downtime does not pause your cycle. You should maintain your own Ledger independently. Submissions can be made when the platform is restored.</p>
+<p>Extended outages affecting submission deadlines will be handled on a case-by-case basis. Keep your MT5 History exports and screenshots as independent evidence.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q74">Is there a trial period or free tier?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q74_html">
+<p>The US100 Framework page is publicly accessible you can review the entire framework structure, rules, and documentation standards before purchasing.</p>
+<p>PREPARE qualification and the Accessories Suite require an active subscription. There is no trial period. All subscriptions are backed by our refund policy.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q75">How do I change my email address or password?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q75_html">
+<p>Email changes must be requested via support at <strong>contact@altivor.institute</strong>. Password changes are available through the "Forgot password?" link on the login modal.</p>
+<p>For security, email changes require identity verification. Password resets are sent to your registered email address.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q76">What browsers and devices are officially supported?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q76_html">
+<p>ALTIVOR is optimized for modern browsers: Chrome, Firefox, Edge, and Safari (latest two versions). The platform is responsive and works on desktop, tablet, and mobile devices.</p>
+<p>For the best experience with accessory tools (Execution Checklist, PnL Calendar), we recommend a desktop or laptop with a screen width of 1024px or wider.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q77">Does ALTIVOR share my data with third parties?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q77_html">
+<p>ALTIVOR does not sell, rent, or share personal data with third parties for marketing purposes. Data is processed only for platform operations, fraud prevention, and compliance with legal obligations.</p>
+<p>See our <strong>Privacy Policy</strong> and <strong>Anti-Fraud Policy</strong> for the full scope of data processing activities.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q78">How do I report a bug or suggest a feature?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q78_html">
+<p>Contact <strong>contact@altivor.institute</strong> with a clear description of the issue or suggestion. Include your browser, device, and steps to reproduce if reporting a bug.</p>
+<p>Feature requests are reviewed periodically. Platform updates are published on the Trading Updates page.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- === -->
+<!-- CATEGORY 11: Funded Accounts & Preparation -->
+<!-- === -->
+<div class="faq-category" data-category="funded-accounts">
+<h2 class="faq-category-title">
+<span class="faq-category-num">11</span><span data-i18n="faq_cat11_title">Funded Accounts &amp; Preparation</span></h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q79">What is a "funded account" and how does it relate to ALTIVOR?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q79_html">
+<p>A funded account is a trading account where capital is provided by a third-party firm — commonly called a proprietary trading firm or "prop firm" — rather than the trader's own capital. Access typically requires passing an evaluation that tests execution discipline, risk control, and behavioral consistency under defined parameters.</p>
+<p>The structural constraints used in these evaluations — fixed risk, drawdown limits, session rules, documentation requirements — closely mirror the parameters built into the ALTIVOR framework. ALTIVOR is designed to develop and validate execution discipline under exactly these kinds of conditions.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q80">Does ALTIVOR prepare me for a funded account evaluation?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q80_html">
+<p>The ALTIVOR framework — PREPARE, the US100 Challenge, and the Execution Checklist — is built around the same structural constraints typically imposed in funded account evaluations: fixed risk per trade, maximum daily exposure, session boundaries, behavioral consistency requirements, and full documentation standards.</p>
+<p>Participation develops execution discipline under funded-style conditions. ALTIVOR does not guarantee, imply, or promise access to any funded account as a result of participation.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q81">Is ALTIVOR a prop firm or funded trading programme?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q81_html">
+<p>No. ALTIVOR INSTITUTE is not a proprietary trading firm and does not provide capital, funded accounts, or any form of financial allocation. ALTIVOR provides structural frameworks and operational tooling designed to develop and validate execution discipline under funded-level conditions.</p>
+<p>There is no funding pathway, capital allocation, or profit-sharing arrangement available through ALTIVOR INSTITUTE.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q82">Does completing the US100 Challenge guarantee access to a funded account?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q82_html">
+<p>No. Completing the ALTIVOR framework does not guarantee, entitle, or unlock access to any funded account with any firm. ALTIVOR has no partnerships with prop firms and makes no representations regarding funded account outcomes.</p>
+<p>The framework develops funded-level execution discipline. What a participant does with that discipline — including applying to funded account evaluations — is entirely outside the scope and responsibility of ALTIVOR INSTITUTE.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q83">Why does ALTIVOR use "funded-level conditions" in its framework?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q83_html">
+<p>The operational parameters of the ALTIVOR framework — fixed risk per trade, maximum daily trades, drawdown limits, session-based no-trade filters, and full documentation requirements — mirror the constraints commonly imposed by funded account providers.</p>
+<p>This alignment is deliberate. It exposes whether a participant can execute a declared process under the same operational pressure they would face in a funded environment. The framework does not simulate results — it validates conditions.</p>
+</div>
+</div>
+</div>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false"><span data-i18n="faq_q84">Can I use ALTIVOR tools if I already trade with a funded account?</span> <svg class="faq-chevron" viewBox="0 0 16 16" fill="none">
+<path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="faq-answer" role="region">
+<div class="faq-answer-inner" data-i18n="faq_q84_html">
+<p>Yes. ALTIVOR tools — including the Execution Checklist, PREPARE system, Trading Log, and PnL Calendar — are designed to support structured execution under any rule-constrained environment. Participants operating under funded account conditions may use these tools independently of the formal ALTIVOR Challenge process.</p>
+<p>No active ALTIVOR Challenge participation is required to benefit from the structural discipline these tools enforce.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- === FOOTER === -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc"> ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only. Market participation involves risk. Past process consistency does not indicate future behavioral or financial outcomes. </p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="#about" data-i18n="footer_about">About</a>
+<a href="#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<!-- === LOGIN MODAL === -->
+<div class="auth-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+<div class="auth-modal">
+<button class="auth-close" onclick="closeModal('loginModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<svg class="auth-logo-svg" viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE">
+<!-- Outer wing left -->
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<!-- Inner wing left -->
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<!-- Center spine -->
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<!-- ALTIVOR text -->
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<!-- Left dash -->
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<!-- INSTITUTE text -->
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<!-- Right dash -->
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</div>
+<h2 class="auth-title" id="loginTitle" data-i18n="login_title">Welcome Back</h2>
+<p class="auth-sub" data-i18n="login_sub">Sign in to your ALTIVOR account</p>
+<form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+<div class="auth-field">
+<label for="loginEmail" data-i18n="login_email">Email Address</label>
+<input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="loginPassword" data-i18n="login_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+<button type="button" class="auth-eye" onclick="togglePw('loginPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-forgot">
+<a href="#" data-i18n="login_forgot">Forgot password?</a>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="login_btn">Sign In</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="login_switch">Don't have an account?</span>
+<a href="#" onclick="switchModal('loginModal','registerModal');return false;" data-i18n="login_switch_link">Register</a>
+</p>
+</div>
+</div>
+<!-- === REGISTER MODAL === -->
+<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+<div class="auth-modal auth-modal--wide">
+<button class="auth-close" onclick="closeModal('registerModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<svg class="auth-logo-svg" viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE">
+<!-- Outer wing left -->
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<!-- Inner wing left -->
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<!-- Center spine -->
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<!-- ALTIVOR text -->
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<!-- Left dash -->
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<!-- INSTITUTE text -->
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<!-- Right dash -->
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</div>
+<h2 class="auth-title" id="registerTitle" data-i18n="reg_title">Create Account</h2>
+<p class="auth-sub" data-i18n="reg_sub">Join ALTIVOR INSTITUTE</p>
+<form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+<div class="auth-row">
+<div class="auth-field">
+<label for="regFirstName" data-i18n="reg_first">First Name</label>
+<input type="text" id="regFirstName" name="firstName" placeholder="John" required autocomplete="given-name" />
+</div>
+<div class="auth-field">
+<label for="regLastName" data-i18n="reg_last">Last Name</label>
+<input type="text" id="regLastName" name="lastName" placeholder="Doe" required autocomplete="family-name" />
+</div>
+</div>
+<div class="auth-field">
+<label for="regUsername" data-i18n="reg_username">Username</label>
+<input type="text" id="regUsername" name="username" placeholder="johndoe_trader" required autocomplete="username" />
+</div>
+<div class="auth-field">
+<label for="regEmail" data-i18n="reg_email">Email Address</label>
+<input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="regAddress" data-i18n="reg_address">Address</label>
+<input type="text" id="regAddress" name="address" placeholder="123 Street, City, Country" required autocomplete="street-address" />
+</div>
+
+<div class="auth-field">
+<label for="regCountry" data-i18n="reg_country">Country</label>
+<div class="auth-country-wrap">
+<select class="auth-country-select" id="regCountry" name="country" required>
+<option value="" disabled selected>Select your country</option>
+<option value="AF">&#x1F1E6;&#x1F1EB; Afghanistan</option>
+<option value="AL">&#x1F1E6;&#x1F1F1; Albania</option>
+<option value="DZ">&#x1F1E9;&#x1F1FF; Algeria</option>
+<option value="AR">&#x1F1E6;&#x1F1F7; Argentina</option>
+<option value="AU">&#x1F1E6;&#x1F1FA; Australia</option>
+<option value="AT">&#x1F1E6;&#x1F1F9; Austria</option>
+<option value="BE">&#x1F1E7;&#x1F1EA; Belgium</option>
+<option value="BR">&#x1F1E7;&#x1F1F7; Brazil</option>
+<option value="BG">&#x1F1E7;&#x1F1EC; Bulgaria</option>
+<option value="CA">&#x1F1E8;&#x1F1E6; Canada</option>
+<option value="CL">&#x1F1E8;&#x1F1F1; Chile</option>
+<option value="CN">&#x1F1E8;&#x1F1F3; China</option>
+<option value="CO">&#x1F1E8;&#x1F1F4; Colombia</option>
+<option value="HR">&#x1F1ED;&#x1F1F7; Croatia</option>
+<option value="CZ">&#x1F1E8;&#x1F1FF; Czech Republic</option>
+<option value="DK">&#x1F1E9;&#x1F1F0; Denmark</option>
+<option value="EG">&#x1F1EA;&#x1F1EC; Egypt</option>
+<option value="EE">&#x1F1EA;&#x1F1EA; Estonia</option>
+<option value="FI">&#x1F1EB;&#x1F1EE; Finland</option>
+<option value="FR">&#x1F1EB;&#x1F1F7; France</option>
+<option value="DE">&#x1F1E9;&#x1F1EA; Germany</option>
+<option value="GR">&#x1F1EC;&#x1F1F7; Greece</option>
+<option value="HU">&#x1F1ED;&#x1F1FA; Hungary</option>
+<option value="IN">&#x1F1EE;&#x1F1F3; India</option>
+<option value="ID">&#x1F1EE;&#x1F1E9; Indonesia</option>
+<option value="IE">&#x1F1EE;&#x1F1EA; Ireland</option>
+<option value="IL">&#x1F1EE;&#x1F1F1; Israel</option>
+<option value="IT">&#x1F1EE;&#x1F1F9; Italy</option>
+<option value="JP">&#x1F1EF;&#x1F1F5; Japan</option>
+<option value="KR">&#x1F1F0;&#x1F1F7; South Korea</option>
+<option value="LV">&#x1F1F1;&#x1F1FB; Latvia</option>
+<option value="LT">&#x1F1F1;&#x1F1F9; Lithuania</option>
+<option value="MY">&#x1F1F2;&#x1F1FE; Malaysia</option>
+<option value="MX">&#x1F1F2;&#x1F1FD; Mexico</option>
+<option value="NL">&#x1F1F3;&#x1F1F1; Netherlands</option>
+<option value="NZ">&#x1F1F3;&#x1F1FF; New Zealand</option>
+<option value="NG">&#x1F1F3;&#x1F1EC; Nigeria</option>
+<option value="NO">&#x1F1F3;&#x1F1F4; Norway</option>
+<option value="PK">&#x1F1F5;&#x1F1F0; Pakistan</option>
+<option value="PH">&#x1F1F5;&#x1F1ED; Philippines</option>
+<option value="PL">&#x1F1F5;&#x1F1F1; Poland</option>
+<option value="PT">&#x1F1F5;&#x1F1F9; Portugal</option>
+<option value="RO">&#x1F1F7;&#x1F1F4; Romania</option>
+<option value="SA">&#x1F1F8;&#x1F1E6; Saudi Arabia</option>
+<option value="RS">&#x1F1F7;&#x1F1F8; Serbia</option>
+<option value="SG">&#x1F1F8;&#x1F1EC; Singapore</option>
+<option value="SK">&#x1F1F8;&#x1F1F0; Slovakia</option>
+<option value="SI">&#x1F1F8;&#x1F1EE; Slovenia</option>
+<option value="ZA">&#x1F1FF;&#x1F1E6; South Africa</option>
+<option value="ES">&#x1F1EA;&#x1F1F8; Spain</option>
+<option value="SE">&#x1F1F8;&#x1F1EA; Sweden</option>
+<option value="CH">&#x1F1E8;&#x1F1ED; Switzerland</option>
+<option value="TH">&#x1F1F9;&#x1F1ED; Thailand</option>
+<option value="TR">&#x1F1F9;&#x1F1F7; Turkey</option>
+<option value="UA">&#x1F1FA;&#x1F1E6; Ukraine</option>
+<option value="AE">&#x1F1E6;&#x1F1EA; United Arab Emirates</option>
+<option value="GB">&#x1F1EC;&#x1F1E7; United Kingdom</option>
+<option value="US">&#x1F1FA;&#x1F1F8; United States</option>
+<option value="VN">&#x1F1FB;&#x1F1F3; Vietnam</option>
+</select>
+<svg class="auth-country-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</div>
+</div>
+<div class="auth-row">
+<div class="auth-field">
+<label for="regPassword" data-i18n="reg_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPassword" name="password" placeholder="Create a password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-field">
+<label for="regPasswordConfirm" data-i18n="reg_pw2">Confirm Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPasswordConfirm" name="passwordConfirm" placeholder="Repeat password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPasswordConfirm', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+</div>
+<div class="auth-pw-error" id="regPwError" data-i18n="pw_error">Passwords do not match.</div>
+<div class="auth-consent">
+<label class="auth-consent-label">
+<input type="checkbox" id="regConsent" name="consent" required />
+<span class="auth-consent-box" aria-hidden="true">
+</span>
+<span class="auth-consent-text" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a> and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</span>
+</label>
+<div class="auth-consent-error" id="regConsentError" data-i18n="reg_consent_error">You must accept the terms to create an account.</div>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="reg_btn">Create Account</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="reg_switch">Already have an account?</span>
+<a href="#" onclick="switchModal('registerModal','loginModal');return false;" data-i18n="reg_switch_link">Sign In</a>
+</p>
+</div>
+</div>
+<!-- === COOKIE CONSENT BANNER === -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-labelledby="cookieBannerTitle" aria-hidden="true">
+<div class="cookie-banner-inner">
+<div class="cookie-banner-text">
+<p class="cookie-banner-title" id="cookieBannerTitle" data-i18n="cookie_title">We use cookies</p>
+<p class="cookie-banner-desc" data-i18n="cookie_desc">We use cookies and similar technologies to ensure the security of our platform, improve functionality and analyze usage. You can choose which cookies you allow. <a href="cookies-policy.html" class="cookie-banner-link">Learn more in our Cookies Policy</a>
+</p>
+</div>
+<div class="cookie-banner-actions">
+<button class="btn btn-primary cookie-btn" id="cookieAcceptAll" data-i18n="cookie_accept">Accept all</button>
+<button class="btn btn-ghost cookie-btn" id="cookieRejectNon" data-i18n="cookie_reject">Reject non-essential</button>
+<button class="btn btn-ghost cookie-btn cookie-btn--prefs" id="cookieManagePrefs" data-i18n="cookie_manage">Manage preferences</button>
+</div>
+</div>
+</div>
+<!-- === COOKIE PREFERENCES PANEL === -->
+<div class="cookie-prefs-overlay" id="cookiePrefsOverlay" role="dialog" aria-modal="true" aria-labelledby="cookiePrefsTitle" aria-hidden="true">
+<div class="cookie-prefs-modal">
+<button class="auth-close" id="cookiePrefsClose" aria-label="Close">&#x2715;</button>
+<h2 class="cookie-prefs-title" id="cookiePrefsTitle" data-i18n="cookie_prefs_title">Cookie Preferences</h2>
+<p class="cookie-prefs-sub" data-i18n="cookie_prefs_sub">Control which cookies ALTIVOR INSTITUTE may use. Necessary cookies cannot be disabled as they are required for platform security and core functionality. <a href="cookies-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Cookies Policy</a> &middot; <a href="privacy-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Privacy Policy</a>
+</p>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_necessary">Necessary</span>
+<span class="cookie-pref-desc" data-i18n="cookie_necessary_desc">Required for login sessions, security tokens and core platform functionality. Cannot be disabled.</span>
+</div>
+<div class="cookie-toggle cookie-toggle--locked" aria-label="Always active" data-i18n="cookie_always_on">Always on</div>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_functional">Functional</span>
+<span class="cookie-pref-desc" data-i18n="cookie_functional_desc">Remembers your language, theme preference and display settings.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieFunctional" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_analytics">Analytics</span>
+<span class="cookie-pref-desc" data-i18n="cookie_analytics_desc">Helps us understand how participants use the platform. Data is aggregated and anonymised.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieAnalytics" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_marketing">Marketing</span>
+<span class="cookie-pref-desc" data-i18n="cookie_marketing_desc">Used to measure the effectiveness of communications and deliver relevant content.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieMarketing" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-prefs-actions">
+<button class="btn btn-primary" id="cookieSavePrefs" data-i18n="cookie_save">Save preferences</button>
+<button class="btn btn-ghost" id="cookieAcceptAllPrefs" data-i18n="cookie_accept_all">Accept all</button>
+</div>
+</div>
+</div>
+<script> 'use strict'; /* Modal helpers */ function openModal(id) { document.getElementById(id).classList.add('active'); document.body.classList.add('modal-open'); } function closeModal(id) { document.getElementById(id).classList.remove('active'); document.body.classList.remove('modal-open'); } function switchModal(from, to) { closeModal(from); setTimeout(function() { openModal(to); }, 220); } document.querySelectorAll('.auth-overlay').forEach(function(overlay) { overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(overlay.id); }); }); function handleLogin(e) { e.preventDefault(); alert('Login submitted backend integration pending.'); } function handleRegister(e) { e.preventDefault(); var pw = document.getElementById('regPassword').value; var pw2 = document.getElementById('regPasswordConfirm').value; var err = document.getElementById('regPwError'); var consent = document.getElementById('regConsent'); var consentErr = document.getElementById('regConsentError'); if (pw !== pw2) { err.style.display = 'block'; return; } err.style.display = 'none'; if (consent && !consent.checked) { consentErr.style.display = 'block'; return; } if (consentErr) consentErr.style.display = 'none'; alert('Registration submitted backend integration pending.'); } /* Search / Filter */ const searchInput = document.getElementById('faqSearch'); const faqSection = document.getElementById('faqSection'); const noResults = document.getElementById('faqNoResults'); searchInput.addEventListener('input', () => { const query = searchInput.value.toLowerCase().trim(); let visibleCount = 0; document.querySelectorAll('.faq-category').forEach(cat => { let catVisible = false; cat.querySelectorAll('.faq-item').forEach(item => { const question = item.querySelector('.faq-question').textContent.toLowerCase(); const answer = item.querySelector('.faq-answer-inner').textContent.toLowerCase(); const match = !query || question.includes(query) || answer.includes(query); item.style.display = match ? '' : 'none'; if (match) { catVisible = true; visibleCount++; } }); cat.style.display = catVisible ? '' : 'none'; }); noResults.style.display = visibleCount === 0 ? 'block' : 'none'; }); </script>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script src="cookie-consent.js">
+</script>
+<!-- === DOCUMENTS MODAL === -->
+<div class="docs-overlay" id="docsModal" role="dialog" aria-modal="true" aria-labelledby="docsModalTitle">
+<div class="docs-modal">
+<div class="docs-modal-header">
+<div class="docs-modal-title">
+<span class="docs-modal-label">ALTIVOR INSTITUTE</span>
+<h2 class="docs-modal-heading" id="docsModalTitle" data-i18n="doc_heading">Documents</h2>
+</div>
+<button class="docs-modal-close" onclick="closeDocsModal()" aria-label="Close">&#x2715;</button>
+</div>
+<div class="docs-modal-body">
+<div class="docs-section-label" data-i18n="doc_legal_section">Legal Documents</div>
+<a href="terms-of-service.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+<polyline points="10 9 9 9 8 9"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_terms_name">Terms &amp; Conditions</span>
+<span class="docs-item-desc" data-i18n="doc_terms_desc">Platform usage terms, user obligations and service agreement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="privacy-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_privacy_name">Privacy Policy</span>
+<span class="docs-item-desc" data-i18n="doc_privacy_desc">GDPR-compliant data processing and privacy practices</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="risk-disclosure.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+<line x1="12" y1="9" x2="12" y2="13"/>
+<line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_risk_name">Risk Disclosure</span>
+<span class="docs-item-desc" data-i18n="doc_risk_desc">Financial risk warnings and regulatory disclaimers</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="investment-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_invest_name">Investment &amp; Educational Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_invest_desc">No investment advice &mdash; educational services only</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="earnings-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="12" y1="1" x2="12" y2="23"/>
+<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_earnings_name">Earnings &amp; Performance Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_earnings_desc">No guarantee of financial results or trading performance</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="acceptable-use-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 11l3 3L22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_aup_name">Acceptable Use Policy</span>
+<span class="docs-item-desc" data-i18n="doc_aup_desc">Permitted conduct, prohibited activities and enforcement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="legal-notice.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="16" x2="12" y2="12"/>
+<line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_legal_name">Legal Notice &amp; Imprint</span>
+<span class="docs-item-desc" data-i18n="doc_legal_desc">Operator identification, regulatory status and statutory information</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="complaints-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_complaints_name">Complaints &amp; Support Policy</span>
+<span class="docs-item-desc" data-i18n="doc_complaints_desc">Support scope, complaint procedure and resolution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="anti-fraud-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_antifraud_name">Anti-Fraud Policy</span>
+<span class="docs-item-desc" data-i18n="doc_antifraud_desc">Fraud prevention, prohibited conduct and enforcement framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="security-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_security_name">Security Policy</span>
+<span class="docs-item-desc" data-i18n="doc_security_desc">Platform security measures, incident response and vulnerability disclosure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="trust-and-safety.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_trust_name">Trust &amp; Safety</span>
+<span class="docs-item-desc" data-i18n="doc_trust_desc">Platform safety framework, values and user protection principles</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="refund-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="23 4 23 10 17 10"/>
+<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_refund_name">Refund Policy</span>
+<span class="docs-item-desc" data-i18n="doc_refund_desc">Digital services refund terms and withdrawal rights</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="cookies-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_cookies_name">Cookies Policy</span>
+<span class="docs-item-desc" data-i18n="doc_cookies_desc">Cookie usage, consent management and third-party tracking</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-section-label" data-i18n="doc_fw_section">Framework Documents</div>
+<a href="us100-framework.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us100_name">US100 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us100_desc">Nasdaq 100 CFD &mdash; operational execution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us30_name">US30 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us30_desc">Dow Jones 30 &mdash; in development</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+<div class="docs-section-label" data-i18n="doc_challenge_section">Challenge Documents</div>
+<a href="challenge-rules.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_challenge_name">Challenge Rules &amp; Programme Terms</span>
+<span class="docs-item-desc" data-i18n="doc_challenge_desc">Evaluation criteria, prohibited conduct and programme structure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_casestudy_name">Case Study Library</span>
+<span class="docs-item-desc" data-i18n="doc_casestudy_desc">Full Access required &mdash; anonymised cycle reviews</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

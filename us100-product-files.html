@@ -1,0 +1,2321 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="US100 Product Files. Structured library of released US100 product documents, including the Process Validation Challenge case study and the Regulatory &amp; Evaluation Document." />
+<title>US100 Product Files | ALTIVOR INSTITUTE</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style> body { background: var(--bg-base); } .pf-hero { padding: 7.25rem 0 2.4rem; border-bottom: 2px solid rgba(214, 190, 150, 0.2); } .pf-shell { max-width: 1220px; margin: 0 auto; display: grid; gap: 1.1rem; } .pf-back-link { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--txt-muted); text-decoration: none; font-size: 0.92rem; letter-spacing: 0.02em; } .pf-back-link:hover { color: var(--txt-primary); } .pf-kicker { display: inline-flex; align-items: center; width: fit-content; padding: 0.42rem 0.78rem; border-radius: 999px; border: 1px solid var(--border-default); background: var(--surface-elevated); color: var(--txt-secondary); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; } .pf-title-wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.85rem 1rem; } .pf-title-wrap h1 { margin: 0; font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 5vw, 4.5rem); line-height: 0.96; letter-spacing: -0.03em; color: rgba(214, 190, 150, 0.9); } [data-theme="light"] .pf-title-wrap h1 { color: rgba(130, 110, 70, 0.9); } .pf-status { display: inline-flex; align-items: center; padding: 0.36rem 0.72rem; border-radius: 999px; background: rgba(96, 165, 250, 0.08); border: 1px solid rgba(96, 165, 250, 0.25); color: rgba(96, 165, 250, 0.9); font-size: 0.76rem; letter-spacing: 0.14em; text-transform: uppercase; } [data-theme="light"] .pf-status { background: rgba(37, 99, 175, 0.06); border-color: rgba(37, 99, 175, 0.2); color: rgba(37, 99, 175, 0.9); } .pf-subtitle { max-width: 860px; margin: 0; font-size: 1.02rem; line-height: 1.9; color: var(--txt-secondary); } .pf-mandate { max-width: 980px; padding: 1.05rem 1.15rem; border-radius: 18px; border: 1px solid var(--border-default); background: var(--surface-elevated); color: var(--txt-primary); font-size: 0.96rem; line-height: 1.8; } .pf-manifest { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem; padding: 1.2rem 1.25rem; border-radius: 24px; border: 1px solid var(--border-default); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); } .pf-mini-label { margin: 0 0 0.45rem; color: var(--txt-muted); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; } .pf-manifest-copy { margin: 0; color: var(--txt-secondary); line-height: 1.75; } .pf-manifest-actions { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 0.75rem; } .pf-section { padding: 2rem 0 3rem; } .pf-section-head { display: grid; gap: 0.5rem; max-width: 800px; margin-bottom: 1.25rem; } .pf-section-head h2 { margin: 0; font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.7rem); line-height: 1.08; letter-spacing: -0.02em; color: rgba(214, 190, 150, 0.85); } [data-theme="light"] .pf-section-head h2 { color: rgba(130, 110, 70, 0.85); } .pf-section-head p { margin: 0; color: var(--txt-secondary); line-height: 1.8; } .pf-files-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; align-items: stretch; margin-top: 1.5rem; } .pf-file-card { display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.82rem; padding: 1.2rem; border-radius: 20px; border: 1px solid var(--border-default); background: var(--surface-elevated); text-decoration: none; color: inherit; transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease; min-height: 220px; } .pf-file-card:hover { transform: translateY(-2px); border-color: rgba(96, 165, 250, 0.3); background: rgba(255,255,255,0.03); } [data-theme="light"] .pf-file-card:hover { border-color: rgba(37, 99, 175, 0.25); } .pf-file-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; } .pf-file-id, .pf-file-state { display: inline-flex; align-items: center; padding: 0.32rem 0.62rem; border-radius: 999px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; } .pf-file-id { border: 1px solid var(--border-default); color: var(--txt-secondary); } .pf-file-state { background: rgba(96, 165, 250, 0.08); border: 1px solid rgba(96, 165, 250, 0.25); color: rgba(96, 165, 250, 0.9); } [data-theme="light"] .pf-file-state { background: rgba(37, 99, 175, 0.06); border-color: rgba(37, 99, 175, 0.2); color: rgba(37, 99, 175, 0.9); } /* Locked file card styles */ .pf-file-card--locked { opacity: 0.7; pointer-events: auto; } .pf-file-card--locked:hover { transform: none; border-color: rgba(239, 68, 68, 0.3); } .pf-file-state--locked { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); color: rgba(239, 68, 68, 0.9); } [data-theme="light"] .pf-file-state--locked { background: rgba(220, 38, 38, 0.06); border-color: rgba(220, 38, 38, 0.2); color: rgba(220, 38, 38, 0.9); } .pf-file-card--locked .pf-file-link { color: var(--txt-muted); display: flex; align-items: center; gap: 0.4rem; } .pf-lock-icon { flex-shrink: 0; } .pf-file-card h3 { margin: 0; font-size: 1.02rem; line-height: 1.34; color: rgba(214, 190, 150, 0.85); } [data-theme="light"] .pf-file-card h3 { color: rgba(130, 110, 70, 0.85); } .pf-file-card p { margin: 0; color: var(--txt-secondary); font-size: 0.9rem; line-height: 1.55; } .pf-file-meta { display: none; flex-wrap: wrap; gap: 0.5rem; } .pf-file-meta span { display: inline-flex; align-items: center; padding: 0.32rem 0.62rem; border-radius: 999px; background: var(--bg-subtle); border: 1px solid var(--border-default); color: var(--txt-muted); font-size: 0.78rem; } .pf-file-link { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--txt-primary); font-weight: 600; font-size: 0.92rem; letter-spacing: 0.01em; } .pf-file-link::after { content: ''; color: rgba(96, 165, 250, 0.9); } [data-theme="light"] .pf-file-link::after { color: rgba(37, 99, 175, 0.9); } .pf-library { padding: 0.7rem 0 4.5rem; } .pf-library[hidden], .pf-doc[hidden] { display: none !important; } .pf-library-stack { display: grid; gap: 0; } .pf-library-stack > .pf-doc:first-child { margin-top: 0; } .pf-doc-divider { display: none; } .pf-doc:not([hidden]) { border-top: none; position: relative; } .pf-doc:not([hidden])::before { content: ''; display: block; width: 100vw; max-width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); height: 1px; background: linear-gradient(90deg, transparent, var(--border-subtle) 15%, var(--border-subtle) 85%, transparent); opacity: 0.6; margin-bottom: 2.5rem; } .pf-doc { border: 1px solid var(--border-default); border-radius: 28px; background: var(--surface-elevated); overflow: visible; } .pf-doc-header { display: grid; gap: 1rem; padding: 1.55rem; border-bottom: 1px solid var(--border-default); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0)); } .pf-doc-labels { display: flex; flex-wrap: wrap; gap: 0.55rem; } .pf-doc-labels span { display: inline-flex; align-items: center; padding: 0.34rem 0.7rem; border-radius: 999px; border: 1px solid var(--border-default); color: var(--txt-secondary); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; } .pf-doc-title-wrap { display: grid; gap: 0.38rem; } .pf-doc-title-wrap h2 { margin: 0; font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; color: rgba(214, 190, 150, 0.9); } [data-theme="light"] .pf-doc-title-wrap h2 { color: rgba(130, 110, 70, 0.9); } .pf-doc-title-wrap p { margin: 0; color: var(--txt-secondary); font-size: 1rem; line-height: 1.85; max-width: 860px; } .pf-doc-meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; } .pf-doc-metric { padding: 0.95rem 1rem; border-radius: 18px; border: 1px solid var(--border-default); background: var(--bg-subtle); } .pf-doc-metric span { display: block; } .pf-doc-metric span:first-child { margin-bottom: 0.3rem; color: var(--txt-muted); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase; } .pf-doc-metric span:last-child { color: var(--txt-primary); line-height: 1.5; } .pf-doc-body { display: grid; gap: 1.25rem; padding: 1.55rem; } .pf-doc-note, .pf-pass-block, .pf-next-block { padding: 1.15rem 1.2rem; border-radius: 20px; border: 1px solid var(--border-default); background: var(--bg-subtle); } .pf-doc-note p, .pf-pass-block p, .pf-next-block p { margin: 0; color: var(--txt-secondary); line-height: 1.8; } .pf-doc-outline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; } .pf-doc-outline a { display: block; padding: 0.95rem 1rem; border-radius: 18px; border: 1px solid var(--border-default); text-decoration: none; color: var(--txt-secondary); background: var(--surface-elevated); } .pf-doc-outline a:hover { color: var(--txt-primary); border-color: rgba(96, 165, 250, 0.3); } [data-theme="light"] .pf-doc-outline a:hover { border-color: rgba(37, 99, 175, 0.25); } .pf-doc-section { padding: 1.15rem 1.2rem; border-radius: 22px; border: 1px solid var(--border-default); background: var(--surface-elevated); } .pf-doc-section h3 { margin: 0 0 0.85rem; font-size: 1.12rem; color: var(--txt-primary); letter-spacing: -0.01em; } .pf-doc-section p { margin: 0 0 0.85rem; color: var(--txt-secondary); line-height: 1.9; } .pf-doc-section p:last-child { margin-bottom: 0; } .pf-doc-section ul { margin: 0.2rem 0 0; padding-left: 1.2rem; color: var(--txt-secondary); display: grid; gap: 0.55rem; line-height: 1.8; } .pf-doc-section ol { margin: 0.2rem 0 0; padding-left: 1.35rem; color: var(--txt-secondary); display: grid; gap: 0.55rem; line-height: 1.8; } /* Formula Block */ .pf-formula { background: var(--surface-elevated); border: 1px solid var(--border-default); border-radius: 10px; padding: 1rem 1.25rem; margin: 0.75rem 0; overflow-x: auto; } .pf-formula code { font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace; font-size: 0.9rem; color: var(--accent); white-space: nowrap; } /* Suitability Checklist */ .pf-checklist { display: grid; gap: 0.65rem; margin: 0.85rem 0; } .pf-checklist-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; background: rgba(139, 189, 180, 0.06); border: 1px solid rgba(139, 189, 180, 0.15); border-radius: 12px; } .pf-check-icon { flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; background: rgba(139, 189, 180, 0.18); border-radius: 50%; color: var(--accent); font-size: 0.7rem; font-weight: 700; } .pf-checklist-item span:last-child { color: var(--txt-secondary); line-height: 1.6; } /* Deliverable Grid */ .pf-deliverable-grid { display: grid; gap: 0.75rem; margin: 0.85rem 0; } .pf-deliverable-item { display: flex; align-items: flex-start; gap: 0.85rem; padding: 1rem 1.15rem; background: var(--surface-elevated); border: 1px solid var(--border-default); border-radius: 14px; } .pf-deliverable-icon { flex-shrink: 0; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: rgba(139, 189, 180, 0.1); border: 1px solid rgba(139, 189, 180, 0.2); border-radius: 10px; color: var(--accent); } .pf-deliverable-icon svg { width: 18px; height: 18px; } .pf-deliverable-content { display: flex; flex-direction: column; gap: 0.25rem; } .pf-deliverable-content strong { color: var(--txt-primary); font-size: 0.95rem; } .pf-deliverable-content span { color: var(--txt-tertiary); font-size: 0.85rem; line-height: 1.5; } .pf-pass-block { display: grid; gap: 0.85rem; } .pf-pass-tag { display: inline-flex; width: fit-content; align-items: center; justify-content: center; padding: 0.45rem 0.78rem; border-radius: 999px; background: rgba(139, 189, 180, 0.12); border: 1px solid rgba(139, 189, 180, 0.22); color: var(--accent); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; } .pf-quote { margin: 0; padding-left: 1rem; border-left: 2px solid rgba(139, 189, 180, 0.28); color: var(--txt-primary); font-size: 1rem; line-height: 1.9; } @media (max-width: 980px) { .pf-manifest, .pf-doc-meta, .pf-doc-outline { grid-template-columns: 1fr; } .pf-files-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pf-manifest-actions { justify-content: flex-start; } } @media (max-width: 720px) { .pf-hero { padding-top: 6.5rem; } .pf-files-grid { grid-template-columns: 1fr; } .pf-doc-header, .pf-doc-body, .pf-doc-section, .pf-doc-note, .pf-pass-block, .pf-next-block, .pf-file-card, .pf-manifest { padding: 1rem; } } </style>
+</head>
+<body>
+<!-- --- TOP ANNOUNCEMENT BANNER ---------------------------------------- -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active">Active</span>
+<span class="nav-drop-name">US100</span>
+<span class="nav-drop-desc">Nasdaq 100 CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev">In Dev</span>
+<span class="nav-drop-name">US30</span>
+<span class="nav-drop-desc">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html" data-i18n="nav_updates">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span>Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Log</span>
+<span class="nav-drop-desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Wiki</span>
+<span class="nav-drop-desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">PnL Calendar</span>
+<span class="nav-drop-desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Economic Calendar</span>
+<span class="nav-drop-desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Symbols</span>
+<span class="nav-drop-desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Execution Checklist</span>
+<span class="nav-drop-desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Calculators</span>
+<span class="nav-drop-desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">EN</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-log.html">Trading Log</a>
+<a href="trading-wiki.html">Trading Wiki</a>
+<a href="pnl.html">PnL Calendar</a>
+<a href="calendar.html">Economic Calendar</a>
+<a href="symbols.html">Trading Symbols</a>
+<a href="execution-checklist.html">Execution Checklist</a>
+<a href="calculators.html">Trading Calculators</a>
+<a href="trading-updates.html">Trading Updates</a>
+<a href="accessories.html">Accessories Hub</a>
+<a href="index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="pf-hero">
+<div class="container">
+<div class="pf-shell" data-i18n="pf_hero_html">
+<a href="us100-framework.html" class="pf-back-link"> Back to US100 Framework</a>
+<p class="pf-kicker">Released Product Files</p>
+<div class="pf-title-wrap">
+<h1>US100 Product Files</h1>
+<span class="pf-status">Library Active</span>
+</div>
+<p class="pf-subtitle">Structured library of released US100 product files. Each entry belongs to the same process-validation system aligned with funded-level conditions and should be read as an operational component, not as isolated marketing copy.</p>
+<div class="pf-mandate">This page organizes the released file layer of the US100 product. The files below remain part of the same institutional process-validation logic described on the framework page and are presented here as standalone product entries that can be reviewed directly.</div>
+<div class="pf-manifest">
+<div>
+<p class="pf-mini-label">Library Scope</p>
+<p class="pf-manifest-copy">The structure is intentionally sequential. Each additional document you send can be inserted into this same library as a new clickable product file without removing or compressing the original source material.</p>
+</div>
+<div class="pf-manifest-actions">
+<a href="#product-file-index" class="btn btn-primary">Open Library Index</a>
+<a href="prepare.html" class="btn btn-outline">Begin PREPARE</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider-full">
+</div>
+<section class="pf-section" id="product-file-index">
+<div class="container">
+<div class="pf-section-head" data-i18n="pf_index_intro_html">
+<p class="pf-mini-label">File Index</p>
+<h2>Released product entries available inside the US100 library.</h2>
+<p>The library behaves as a clean product register. Each card is a direct entry point into a specific file contained inside the US100 process-validation package.</p>
+</div>
+<div class="pf-files-grid" data-i18n="pf_index_grid_html">
+<a href="#file-case-study-01" class="pf-file-card">
+<div class="pf-file-card-top">
+<span class="pf-file-id">File 01</span>
+<span class="pf-file-state">Released</span>
+</div>
+<div>
+<h3>US100 Process Validation Challenge</h3>
+<p>Case Study Process-Only Execution</p>
+</div>
+<div class="pf-file-meta">
+<span>Type: Case Study</span>
+<span>Instrument: US100</span>
+<span>Focus: Process Execution</span>
+</div>
+<span class="pf-file-link">Enter file</span>
+</a>
+<a href="#file-regulatory-evaluation-02" class="pf-file-card">
+<div class="pf-file-card-top">
+<span class="pf-file-id">File 02</span>
+<span class="pf-file-state">Released</span>
+</div>
+<div>
+<h3>US100 Process Validation Challenge</h3>
+<p>Regulatory &amp; Evaluation Document</p>
+</div>
+<div class="pf-file-meta">
+<span>Type: Governing Document</span>
+<span>Scope: Challenge Evaluation</span>
+<span>Authority: Prevailing Layer</span>
+</div>
+<span class="pf-file-link">Enter file</span>
+</a>
+<a href="#file-candidate-overview-03" class="pf-file-card">
+<div class="pf-file-card-top">
+<span class="pf-file-id">File 03</span>
+<span class="pf-file-state">Framework Pack</span>
+</div>
+<div>
+<h3>US100 Process Validation Challenge</h3>
+<p>Operational Parameters &amp; Execution Specifications</p>
+</div>
+<div class="pf-file-meta">
+<span>Type: Operational Specification</span>
+<span>Scope: Binding Execution Layer</span>
+<span>Authority: Non-Negotiable Parameters</span>
+</div>
+<span class="pf-file-link">Enter file</span>
+</a>
+<a href="#file-fail-conditions-04" class="pf-file-card">
+<div class="pf-file-card-top">
+<span class="pf-file-id">File 04</span>
+<span class="pf-file-state">Released</span>
+</div>
+<div>
+<h3>US100 Process Validation Challenge</h3>
+<p>Fail Conditions &amp; Rules of Disqualification</p>
+</div>
+<div class="pf-file-meta">
+<span>Type: Disqualification Register</span>
+<span>Scope: Failure Criteria</span>
+<span>Authority: Automatic Challenge Failure</span>
+</div>
+<span class="pf-file-link">Enter file</span>
+</a>
+<a href="#file-ledger-journal-05" class="pf-file-card pf-file-card--locked" data-requires-auth="us100-challenge">
+<div class="pf-file-card-top">
+<span class="pf-file-id">File 05</span>
+<span class="pf-file-state pf-file-state--locked">US100 Challenge</span>
+</div>
+<div>
+<h3>US100 Process Validation Challenge</h3>
+<p>Ledger &amp; Journal Templates</p>
+</div>
+<div class="pf-file-meta">
+<span>Type: Recordkeeping Template</span>
+<span>Scope: Activity Recording</span>
+<span>Authority: Mandatory Ledger Structure</span>
+</div>
+<span class="pf-file-link">
+<svg class="pf-lock-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg> US100 Challenge Only</span>
+</a>
+<a href="#file-onboarding-guide-06" class="pf-file-card pf-file-card--locked" data-requires-auth="us100-challenge">
+<div class="pf-file-card-top">
+<span class="pf-file-id">File 06</span>
+<span class="pf-file-state pf-file-state--locked">US100 Challenge</span>
+</div>
+<div>
+<h3>US100 Process Validation Challenge</h3>
+<p>Onboarding Guide</p>
+</div>
+<div class="pf-file-meta">
+<span>Type: Operating Guide</span>
+<span>Scope: Daily Challenge Conduct</span>
+<span>Authority: Clarification Layer</span>
+</div>
+<span class="pf-file-link">
+<svg class="pf-lock-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg> US100 Challenge Only</span>
+</a>
+</div>
+</div>
+</section>
+<section class="pf-library" id="product-file-library" hidden>
+<div class="container pf-library-stack">
+<article class="pf-doc" id="file-case-study-01">
+<div class="pf-doc-header">
+<div class="pf-doc-labels">
+<span>File 01</span>
+<span>Case Study</span>
+<span>Released Product Entry</span>
+</div>
+<div class="pf-doc-title-wrap">
+<h2>US100 Process Validation Challenge</h2>
+<p>Case Study Process-Only Execution</p>
+</div>
+<div class="pf-doc-meta">
+<div class="pf-doc-metric">
+<span>Instrument</span>
+<span>US100 (NASDAQ futures)</span>
+</div>
+<div class="pf-doc-metric">
+<span>Session Type</span>
+<span>NY Continuation Window</span>
+</div>
+<div class="pf-doc-metric">
+<span>Market Condition</span>
+<span>Directionally resolved session (trend continuation)</span>
+</div>
+<div class="pf-doc-metric">
+<span>Evaluation</span>
+<span>PASS process only</span>
+</div>
+</div>
+</div>
+<div class="pf-doc-body">
+<div class="pf-doc-note">
+<p>
+<strong>Document intent.</strong> This file is presented as a case-study product entry. It illustrates process execution under real market conditions and should be read as an operational example, not as a performance report, strategy tutorial or repeatability claim.</p>
+</div>
+<div class="pf-doc-outline">
+<a href="#case-purpose">Purpose</a>
+<a href="#case-context">Context</a>
+<a href="#case-pretrade">Pre-trade Conditions</a>
+<a href="#case-execution">Execution Phase</a>
+<a href="#case-stress">Stress and Uncertainty</a>
+<a href="#case-resolution">Trade Resolution</a>
+<a href="#case-posttrade">Post-trade Procedure</a>
+<a href="#case-evaluation">Evaluation</a>
+<a href="#case-takeaway">Key Takeaway</a>
+</div>
+<section class="pf-doc-section" id="case-purpose">
+<h3>Purpose of this case study</h3>
+<p>This case study exists to illustrate process execution under real market conditions.</p>
+<p>It is not a performance report. It is not a strategy tutorial. It does not imply repeatability of outcomes.</p>
+<p>The objective is to show how discipline, not prediction, governs decision-making during a valid trade.</p>
+</section>
+<section class="pf-doc-section" id="case-context">
+<h3>Context</h3>
+<ul>
+<li>
+<strong>Instrument:</strong> US100 (NASDAQ futures)</li>
+<li>
+<strong>Session type:</strong> NY Continuation Window</li>
+<li>
+<strong>Market condition:</strong> Directionally resolved session (trend continuation)</li>
+</ul>
+<p>By the time this trade was executed, the market had already established a clear directional bias. The case does not focus on identifying the bias. It focuses on acting correctly once the bias was accepted.</p>
+</section>
+<section class="pf-doc-section" id="case-pretrade">
+<h3>Pre-trade conditions</h3>
+<p>Before execution, the following conditions were satisfied:</p>
+<ul>
+<li>Trading occurred strictly within the allowed time window.</li>
+<li>Market structure had already resolved earlier in the session.</li>
+<li>No trades were taken earlier that day.</li>
+<li>No pressure existed to force activity.</li>
+<li>At this stage, not trading was still a valid outcome. The trade was taken only after a compliant opportunity appeared.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="case-execution">
+<h3>Execution phase</h3>
+<p>Once the setup aligned with the participants predefined criteria:</p>
+<ul>
+<li>Entry was executed without anticipation.</li>
+<li>Position size respected fixed risk limits.</li>
+<li>Stop Loss was placed based on structure and volatility, not proximity.</li>
+</ul>
+<p>At no point was the trade managed based on unrealized P&amp;L. All decisions were made relative to market structure and predefined rules.</p>
+</section>
+<section class="pf-doc-section" id="case-stress">
+<h3>Stress and uncertainty</h3>
+<p>During the trade:</p>
+<ul>
+<li>Price moved into an area close to Stop Loss.</li>
+<li>No protective adjustments were made.</li>
+<li>No early exit was taken to reduce emotional discomfort.</li>
+</ul>
+<p>This phase represents the primary psychological test.</p>
+<p>The correct action was inaction.</p>
+</section>
+<section class="pf-doc-section" id="case-resolution">
+<h3>Trade resolution</h3>
+<p>As the session progressed:</p>
+<ul>
+<li>Market structure remained intact.</li>
+<li>Volatility expanded in the direction of the established bias.</li>
+<li>The position was held without rule modification.</li>
+<li>The trade was closed only after predefined exit conditions were met.</li>
+</ul>
+<p>The outcome was positive.</p>
+<p>However, the result is irrelevant to the evaluation.</p>
+</section>
+<section class="pf-doc-section" id="case-posttrade">
+<h3>Post-trade procedure</h3>
+<p>After closure:</p>
+<ul>
+<li>The trade was recorded in the official ledger.</li>
+<li>Only objective data were logged (RR, USD, duration).</li>
+<li>No narrative justification was added.</li>
+<li>No additional trades were taken during the session.</li>
+</ul>
+</section>
+<section class="pf-pass-block" id="case-evaluation">
+<span class="pf-pass-tag">PASS</span>
+<p>This trade is classified as PASS not because it was profitable, but because:</p>
+<ul>
+<li>All rules were respected.</li>
+<li>No discretionary deviations occurred.</li>
+<li>Emotional impulses did not influence execution.</li>
+<li>A losing outcome under the same behavior would have resulted in the same evaluation.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="case-takeaway">
+<h3>Key takeaway</h3>
+<p>This case demonstrates a core principle of the Challenge:</p>
+<p class="pf-quote">Correct behavior does not require confidence. It requires restraint.</p>
+<p>The edge emerges not from frequent activity, but from the ability to remain inactive until conditions justify participation.</p>
+</section>
+<div class="pf-next-block">
+<p>
+<strong>Library continuity.</strong> The US100 library can continue to expand without altering the existing record. Each additional document can be appended as its own indexed product file while preserving the structure of the entries already released.</p>
+</div>
+</div>
+</article>
+<div class="pf-doc-divider">
+</div>
+<article class="pf-doc" id="file-regulatory-evaluation-02">
+<div class="pf-doc-header">
+<div class="pf-doc-labels">
+<span>File 02</span>
+<span>Regulatory Document</span>
+<span>Released Product Entry</span>
+</div>
+<div class="pf-doc-title-wrap">
+<h2>US100 Process Validation Challenge</h2>
+<p>Regulatory &amp; Evaluation Document</p>
+</div>
+<div class="pf-doc-meta">
+<div class="pf-doc-metric">
+<span>Document Role</span>
+<span>Binding Governing Layer</span>
+</div>
+<div class="pf-doc-metric">
+<span>Stage Structure</span>
+<span>PREPARE CHALLENGE</span>
+</div>
+<div class="pf-doc-metric">
+<span>Evaluation Basis</span>
+<span>PASS / FAIL only</span>
+</div>
+<div class="pf-doc-metric">
+<span>Authority</span>
+<span>Prevails over operational documents</span>
+</div>
+</div>
+</div>
+<div class="pf-doc-body">
+<div class="pf-doc-note">
+<p>
+<strong>Document role.</strong> This file constitutes the detailed governing layer of the US100 Challenge. It should be read as the binding regulatory and evaluation document for the programme, while operational guides and templates remain subordinate.</p>
+</div>
+<div class="pf-doc-outline">
+<a href="#reg-purpose-hierarchy">1. Purpose &amp; Hierarchy</a>
+<a href="#reg-entry-baseline">2. Entry Conditions</a>
+<a href="#reg-stages-activation">3. Stages &amp; Activation</a>
+<a href="#reg-evaluation-scope">4. Evaluation Scope</a>
+<a href="#reg-operational-constraints">5. Operational Constraints</a>
+<a href="#reg-documentation">6. Documentation</a>
+<a href="#reg-failure-logic">7. Failure Logic</a>
+<a href="#reg-strategy-independence">8. Strategy Independence</a>
+<a href="#reg-final-statement">9. Final Statement</a>
+</div>
+<section class="pf-doc-section" id="reg-purpose-hierarchy">
+<h3>1. Purpose, Intent and Framework Hierarchy</h3>
+<p>
+<strong>1.1 Statement of Intent and Philosophical Position</strong>
+</p>
+<p>The US100 Process Validation Challenge is intentionally structured as a selective, exclusionary, and demanding regulatory framework.</p>
+<p>Its purpose is not to maximize participation, completion rates, or engagement, but to identify and validate participants capable of sustained procedural discipline under real market conditions.</p>
+<p>This framework does not exist to teach trading, optimize strategies, enhance performance, or validate market skill.</p>
+<p>It exists solely to evaluate whether a participant can execute a declared execution process under funded-style conditions without deviation, regardless of financial outcome, emotional pressure, or subjective confidence.</p>
+<p>Difficulty, attrition, and disqualification are expected and integral outcomes of the Challenge.</p>
+<p>They do not represent failure of the framework, but confirmation of its intended function.</p>
+<p>Participation is appropriate only for individuals who explicitly accept that process integrity is valued above results, effort, intent, or profitability.</p>
+<p>
+<strong>1.2 Document Role and Hierarchy</strong>
+</p>
+<p>It defines:</p>
+<ul>
+<li>stage structure and activation logic,</li>
+<li>evaluation rules (PASS / FAIL),</li>
+<li>operational constraints (risk limits and trading windows),</li>
+<li>participant responsibility.</li>
+</ul>
+<p>This document intentionally does not duplicate operational procedures.</p>
+<p>Operational documents (subordinate to this framework):</p>
+<ul>
+<li>Participant Onboarding Guide how to operate day-to-day and what to expect</li>
+<li>Execution &amp; Trading Guide execution mechanics and trade lifecycle rules</li>
+<li>Ledger &amp; Journal Template mandatory documentation formats</li>
+<li>Case Study (Process-Only) illustrative examples of compliant behavior</li>
+</ul>
+<p>In case of conflict, this Regulatory &amp; Evaluation Document prevails.</p>
+</section>
+<section class="pf-doc-section" id="reg-entry-baseline">
+<h3>2. Entry Conditions and Baseline</h3>
+<p>
+<strong>2.1 Entry Condition</strong>
+</p>
+<p>Participation is permitted only after completion of:</p>
+<ul>
+<li>Six (6) fully compliant trades, executed strictly according to a declared execution process under funded-style conditions.</li>
+</ul>
+<p>A trade is considered compliant only if it meets the PASS criteria defined in Section 3 and the fail logic of Section 7.</p>
+<p>
+<strong>2.2 PREPARE Stage as Procedural Gate</strong>
+</p>
+<p>The PREPARE stage serves as a procedural gate, not a performance benchmark.</p>
+<p>Results achieved during PREPARE:</p>
+<ul>
+<li>do not constitute performance benchmarks,</li>
+<li>must not be interpreted as expected outcomes during the Challenge,</li>
+<li>have no evaluative weight beyond procedural compliance.</li>
+</ul>
+<p>Evaluation during PREPARE is based exclusively on:</p>
+<ul>
+<li>rule adherence,</li>
+<li>execution discipline,</li>
+<li>process consistency.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="reg-stages-activation">
+<h3>3. Challenge Stages and Activation Rules</h3>
+<p>
+<strong>3.1 Overview</strong>
+</p>
+<p>The Challenge operates as a two-stage evaluation framework whose exclusive purpose is to assess behavioral and procedural consistency, not trading performance.</p>
+<p>Stages:</p>
+<ul>
+<li>PREPARE Stage procedural validation phase</li>
+<li>CHALLENGE Structured execution under funded constraints. Fixed risk. Measurable validation.</li>
+</ul>
+<p>Progression is strictly sequential. No stage may be skipped.</p>
+<p>
+<strong>3.2 PREPARE Stage Purpose</strong>
+</p>
+<p>The PREPARE stage functions as a procedural gateway.</p>
+<p>Its sole objective is to verify that the participant is capable of:</p>
+<ul>
+<li>executing trades strictly according to a predefined and declared process,</li>
+<li>respecting predefined risk constraints without exception,</li>
+<li>maintaining discipline under live market conditions,</li>
+<li>operating without emotional, impulsive, or anticipatory behavior.</li>
+</ul>
+<p>The PREPARE stage is not intended to:</p>
+<ul>
+<li>optimize strategies,</li>
+<li>evaluate market skill or predictive accuracy,</li>
+<li>generate profit,</li>
+<li>validate edge, expectancy, or adaptability.</li>
+</ul>
+<p>Any interpretation of PREPARE as a performance phase is invalid.</p>
+<p>
+<strong>3.3 PREPARE Stage PASS / FAIL Evaluation</strong>
+</p>
+<p>Evaluation during PREPARE is exclusively process-based.</p>
+<p>Each trade is classified strictly as:</p>
+<ul>
+<li>PASS</li>
+<li>FAIL</li>
+</ul>
+<p>Classification is determined solely by rule compliance, regardless of financial outcome.</p>
+<p>Normative execution mechanics (e.g., timeframes, triggers, stop methodology, position management) are defined in the Execution &amp; Trading Guide and are operationally binding, but subordinate to this framework.</p>
+<p>
+<strong>3.4 What PREPARE Does Not Measure</strong>
+</p>
+<p>The following elements are explicitly excluded from evaluation:</p>
+<ul>
+<li>profitability or loss,</li>
+<li>win rate / strike rate,</li>
+<li>risk-to-reward ratios,</li>
+<li>trade frequency,</li>
+<li>strategy effectiveness,</li>
+<li>instrument selection.</li>
+</ul>
+<p>Positive or negative financial outcomes achieved during PREPARE carry no evaluative value.</p>
+<p>
+<strong>3.5 Transition to CHALLENGE Stage</strong>
+</p>
+<p>Completion of PREPARE does not automatically activate the Challenge.</p>
+<p>Transition occurs only after:</p>
+<ul>
+<li>completion of the required number of compliant (PASS) trades,</li>
+<li>verification that all procedural criteria were met without exception.</li>
+</ul>
+<p>The document itself does not track participant status.</p>
+<p>
+<strong>3.6 Participant Responsibility</strong>
+</p>
+<p>Participants retain full and exclusive responsibility for:</p>
+<ul>
+<li>strategy design,</li>
+<li>instrument selection,</li>
+<li>execution decisions.</li>
+</ul>
+<p>The Challenge evaluates behavioral execution of a declared process, not market insight, prediction skill, or trading performance.</p>
+</section>
+<section class="pf-doc-section" id="reg-evaluation-scope">
+<h3>4. Purpose and Scope of Evaluation</h3>
+<p>
+<strong>4.1 Primary Objective</strong>
+</p>
+<p>The primary objective is to validate the:</p>
+<ul>
+<li>robustness,</li>
+<li>repeatability,</li>
+<li>psychological sustainability</li>
+</ul>
+<p>of the participant's declared execution process under funded-style conditions in live market environments.</p>
+<p>The Challenge assesses whether the process can be:</p>
+<ul>
+<li>executed consistently over time,</li>
+<li>repeated without degradation of discipline,</li>
+<li>sustained psychologically without rule erosion or emotional escalation.</li>
+</ul>
+<p>The objective is process validation, not performance optimization.</p>
+<p>
+<strong>4.2 Performance Context</strong>
+</p>
+<p>The following performance ranges may be used to contextualize the process under realistic market conditions across the Challenge window:</p>
+<ul>
+<li>Target cumulative return across the two-month Challenge window: approximately 6%</li>
+<li>Acceptable minimum average return: approximately 3% per month</li>
+</ul>
+<p>These ranges:</p>
+<ul>
+<li>are not passing criteria,</li>
+<li>do not override rule compliance,</li>
+<li>cannot validate non-compliant execution.</li>
+</ul>
+<p>Any outcome achieved through procedural breach is treated as procedurally void.</p>
+<p>
+<strong>4.3 Interpretation Responsibility</strong>
+</p>
+<p>Responsibility for understanding the structure, intent, and consequences of this framework rests entirely with the participant.</p>
+<p>Misinterpretation of the Challenge as a performance evaluation, educational program, or profit-oriented assessment does not alter nor modify its regulatory meaning.</p>
+<p>Participation constitutes explicit acknowledgment that this framework evaluates behavioral execution only, not competence, intelligence, experience, or potential.</p>
+</section>
+<section class="pf-doc-section" id="reg-operational-constraints">
+<h3>5. Operational Constraints</h3>
+<p>
+<strong>5.1 Reference Instrument and Capital</strong>
+</p>
+<p>Reference Instrument: US100 (NASDAQ Futures)</p>
+<p>Reference Capital: 100,000 USD</p>
+<p>All risk calculations and performance references are derived from the reference capital baseline.</p>
+<p>
+<strong>5.2 Risk Parameters</strong>
+</p>
+<p>Fixed risk governance aligned with funded requirements within the Challenge is non-negotiable:</p>
+<ul>
+<li>Fixed risk per trade: 0.25% of reference capital (1R)</li>
+<li>Maximum number of trades per day: 3</li>
+</ul>
+<p>Risk per trade must remain constant regardless of:</p>
+<ul>
+<li>confidence level,</li>
+<li>perceived setup quality,</li>
+<li>recent performance (wins or losses),</li>
+<li>market conditions.</li>
+</ul>
+<p>Any deviation constitutes a procedural breach.</p>
+<p>
+<strong>5.3 Trading Windows</strong>
+</p>
+<p>Trading decisions are permitted exclusively within:</p>
+<ul>
+<li>NY Core Session: 15:45 17:30</li>
+<li>NY Continuation Session: 19:30 20:30</li>
+</ul>
+<p>Outside these windows:</p>
+<p class="pf-quote">NO TRADE is the default, correct, and expected decision.</p>
+<p>Positions opened within permitted windows may be managed beyond them, provided that:</p>
+<ul>
+<li>no new exposure is added outside the windows, and</li>
+<li>management remains consistent with the declared process.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="reg-documentation">
+<h3>6. Documentation Requirements</h3>
+<p>All executed trades must be recorded in the official ledger.</p>
+<p>The ledger serves as the objective process record.</p>
+<p>Documentation formats, fields, and rules are defined in the Ledger &amp; Journal Template and are mandatory.</p>
+<p>A trade not recorded in the ledger is treated as non-existent for evaluation purposes.</p>
+</section>
+<section class="pf-doc-section" id="reg-failure-logic">
+<h3>7. Failure Logic</h3>
+<p>
+<strong>7.1 Binary Evaluation Framework</strong>
+</p>
+<p>The Challenge is evaluated on a binary basis:</p>
+<ul>
+<li>PASS full compliance</li>
+<li>FAIL any procedural breach</li>
+</ul>
+<p>Profitability does not override failure.</p>
+<p>Material breaches include, but are not limited to:</p>
+<ul>
+<li>violation of trading windows,</li>
+<li>violation of fixed risk limits,</li>
+<li>discretionary rule modification during execution,</li>
+<li>failure to document trades according to ledger requirements.</li>
+</ul>
+<p>Detailed disqualification triggers are defined in the Fail Conditions section of the operational documentation, which is subordinate to this framework.</p>
+<p>
+<strong>7.2 Finality and Non-Appealability of Evaluation</strong>
+</p>
+<p>All PASS / FAIL determinations issued under this framework are final and non-appealable.</p>
+<p>No contextual explanations, subjective interpretations, post-hoc justifications, or external factors including market conditions or financial outcomes may be invoked to override, reinterpret, or reassess a failure classification.</p>
+<p>Acceptance of this finality and non-appealability constitutes a mandatory condition of participation in the Challenge.</p>
+</section>
+<section class="pf-doc-section" id="reg-strategy-independence">
+<h3>8. Strategy Independence Clause</h3>
+<p>The Challenge does not require participants to replicate any specific trading strategy, setup, or methodology.</p>
+<p>Participants may trade any strategy provided that:</p>
+<ul>
+<li>it is declared prior to execution,</li>
+<li>includes objective entry and invalidation rules,</li>
+<li>respects the fixed risk constraints of this framework,</li>
+<li>allows objective evaluation through the ledger.</li>
+</ul>
+<p>Strategy selection is not evaluated. Execution discipline is.</p>
+</section>
+<section class="pf-pass-block" id="reg-final-statement">
+<span class="pf-pass-tag">Binding</span>
+<p>
+<strong>9. Final Statement</strong>
+</p>
+<p>This document constitutes the binding regulatory framework for the full duration of the US100 Process Validation Challenge.</p>
+<p>All guides, templates, and case studies are operational supplements and remain subordinate to this framework.</p>
+</section>
+</div>
+</article>
+<div class="pf-doc-divider">
+</div>
+<article class="pf-doc" id="file-candidate-overview-03">
+<div class="pf-doc-header">
+<div class="pf-doc-labels">
+<span>File 03</span>
+<span>Operational Parameters</span>
+<span>Framework Pack</span>
+</div>
+<div class="pf-doc-title-wrap">
+<h2>US100 Process Validation Challenge</h2>
+<p>Operational Parameters &amp; Execution Specifications</p>
+</div>
+<div class="pf-doc-meta">
+<div class="pf-doc-metric">
+<span>Document Type</span>
+<span>Operational Specification</span>
+</div>
+<div class="pf-doc-metric">
+<span>Access Level</span>
+<span>Framework Pack &amp; US100 Challenge</span>
+</div>
+<div class="pf-doc-metric">
+<span>Authority</span>
+<span>Binding Execution Layer</span>
+</div>
+<div class="pf-doc-metric">
+<span>Version</span>
+<span>1.0 Active</span>
+</div>
+</div>
+</div>
+<div class="pf-doc-body">
+<div class="pf-doc-note">
+<p>
+<strong>Document intent.</strong> This file contains the exact operational parameters required for challenge execution. These specifications are binding and must be followed precisely. Deviation from any parameter constitutes a process violation.</p>
+</div>
+<div class="pf-doc-outline">
+<a href="#op-risk-parameters">Risk Parameters</a>
+<a href="#op-session-windows">Session Windows</a>
+<a href="#op-position-sizing">Position Sizing</a>
+<a href="#op-trade-limits">Trade Limits</a>
+<a href="#op-entry-protocol">Entry Protocol</a>
+<a href="#op-exit-protocol">Exit Protocol</a>
+<a href="#op-compliance-scoring">Compliance Scoring</a>
+</div>
+<section class="pf-doc-section" id="op-risk-parameters">
+<h3>Risk Parameters</h3>
+<p>
+<strong>Fixed Risk Per Trade:</strong> 0.25% of account equity</p>
+<p>
+<strong>Maximum Daily Risk Exposure:</strong> 0.75% (3 trades 0.25%)</p>
+<p>
+<strong>Risk Tolerance:</strong> 5% deviation from reference risk value</p>
+<p>The first compliant trade establishes the reference risk value. All subsequent trades must match this value within the tolerance band. Trades outside this band are flagged as non-compliant.</p>
+</section>
+<section class="pf-doc-section" id="op-session-windows">
+<h3>Session Windows</h3>
+<p>
+<strong>Permitted Trading Window:</strong> 15:30 21:00 CET (New York Session)</p>
+<p>
+<strong>Trade Opening Requirement:</strong> Position must be opened within the permitted window</p>
+<p>
+<strong>Trade Closing:</strong> No restriction positions may be held beyond 21:00 CET</p>
+<p>Trades opened outside the permitted window are automatically flagged as non-compliant, regardless of outcome.</p>
+</section>
+<section class="pf-doc-section" id="op-position-sizing">
+<h3>Position Sizing Formula</h3>
+<p>
+<strong>Lot Size Calculation:</strong>
+</p>
+<div class="pf-formula">
+<code>Lot Size = (Account Equity 0.0025) (Stop Loss in Points Point Value)</code>
+</div>
+<p>
+<strong>Example:</strong>
+</p>
+<ul>
+<li>Account Equity: 10,000</li>
+<li>Risk Amount: 25 (0.25%)</li>
+<li>Stop Loss: 50 points</li>
+<li>Point Value: 1 per point per lot</li>
+<li>Lot Size: 0.50 lots</li>
+</ul>
+<p>Position size must be calculated before entry. Adjusting position size after entry is prohibited.</p>
+</section>
+<section class="pf-doc-section" id="op-trade-limits">
+<h3>Trade Limits</h3>
+<p>
+<strong>Maximum Trades Per Day:</strong> 3</p>
+<p>
+<strong>Minimum Holding Time:</strong> 1 minute</p>
+<p>
+<strong>Maximum Non-Compliant Trades:</strong> 20 (triggers 7-day cooldown)</p>
+<p>
+<strong>Qualification Threshold:</strong> 10 compliant trades</p>
+<p>Days with zero trades are considered compliant if no rule violations occurred. There is no obligation to trade every session.</p>
+</section>
+<section class="pf-doc-section" id="op-entry-protocol">
+<h3>Entry Protocol</h3>
+<p>Before opening any position, verify:</p>
+<ol>
+<li>
+<strong>Time Check:</strong> Current time is within 15:3021:00 CET</li>
+<li>
+<strong>Daily Limit:</strong> Fewer than 3 trades executed today</li>
+<li>
+<strong>Risk Calculation:</strong> Position size calculated at 0.25% risk</li>
+<li>
+<strong>Stop Loss:</strong> Predetermined stop level identified</li>
+<li>
+<strong>Instrument:</strong> US100 or approved equivalent symbol</li>
+</ol>
+<p>Entry without completing all verification steps constitutes a process violation.</p>
+</section>
+<section class="pf-doc-section" id="op-exit-protocol">
+<h3>Exit Protocol</h3>
+<p>
+<strong>Stop Loss:</strong> Must be placed immediately upon entry. Moving stop loss to increase risk is prohibited.</p>
+<p>
+<strong>Take Profit:</strong> Optional. May be set at entry or managed manually.</p>
+<p>
+<strong>Trailing Stop:</strong> Permitted only in the direction of profit protection.</p>
+<p>
+<strong>Manual Exit:</strong> Permitted at any time. Early exits are not penalized.</p>
+<p>Removing or widening stop loss after entry results in automatic non-compliance flag.</p>
+</section>
+<section class="pf-doc-section" id="op-compliance-scoring">
+<h3>Compliance Scoring</h3>
+<p>Each trade is evaluated against 7 compliance rules:</p>
+<ol>
+<li>Approved instrument (US100 or equivalent)</li>
+<li>Trade opened within permitted window</li>
+<li>Stop loss present and valid</li>
+<li>Risk within fixed allocation (5%)</li>
+<li>Daily trade limit respected</li>
+<li>No duplicate ticket submission</li>
+<li>Minimum holding time met</li>
+</ol>
+<p>
+<strong>Compliance Threshold:</strong> 80% (minimum 6 of 7 rules)</p>
+<p>Trades meeting ?80% of rules are marked COMPLIANT. Trades below 80% are marked NON-COMPLIANT.</p>
+</section>
+<section class="pf-pass-block" id="op-final-note">
+<span class="pf-pass-tag">Operational</span>
+<p>
+<strong>Binding Notice</strong>
+</p>
+<p class="pf-quote">These parameters are non-negotiable. Deviation from any specification regardless of intent or outcome constitutes a process violation.</p>
+<p>The framework evaluates execution, not results. A losing trade executed correctly is superior to a winning trade executed incorrectly.</p>
+</section>
+</div>
+</article>
+<div class="pf-doc-divider">
+</div>
+<article class="pf-doc" id="file-fail-conditions-04">
+<div class="pf-doc-header">
+<div class="pf-doc-labels">
+<span>File 04</span>
+<span>Fail Conditions</span>
+<span>Released Product Entry</span>
+</div>
+<div class="pf-doc-title-wrap">
+<h2>US100 Process Validation Challenge</h2>
+<p>Fail Conditions &amp; Rules of Disqualification</p>
+</div>
+<div class="pf-doc-meta">
+<div class="pf-doc-metric">
+<span>Document Role</span>
+<span>Binding Disqualification Layer</span>
+</div>
+<div class="pf-doc-metric">
+<span>Evaluation Mode</span>
+<span>Binary PASS / FAIL</span>
+</div>
+<div class="pf-doc-metric">
+<span>Trigger Standard</span>
+<span>Single Violation</span>
+</div>
+<div class="pf-doc-metric">
+<span>Authority</span>
+<span>Outcome cannot override breach</span>
+</div>
+</div>
+</div>
+<div class="pf-doc-body">
+<div class="pf-doc-note">
+<p>
+<strong>Document intent.</strong> This file defines the explicit conditions under which the US100 Process Validation Challenge is considered failed. It exists to remove ambiguity, prevent self-justification, and ensure that evaluation remains governed by process integrity rather than outcome.</p>
+</div>
+<div class="pf-doc-outline">
+<a href="#fail-purpose">Purpose</a>
+<a href="#fail-fundamental">Fundamental Rule</a>
+<a href="#fail-automatic">Automatic Challenge Failure</a>
+<a href="#fail-time-window">1. Time Windows</a>
+<a href="#fail-stop-loss">2. Stop Loss Manipulation</a>
+<a href="#fail-reentry">3. Re-entry After Missed Setup</a>
+<a href="#fail-criteria-mod">4. Criteria Modification</a>
+<a href="#fail-emotional">5. Emotional Trading</a>
+<a href="#fail-overtrading">6. Overtrading</a>
+<a href="#fail-ledger">7. Ledger Contamination</a>
+<a href="#fail-no-exceptions">No Exceptions Clause</a>
+<a href="#fail-final">Final Statement</a>
+</div>
+<section class="pf-doc-section" id="fail-purpose">
+<h3>Purpose of this document</h3>
+<p>This document defines explicit conditions under which the Challenge is considered failed.</p>
+<p>It exists to remove ambiguity. It exists to prevent self-justification. It exists to ensure that results are evaluated by process integrity, not outcomes.</p>
+<p>If a situation is listed below, no explanation, profit, or intention can override it.</p>
+</section>
+<section class="pf-pass-block" id="fail-fundamental">
+<span class="pf-pass-tag">Binary</span>
+<p>
+<strong>Fundamental rule</strong>
+</p>
+<p class="pf-quote">The Challenge is binary.</p>
+<p>You either respect the rules or you fail.</p>
+<p>There is no partial credit. There are no exceptions. A single violation is sufficient to invalidate the Challenge.</p>
+</section>
+<section class="pf-doc-section" id="fail-automatic">
+<h3>Automatic Challenge Failure</h3>
+<p>The Challenge is immediately failed if any of the following occur:</p>
+</section>
+<section class="pf-doc-section" id="fail-time-window">
+<h3>1. Trading outside allowed time windows</h3>
+<p>
+<strong>Definition:</strong> Executing a trade outside the predefined NY Core or NY Continuation windows.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>early entries before the window opens,</li>
+<li>late entries after the window closes,</li>
+<li>"management entries" justified as exceptions.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> Time discipline is part of the edge. Ignoring it invalidates all results.</p>
+</section>
+<section class="pf-doc-section" id="fail-stop-loss">
+<h3>2. Stop Loss manipulation</h3>
+<p>
+<strong>Definition:</strong> Any modification of Stop Loss not derived from structure and ATR.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>tightening SL to reduce discomfort,</li>
+<li>widening SL to avoid being stopped,</li>
+<li>moving SL based on P&amp;L, not structure.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> Stop Loss exists to protect the process. Emotional SL adjustments corrupt all statistics.</p>
+</section>
+<section class="pf-doc-section" id="fail-reentry">
+<h3>3. Re-entry after a missed setup</h3>
+<p>
+<strong>Definition:</strong> Entering a trade after the original valid entry opportunity has passed.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>late entries due to hesitation,</li>
+<li>chasing continuation candles,</li>
+<li>"second chance" executions.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> Missed setups are closed opportunities. Re-entries convert discipline into impulse.</p>
+</section>
+<section class="pf-doc-section" id="fail-criteria-mod">
+<h3>4. Criteria modification during execution</h3>
+<p>
+<strong>Definition:</strong> Changing entry, exit, or management rules once a trade is active.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>redefining BOS or structure mid-trade,</li>
+<li>altering RR targets to fit price action,</li>
+<li>post-hoc justification of decisions.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> Rules must exist before the trade. Changing them during execution invalidates the test.</p>
+</section>
+<section class="pf-doc-section" id="fail-emotional">
+<h3>5. Trading for emotional reasons</h3>
+<p>
+<strong>Definition:</strong> Executing trades driven by psychological state rather than setup validity.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>revenge trading after a loss,</li>
+<li>confidence trading after a win,</li>
+<li>boredom trading during slow sessions,</li>
+<li>"not wanting to waste the day" trades.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> The Challenge tests emotional neutrality. Emotion-driven trades defeat its purpose.</p>
+</section>
+<section class="pf-doc-section" id="fail-overtrading">
+<h3>6. Overtrading</h3>
+<p>
+<strong>Definition:</strong> Exceeding the maximum number of trades per day.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>splitting one idea into multiple entries,</li>
+<li>attempting to recover earlier mistakes.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> Quantity does not compensate for poor discipline.</p>
+</section>
+<section class="pf-doc-section" id="fail-ledger">
+<h3>7. Ledger contamination</h3>
+<p>
+<strong>Definition:</strong> Altering, omitting, or decorating ledger entries.</p>
+<p>
+<strong>Includes:</strong>
+</p>
+<ul>
+<li>missing trades in the ledger,</li>
+<li>adding narrative explanations,</li>
+<li>modifying historical entries.</li>
+</ul>
+<p>
+<strong>Rationale:</strong> The ledger is a factual record. Manipulating it invalidates evaluation.</p>
+</section>
+<section class="pf-doc-section" id="fail-no-exceptions">
+<h3>No exceptions clause</h3>
+<p>Profit does not excuse violations. Loss does not justify rule bending. Intentions do not override behavior.</p>
+<p>The Challenge evaluates what was done, not what was meant.</p>
+</section>
+<section class="pf-pass-block" id="fail-final">
+<span class="pf-pass-tag">Finality</span>
+<p>
+<strong>Final statement</strong>
+</p>
+<p>This Challenge is not failed by losses. It is failed by loss of discipline.</p>
+<p>If you complete the full duration without triggering any Fail Conditions regardless of P&amp;L you pass.</p>
+<p>If the Challenge fails, responsibility lies with the participant, not with the market, the rules, or the framework.</p>
+</section>
+</div>
+</article>
+<div class="pf-doc-divider">
+</div>
+<article class="pf-doc" id="file-ledger-journal-05">
+<div class="pf-doc-header">
+<div class="pf-doc-labels">
+<span>File 05</span>
+<span>Ledger &amp; Journal Templates</span>
+<span>Released Product Entry</span>
+</div>
+<div class="pf-doc-title-wrap">
+<h2>US100 Process Validation Challenge</h2>
+<p>Ledger &amp; Journal Templates</p>
+</div>
+<div class="pf-doc-meta">
+<div class="pf-doc-metric">
+<span>Document Role</span>
+<span>Recordkeeping Protocol</span>
+</div>
+<div class="pf-doc-metric">
+<span>Ledger Status</span>
+<span>Mandatory</span>
+</div>
+<div class="pf-doc-metric">
+<span>Journal Status</span>
+<span>Optional but Recommended</span>
+</div>
+<div class="pf-doc-metric">
+<span>Authority</span>
+<span>Ledger facts prevail over narrative</span>
+</div>
+</div>
+</div>
+<div class="pf-doc-body">
+<div class="pf-doc-note">
+<p>
+<strong>Document intent.</strong> This file defines the only acceptable formats for recording activity during the Challenge. The templates below are not optional at the ledger level and remain part of the evaluation framework. Their purpose is to remove narrative bias, prevent hindsight justification, and preserve objective process data.</p>
+</div>
+<div class="pf-doc-outline">
+<a href="#lj-purpose">Purpose</a>
+<a href="#lj-ledger">Section I Official Ledger</a>
+<a href="#lj-ledger-rules">Ledger Rules</a>
+<a href="#lj-ledger-fields">Ledger Fields</a>
+<a href="#lj-ledger-forbidden">Ledger Restrictions</a>
+<a href="#lj-journal">Section II Journal</a>
+<a href="#lj-journal-template">Journal Template</a>
+<a href="#lj-journal-restrictions">Journal Restrictions</a>
+<a href="#lj-final">Final Reminder</a>
+</div>
+<section class="pf-doc-section" id="lj-purpose">
+<h3>Purpose of this document</h3>
+<p>This document defines the only acceptable formats for recording activity during the Challenge.</p>
+<p>The templates below are not optional. They are part of the evaluation framework.</p>
+<p>The goal is to remove narrative bias, prevent hindsight justification, and preserve objective process data.</p>
+</section>
+<section class="pf-pass-block" id="lj-ledger">
+<span class="pf-pass-tag">Mandatory</span>
+<p>
+<strong>Section I Official Ledger</strong>
+</p>
+<p class="pf-quote">The ledger is a factual record, not a diary.</p>
+<p>It answers one question only: <strong>What happened, measured objectively?</strong>
+</p>
+<p>No interpretation is allowed. No explanation is allowed.</p>
+</section>
+<section class="pf-doc-section" id="lj-ledger-rules">
+<h3>Ledger rules (non-negotiable)</h3>
+<ul>
+<li>Every executed trade must appear in the ledger.</li>
+<li>No trade means no ledger entry.</li>
+<li>Entries are made after the trade is closed.</li>
+<li>Historical entries may never be edited.</li>
+<li>Any deviation constitutes Ledger Contamination and fails the Challenge.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="lj-ledger-fields">
+<h3>Ledger fields (exact structure)</h3>
+<p>Each row represents one trade.</p>
+<p>
+<strong>Required columns:</strong>
+</p>
+<ul>
+<li>Date</li>
+<li>Instrument</li>
+<li>Session Window (NY Core / NY Continuation)</li>
+<li>Direction (Long / Short)</li>
+<li>Result (RR)</li>
+<li>Result (USD)</li>
+<li>Trade Duration</li>
+</ul>
+<p>No additional columns are permitted.</p>
+</section>
+<div class="pf-doc-note">
+<p>
+<strong>Example ledger entry</strong>
+</p>
+<p>Date | Instrument | Session Window | Direction | RR | USD | Duration</p>
+<p>2026-02-01 | US100 | NY Continuation | Long | +3.40 | +850.00 | 1h12m</p>
+</div>
+<section class="pf-doc-section" id="lj-ledger-forbidden">
+<h3>Explicitly forbidden in the ledger</h3>
+<ul>
+<li>comments,</li>
+<li>screenshots,</li>
+<li>emotional notes,</li>
+<li>strategy names,</li>
+<li>explanations of decisions.</li>
+</ul>
+<p>The ledger must remain emotion-free.</p>
+</section>
+<section class="pf-pass-block" id="lj-journal">
+<span class="pf-pass-tag">Optional</span>
+<p>
+<strong>Section II Journal</strong>
+</p>
+<p>The journal exists outside the ledger.</p>
+<p>It is not used for evaluation. It is used for self-observation and calibration.</p>
+<p class="pf-quote">The journal must never be used to justify ledger results.</p>
+</section>
+<section class="pf-doc-section" id="lj-journal-template">
+<h3>Journal rules and daily template</h3>
+<p>
+<strong>Journal rules</strong>
+</p>
+<ul>
+<li>Journal entries are written after the session, not during.</li>
+<li>No price levels or technical analysis.</li>
+<li>No P&amp;L celebration or frustration.</li>
+</ul>
+<p>The journal answers one question only: <strong>How did I behave relative to the rules today?</strong>
+</p>
+<p>
+<strong>Template (one page per day)</strong>
+</p>
+<ul>
+<li>Date</li>
+<li>Trades executed: 0 / 1 / 2 / 3</li>
+<li>Session type: No-Trade Day / Single-Trade Day / Post-Loss Day / Post-Win Day</li>
+<li>Rule adherence: Did I respect time windows? Yes / No</li>
+<li>Rule adherence: Did I respect SL rules? Yes / No</li>
+<li>Rule adherence: Did I avoid re-entries? Yes / No</li>
+<li>Psychological observations: Where did I feel hesitation?</li>
+<li>Psychological observations: Where did I feel pressure to act?</li>
+<li>Process assessment: PASS / FAIL</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="lj-journal-restrictions">
+<h3>Journal restrictions</h3>
+<p>The journal must not rewrite trade outcomes, reinterpret decisions, or contradict ledger facts.</p>
+<p>If journal content conflicts with the ledger, the ledger is considered authoritative.</p>
+</section>
+<section class="pf-pass-block" id="lj-final">
+<span class="pf-pass-tag">Separation</span>
+<p>
+<strong>Final reminder</strong>
+</p>
+<p>The ledger measures what you did. The journal helps you understand why it felt difficult.</p>
+<p>Confusing these two destroys discipline.</p>
+<p>Respecting this separation is part of passing the Challenge.</p>
+</section>
+</div>
+</article>
+<div class="pf-doc-divider">
+</div>
+<article class="pf-doc" id="file-onboarding-guide-06">
+<div class="pf-doc-header">
+<div class="pf-doc-labels">
+<span>File 06</span>
+<span>Onboarding Guide</span>
+<span>Released Product Entry</span>
+</div>
+<div class="pf-doc-title-wrap">
+<h2>US100 Process Validation Challenge</h2>
+<p>Onboarding Guide</p>
+</div>
+<div class="pf-doc-meta">
+<div class="pf-doc-metric">
+<span>Document Role</span>
+<span>Operational Clarification Guide</span>
+</div>
+<div class="pf-doc-metric">
+<span>Rule Status</span>
+<span>No new rules introduced</span>
+</div>
+<div class="pf-doc-metric">
+<span>Evaluation Basis</span>
+<span>Behavior under uncertainty</span>
+</div>
+<div class="pf-doc-metric">
+<span>Precedence</span>
+<span>Official Challenge Document prevails</span>
+</div>
+</div>
+</div>
+<div class="pf-doc-body">
+<div class="pf-doc-note">
+<p>
+<strong>Document intent.</strong> This guide explains how to operate inside the Challenge on a day-to-day basis. It does not add new rules. It clarifies how the existing rules are applied in real conditions. If any conflict exists between this guide and the Official Challenge Document, the Official Challenge Document always takes precedence.</p>
+</div>
+<div class="pf-doc-outline">
+<a href="#ob-purpose">Purpose</a>
+<a href="#ob-core">Core Principle</a>
+<a href="#ob-daily-model">Daily Operating Model</a>
+<a href="#ob-no-trade">1. No-Trade Day</a>
+<a href="#ob-single-trade">2. Single-Trade Day</a>
+<a href="#ob-post-loss">3. Post-Loss Day</a>
+<a href="#ob-post-win">4. Post-Win Day</a>
+<a href="#ob-windows">Trading Windows Discipline</a>
+<a href="#ob-missed">Handling Missed Setups</a>
+<a href="#ob-emotions">Emotional States</a>
+<a href="#ob-end-day">End-of-Day Procedure</a>
+<a href="#ob-final">Final Reminder</a>
+</div>
+<section class="pf-doc-section" id="ob-purpose">
+<h3>Purpose of this document</h3>
+<p>This guide explains how to operate inside the Challenge on a day-to-day basis.</p>
+<p>It does not add new rules. It clarifies how the existing rules are applied in real conditions.</p>
+<p>If there is any conflict between this guide and the Official Challenge Document, the Official Challenge Document always takes precedence.</p>
+</section>
+<section class="pf-pass-block" id="ob-core">
+<span class="pf-pass-tag">Non-Negotiable</span>
+<p>
+<strong>Core principle</strong>
+</p>
+<p class="pf-quote">You are not evaluated by outcomes. You are evaluated by behavior under uncertainty.</p>
+<p>A day with no trades can be a perfect day. A profitable day with rule violations is a failed day.</p>
+</section>
+<section class="pf-doc-section" id="ob-daily-model">
+<h3>Daily operating model</h3>
+<p>Each trading day falls into one of four categories. Your job is not to force a specific category.</p>
+<p>Your job is to recognize which category the day belongs to and act accordingly.</p>
+</section>
+<section class="pf-doc-section" id="ob-no-trade">
+<h3>1. No-Trade Day (Valid and Correct)</h3>
+<p>
+<strong>Definition:</strong> A session in which no A / A+ setup appears within the allowed trading windows.</p>
+<p>
+<strong>Correct behavior:</strong>
+</p>
+<ul>
+<li>No trades executed.</li>
+<li>No anticipation entries.</li>
+<li>No widening or bending of criteria.</li>
+</ul>
+<p>
+<strong>Evaluation:</strong> PASS</p>
+<p>
+<strong>Notes:</strong>
+</p>
+<ul>
+<li>No-trade days are expected and normal.</li>
+<li>Edge materializes only on a minority of sessions.</li>
+<li>Forcing trades on these days is the primary cause of long-term failure.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="ob-single-trade">
+<h3>2. Single-Trade Day (Standard)</h3>
+<p>
+<strong>Definition:</strong> One fully compliant trade executed within the allowed window.</p>
+<p>
+<strong>Correct behavior:</strong>
+</p>
+<ul>
+<li>One setup.</li>
+<li>One execution.</li>
+<li>No re-entries if the setup is missed.</li>
+</ul>
+<p>
+<strong>Evaluation:</strong>
+</p>
+<ul>
+<li>PASS if rules are respected.</li>
+<li>FAIL if rules are modified mid-trade.</li>
+</ul>
+<p>
+<strong>Notes:</strong>
+</p>
+<ul>
+<li>The Challenge is designed around 0-1 trade per day.</li>
+<li>Consistency is built here, not on high-activity days.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="ob-post-loss">
+<h3>3. Post-Loss Day (Psychological Test)</h3>
+<p>
+<strong>Definition:</strong> A day where the first valid trade results in a loss.</p>
+<p>
+<strong>Correct behavior:</strong>
+</p>
+<ul>
+<li>Accept the loss as a correct outcome if rules were followed.</li>
+<li>Immediately reset bias.</li>
+<li>No revenge trading.</li>
+</ul>
+<p>
+<strong>Evaluation:</strong>
+</p>
+<ul>
+<li>PASS if no behavioral deviation occurs.</li>
+<li>FAIL if loss leads to rule bending or impulsive trades.</li>
+</ul>
+<p>
+<strong>Notes:</strong>
+</p>
+<ul>
+<li>The Challenge is not testing your ability to avoid losses.</li>
+<li>It is testing your ability to remain disciplined after them.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="ob-post-win">
+<h3>4. Post-Win Day (Hidden Risk)</h3>
+<p>
+<strong>Definition:</strong> A day where the first trade produces a strong positive result.</p>
+<p>
+<strong>Correct behavior:</strong>
+</p>
+<ul>
+<li>No pressure to trade again.</li>
+<li>No increase in position size.</li>
+<li>No change in rules due to confidence or excitement.</li>
+</ul>
+<p>
+<strong>Evaluation:</strong>
+</p>
+<ul>
+<li>PASS if no additional impulsive trades are taken.</li>
+<li>FAIL if the win alters decision standards.</li>
+</ul>
+<p>
+<strong>Notes:</strong>
+</p>
+<ul>
+<li>Most rule violations occur after wins, not after losses.</li>
+<li>Self-control after success is a core skill being tested.</li>
+</ul>
+</section>
+<section class="pf-doc-section" id="ob-windows">
+<h3>Trading windows discipline</h3>
+<p>Trades are permitted only within the predefined windows:</p>
+<ul>
+<li>NY Core Session</li>
+<li>NY Continuation Session</li>
+</ul>
+<p>Outside these windows, no trade is the default and correct decision.</p>
+<p>Opening a position outside the allowed windows invalidates the Challenge regardless of outcome.</p>
+</section>
+<section class="pf-doc-section" id="ob-missed">
+<h3>Handling missed setups</h3>
+<p>Missed setups are considered closed opportunities.</p>
+<p>
+<strong>Correct response:</strong>
+</p>
+<ul>
+<li>No re-entries.</li>
+<li>No late executions.</li>
+<li>No justification based on hindsight.</li>
+</ul>
+<p>Re-entering after a missed setup is treated as a rule violation.</p>
+</section>
+<section class="pf-doc-section" id="ob-emotions">
+<h3>Emotional states and decision quality</h3>
+<p>You are expected to experience:</p>
+<ul>
+<li>hesitation,</li>
+<li>uncertainty,</li>
+<li>discomfort near Stop Loss,</li>
+<li>frustration during no-trade days.</li>
+</ul>
+<p>These states are not problems. Acting on them is.</p>
+<p>The correct action is always to return to the rules, not to emotions.</p>
+</section>
+<section class="pf-doc-section" id="ob-end-day">
+<h3>End-of-day procedure</h3>
+<p>At the end of each session:</p>
+<ul>
+<li>Update the ledger with RR, USD, and duration only.</li>
+<li>Do not add narrative explanations.</li>
+<li>Do not reinterpret the day.</li>
+</ul>
+<p>The ledger is a factual record, not a diary.</p>
+</section>
+<section class="pf-pass-block" id="ob-final">
+<span class="pf-pass-tag">Restraint</span>
+<p>
+<strong>Final reminder</strong>
+</p>
+<p>This Challenge does not reward activity. It rewards restraint.</p>
+<p>If you complete the Challenge by respecting the process regardless of P&amp;L you pass.</p>
+<p>If you fail, the market is not responsible. You are.</p>
+</section>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc">Altivor Institute develops structured environments designed to support consistent decision-making, enforce risk discipline, and validate trading processes under real market conditions — transforming discretionary trading behavior into structured, measurable, and auditable execution frameworks.</p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="index.html#about" data-i18n="footer_about">About</a>
+<a href="index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<div class="auth-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+<div class="auth-modal">
+<button class="auth-close" onclick="closeModal('loginModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<svg class="auth-logo-svg" viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</div>
+<h2 class="auth-title" id="loginTitle" data-i18n="login_title">Welcome Back</h2>
+<p class="auth-sub" data-i18n="login_sub">Sign in to your ALTIVOR account</p>
+<form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
+<div class="auth-field">
+<label for="loginEmail" data-i18n="login_email">Email Address</label>
+<input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="loginPassword" data-i18n="login_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
+<button type="button" class="auth-eye" onclick="togglePw('loginPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-forgot">
+<a href="#" data-i18n="login_forgot">Forgot password?</a>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="login_btn">Sign In</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="login_switch">Don't have an account?</span>
+<a href="#" onclick="switchModal('loginModal','registerModal');return false;" data-i18n="login_switch_link">Register</a>
+</p>
+</div>
+</div>
+<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
+<div class="auth-modal auth-modal--wide">
+<button class="auth-close" onclick="closeModal('registerModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<svg class="auth-logo-svg" viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</div>
+<h2 class="auth-title" id="registerTitle" data-i18n="reg_title">Create Account</h2>
+<p class="auth-sub" data-i18n="reg_sub">Join ALTIVOR INSTITUTE</p>
+<form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+<div class="auth-row">
+<div class="auth-field">
+<label for="regFirstName" data-i18n="reg_first">First Name</label>
+<input type="text" id="regFirstName" name="firstName" placeholder="John" required autocomplete="given-name" />
+</div>
+<div class="auth-field">
+<label for="regLastName" data-i18n="reg_last">Last Name</label>
+<input type="text" id="regLastName" name="lastName" placeholder="Doe" required autocomplete="family-name" />
+</div>
+</div>
+<div class="auth-field">
+<label for="regUsername" data-i18n="reg_username">Username</label>
+<input type="text" id="regUsername" name="username" placeholder="johndoe_trader" required autocomplete="username" />
+</div>
+<div class="auth-field">
+<label for="regEmail" data-i18n="reg_email">Email Address</label>
+<input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
+</div>
+<div class="auth-field">
+<label for="regAddress" data-i18n="reg_address">Address</label>
+<input type="text" id="regAddress" name="address" placeholder="123 Street, City, Country" required autocomplete="street-address" />
+</div>
+
+<div class="auth-field">
+<label for="regCountry" data-i18n="reg_country">Country</label>
+<div class="auth-country-wrap">
+<select class="auth-country-select" id="regCountry" name="country" required>
+<option value="" disabled selected>Select your country</option>
+<option value="AF">&#x1F1E6;&#x1F1EB; Afghanistan</option>
+<option value="AL">&#x1F1E6;&#x1F1F1; Albania</option>
+<option value="DZ">&#x1F1E9;&#x1F1FF; Algeria</option>
+<option value="AR">&#x1F1E6;&#x1F1F7; Argentina</option>
+<option value="AU">&#x1F1E6;&#x1F1FA; Australia</option>
+<option value="AT">&#x1F1E6;&#x1F1F9; Austria</option>
+<option value="BE">&#x1F1E7;&#x1F1EA; Belgium</option>
+<option value="BR">&#x1F1E7;&#x1F1F7; Brazil</option>
+<option value="BG">&#x1F1E7;&#x1F1EC; Bulgaria</option>
+<option value="CA">&#x1F1E8;&#x1F1E6; Canada</option>
+<option value="CL">&#x1F1E8;&#x1F1F1; Chile</option>
+<option value="CN">&#x1F1E8;&#x1F1F3; China</option>
+<option value="CO">&#x1F1E8;&#x1F1F4; Colombia</option>
+<option value="HR">&#x1F1ED;&#x1F1F7; Croatia</option>
+<option value="CZ">&#x1F1E8;&#x1F1FF; Czech Republic</option>
+<option value="DK">&#x1F1E9;&#x1F1F0; Denmark</option>
+<option value="EG">&#x1F1EA;&#x1F1EC; Egypt</option>
+<option value="EE">&#x1F1EA;&#x1F1EA; Estonia</option>
+<option value="FI">&#x1F1EB;&#x1F1EE; Finland</option>
+<option value="FR">&#x1F1EB;&#x1F1F7; France</option>
+<option value="DE">&#x1F1E9;&#x1F1EA; Germany</option>
+<option value="GR">&#x1F1EC;&#x1F1F7; Greece</option>
+<option value="HU">&#x1F1ED;&#x1F1FA; Hungary</option>
+<option value="IN">&#x1F1EE;&#x1F1F3; India</option>
+<option value="ID">&#x1F1EE;&#x1F1E9; Indonesia</option>
+<option value="IE">&#x1F1EE;&#x1F1EA; Ireland</option>
+<option value="IL">&#x1F1EE;&#x1F1F1; Israel</option>
+<option value="IT">&#x1F1EE;&#x1F1F9; Italy</option>
+<option value="JP">&#x1F1EF;&#x1F1F5; Japan</option>
+<option value="KR">&#x1F1F0;&#x1F1F7; South Korea</option>
+<option value="LV">&#x1F1F1;&#x1F1FB; Latvia</option>
+<option value="LT">&#x1F1F1;&#x1F1F9; Lithuania</option>
+<option value="MY">&#x1F1F2;&#x1F1FE; Malaysia</option>
+<option value="MX">&#x1F1F2;&#x1F1FD; Mexico</option>
+<option value="NL">&#x1F1F3;&#x1F1F1; Netherlands</option>
+<option value="NZ">&#x1F1F3;&#x1F1FF; New Zealand</option>
+<option value="NG">&#x1F1F3;&#x1F1EC; Nigeria</option>
+<option value="NO">&#x1F1F3;&#x1F1F4; Norway</option>
+<option value="PK">&#x1F1F5;&#x1F1F0; Pakistan</option>
+<option value="PH">&#x1F1F5;&#x1F1ED; Philippines</option>
+<option value="PL">&#x1F1F5;&#x1F1F1; Poland</option>
+<option value="PT">&#x1F1F5;&#x1F1F9; Portugal</option>
+<option value="RO">&#x1F1F7;&#x1F1F4; Romania</option>
+<option value="SA">&#x1F1F8;&#x1F1E6; Saudi Arabia</option>
+<option value="RS">&#x1F1F7;&#x1F1F8; Serbia</option>
+<option value="SG">&#x1F1F8;&#x1F1EC; Singapore</option>
+<option value="SK">&#x1F1F8;&#x1F1F0; Slovakia</option>
+<option value="SI">&#x1F1F8;&#x1F1EE; Slovenia</option>
+<option value="ZA">&#x1F1FF;&#x1F1E6; South Africa</option>
+<option value="ES">&#x1F1EA;&#x1F1F8; Spain</option>
+<option value="SE">&#x1F1F8;&#x1F1EA; Sweden</option>
+<option value="CH">&#x1F1E8;&#x1F1ED; Switzerland</option>
+<option value="TH">&#x1F1F9;&#x1F1ED; Thailand</option>
+<option value="TR">&#x1F1F9;&#x1F1F7; Turkey</option>
+<option value="UA">&#x1F1FA;&#x1F1E6; Ukraine</option>
+<option value="AE">&#x1F1E6;&#x1F1EA; United Arab Emirates</option>
+<option value="GB">&#x1F1EC;&#x1F1E7; United Kingdom</option>
+<option value="US">&#x1F1FA;&#x1F1F8; United States</option>
+<option value="VN">&#x1F1FB;&#x1F1F3; Vietnam</option>
+</select>
+<svg class="auth-country-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</div>
+</div>
+<div class="auth-row">
+<div class="auth-field">
+<label for="regPassword" data-i18n="reg_pw">Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPassword" name="password" placeholder="Create a password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPassword', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+<div class="auth-field">
+<label for="regPasswordConfirm" data-i18n="reg_pw2">Confirm Password</label>
+<div class="auth-password-wrap">
+<input type="password" id="regPasswordConfirm" name="passwordConfirm" placeholder="Repeat password" required autocomplete="new-password" />
+<button type="button" class="auth-eye" onclick="togglePw('regPasswordConfirm', this)" aria-label="Toggle password visibility">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+<circle cx="12" cy="12" r="3" />
+</svg>
+</button>
+</div>
+</div>
+</div>
+<div class="auth-pw-error" id="regPwError" data-i18n="pw_error">Passwords do not match.</div>
+<div class="auth-consent">
+<label class="auth-consent-label">
+<input type="checkbox" id="regConsent" name="consent" required />
+<span class="auth-consent-box" aria-hidden="true">
+</span>
+<span class="auth-consent-text" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a> and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</span>
+</label>
+<div class="auth-consent-error" id="regConsentError" data-i18n="reg_consent_error">You must accept the terms to create an account.</div>
+</div>
+<button type="submit" class="btn btn-primary auth-submit" data-i18n="reg_btn">Create Account</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="reg_switch">Already have an account?</span>
+<a href="#" onclick="switchModal('registerModal','loginModal');return false;" data-i18n="reg_switch_link">Sign In</a>
+</p>
+</div>
+</div>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-modal="true" aria-labelledby="cookieBannerTitle" aria-hidden="true">
+<div class="cookie-banner-inner">
+<div class="cookie-banner-text">
+<p class="cookie-banner-title" id="cookieBannerTitle" data-i18n="cookie_title">We use cookies</p>
+<p class="cookie-banner-desc" data-i18n="cookie_desc">We use cookies and similar technologies to ensure the security of our platform, improve functionality and analyze usage. You can choose which cookies you allow. <a href="cookies-policy.html" class="cookie-banner-link">Learn more in our Cookies Policy</a>
+</p>
+</div>
+<div class="cookie-banner-actions">
+<button class="btn btn-primary cookie-btn" id="cookieAcceptAll" data-i18n="cookie_accept">Accept all</button>
+<button class="btn btn-ghost cookie-btn" id="cookieRejectNon" data-i18n="cookie_reject">Reject non-essential</button>
+<button class="btn btn-ghost cookie-btn cookie-btn--prefs" id="cookieManagePrefs" data-i18n="cookie_manage">Manage preferences</button>
+</div>
+</div>
+</div>
+<div class="cookie-prefs-overlay" id="cookiePrefsOverlay" role="dialog" aria-modal="true" aria-labelledby="cookiePrefsTitle" aria-hidden="true">
+<div class="cookie-prefs-modal">
+<button class="auth-close" id="cookiePrefsClose" aria-label="Close">&#x2715;</button>
+<h2 class="cookie-prefs-title" id="cookiePrefsTitle" data-i18n="cookie_prefs_title">Cookie Preferences</h2>
+<p class="cookie-prefs-sub" data-i18n="cookie_prefs_sub">Control which cookies ALTIVOR INSTITUTE may use. Necessary cookies cannot be disabled as they are required for platform security and core functionality. <a href="cookies-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Cookies Policy</a> &middot; <a href="privacy-policy.html" style="color:var(--txt-secondary);text-underline-offset:2px;text-decoration:underline;">Privacy Policy</a>
+</p>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_necessary">Necessary</span>
+<span class="cookie-pref-desc" data-i18n="cookie_necessary_desc">Required for login sessions, security tokens and core platform functionality. Cannot be disabled.</span>
+</div>
+<div class="cookie-toggle cookie-toggle--locked" aria-label="Always active" data-i18n="cookie_always_on">Always on</div>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_functional">Functional</span>
+<span class="cookie-pref-desc" data-i18n="cookie_functional_desc">Remembers your language, theme preference and display settings.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieFunctional" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_analytics">Analytics</span>
+<span class="cookie-pref-desc" data-i18n="cookie_analytics_desc">Helps us understand how participants use the platform. Data is aggregated and anonymised.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieAnalytics" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-item">
+<div class="cookie-pref-info">
+<span class="cookie-pref-name" data-i18n="cookie_marketing">Marketing</span>
+<span class="cookie-pref-desc" data-i18n="cookie_marketing_desc">Used to measure the effectiveness of communications and deliver relevant content.</span>
+</div>
+<label class="cookie-toggle-wrap">
+<input type="checkbox" id="cookieMarketing" class="cookie-toggle-input" />
+<span class="cookie-toggle-slider">
+</span>
+</label>
+</div>
+<div class="cookie-prefs-actions">
+<button class="btn btn-primary" id="cookieSavePrefs" data-i18n="cookie_save">Save preferences</button>
+<button class="btn btn-ghost" id="cookieAcceptAllPrefs" data-i18n="cookie_accept_all">Accept all</button>
+</div>
+</div>
+</div>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script src="cookie-consent.js"></script>
+<script>
+// Auth modal helpers
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.classList.add('modal-open');
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+function switchModal(from, to) {
+  closeModal(from);
+  setTimeout(function() { openModal(to); }, 220);
+}
+function togglePw(inputId, btn) {
+  var input = document.getElementById(inputId);
+  input.type = input.type === 'password' ? 'text' : 'password';
+  btn.classList.toggle('active');
+}
+document.querySelectorAll('.auth-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.auth-overlay.active').forEach(function(m) { closeModal(m.id); });
+  }
+});
+function handleLogin(e) {
+  e.preventDefault();
+  alert('Login submitted - backend integration pending.');
+}
+function handleRegister(e) {
+  e.preventDefault();
+  var pw = document.getElementById('regPassword').value;
+  var pw2 = document.getElementById('regPasswordConfirm').value;
+  var err = document.getElementById('regPwError');
+  var consent = document.getElementById('regConsent');
+  var consentErr = document.getElementById('regConsentError');
+  if (pw !== pw2) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  if (consent && !consent.checked) {
+    consentErr.style.display = 'block';
+    consent.closest('.auth-consent').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  if (consentErr) consentErr.style.display = 'none';
+  alert('Registration submitted - backend integration pending.');
+}
+
+// Product file library logic
+var LOCKED_FILE_IDS = ['file-ledger-journal-05', 'file-onboarding-guide-06'];
+
+function isUserAuthenticated() {
+  return false; // TODO: Replace with actual auth check
+}
+
+function isFileLocked(fileId) {
+  if (isUserAuthenticated()) return false;
+  return LOCKED_FILE_IDS.indexOf(fileId) !== -1;
+}
+
+function getProductFileArticleByHash(hashValue) {
+  var cleanHash = String(hashValue || '').replace(/^#/, '');
+  if (!cleanHash) return null;
+  var target = document.getElementById(cleanHash);
+  if (!target) return null;
+  return target.closest('.pf-doc');
+}
+
+function showProductFile(fileId) {
+  var library = document.getElementById('product-file-library');
+  if (!library) return;
+  
+  // Check if file is locked
+  if (isFileLocked(fileId)) {
+    alert('This file requires US100 Challenge access. Please purchase to unlock.');
+    return;
+  }
+  
+  // Show library and target article
+  library.hidden = false;
+  var articles = library.querySelectorAll('.pf-doc');
+  articles.forEach(function(article) {
+    article.hidden = article.id !== fileId;
+  });
+  
+  // Update hash and scroll
+  window.location.hash = fileId;
+}
+
+function syncProductFileView() {
+  var library = document.getElementById('product-file-library');
+  if (!library) return;
+  
+  var articles = Array.prototype.slice.call(library.querySelectorAll('.pf-doc'));
+  var activeArticle = getProductFileArticleByHash(window.location.hash);
+  
+  if (!activeArticle) {
+    library.hidden = true;
+    articles.forEach(function(article) { article.hidden = true; });
+    return;
+  }
+  
+  library.hidden = false;
+  articles.forEach(function(article) {
+    article.hidden = article !== activeArticle;
+  });
+}
+
+function scrollToProductFileTarget() {
+  var cleanHash = String(window.location.hash || '').replace(/^#/, '');
+  if (!cleanHash) return;
+  var target = document.getElementById(cleanHash);
+  if (!target) return;
+  var top = target.getBoundingClientRect().top + window.pageYOffset - 96;
+  window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+}
+
+function handleProductFileRoute(shouldScroll) {
+  syncProductFileView();
+  if (shouldScroll && window.location.hash) {
+    requestAnimationFrame(function() { scrollToProductFileTarget(); });
+  }
+}
+
+window.addEventListener('hashchange', function() { handleProductFileRoute(true); });
+document.addEventListener('altivor:languagechange', function() { handleProductFileRoute(false); });
+handleProductFileRoute(false);
+if (window.location.hash) {
+  requestAnimationFrame(function() { scrollToProductFileTarget(); });
+}
+</script>
+<div class="docs-overlay" id="docsModal" role="dialog" aria-modal="true" aria-labelledby="docsModalTitle">
+<div class="docs-modal">
+<div class="docs-modal-header">
+<div class="docs-modal-title">
+<span class="docs-modal-label">ALTIVOR INSTITUTE</span>
+<h2 class="docs-modal-heading" id="docsModalTitle" data-i18n="doc_heading">Documents</h2>
+</div>
+<button class="docs-modal-close" onclick="closeDocsModal()" aria-label="Close">&#x2715;</button>
+</div>
+<div class="docs-modal-body">
+<div class="docs-section-label" data-i18n="doc_legal_section">Legal Documents</div>
+<a href="terms-of-service.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+<polyline points="10 9 9 9 8 9"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_terms_name">Terms &amp; Conditions</span>
+<span class="docs-item-desc" data-i18n="doc_terms_desc">Platform usage terms, user obligations and service agreement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="privacy-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_privacy_name">Privacy Policy</span>
+<span class="docs-item-desc" data-i18n="doc_privacy_desc">GDPR-compliant data processing and privacy practices</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="risk-disclosure.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+<line x1="12" y1="9" x2="12" y2="13"/>
+<line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_risk_name">Risk Disclosure</span>
+<span class="docs-item-desc" data-i18n="doc_risk_desc">Financial risk warnings and regulatory disclaimers</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="investment-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_invest_name">Investment &amp; Educational Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_invest_desc">No investment advice &mdash; educational services only</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="earnings-disclaimer.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="12" y1="1" x2="12" y2="23"/>
+<path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_earnings_name">Earnings &amp; Performance Disclaimer</span>
+<span class="docs-item-desc" data-i18n="doc_earnings_desc">No guarantee of financial results or trading performance</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="acceptable-use-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M9 11l3 3L22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_aup_name">Acceptable Use Policy</span>
+<span class="docs-item-desc" data-i18n="doc_aup_desc">Permitted conduct, prohibited activities and enforcement</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="legal-notice.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="16" x2="12" y2="12"/>
+<line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_legal_name">Legal Notice &amp; Imprint</span>
+<span class="docs-item-desc" data-i18n="doc_legal_desc">Operator identification, regulatory status and statutory information</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="complaints-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_complaints_name">Complaints &amp; Support Policy</span>
+<span class="docs-item-desc" data-i18n="doc_complaints_desc">Support scope, complaint procedure and resolution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="anti-fraud-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+<line x1="12" y1="8" x2="12" y2="12"/>
+<line x1="12" y1="16" x2="12.01" y2="16"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_antifraud_name">Anti-Fraud Policy</span>
+<span class="docs-item-desc" data-i18n="doc_antifraud_desc">Fraud prevention, prohibited conduct and enforcement framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="security-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_security_name">Security Policy</span>
+<span class="docs-item-desc" data-i18n="doc_security_desc">Platform security measures, incident response and vulnerability disclosure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="trust-and-safety.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_trust_name">Trust &amp; Safety</span>
+<span class="docs-item-desc" data-i18n="doc_trust_desc">Platform safety framework, values and user protection principles</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="refund-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="23 4 23 10 17 10"/>
+<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_refund_name">Refund Policy</span>
+<span class="docs-item-desc" data-i18n="doc_refund_desc">Digital services refund terms and withdrawal rights</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<a href="cookies-policy.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_cookies_name">Cookies Policy</span>
+<span class="docs-item-desc" data-i18n="doc_cookies_desc">Cookie usage, consent management and third-party tracking</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-section-label" data-i18n="doc_fw_section">Framework Documents</div>
+<a href="us100-framework.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us100_name">US100 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us100_desc">Nasdaq 100 CFD &mdash; operational execution framework</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+<path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_us30_name">US30 Framework</span>
+<span class="docs-item-desc" data-i18n="doc_us30_desc">Dow Jones 30 &mdash; in development</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+<div class="docs-section-label" data-i18n="doc_challenge_section">Challenge Documents</div>
+<a href="challenge-rules.html" class="docs-item">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_challenge_name">Challenge Rules &amp; Programme Terms</span>
+<span class="docs-item-desc" data-i18n="doc_challenge_desc">Evaluation criteria, prohibited conduct and programme structure</span>
+</div>
+<span class="docs-item-badge docs-badge-free" data-i18n="doc_badge_public">Public</span>
+<svg class="docs-item-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
+<div class="docs-item" style="cursor:not-allowed;opacity:0.45;">
+<div class="docs-item-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+<path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+</svg>
+</div>
+<div class="docs-item-text">
+<span class="docs-item-name" data-i18n="doc_casestudy_name">Case Study Library</span>
+<span class="docs-item-desc" data-i18n="doc_casestudy_desc">Full Access required &mdash; anonymised cycle reviews</span>
+</div>
+<span class="docs-item-badge docs-badge-locked" data-i18n="doc_badge_locked">Locked</span>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html> 

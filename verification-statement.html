@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Broker Statement ALTIVOR INSTITUTE</title>
+<meta name="description" content="Upload your official broker statement for final ALTIVOR Challenge verification." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="verification.css" />
+</head>
+<body>
+<!-- NAVIGATION -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active">Active</span>
+<span class="nav-drop-name">US100</span>
+<span class="nav-drop-desc">Nasdaq 100 CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev">In Dev</span>
+<span class="nav-drop-name">US30</span>
+<span class="nav-drop-desc">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span>Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Log</span>
+<span class="nav-drop-desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Wiki</span>
+<span class="nav-drop-desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">PnL Calendar</span>
+<span class="nav-drop-desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Economic Calendar</span>
+<span class="nav-drop-desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Symbols</span>
+<span class="nav-drop-desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Execution Checklist</span>
+<span class="nav-drop-desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Calculators</span>
+<span class="nav-drop-desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">??</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="accessories.html">Accessories</a>
+<a href="index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="verif-page">
+<div class="container">
+<div class="verif-page-header">
+<a href="verification.html" class="verif-page-back">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M19 12H5M12 19l-7-7 7-7"/>
+</svg>
+<span data-i18n="verif_back">Back to Verification Center</span>
+</a>
+<p class="verif-page-tag" data-i18n="verif_statement_label">Final Verification</p>
+<h1 data-i18n="verif_statement_title">Broker Statement</h1>
+<p class="verif-page-desc">Upload your official broker statement (MT4/MT5/cTrader) at the end of the Challenge period for final verification of all trades and performance metrics.</p>
+</div>
+<!-- Alert -->
+<div class="verif-alert verif-alert-warning" id="statementAlert">
+<div class="verif-alert-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+<line x1="12" y1="9" x2="12" y2="13"/>
+<line x1="12" y1="17" x2="12.01" y2="17"/>
+</svg>
+</div>
+<div class="verif-alert-content">
+<h4>Final Step Submit After Challenge Completion</h4>
+<p>This statement should be uploaded only after completing your 2-month Challenge period. It must show all 55 trades and match your logged trade data.</p>
+</div>
+</div>
+<!-- Requirements -->
+<div class="verif-requirements">
+<h4>Statement Requirements</h4>
+<ul>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<polyline points="20 6 9 17 4 12"/>
+</svg>
+<span>Official broker statement (PDF or HTML export)</span>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<polyline points="20 6 9 17 4 12"/>
+</svg>
+<span>Must cover the full 2-month Challenge period</span>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<polyline points="20 6 9 17 4 12"/>
+</svg>
+<span>Show all closed trades with entry/exit prices and timestamps</span>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<polyline points="20 6 9 17 4 12"/>
+</svg>
+<span>Include account equity curve and balance history</span>
+</li>
+<li>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<polyline points="20 6 9 17 4 12"/>
+</svg>
+<span>Account number must be visible for verification</span>
+</li>
+</ul>
+</div>
+<!-- Upload Form -->
+<div class="verif-form-section" id="statementFormSection">
+<h3 class="verif-form-title">Upload Broker Statement</h3>
+<div class="verif-field">
+<label for="statementBroker">Broker Platform</label>
+<select id="statementBroker">
+<option value="">Select your broker platform...</option>
+<option value="mt4">MetaTrader 4 (MT4)</option>
+<option value="mt5">MetaTrader 5 (MT5)</option>
+<option value="ctrader">cTrader</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="verif-field">
+<label for="statementAccount">Account Number</label>
+<input type="text" id="statementAccount" placeholder="e.g., 12345678" />
+<p class="verif-field-hint">This must match the account number shown in your statement.</p>
+</div>
+<div class="verif-field">
+<label for="statementPeriodStart">Statement Period Start</label>
+<input type="date" id="statementPeriodStart" />
+</div>
+<div class="verif-field">
+<label for="statementPeriodEnd">Statement Period End</label>
+<input type="date" id="statementPeriodEnd" />
+</div>
+<div class="verif-field">
+<label>Statement File</label>
+<div class="verif-upload-area" id="statementUploadArea">
+<div class="verif-upload-icon">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+</svg>
+</div>
+<p class="verif-upload-text">Click to upload or drag and drop</p>
+<p class="verif-upload-hint">PDF, HTML, or image up to 10MB</p>
+<input type="file" id="statementFileInput" accept=".pdf,.html,.htm,image/*" style="display:none;" />
+</div>
+<div id="statementFileInfo" style="display:none;margin-top:0.75rem;padding:0.75rem;background:var(--bg-base);border-radius:6px;font-size:0.85rem;color:var(--txt-secondary);">
+</div>
+</div>
+<button class="btn btn-primary" id="statementSubmitBtn" style="width:100%;margin-top:1.5rem;">
+<span>Submit Statement for Verification</span>
+</button>
+</div>
+<!-- Submitted State -->
+<div id="statementSubmitted" style="display:none;">
+<div class="verif-cert-display">
+<div class="verif-cert-badge badge-pending">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="10"/>
+<polyline points="12 6 12 12 16 14"/>
+</svg>
+</div>
+<h3 class="verif-cert-title">Statement Submitted</h3>
+<p class="verif-cert-status status-pending">Pending Review</p>
+<p style="color:var(--txt-secondary);font-size:0.9rem;max-width:400px;margin:0 auto;">Your broker statement has been submitted and is awaiting verification. This typically takes 1-3 business days.</p>
+<div id="submittedDetails" style="margin-top:1.5rem;text-align:left;background:var(--bg-base);border-radius:8px;padding:1rem;font-size:0.85rem;">
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc">ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only.</p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="index.html#about" data-i18n="footer_about">About</a>
+<a href="index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="if(typeof altCookies!=='undefined')altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="if(typeof openDocsModal!=='undefined')openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script src="auth-modals.js">
+</script>
+<script> (function() { const STORAGE_KEY = 'altivor_verification_statement_v1'; function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { submitted: false }; } catch(e) { return { submitted: false }; } } function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } function updateUI() { const data = loadData(); if (data.submitted) { document.getElementById('statementFormSection').style.display = 'none'; document.getElementById('statementAlert').style.display = 'none'; document.getElementById('statementSubmitted').style.display = 'block'; document.getElementById('submittedDetails').innerHTML = '<div style="display:grid;gap:0.5rem;">' + '<div>
+<strong>Broker:</strong> ' + data.broker + '</div>' + '<div>
+<strong>Account:</strong> ' + data.account + '</div>' + '<div>
+<strong>Period:</strong> ' + data.periodStart + ' to ' + data.periodEnd + '</div>' + '<div>
+<strong>Submitted:</strong> ' + new Date(data.submittedAt).toLocaleString() + '</div>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('statementUploadArea'); const fileInput = document.getElementById('statementFileInput'); const fileInfo = document.getElementById('statementFileInfo'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (file.size > 10 * 1024 * 1024) return alert('File too large. Max 10MB.'); selectedFile = file; fileInfo.innerHTML = '<strong>Selected:</strong> ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)'; fileInfo.style.display = 'block'; } // Submit document.getElementById('statementSubmitBtn').addEventListener('click', () => { const broker = document.getElementById('statementBroker').value; const account = document.getElementById('statementAccount').value; const periodStart = document.getElementById('statementPeriodStart').value; const periodEnd = document.getElementById('statementPeriodEnd').value; if (!broker || !account || !periodStart || !periodEnd) { return alert('Please fill in all required fields.'); } if (!selectedFile) return alert('Please upload your broker statement.'); const data = { submitted: true, broker: broker, account: account, periodStart: periodStart, periodEnd: periodEnd, fileName: selectedFile.name, submittedAt: new Date().toISOString() }; saveData(data); updateUI(); alert('Broker statement submitted successfully!'); }); updateUI(); })(); </script>
+</body>
+</html>
+</html> 

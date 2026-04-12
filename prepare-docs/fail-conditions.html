@@ -1,0 +1,716 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fail Conditions Register — ALTIVOR INSTITUTE</title>
+    <meta name="description" content="PREPARE Fail Conditions Register — complete catalog of disqualification triggers, violation severity, and consequence framework." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        .pdoc-hero {
+            padding: 9rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdoc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            color: var(--txt-muted);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .pdoc-back:hover {
+            color: var(--txt-primary);
+        }
+
+        .pdoc-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(96, 165, 250, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-tag {
+            color: rgba(37, 99, 175, 0.85);
+        }
+
+        .pdoc-hero h1 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: rgba(214, 190, 150, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-hero h1 {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-hero p {
+            font-size: 0.92rem;
+            color: var(--txt-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .pdoc-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--txt-muted);
+        }
+
+        .pdoc-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .pdoc-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .pdoc-section {
+            margin-bottom: 3rem;
+        }
+
+        .pdoc-section-num {
+            display: block;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(96, 165, 250, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="light"] .pdoc-section-num {
+            color: rgba(37, 99, 175, 0.75);
+        }
+
+        .pdoc-section h2 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.4rem;
+            color: rgba(214, 190, 150, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="light"] .pdoc-section h2 {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-section h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: rgba(214, 190, 150, 0.85);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        [data-theme="light"] .pdoc-section h3 {
+            color: rgba(130, 110, 70, 0.85);
+        }
+
+        .pdoc-section p {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--txt-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .pdoc-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .pdoc-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--txt-secondary);
+            margin-bottom: 0.6rem;
+        }
+
+        .pdoc-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(96, 165, 250, 0.6);
+        }
+
+        [data-theme="light"] .pdoc-section ul li::before {
+            background: rgba(37, 99, 175, 0.5);
+        }
+
+        .pdoc-highlight {
+            background: rgba(96, 165, 250, 0.08);
+            border-left: 3px solid rgba(96, 165, 250, 0.5);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        [data-theme="light"] .pdoc-highlight {
+            background: rgba(37, 99, 175, 0.05);
+            border-left-color: rgba(37, 99, 175, 0.4);
+        }
+
+        .pdoc-highlight p {
+            margin: 0;
+            font-size: 0.88rem;
+        }
+
+        .pdoc-highlight strong {
+            color: rgba(214, 190, 150, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-highlight strong {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-highlight--critical {
+            background: rgba(239, 68, 68, 0.08);
+            border-left-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .pdoc-highlight--critical strong {
+            color: rgba(239, 68, 68, 0.9);
+        }
+
+        .pdoc-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, var(--border) 15%, var(--border) 85%, transparent 100%);
+            margin: 2.5rem 0;
+        }
+
+        .pdoc-nav {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .pdoc-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--txt-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pdoc-nav a:hover {
+            color: var(--txt-primary);
+        }
+
+        .pdoc-toc {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        [data-theme="light"] .pdoc-toc {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .pdoc-toc-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--txt-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .pdoc-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .pdoc-toc ul li a {
+            font-size: 0.82rem;
+            color: var(--txt-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .pdoc-toc ul li a:hover {
+            color: rgba(96, 165, 250, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-toc ul li a:hover {
+            color: rgba(37, 99, 175, 0.85);
+        }
+
+        .pdoc-fail-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        [data-theme="light"] .pdoc-fail-card {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .pdoc-fail-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .pdoc-fail-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.05rem;
+            color: rgba(214, 190, 150, 0.9);
+        }
+
+        [data-theme="light"] .pdoc-fail-title {
+            color: rgba(130, 110, 70, 0.9);
+        }
+
+        .pdoc-fail-severity {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .pdoc-fail-severity--critical {
+            background: rgba(239, 68, 68, 0.15);
+            color: rgba(239, 68, 68, 0.9);
+        }
+
+        .pdoc-fail-severity--major {
+            background: rgba(234, 179, 8, 0.15);
+            color: rgba(234, 179, 8, 0.9);
+        }
+
+        .pdoc-fail-severity--standard {
+            background: rgba(96, 165, 250, 0.15);
+            color: rgba(96, 165, 250, 0.9);
+        }
+
+        .pdoc-fail-desc {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--txt-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .pdoc-fail-consequence {
+            font-size: 0.8rem;
+            color: var(--txt-muted);
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .pdoc-fail-consequence strong {
+            color: var(--txt-secondary);
+        }
+
+        .pdoc-consequence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .pdoc-consequence-table th,
+        .pdoc-consequence-table td {
+            padding: 0.85rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pdoc-consequence-table th {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--txt-muted);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        [data-theme="light"] .pdoc-consequence-table th {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .pdoc-consequence-table td {
+            color: var(--txt-secondary);
+        }
+        .pdoc-hero .container { display: flex; flex-direction: column; align-items: center; }
+        .pdoc-back { align-self: flex-start; }    </style>
+</head>
+
+<body>
+<div class="promo-bar" id="promoBar"><a href="../us100-framework.html" class="promo-bar-inner"><span class="promo-bar-badge" data-i18n="announce_badge">NEW</span><span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span><span class="promo-bar-cta" data-i18n="announce_cta">Start now</span></a><button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button></div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="../index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink"><img src="../logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" draggable="false" /></a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="../index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true"><span data-i18n="nav_frameworks">Frameworks</span><svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="../us100-framework.html" class="nav-dropdown-item"><span class="nav-drop-badge active">Active</span><span class="nav-drop-name">US100</span><span class="nav-drop-desc">Nasdaq 100 CFD</span></a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;"><span class="nav-drop-badge dev">In Dev</span><span class="nav-drop-name">US30</span><span class="nav-drop-desc">Coming soon</span></a>
+</div>
+</div>
+<a href="../index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="../verification.html" data-i18n="nav_verification">Verification</a>
+<a href="../faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="../trading-updates.html">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true"><span>Accessories</span><svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="../trading-log.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Log</span><span class="nav-drop-desc">Daily trading journal</span></span></a>
+<a href="../trading-wiki.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Wiki</span><span class="nav-drop-desc">Institutional market concepts</span></span></a>
+<a href="../symbols.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Symbols</span><span class="nav-drop-desc">Spreads, swaps &amp; hours</span></span></a>
+<a href="../execution-checklist.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Execution Checklist</span><span class="nav-drop-desc">6-stage trade decision engine</span></span></a>
+<a href="../calculators.html" class="nav-dropdown-item"><span class="nav-drop-text"><span class="nav-drop-name">Trading Calculators</span><span class="nav-drop-desc">Position size, RR &amp; more</span></span></a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker"><button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language"><span class="lang-flag-circle">🇬🇧</span><span class="lang-code">EN</span><svg class="lang-chevron" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg></button><div class="lang-dropdown" id="langDropdown"></div></div>
+<div class="theme-switcher" role="group" aria-label="Select color theme"><button class="theme-btn active" data-theme="dark" data-i18n="theme_dark">Dark</button><button class="theme-btn" data-theme="light" data-i18n="theme_light">Light</button><button class="theme-btn" data-theme="navy" data-i18n="theme_navy">Navy</button></div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="../index.html#about" data-i18n="nav_about">About</a>
+<a href="../index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="../index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="../faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="../trading-log.html">Trading Log</a>
+<a href="../symbols.html">Trading Symbols</a>
+<a href="../execution-checklist.html">Execution Checklist</a>
+<a href="../calculators.html">Trading Calculators</a>
+<a href="../index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+
+    <main>
+        <section class="pdoc-hero">
+            <div class="container">
+                <a href="../prepare.html#prepAccessSection" class="pdoc-back">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <span data-i18n="pdoc_back">Back to PREPARE</span>
+                </a>
+                <p class="pdoc-tag" data-i18n="pdoc_fc_tag">PREPARE Document 05</p>
+                <h1 data-i18n="pdoc_fc_title">Fail Conditions Register</h1>
+                <p data-i18n="pdoc_fc_desc">Complete catalog of disqualification triggers, violation severity classifications, and the consequence framework for non-compliance.</p>
+                <div class="pdoc-meta">
+                    <div class="pdoc-meta-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span data-i18n="pdoc_type_register">Compliance Register</span>
+                    </div>
+                    <div class="pdoc-meta-item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span data-i18n="pdoc_read_time_10">10 min read</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="pdoc-content">
+            <div class="pdoc-toc">
+                <div class="pdoc-toc-title" data-i18n="pdoc_toc">Table of Contents</div>
+                <ul>
+                    <li><a href="#overview" data-i18n="pdoc_fc_toc1">1. Fail System Overview</a></li>
+                    <li><a href="#critical" data-i18n="pdoc_fc_toc2">2. Critical Violations</a></li>
+                    <li><a href="#major" data-i18n="pdoc_fc_toc3">3. Major Violations</a></li>
+                    <li><a href="#standard" data-i18n="pdoc_fc_toc4">4. Standard Violations</a></li>
+                    <li><a href="#consequences" data-i18n="pdoc_fc_toc5">5. Consequence Framework</a></li>
+                </ul>
+            </div>
+
+            <div class="section-divider-full"></div>
+            <section class="pdoc-section" id="overview">
+                <span class="pdoc-section-num" data-i18n="pdoc_fc_s1_num">Section 01</span>
+                <h2 data-i18n="pdoc_fc_s1_title">Fail System Overview</h2>
+                <p data-i18n="pdoc_fc_s1_p1">The PREPARE fail system operates on a cumulative non-compliance model. Each trade that fails any compliance criterion increments the non-compliant counter. When this counter reaches 20, automatic disqualification occurs.</p>
+                <p data-i18n="pdoc_fc_s1_p2">Violations are classified by severity for diagnostic purposes, but all violations carry equal weight in the compliance counter. A critical violation and a standard violation both add one non-compliant trade to your record.</p>
+
+                <div class="pdoc-highlight pdoc-highlight--critical">
+                    <p><strong data-i18n="pdoc_fc_s1_warning_label">No Partial Failures:</strong> <span data-i18n="pdoc_fc_s1_warning">A trade cannot "partially fail." Any violation, regardless of severity, results in the entire trade being classified as non-compliant. There is no weighted penalty system.</span></p>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="critical">
+                <span class="pdoc-section-num" data-i18n="pdoc_fc_s2_num">Section 02</span>
+                <h2 data-i18n="pdoc_fc_s2_title">Critical Violations</h2>
+                <p data-i18n="pdoc_fc_s2_p1">Critical violations indicate fundamental process failures that suggest the participant is not yet operating with the discipline required for framework access.</p>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_cv1_title">Missing Stop Loss</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--critical" data-i18n="pdoc_fc_severity_critical">Critical</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_cv1_desc">Trade submitted without any stop loss defined. This represents a complete absence of risk management and is the most fundamental violation possible.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_cv1_diagnostic">Participant is trading without protective measures. This behavior pattern is incompatible with institutional process execution.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_cv2_title">Risk Exceeds Limit</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--critical" data-i18n="pdoc_fc_severity_critical">Critical</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_cv2_desc">Position size results in risk greater than 0.25% of account balance. The fixed risk allocation is a core constraint of the PREPARE system.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_cv2_diagnostic">Participant is unable or unwilling to calculate and respect position sizing constraints. Risk discipline is absent.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_cv3_title">Data Falsification</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--critical" data-i18n="pdoc_fc_severity_critical">Critical</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_cv3_desc">Submitted data does not match broker records. Intentional manipulation of entry prices, exit prices, or position sizes to appear compliant.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_cv3_diagnostic">Participant is attempting to circumvent the evaluation system. This may result in immediate account suspension beyond standard disqualification.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_cv4_title">Maximum Drawdown Exceeded</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--critical" data-i18n="pdoc_fc_severity_critical">Critical</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_cv4_desc">Account equity drops below 90% of initial balance (10% maximum drawdown breached). This is a hard structural boundary for the US100 Challenge — exceeding it results in immediate and irreversible Challenge failure.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_cv4_diagnostic">Participant has exceeded the maximum allowable loss threshold. Risk management discipline is insufficient for Challenge participation. No exceptions, no appeals.</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="major">
+                <span class="pdoc-section-num" data-i18n="pdoc_fc_s3_num">Section 03</span>
+                <h2 data-i18n="pdoc_fc_s3_title">Major Violations</h2>
+                <p data-i18n="pdoc_fc_s3_p1">Major violations indicate significant process gaps that require attention but may be correctable with focused effort.</p>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_mv1_title">Missing Screenshot</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--major" data-i18n="pdoc_fc_severity_major">Major</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_mv1_desc">Trade submitted without the required TradingView chart screenshot. Visual verification is a mandatory component of each submission.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_mv1_diagnostic">Participant is not following the complete submission process. Documentation discipline needs development.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_mv2_title">Wrong Screenshot Platform</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--major" data-i18n="pdoc_fc_severity_major">Major</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_mv2_desc">Screenshot provided from MT4, MT5, or broker platform instead of TradingView. Only TradingView screenshots are accepted.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_mv2_diagnostic">Participant has not read or is ignoring submission requirements. Attention to detail needs improvement.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_mv3_title">Open Position Submission</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--major" data-i18n="pdoc_fc_severity_major">Major</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_mv3_desc">Attempting to submit a trade that has not yet closed. Exit time and/or exit price missing or marked as pending.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_mv3_diagnostic">Participant does not understand the submission process. Only fully closed positions can be evaluated.</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="standard">
+                <span class="pdoc-section-num" data-i18n="pdoc_fc_s4_num">Section 04</span>
+                <h2 data-i18n="pdoc_fc_s4_title">Standard Violations</h2>
+                <p data-i18n="pdoc_fc_s4_p1">Standard violations are typically administrative errors that can be easily avoided with careful attention to the submission process.</p>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_sv1_title">Incomplete Fields</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--standard" data-i18n="pdoc_fc_severity_standard">Standard</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_sv1_desc">One or more required fields left empty. All fields marked as required must be populated for a valid submission.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_sv1_diagnostic">Simple oversight. Review all fields before submitting.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_sv2_title">Invalid Data Format</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--standard" data-i18n="pdoc_fc_severity_standard">Standard</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_sv2_desc">Data entered in incorrect format. Examples: text in numeric fields, invalid date formats, negative values where positive required.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_sv2_diagnostic">Input error. Pay attention to field format requirements.</span>
+                    </div>
+                </div>
+
+                <div class="pdoc-fail-card">
+                    <div class="pdoc-fail-header">
+                        <span class="pdoc-fail-title" data-i18n="pdoc_fc_sv3_title">Blurry Screenshot</span>
+                        <span class="pdoc-fail-severity pdoc-fail-severity--standard" data-i18n="pdoc_fc_severity_standard">Standard</span>
+                    </div>
+                    <p class="pdoc-fail-desc" data-i18n="pdoc_fc_sv3_desc">Screenshot quality too low to verify trade details. Image must be clear enough to read price levels and confirm setup.</p>
+                    <div class="pdoc-fail-consequence">
+                        <strong data-i18n="pdoc_fc_diagnostic_label">Diagnostic:</strong> <span data-i18n="pdoc_fc_sv3_diagnostic">Technical issue. Ensure screenshots meet minimum resolution requirements.</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider-full"></div>
+
+            <section class="pdoc-section" id="consequences">
+                <span class="pdoc-section-num" data-i18n="pdoc_fc_s5_num">Section 05</span>
+                <h2 data-i18n="pdoc_fc_s5_title">Consequence Framework</h2>
+                <p data-i18n="pdoc_fc_s5_p1">The consequence framework defines what happens at various non-compliance thresholds:</p>
+
+                <table class="pdoc-consequence-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="pdoc_fc_th_threshold">Threshold</th>
+                            <th data-i18n="pdoc_fc_th_status">Status</th>
+                            <th data-i18n="pdoc_fc_th_action">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="pdoc_fc_t1_threshold">1-5 non-compliant</td>
+                            <td data-i18n="pdoc_fc_t1_status">Active — Early Warning</td>
+                            <td data-i18n="pdoc_fc_t1_action">Review violation patterns. Adjust process before continuing.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pdoc_fc_t2_threshold">6-10 non-compliant</td>
+                            <td data-i18n="pdoc_fc_t2_status">Active — Elevated Risk</td>
+                            <td data-i18n="pdoc_fc_t2_action">Significant non-compliance accumulation. Process review strongly recommended.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pdoc_fc_t3_threshold">11-19 non-compliant</td>
+                            <td data-i18n="pdoc_fc_t3_status">Active — Critical Zone</td>
+                            <td data-i18n="pdoc_fc_t3_action">Approaching disqualification. Each submission carries high stakes.</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pdoc_fc_t4_threshold">20 non-compliant</td>
+                            <td data-i18n="pdoc_fc_t4_status">Disqualified</td>
+                            <td data-i18n="pdoc_fc_t4_action">7-day cooldown. All counters reset after period expires.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pdoc-highlight">
+                    <p><strong data-i18n="pdoc_fc_s5_design_label">Design Intent:</strong> <span data-i18n="pdoc_fc_s5_design">The 20-trade non-compliance limit is generous by design. It allows for learning and adjustment. Participants who reach disqualification have demonstrated a consistent pattern of process deviation that requires a reset period for reflection and recalibration.</span></p>
+                </div>
+            </section>
+
+            <nav class="pdoc-nav">
+                <a href="submission-guidelines.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <span data-i18n="pdoc_nav_prev_sg">Previous: Submission Guidelines</span>
+                </a>
+                <a href="behavioral-standards.html">
+                    <span data-i18n="pdoc_nav_next_bs">Next: Behavioral Standards</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+            </nav>
+        </div>
+    </main>
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<img src="../logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img footer-logo-img" style="height:28px;width:auto;display:block;opacity:0.85;" draggable="false" />
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc"> ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only. Market participation involves risk. Past process consistency does not indicate future behavioral or financial outcomes. </p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="../index.html#about" data-i18n="footer_about">About</a>
+<a href="../index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="../index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="../index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="../accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="../verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="../faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="../press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="../social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="../partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="../invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="../terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="../privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="../risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="../refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<script src="../i18n.js"></script>
+<script src="../script.js"></script>
+<script src="../cookie-consent.js"></script>
+</body>
+
+</html>

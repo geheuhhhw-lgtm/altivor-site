@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Weekly Equity Check-in ALTIVOR INSTITUTE</title>
+<meta name="description" content="Upload weekly equity curve screenshots for the ALTIVOR Challenge verification. 8 weekly check-ins required over the 2-month evaluation period." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="verification.css" />
+</head>
+<body>
+<!-- NAVIGATION -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active">Active</span>
+<span class="nav-drop-name">US100</span>
+<span class="nav-drop-desc">Nasdaq 100 CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev">In Dev</span>
+<span class="nav-drop-name">US30</span>
+<span class="nav-drop-desc">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html">Updates</a>
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span>Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Log</span>
+<span class="nav-drop-desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Wiki</span>
+<span class="nav-drop-desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">PnL Calendar</span>
+<span class="nav-drop-desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Economic Calendar</span>
+<span class="nav-drop-desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Symbols</span>
+<span class="nav-drop-desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Execution Checklist</span>
+<span class="nav-drop-desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name">Trading Calculators</span>
+<span class="nav-drop-desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">??</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="accessories.html">Accessories</a>
+<a href="index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="verif-page">
+<div class="container">
+<div class="verif-page-header">
+<a href="verification.html" class="verif-page-back">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<path d="M19 12H5M12 19l-7-7 7-7"/>
+</svg>
+<span data-i18n="verif_back">Back to Verification Center</span>
+</a>
+<p class="verif-page-tag" data-i18n="verif_weekly_label">Weekly Requirement</p>
+<h1 data-i18n="verif_weekly_title">Weekly Equity Check-in</h1>
+<p class="verif-page-desc" data-i18n="verif_weekly_page_desc">Upload your broker equity curve screenshot every week. 8 check-ins required over the 2-month Challenge period to maintain validity.</p>
+</div>
+<!-- Progress Display -->
+<div class="verif-progress-display">
+<div class="verif-progress-header">
+<span class="verif-progress-title" data-i18n="verif_weekly_progress">Weekly Progress</span>
+<span class="verif-progress-value" id="weeklyProgressValue">0 / 8</span>
+</div>
+<div class="verif-progress-bar-large">
+<div class="verif-progress-fill-large" id="weeklyProgressBar" style="width: 0%;">
+</div>
+</div>
+</div>
+<!-- Alert -->
+<div class="verif-alert verif-alert-info" id="weeklyAlert">
+<div class="verif-alert-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="10"/>
+<line x1="12" y1="16" x2="12" y2="12"/>
+<line x1="12" y1="8" x2="12.01" y2="8"/>
+</svg>
+</div>
+<div class="verif-alert-content">
+<h4 data-i18n="verif_weekly_alert_title">Weekly Submission Required</h4>
+<p data-i18n="verif_weekly_alert_desc">You must submit an equity curve screenshot from your broker platform every 7 days. Missing a week will result in Challenge invalidation.</p>
+</div>
+</div>
+<!-- Upload Form -->
+<div class="verif-form-section">
+<h3 class="verif-form-title" data-i18n="verif_weekly_upload_title">Submit Week <span id="currentWeekNum">1</span> Check-in</h3>
+<div class="verif-field">
+<label for="weeklyEquityValue" data-i18n="verif_weekly_equity_label">Current Equity Balance ($)</label>
+<input type="number" id="weeklyEquityValue" placeholder="e.g., 10500.00" step="0.01" min="0" />
+<p class="verif-field-hint" data-i18n="verif_weekly_equity_hint">Enter your exact equity balance as shown in your broker platform.</p>
+</div>
+<div class="verif-field">
+<label data-i18n="verif_weekly_screenshot_label">Equity Curve Screenshot</label>
+<div class="verif-upload-area" id="weeklyUploadArea">
+<div class="verif-upload-icon">
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+<polyline points="17 8 12 3 7 8"/>
+<line x1="12" y1="3" x2="12" y2="15"/>
+</svg>
+</div>
+<p class="verif-upload-text" data-i18n="verif_upload_text">Click to upload or drag and drop</p>
+<p class="verif-upload-hint" data-i18n="verif_upload_hint">PNG, JPG up to 5MB</p>
+<input type="file" id="weeklyFileInput" accept="image/*" style="display:none;" />
+</div>
+<div id="weeklyPreview" style="display:none;margin-top:1rem;">
+</div>
+</div>
+<div class="verif-field">
+<label for="weeklyNotes" data-i18n="verif_weekly_notes_label">Notes (Optional)</label>
+<textarea id="weeklyNotes" rows="3" placeholder="Any relevant notes about this week's trading...">
+</textarea>
+</div>
+<button class="btn btn-primary" id="weeklySubmitBtn" style="width:100%;margin-top:1rem;">
+<span data-i18n="verif_weekly_submit">Submit Week Check-in</span>
+</button>
+</div>
+<!-- History -->
+<div class="verif-history">
+<h4 class="verif-history-title" data-i18n="verif_weekly_history">Check-in History</h4>
+<div class="verif-history-list" id="weeklyHistoryList">
+<p style="color:var(--txt-muted);font-size:0.85rem;text-align:center;padding:2rem;" data-i18n="verif_weekly_no_history">No check-ins submitted yet. Start your Challenge to begin tracking.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
+<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
+<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
+<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
+<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
+<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
+<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
+</svg>
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc">ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only.</p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="index.html#about" data-i18n="footer_about">About</a>
+<a href="index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="if(typeof altCookies!=='undefined')altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="if(typeof openDocsModal!=='undefined')openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script src="auth-modals.js">
+</script>
+<script> (function() { const STORAGE_KEY = 'altivor_verification_weekly_v1'; function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { checkins: [], startDate: null }; } catch(e) { return { checkins: [], startDate: null }; } } function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } function updateUI() { const data = loadData(); const count = data.checkins.length; const total = 8; document.getElementById('weeklyProgressValue').textContent = count + ' / ' + total; document.getElementById('weeklyProgressBar').style.width = (count / total * 100) + '%'; document.getElementById('currentWeekNum').textContent = Math.min(count + 1, total); const historyList = document.getElementById('weeklyHistoryList'); if (count === 0) { historyList.innerHTML = '<p style="color:var(--txt-muted);font-size:0.85rem;text-align:center;padding:2rem;">No check-ins submitted yet.</p>'; } else { historyList.innerHTML = data.checkins.map((c, i) => { const date = new Date(c.date).toLocaleDateString(); return '<div class="verif-history-item item-complete">' + '<span class="verif-history-num">Week ' + (i + 1) + '</span>' + '<div class="verif-history-info">' + '<span class="verif-history-date">' + date + '</span>' + '<span class="verif-history-meta">Equity: $' + c.equity.toFixed(2) + '</span>' + '</div>' + '<span class="verif-history-status status-complete">Verified</span>' + '</div>'; }).reverse().join(''); } if (count >= total) { document.querySelector('.verif-form-section').innerHTML = '<div style="text-align:center;padding:3rem;">' + '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+<polyline points="22 4 12 14.01 9 11.01"/>
+</svg>' + '<h3 style="color:rgba(34,197,94,0.9);margin-top:1rem;">All Weekly Check-ins Complete!</h3>' + '<p style="color:var(--txt-secondary);margin-top:0.5rem;">You have successfully submitted all 8 weekly equity check-ins.</p>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('weeklyUploadArea'); const fileInput = document.getElementById('weeklyFileInput'); const preview = document.getElementById('weeklyPreview'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (!file.type.startsWith('image/')) return alert('Please upload an image file.'); if (file.size > 5 * 1024 * 1024) return alert('File too large. Max 5MB.'); selectedFile = file; const reader = new FileReader(); reader.onload = (e) => { preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:100%;border-radius:8px;border:1px solid var(--border-default);" />'; preview.style.display = 'block'; }; reader.readAsDataURL(file); } // Submit document.getElementById('weeklySubmitBtn').addEventListener('click', () => { const equity = parseFloat(document.getElementById('weeklyEquityValue').value); if (!equity || equity <= 0) return alert('Please enter a valid equity balance.'); if (!selectedFile) return alert('Please upload an equity curve screenshot.'); const data = loadData(); if (data.checkins.length >= 8) return alert('All 8 check-ins already submitted.'); data.checkins.push({ date: new Date().toISOString(), equity: equity, notes: document.getElementById('weeklyNotes').value || '' }); if (!data.startDate) data.startDate = new Date().toISOString(); saveData(data); updateUI(); // Reset form document.getElementById('weeklyEquityValue').value = ''; document.getElementById('weeklyNotes').value = ''; preview.style.display = 'none'; selectedFile = null; fileInput.value = ''; alert('Week ' + data.checkins.length + ' check-in submitted successfully!'); }); updateUI(); })(); </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "altivor-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ALTIVOR INSTITUTE static site with professional news proxy for Trading Updates",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "nodemailer": "^8.0.3"
+  }
+}

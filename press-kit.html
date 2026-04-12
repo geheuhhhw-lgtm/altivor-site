@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Press Kit — ALTIVOR INSTITUTE</title>
+<meta name="description" content="ALTIVOR INSTITUTE press kit. Brand assets, media resources, and official documentation for press and media inquiries." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- ─── TOP ANNOUNCEMENT BANNER ─────────────────────────────────────── -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<!-- ─── NAVIGATION ─────────────────────────────────────────────────── -->
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" draggable="false" />
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<!-- Frameworks dropdown -->
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_frameworks">Frameworks</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="frameworksDropdown">
+<a href="us100-framework.html" class="nav-dropdown-item">
+<span class="nav-drop-badge active" data-i18n="fw_active">Active</span>
+<span class="nav-drop-name" data-i18n="nav_us100">US100</span>
+<span class="nav-drop-desc" data-i18n="fw_us100_compact">Nasdaq 100 — CFD</span>
+</a>
+<a href="#" class="nav-dropdown-item locked" onclick="return false;">
+<span class="nav-drop-badge dev" data-i18n="fw_dev">In Dev</span>
+<span class="nav-drop-name" data-i18n="fw_us30_short">US30</span>
+<span class="nav-drop-desc" data-i18n="fw_coming_soon">Coming soon</span>
+<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
+<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
+<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+</svg>
+</a>
+</div>
+</div>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-updates.html" data-i18n="nav_updates">Updates</a>
+<!-- Accessories dropdown -->
+<div class="nav-dropdown-wrap">
+<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
+<span data-i18n="nav_accessories">Accessories</span>
+<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="nav-dropdown-panel" id="accessoriesDropdown">
+<a href="trading-log.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 20h9"/>
+<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_log">Trading Log</span>
+<span class="nav-drop-desc" data-i18n="acc_log_desc">Daily trading journal</span>
+</span>
+</a>
+<a href="trading-wiki.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_wiki">Trading Wiki</span>
+<span class="nav-drop-desc" data-i18n="acc_wiki_desc">Institutional market concepts</span>
+</span>
+</a>
+<a href="pnl.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+<polyline points="16 7 22 7 22 13"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_pnl">PnL Calendar</span>
+<span class="nav-drop-desc" data-i18n="acc_pnl_desc">Daily profit &amp; loss tracker</span>
+</span>
+</a>
+<a href="calendar.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+<line x1="16" y1="2" x2="16" y2="6"/>
+<line x1="8" y1="2" x2="8" y2="6"/>
+<line x1="3" y1="10" x2="21" y2="10"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_cal">Economic Calendar</span>
+<span class="nav-drop-desc" data-i18n="acc_cal_desc">High-impact macro events</span>
+</span>
+</a>
+<a href="symbols.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<line x1="18" y1="20" x2="18" y2="10"/>
+<line x1="12" y1="20" x2="12" y2="4"/>
+<line x1="6" y1="20" x2="6" y2="14"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_sym">Trading Symbols</span>
+<span class="nav-drop-desc" data-i18n="acc_sym_desc">Spreads, swaps &amp; hours</span>
+</span>
+</a>
+<a href="execution-checklist.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="9 11 12 14 22 4"/>
+<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_checklist">Execution Checklist</span>
+<span class="nav-drop-desc" data-i18n="acc_checklist_desc">6-stage trade decision engine</span>
+</span>
+</a>
+<a href="calculators.html" class="nav-dropdown-item">
+<span class="nav-drop-icon">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="2" width="16" height="20" rx="2"/>
+<line x1="8" y1="6" x2="16" y2="6"/>
+<line x1="8" y1="10" x2="10" y2="10"/>
+<line x1="13" y1="10" x2="16" y2="10"/>
+<line x1="8" y1="14" x2="10" y2="14"/>
+<line x1="13" y1="14" x2="16" y2="14"/>
+<line x1="8" y1="18" x2="10" y2="18"/>
+<line x1="13" y1="18" x2="16" y2="18"/>
+</svg>
+</span>
+<span class="nav-drop-text">
+<span class="nav-drop-name" data-i18n="acc_calc">Trading Calculators</span>
+<span class="nav-drop-desc" data-i18n="acc_calc_desc">Position size, RR &amp; more</span>
+</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="nav-actions">
+<!-- Search -->
+<button class="nav-search-btn" id="navSearchBtn" type="button" aria-label="Search">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="11" cy="11" r="8"/>
+<line x1="21" y1="21" x2="16.65" y2="16.65"/>
+</svg>
+</button>
+<!-- Language Picker (FTMO-style) -->
+<div class="lang-picker" id="langPicker">
+<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
+<span class="lang-flag-circle">🇬🇧</span>
+<span class="lang-code">EN</span>
+<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
+<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+</button>
+<div class="lang-dropdown" id="langDropdown">
+</div>
+</div>
+<!-- Theme switcher -->
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
+</div>
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav>
+<a href="index.html#about" data-i18n="nav_about">About</a>
+<a href="index.html#frameworks" data-i18n="nav_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="nav_access">Access</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+<a href="trading-log.html" data-i18n="acc_log">Trading Log</a>
+<a href="trading-wiki.html" data-i18n="acc_wiki">Trading Wiki</a>
+<a href="pnl.html" data-i18n="acc_pnl">PnL Calendar</a>
+<a href="calendar.html" data-i18n="acc_cal">Economic Calendar</a>
+<a href="symbols.html" data-i18n="acc_sym">Trading Symbols</a>
+<a href="execution-checklist.html" data-i18n="acc_checklist">Execution Checklist</a>
+<a href="calculators.html" data-i18n="acc_calc">Trading Calculators</a>
+<a href="trading-updates.html" data-i18n="nav_updates">Updates</a>
+<a href="accessories.html" data-i18n="nav_accessories_hub">Accessories Hub</a>
+<a href="index.html#pricing" class="btn btn-primary" style="width:100%;text-align:center;margin-top:1rem;" data-i18n="nav_get_access">Get Access</a>
+</nav>
+</div>
+</header>
+<main>
+<!-- ─── PRESS KIT ───────────────────────────────────────────────── -->
+<section class="section" id="press-kit" aria-label="Press Kit" style="padding-top:8rem;padding-bottom:6rem;">
+<div class="container">
+<div class="section-header" data-reveal>
+<p class="label-tag" data-i18n="pk_label">Media Resources</p>
+<h1 class="acc-hero-title" data-i18n="pk_title">Press Kit</h1>
+<p class="section-body" data-i18n="pk_body">Official brand assets, media resources, and documentation for press and media inquiries. All materials are provided for editorial and journalistic use.</p>
+</div>
+<!-- Brand Assets Section -->
+<div data-reveal style="margin-top:3rem;">
+<h2 style="color:var(--txt-primary);font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;" data-i18n="pk_brand_assets">Brand Assets</h2>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+<!-- Logo Package -->
+<div style="padding:1.5rem;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:0.75rem;">
+<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+<circle cx="8.5" cy="8.5" r="1.5"/>
+<polyline points="21 15 16 10 5 21"/>
+</svg>
+<span style="color:var(--txt-primary);font-weight:600;" data-i18n="pk_logo_package">Logo Package</span>
+</div>
+<p style="color:var(--txt-secondary);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;" data-i18n="pk_logo_desc">Official ALTIVOR INSTITUTE logos in PNG, SVG, and vector formats. Includes dark, light, and monochrome variants.</p>
+<a href="logo.png" download class="btn btn-outline btn-sm" style="width:100%;justify-content:center;" data-i18n="pk_download">Download</a>
+</div>
+<!-- Brand Guidelines -->
+<div style="padding:1.5rem;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:0.75rem;">
+<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+<polyline points="14 2 14 8 20 8"/>
+<line x1="16" y1="13" x2="8" y2="13"/>
+<line x1="16" y1="17" x2="8" y2="17"/>
+<polyline points="10 9 9 9 8 9"/>
+</svg>
+<span style="color:var(--txt-primary);font-weight:600;" data-i18n="pk_brand_guidelines">Brand Guidelines</span>
+</div>
+<p style="color:var(--txt-secondary);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;" data-i18n="pk_brand_guidelines_desc">Typography, color palette, spacing rules, and usage guidelines for consistent brand representation.</p>
+<span class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;opacity:0.6;cursor:not-allowed;" data-i18n="pk_coming_soon">Coming Soon</span>
+</div>
+<!-- Media Kit -->
+<div style="padding:1.5rem;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:0.75rem;">
+<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+<polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+<line x1="12" y1="22.08" x2="12" y2="12"/>
+</svg>
+<span style="color:var(--txt-primary);font-weight:600;" data-i18n="pk_media_kit">Media Kit</span>
+</div>
+<p style="color:var(--txt-secondary);font-size:0.85rem;line-height:1.6;margin-bottom:1rem;" data-i18n="pk_media_kit_desc">Complete media package including screenshots, product images, and promotional materials.</p>
+<span class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;opacity:0.6;cursor:not-allowed;" data-i18n="pk_coming_soon">Coming Soon</span>
+</div>
+</div>
+</div>
+<!-- Company Information -->
+<div data-reveal style="margin-top:3rem;">
+<h2 style="color:var(--txt-primary);font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;" data-i18n="pk_company_info">Company Information</h2>
+<div style="padding:2rem;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:0.75rem;">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;">
+<div>
+<h3 style="color:var(--txt-muted);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;" data-i18n="pk_official_name">Official Name</h3>
+<p style="color:var(--txt-primary);font-size:1rem;font-weight:500;">ALTIVOR INSTITUTE</p>
+</div>
+<div>
+<h3 style="color:var(--txt-muted);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;" data-i18n="pk_entity_type">Entity Type</h3>
+<p style="color:var(--txt-primary);font-size:1rem;" data-i18n="pk_entity_type_value">Operational Documentation Entity</p>
+</div>
+<div>
+<h3 style="color:var(--txt-muted);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;" data-i18n="pk_focus">Focus</h3>
+<p style="color:var(--txt-primary);font-size:1rem;" data-i18n="pk_focus_value">Process Validation Frameworks</p>
+</div>
+<div>
+<h3 style="color:var(--txt-muted);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;" data-i18n="pk_website">Website</h3>
+<p style="color:var(--accent);font-size:1rem;">altivor.institute</p>
+</div>
+</div>
+<div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--border-subtle);">
+<h3 style="color:var(--txt-muted);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;" data-i18n="pk_boilerplate">Boilerplate</h3>
+<p style="color:var(--txt-secondary);font-size:0.95rem;line-height:1.7;" data-i18n="pk_boilerplate_text">ALTIVOR INSTITUTE develops structured environments designed to support consistent decision-making, enforce risk discipline, and validate trading processes under real market conditions. The Institute provides operational frameworks that convert subjective trading decisions into auditable, measurable process data. ALTIVOR is registered as an operational documentation entity and is not a regulated financial services provider.</p>
+</div>
+</div>
+</div>
+<!-- Press Contact -->
+<div data-reveal style="margin-top:3rem;">
+<h2 style="color:var(--txt-primary);font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;" data-i18n="pk_press_contact">Press Contact</h2>
+<div style="padding:2rem;background:var(--surface-raised);border:1px solid var(--border-subtle);border-radius:0.75rem;text-align:center;">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:1rem;opacity:0.7;">
+<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+<polyline points="22,6 12,13 2,6"/>
+</svg>
+<h3 style="color:var(--txt-primary);font-size:1.1rem;font-weight:600;margin-bottom:0.5rem;" data-i18n="pk_media_inquiries">Media Inquiries</h3>
+<p style="color:var(--txt-secondary);font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto;" data-i18n="pk_media_inquiries_desc">For press inquiries, interview requests, or media-related questions, please contact us via email.</p>
+<a href="mailto:press@altivor.institute" class="btn btn-primary" data-i18n="pk_contact_press">Contact Press Team</a>
+</div>
+</div>
+<!-- Usage Guidelines -->
+<div data-reveal style="margin-top:3rem;">
+<h2 style="color:var(--txt-primary);font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;" data-i18n="pk_usage_guidelines">Usage Guidelines</h2>
+<div style="padding:1.5rem;background:var(--surface-base);border:1px solid var(--border-subtle);border-radius:0.75rem;">
+<ul style="color:var(--txt-secondary);font-size:0.9rem;line-height:1.8;margin:0;padding-left:1.25rem;">
+<li data-i18n="pk_guideline_1">Brand assets may be used for editorial and journalistic purposes only.</li>
+<li data-i18n="pk_guideline_2">Do not modify, distort, or alter the logo in any way.</li>
+<li data-i18n="pk_guideline_3">Maintain adequate clear space around the logo.</li>
+<li data-i18n="pk_guideline_4">Do not use brand assets to imply endorsement or partnership without written consent.</li>
+<li data-i18n="pk_guideline_5">For commercial use, please contact us for licensing information.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ─── FOOTER ─────────────────────────────────────────────────────── -->
+<footer class="site-footer" aria-label="Site footer">
+<div class="footer-inner container">
+<div class="footer-brand">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img footer-logo-img" style="height:28px;width:auto;display:block;opacity:0.85;" draggable="false" />
+<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
+<p class="footer-disclaimer" data-i18n="footer_brand_desc">Altivor Institute develops structured environments designed to support consistent decision-making, enforce risk discipline, and validate trading processes under real market conditions — transforming discretionary trading behavior into structured, measurable, and auditable execution frameworks.</p>
+</div>
+<div class="footer-links">
+<div class="footer-col">
+<h4 data-i18n="footer_platform">Platform</h4>
+<a href="index.html#about" data-i18n="footer_about">About</a>
+<a href="index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
+<a href="index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
+<a href="index.html#pricing" data-i18n="footer_pricing">Pricing</a>
+<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
+<a href="verification.html" data-i18n="nav_verification">Verification</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_support">Support</h4>
+<a href="faq.html" data-i18n="footer_faq">FAQ</a>
+<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
+<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
+<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
+<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
+<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
+</div>
+<div class="footer-col">
+<h4 data-i18n="footer_legal">Legal</h4>
+<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
+<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
+<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
+<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
+<a href="#" onclick="altCookies.openPrefs();return false;" style="white-space:nowrap;" data-i18n="footer_cookie_settings">Cookie Settings</a>
+<a href="#" onclick="openDocsModal();return false;" style="white-space:nowrap;" data-i18n="footer_documents">Documents</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom container">
+<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
+<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
+</div>
+</footer>
+<!-- ─── LOGIN MODAL ─────────────────────────────────────────────────── -->
+<div class="auth-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+<div class="auth-modal">
+<button class="auth-close" onclick="closeModal('loginModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
+</div>
+<h2 class="auth-title" id="loginTitle" data-i18n="login_title">Welcome Back</h2>
+<p class="auth-sub" data-i18n="login_sub">Sign in to your ALTIVOR account</p>
+<form class="auth-form" onsubmit="event.preventDefault();alert('Login — backend integration pending.');">
+<label class="auth-label" for="loginEmail" data-i18n="login_email">Email Address</label>
+<input class="auth-input" type="email" id="loginEmail" required placeholder="your@email.com" />
+<label class="auth-label" for="loginPw" data-i18n="login_pw">Password</label>
+<div class="auth-pw-wrap">
+<input class="auth-input" type="password" id="loginPw" required placeholder="Enter your password" />
+<button type="button" class="auth-pw-toggle" onclick="togglePw('loginPw',this)" aria-label="Toggle password visibility">
+<svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+<svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+<line x1="1" y1="1" x2="23" y2="23"/>
+</svg>
+</button>
+</div>
+<a href="#" class="auth-forgot" data-i18n="login_forgot">Forgot password?</a>
+<button class="btn btn-primary auth-btn" type="submit" data-i18n="login_btn">Sign In</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="login_switch">Don't have an account?</span>
+<a href="#" onclick="switchModal('loginModal','registerModal');return false;" data-i18n="login_switch_link">Register</a>
+</p>
+</div>
+</div>
+<!-- ─── REGISTER MODAL ──────────────────────────────────────────────── -->
+<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+<div class="auth-modal auth-modal--wide">
+<button class="auth-close" onclick="closeModal('registerModal')" aria-label="Close">&#x2715;</button>
+<div class="auth-logo">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
+</div>
+<h2 class="auth-title" id="regTitle" data-i18n="reg_title">Create Account</h2>
+<p class="auth-sub" data-i18n="reg_sub">Join ALTIVOR INSTITUTE</p>
+<form class="auth-form" id="registerForm" onsubmit="event.preventDefault();if(!document.getElementById('regConsent').checked){document.getElementById('consentError').style.display='block';return;}document.getElementById('consentError').style.display='none';alert('Registration — backend integration pending.');">
+<div class="auth-row">
+<div class="auth-col">
+<label class="auth-label" for="regFirst" data-i18n="reg_first">First Name</label>
+<input class="auth-input" type="text" id="regFirst" required placeholder="John" />
+</div>
+<div class="auth-col">
+<label class="auth-label" for="regLast" data-i18n="reg_last">Last Name</label>
+<input class="auth-input" type="text" id="regLast" required placeholder="Doe" />
+</div>
+</div>
+<label class="auth-label" for="regUsername" data-i18n="reg_username">Username</label>
+<input class="auth-input" type="text" id="regUsername" required placeholder="johndoe_trader" />
+<label class="auth-label" for="regEmail" data-i18n="reg_email">Email Address</label>
+<input class="auth-input" type="email" id="regEmail" required placeholder="your@email.com" />
+<label class="auth-label" for="regAddress" data-i18n="reg_address">Address</label>
+<input class="auth-input" type="text" id="regAddress" required placeholder="123 Street, City, Country" />
+
+<label class="auth-label" for="regCountry" data-i18n="reg_country">Country</label>
+<div class="auth-country-wrap">
+<select class="auth-country-select" id="regCountry" name="country" required>
+<option value="" disabled selected>Select your country</option>
+<option value="AF">&#x1F1E6;&#x1F1EB; Afghanistan</option>
+<option value="AL">&#x1F1E6;&#x1F1F1; Albania</option>
+<option value="DZ">&#x1F1E9;&#x1F1FF; Algeria</option>
+<option value="AR">&#x1F1E6;&#x1F1F7; Argentina</option>
+<option value="AU">&#x1F1E6;&#x1F1FA; Australia</option>
+<option value="AT">&#x1F1E6;&#x1F1F9; Austria</option>
+<option value="BE">&#x1F1E7;&#x1F1EA; Belgium</option>
+<option value="BR">&#x1F1E7;&#x1F1F7; Brazil</option>
+<option value="BG">&#x1F1E7;&#x1F1EC; Bulgaria</option>
+<option value="CA">&#x1F1E8;&#x1F1E6; Canada</option>
+<option value="CL">&#x1F1E8;&#x1F1F1; Chile</option>
+<option value="CN">&#x1F1E8;&#x1F1F3; China</option>
+<option value="CO">&#x1F1E8;&#x1F1F4; Colombia</option>
+<option value="HR">&#x1F1ED;&#x1F1F7; Croatia</option>
+<option value="CZ">&#x1F1E8;&#x1F1FF; Czech Republic</option>
+<option value="DK">&#x1F1E9;&#x1F1F0; Denmark</option>
+<option value="EG">&#x1F1EA;&#x1F1EC; Egypt</option>
+<option value="EE">&#x1F1EA;&#x1F1EA; Estonia</option>
+<option value="FI">&#x1F1EB;&#x1F1EE; Finland</option>
+<option value="FR">&#x1F1EB;&#x1F1F7; France</option>
+<option value="DE">&#x1F1E9;&#x1F1EA; Germany</option>
+<option value="GR">&#x1F1EC;&#x1F1F7; Greece</option>
+<option value="HU">&#x1F1ED;&#x1F1FA; Hungary</option>
+<option value="IN">&#x1F1EE;&#x1F1F3; India</option>
+<option value="ID">&#x1F1EE;&#x1F1E9; Indonesia</option>
+<option value="IE">&#x1F1EE;&#x1F1EA; Ireland</option>
+<option value="IL">&#x1F1EE;&#x1F1F1; Israel</option>
+<option value="IT">&#x1F1EE;&#x1F1F9; Italy</option>
+<option value="JP">&#x1F1EF;&#x1F1F5; Japan</option>
+<option value="KR">&#x1F1F0;&#x1F1F7; South Korea</option>
+<option value="LV">&#x1F1F1;&#x1F1FB; Latvia</option>
+<option value="LT">&#x1F1F1;&#x1F1F9; Lithuania</option>
+<option value="MY">&#x1F1F2;&#x1F1FE; Malaysia</option>
+<option value="MX">&#x1F1F2;&#x1F1FD; Mexico</option>
+<option value="NL">&#x1F1F3;&#x1F1F1; Netherlands</option>
+<option value="NZ">&#x1F1F3;&#x1F1FF; New Zealand</option>
+<option value="NG">&#x1F1F3;&#x1F1EC; Nigeria</option>
+<option value="NO">&#x1F1F3;&#x1F1F4; Norway</option>
+<option value="PK">&#x1F1F5;&#x1F1F0; Pakistan</option>
+<option value="PH">&#x1F1F5;&#x1F1ED; Philippines</option>
+<option value="PL">&#x1F1F5;&#x1F1F1; Poland</option>
+<option value="PT">&#x1F1F5;&#x1F1F9; Portugal</option>
+<option value="RO">&#x1F1F7;&#x1F1F4; Romania</option>
+<option value="SA">&#x1F1F8;&#x1F1E6; Saudi Arabia</option>
+<option value="RS">&#x1F1F7;&#x1F1F8; Serbia</option>
+<option value="SG">&#x1F1F8;&#x1F1EC; Singapore</option>
+<option value="SK">&#x1F1F8;&#x1F1F0; Slovakia</option>
+<option value="SI">&#x1F1F8;&#x1F1EE; Slovenia</option>
+<option value="ZA">&#x1F1FF;&#x1F1E6; South Africa</option>
+<option value="ES">&#x1F1EA;&#x1F1F8; Spain</option>
+<option value="SE">&#x1F1F8;&#x1F1EA; Sweden</option>
+<option value="CH">&#x1F1E8;&#x1F1ED; Switzerland</option>
+<option value="TH">&#x1F1F9;&#x1F1ED; Thailand</option>
+<option value="TR">&#x1F1F9;&#x1F1F7; Turkey</option>
+<option value="UA">&#x1F1FA;&#x1F1E6; Ukraine</option>
+<option value="AE">&#x1F1E6;&#x1F1EA; United Arab Emirates</option>
+<option value="GB">&#x1F1EC;&#x1F1E7; United Kingdom</option>
+<option value="US">&#x1F1FA;&#x1F1F8; United States</option>
+<option value="VN">&#x1F1FB;&#x1F1F3; Vietnam</option>
+</select>
+<svg class="auth-country-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</div>
+<label class="auth-label" for="regPw" data-i18n="reg_pw">Password</label>
+<div class="auth-pw-wrap">
+<input class="auth-input" type="password" id="regPw" required placeholder="Create a password" />
+<button type="button" class="auth-pw-toggle" onclick="togglePw('regPw',this)" aria-label="Toggle password visibility">
+<svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+<svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+<line x1="1" y1="1" x2="23" y2="23"/>
+</svg>
+</button>
+</div>
+<label class="auth-label" for="regPw2" data-i18n="reg_pw2">Confirm Password</label>
+<div class="auth-pw-wrap">
+<input class="auth-input" type="password" id="regPw2" required placeholder="Repeat password" />
+<button type="button" class="auth-pw-toggle" onclick="togglePw('regPw2',this)" aria-label="Toggle password visibility">
+<svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+<circle cx="12" cy="12" r="3"/>
+</svg>
+<svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+<path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+<line x1="1" y1="1" x2="23" y2="23"/>
+</svg>
+</button>
+</div>
+<p class="auth-error" id="pwError" style="display:none;" data-i18n="pw_error">Passwords do not match.</p>
+<div class="auth-consent">
+<input type="checkbox" id="regConsent" />
+<label for="regConsent" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a>, and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</label>
+</div>
+<p class="auth-error" id="consentError" style="display:none;" data-i18n="reg_consent_error">You must accept the terms to create an account.</p>
+<button class="btn btn-primary auth-btn" type="submit" data-i18n="reg_btn">Create Account</button>
+</form>
+<p class="auth-switch">
+<span data-i18n="reg_switch">Already have an account?</span>
+<a href="#" onclick="switchModal('registerModal','loginModal');return false;" data-i18n="reg_switch_link">Sign In</a>
+</p>
+</div>
+</div>
+<!-- ─── COOKIE CONSENT ──────────────────────────────────────────────── -->
+<div class="cookie-banner" id="cookieBanner" style="display:none;">
+<div class="cookie-banner-inner">
+<p class="cookie-banner-text">
+<strong data-i18n="cookie_title">We use cookies</strong>
+<br>
+<span data-i18n="cookie_desc">We use cookies to secure the platform. <a href="cookies-policy.html" class="cookie-banner-link">Learn more</a>
+</span>
+</p>
+<div class="cookie-banner-actions">
+<button class="btn btn-primary btn-sm" id="cookieAccept" data-i18n="cookie_accept">Accept All</button>
+<button class="btn btn-outline btn-sm" id="cookieReject" data-i18n="cookie_reject">Reject Non-Essential</button>
+<button class="btn btn-ghost btn-sm" id="cookieManage" data-i18n="cookie_manage">Manage Preferences</button>
+</div>
+</div>
+</div>
+<div class="cookie-prefs-overlay" id="cookiePrefsOverlay" style="display:none;">
+<div class="cookie-prefs-modal">
+<button class="cookie-prefs-close" id="cookiePrefsClose" aria-label="Close">&#x2715;</button>
+<h2 class="cookie-prefs-title" data-i18n="cookie_prefs_title">Cookie Preferences</h2>
+<p class="cookie-prefs-sub" data-i18n="cookie_prefs_sub">Control which cookies may be used.</p>
+<div class="cookie-prefs-list">
+<div class="cookie-pref-row">
+<div class="cookie-pref-info">
+<strong data-i18n="cookie_necessary">Necessary</strong>
+<span data-i18n="cookie_necessary_desc">Required for login and core functionality.</span>
+</div>
+<span class="cookie-pref-always" data-i18n="cookie_always_on">Always On</span>
+</div>
+<div class="cookie-pref-row">
+<div class="cookie-pref-info">
+<strong data-i18n="cookie_functional">Functional</strong>
+<span data-i18n="cookie_functional_desc">Remembers language, theme, and settings.</span>
+</div>
+<label class="cookie-toggle">
+<input type="checkbox" id="prefFunctional" checked />
+<span class="cookie-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-row">
+<div class="cookie-pref-info">
+<strong data-i18n="cookie_analytics">Analytics</strong>
+<span data-i18n="cookie_analytics_desc">Helps understand platform usage.</span>
+</div>
+<label class="cookie-toggle">
+<input type="checkbox" id="prefAnalytics" />
+<span class="cookie-slider">
+</span>
+</label>
+</div>
+<div class="cookie-pref-row">
+<div class="cookie-pref-info">
+<strong data-i18n="cookie_marketing">Marketing</strong>
+<span data-i18n="cookie_marketing_desc">Used to measure communication effectiveness.</span>
+</div>
+<label class="cookie-toggle">
+<input type="checkbox" id="prefMarketing" />
+<span class="cookie-slider">
+</span>
+</label>
+</div>
+</div>
+<div class="cookie-prefs-actions">
+<button class="btn btn-outline btn-sm" id="cookiePrefsSave" data-i18n="cookie_save">Save Preferences</button>
+<button class="btn btn-primary btn-sm" id="cookiePrefsAcceptAll" data-i18n="cookie_accept_all">Accept All</button>
+</div>
+</div>
+</div>
+<script src="i18n.js">
+</script>
+<script src="script.js">
+</script>
+<script src="cookie-consent.js">
+</script>
+</body>
+</html> 

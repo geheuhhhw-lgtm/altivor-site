@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Email Verification — ALTIVOR INSTITUTE</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style> .verify-wrap{max-width:480px;margin:0 auto;padding:140px 24px 80px;text-align:center} .verify-icon{width:56px;height:56px;margin:0 auto 20px;border-radius:50%;display:flex;align-items:center;justify-content:center} .verify-icon--success{background:rgba(34,197,94,.12)} .verify-icon--error{background:rgba(239,68,68,.12)} .verify-icon svg{width:28px;height:28px} .verify-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--txt-primary);margin:0 0 10px} .verify-desc{color:var(--txt-secondary);font-size:.9rem;line-height:1.6;margin:0 0 24px} .verify-desc a{color:var(--txt-primary);text-decoration:underline;text-underline-offset:2px} .verify-resend{margin-top:16px;font-size:.85rem;color:var(--txt-tertiary)} .verify-resend a{color:var(--txt-secondary);cursor:pointer;text-decoration:underline;text-underline-offset:2px} .verify-resend-status{margin-top:8px;font-size:.8rem;min-height:1.2em} .verify-resend-status.ok{color:#22c55e} .verify-resend-status.err{color:#ef4444} </style>
+</head>
+<body>
+<!-- --- TOP ANNOUNCEMENT BANNER ---------------------------------------- -->
+<div class="promo-bar" id="promoBar">
+<a href="us100-framework.html" class="promo-bar-inner">
+<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
+<path d="M5 12h14"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</span>
+</a>
+<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+</div>
+<!-- ═══ NAVIGATION ══════════════════════════════════════════════════════ -->
+<header class="nav-bar" id="navbar">
+<div class="nav-inner container">
+<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
+<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" style="height:34px;width:auto;display:block;" draggable="false" />
+</a>
+<nav class="nav-links" aria-label="Primary navigation">
+<a href="index.html" data-i18n="nav_about">About</a>
+<a href="us100-framework.html" data-i18n="nav_us100">US100</a>
+<a href="faq.html" data-i18n="nav_faq">FAQ</a>
+</nav>
+<div class="nav-actions">
+<div class="theme-switcher" role="group" aria-label="Select color theme">
+<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
+<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
+<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
+</div>
+</div>
+</div>
+</header>
+<!-- ═══ VERIFICATION RESULT ═════════════════════════════════════════════ -->
+<main class="verify-wrap">
+<!-- SUCCESS STATE -->
+<div id="verifySuccess" style="display:none;">
+<div class="verify-icon verify-icon--success">
+<svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<polyline points="20 6 9 17 4 12"/>
+</svg>
+</div>
+<h1 class="verify-title">Email Verified</h1>
+<p class="verify-desc">Your email address has been successfully verified. You can now sign in to your ALTIVOR INSTITUTE account.</p>
+<a href="index.html" class="btn btn-primary" onclick="if(typeof openModal==='function'){event.preventDefault();openModal('loginModal');}">Sign In</a>
+</div>
+<!-- ERROR STATE -->
+<div id="verifyError" style="display:none;">
+<div class="verify-icon verify-icon--error">
+<svg viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="12" cy="12" r="10"/>
+<line x1="15" y1="9" x2="9" y2="15"/>
+<line x1="9" y1="9" x2="15" y2="15"/>
+</svg>
+</div>
+<h1 class="verify-title">Verification Failed</h1>
+<p class="verify-desc" id="verifyErrorMessage">The verification link is invalid or has expired.</p>
+<a href="index.html" class="btn btn-ghost">Back to Home</a>
+<div class="verify-resend"> Need a new link? Enter your email: <div style="margin-top:10px;display:flex;gap:8px;justify-content:center;">
+<input type="email" id="resendEmail" placeholder="your@email.com" style="padding:8px 12px;border:1px solid var(--border-default);border-radius:8px;background:var(--bg-base);color:var(--txt-primary);font-size:.85rem;font-family:inherit;width:220px;" />
+<button class="btn btn-ghost" id="resendBtn" type="button" style="font-size:.8rem;">Resend</button>
+</div>
+<div class="verify-resend-status" id="resendStatus">
+</div>
+</div>
+</div>
+<!-- PENDING STATE (no query params) -->
+<div id="verifyPending" style="display:none;">
+<div class="verify-icon verify-icon--success">
+<svg viewBox="0 0 24 24" fill="none" stroke="var(--txt-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+<polyline points="22,6 12,13 2,6"/>
+</svg>
+</div>
+<h1 class="verify-title">Check Your Inbox</h1>
+<p class="verify-desc">We've sent a verification link to your email address. Click the link to activate your account. The link expires in 24 hours.</p>
+<div class="verify-resend"> Didn't receive the email? Enter your email to resend: <div style="margin-top:10px;display:flex;gap:8px;justify-content:center;">
+<input type="email" id="resendEmailPending" placeholder="your@email.com" style="padding:8px 12px;border:1px solid var(--border-default);border-radius:8px;background:var(--bg-base);color:var(--txt-primary);font-size:.85rem;font-family:inherit;width:220px;" />
+<button class="btn btn-ghost" id="resendBtnPending" type="button" style="font-size:.8rem;">Resend</button>
+</div>
+<div class="verify-resend-status" id="resendStatusPending">
+</div>
+</div>
+</div>
+</main>
+<script src="script.js">
+</script>
+<script src="i18n.js">
+</script>
+<script> (function () { 'use strict'; var params = new URLSearchParams(window.location.search); var status = params.get('status'); var message = params.get('message'); var successEl = document.getElementById('verifySuccess'); var errorEl = document.getElementById('verifyError'); var pendingEl = document.getElementById('verifyPending'); var errorMsg = document.getElementById('verifyErrorMessage'); if (status === 'success') { successEl.style.display = 'block'; } else if (status === 'error') { errorEl.style.display = 'block'; if (message) errorMsg.textContent = decodeURIComponent(message); } else { pendingEl.style.display = 'block'; } function handleResend(emailInputId, statusElId) { var emailInput = document.getElementById(emailInputId); var statusEl = document.getElementById(statusElId); if (!emailInput || !statusEl) return; var btn = emailInput.parentElement.querySelector('button'); if (btn) btn.addEventListener('click', function () { var email = (emailInput.value || '').trim(); if (!email) { statusEl.textContent = 'Please enter your email.'; statusEl.className = 'verify-resend-status err'; return; } statusEl.textContent = 'Sending...'; statusEl.className = 'verify-resend-status'; btn.disabled = true; fetch('/api/auth/resend-verification', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email }) }) .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); }) .then(function (result) { btn.disabled = false; if (result.ok) { statusEl.textContent = result.data.message || 'Verification email sent.'; statusEl.className = 'verify-resend-status ok'; } else { statusEl.textContent = result.data.error || 'Failed to send.'; statusEl.className = 'verify-resend-status err'; } }) .catch(function () { btn.disabled = false; statusEl.textContent = 'Network error. Try again.'; statusEl.className = 'verify-resend-status err'; }); }); } handleResend('resendEmail', 'resendStatus'); handleResend('resendEmailPending', 'resendStatusPending'); })(); </script>
+</body>
+</html> 
