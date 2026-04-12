@@ -13261,176 +13261,228 @@ body.rtl .doc-page .doc-section ul > li::before {
 
 }
 
-/* ─── WALL OF TRADERS — Accordion List ──────────────────────────────── */
-.wot-list {
-  display: flex; flex-direction: column; gap: 0;
+/* ─── WALL OF TRADERS — Tile Grid ────────────────────────────────────── */
+.wot-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.85rem;
+}
+.wot-tile {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.45rem; padding: 1.35rem 0.75rem 1rem;
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  overflow: hidden;
+  text-align: center;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+  cursor: default;
 }
-.wot-entry {
-  border-bottom: 1px solid var(--border-subtle);
-}
-.wot-entry:last-child { border-bottom: none; }
-/* Entry header row */
-.wot-entry-header {
-  display: flex; align-items: center; gap: 0.75rem;
-  width: 100%; padding: 0.85rem 1.25rem;
-  background: var(--bg-card);
-  border: none; cursor: pointer;
+.wot-tile--verified {
+  cursor: pointer;
   font-family: inherit; color: inherit;
-  text-align: left;
-  transition: background 0.2s;
 }
-.wot-entry-header:hover { background: var(--bg-card-hover, rgba(255,255,255,0.03)); }
-[data-theme="light"] .wot-entry-header:hover { background: rgba(0,0,0,0.02); }
-.wot-entry-header--empty {
-  cursor: default; opacity: 0.45; pointer-events: none;
+.wot-tile--verified .wot-tile-accent {
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  border-radius: 14px 14px 0 0;
+  background: linear-gradient(90deg, rgba(34,197,94,0.5) 0%, rgba(214,190,150,0.2) 50%, transparent 100%);
 }
-.wot-entry-header[aria-expanded="true"] { background: rgba(255,255,255,0.02); }
-[data-theme="light"] .wot-entry-header[aria-expanded="true"] { background: rgba(0,0,0,0.015); }
-/* Rank */
-.wot-entry-rank {
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em;
+.wot-tile--verified:hover {
+  border-color: rgba(34, 197, 94, 0.35);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+[data-theme="light"] .wot-tile--verified:hover {
+  border-color: rgba(34, 197, 94, 0.25);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+.wot-tile-rank {
+  position: absolute; top: 0.5rem; left: 0.6rem;
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.06em;
   color: var(--txt-muted); opacity: 0.5;
-  min-width: 1.4rem; text-align: center;
 }
-/* Avatar */
-.wot-entry-avatar {
-  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+.wot-tile-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: rgba(34, 197, 94, 0.08);
   color: rgba(34, 197, 94, 0.6);
   border: 1px solid rgba(34, 197, 94, 0.12);
 }
-.wot-entry-avatar svg { width: 18px; height: 18px; }
-.wot-entry-avatar--empty {
-  background: rgba(255,255,255,0.03); color: var(--txt-muted);
-  border-color: var(--border-subtle); opacity: 0.5;
+.wot-tile-avatar svg { width: 22px; height: 22px; }
+.wot-tile-avatar--empty {
+  background: rgba(255,255,255,0.03);
+  color: var(--txt-muted);
+  border-color: var(--border-subtle);
+  opacity: 0.4;
 }
-[data-theme="light"] .wot-entry-avatar { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.1); }
-[data-theme="light"] .wot-entry-avatar--empty { background: rgba(0,0,0,0.02); }
-/* Nick */
-.wot-entry-nick {
-  flex: 1; min-width: 0;
-  font-size: 0.88rem; font-weight: 600;
+[data-theme="light"] .wot-tile-avatar { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.1); }
+[data-theme="light"] .wot-tile-avatar--empty { background: rgba(0,0,0,0.02); }
+.wot-tile-nick {
+  font-size: 0.82rem; font-weight: 600;
   color: var(--txt-primary); line-height: 1.2;
 }
-.wot-entry-nick--empty {
-  color: var(--txt-muted); font-weight: 500; opacity: 0.5;
+.wot-tile-nick--empty {
+  color: var(--txt-muted); font-weight: 500; opacity: 0.45;
 }
-/* Flag */
-.wot-entry-flag { font-size: 1.15rem; line-height: 1; }
-/* Badge */
-.wot-entry-badge {
-  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em;
+.wot-tile-flag { font-size: 1.25rem; line-height: 1; }
+.wot-tile-status {
+  font-size: 0.55rem; font-weight: 700; letter-spacing: 0.08em;
   text-transform: uppercase;
+  padding: 0.15rem 0.5rem; border-radius: 4px;
+  background: rgba(34, 197, 94, 0.1);
+  color: rgba(34, 197, 94, 0.85);
+}
+.wot-tile--empty { opacity: 0.45; pointer-events: none; }
+
+/* ─── WALL OF TRADERS — Detail Overlay ──────────────────────────────── */
+.wot-detail-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 3rem 1.5rem; overflow-y: auto;
+}
+.wot-detail-panel {
+  position: relative;
+  background: var(--bg-surface, #141418);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  width: 100%; max-width: 600px;
+  padding: 0;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+  margin: auto;
+  overflow: hidden;
+}
+[data-theme="light"] .wot-detail-panel {
+  box-shadow: 0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06);
+}
+.wot-detail-close {
+  position: absolute; top: 1rem; right: 1rem; z-index: 2;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: var(--txt-muted); cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.wot-detail-close:hover { background: rgba(255,255,255,0.1); color: var(--txt-primary); }
+[data-theme="light"] .wot-detail-close { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
+.wot-detail-accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, rgba(34,197,94,0.5) 0%, rgba(214,190,150,0.2) 50%, transparent 100%);
+}
+/* Profile header */
+.wot-detail-header {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.75rem 1.75rem 1.25rem;
+  border-bottom: 1px solid var(--border-muted, rgba(255,255,255,0.06));
+  flex-wrap: wrap;
+}
+.wot-detail-avatar-wrap {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(34, 197, 94, 0.08); color: rgba(34, 197, 94, 0.6);
+  border: 1px solid rgba(34, 197, 94, 0.12);
+}
+.wot-detail-avatar-wrap svg { width: 26px; height: 26px; }
+[data-theme="light"] .wot-detail-avatar-wrap { background: rgba(34,197,94,0.06); border-color: rgba(34,197,94,0.1); }
+.wot-detail-identity { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; min-width: 0; }
+.wot-detail-nickname {
+  font-family: 'DM Serif Display', serif; font-size: 1.25rem; font-weight: 400;
+  color: var(--txt-primary);
+}
+.wot-detail-flag-region { font-size: 0.78rem; color: var(--txt-muted); }
+.wot-detail-badge-col { display: flex; flex-direction: column; align-items: flex-end; gap: 0.25rem; }
+.wot-detail-badge-funded {
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   padding: 0.2rem 0.55rem; border-radius: 4px;
   background: rgba(34, 197, 94, 0.1); color: rgba(34, 197, 94, 0.85);
-  white-space: nowrap;
 }
-/* Arrow indicator */
-.wot-entry-arrow {
-  display: flex; align-items: center; justify-content: center;
-  color: var(--txt-muted); opacity: 0.4;
-  transition: transform 0.25s, opacity 0.2s;
-  flex-shrink: 0;
-}
-.wot-entry-header:hover .wot-entry-arrow { opacity: 0.7; }
-.wot-entry-header[aria-expanded="true"] .wot-entry-arrow {
-  transform: rotate(180deg); opacity: 0.7;
-}
-/* Expanded body */
-.wot-entry-body {
-  background: rgba(0,0,0,0.08);
-  border-top: 1px solid var(--border-subtle);
-  padding: 1.25rem 1.5rem 1.5rem;
-}
-[data-theme="light"] .wot-entry-body { background: rgba(0,0,0,0.02); }
-/* Section blocks inside body */
-.wot-entry-section {
-  padding: 1rem 0;
+.wot-detail-registry-id { font-size: 0.6rem; color: var(--txt-muted); opacity: 0.5; font-family: 'Inter', monospace; }
+/* Sections */
+.wot-detail-section {
+  padding: 1.25rem 1.75rem;
   border-bottom: 1px solid var(--border-muted, rgba(255,255,255,0.06));
 }
-.wot-entry-section:first-child { padding-top: 0; }
-.wot-entry-section:last-of-type { border-bottom: none; padding-bottom: 0; }
-.wot-entry-section-title {
+.wot-detail-section:last-of-type { border-bottom: none; }
+.wot-detail-section-title {
   font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(96, 165, 250, 0.7); margin-bottom: 0.75rem;
+  color: rgba(96, 165, 250, 0.7); margin-bottom: 0.85rem;
 }
-[data-theme="light"] .wot-entry-section-title { color: rgba(37, 99, 175, 0.65); }
+[data-theme="light"] .wot-detail-section-title { color: rgba(37, 99, 175, 0.65); }
 /* Score block */
-.wot-entry-score-block { display: flex; align-items: flex-start; gap: 1.5rem; }
-.wot-entry-score-big {
-  font-family: 'DM Serif Display', serif; font-size: 2.2rem; font-weight: 400;
+.wot-detail-score-block { display: flex; align-items: flex-start; gap: 1.5rem; }
+.wot-detail-score-big {
+  font-family: 'DM Serif Display', serif; font-size: 2.5rem; font-weight: 400;
   color: var(--txt-primary); line-height: 1; flex-shrink: 0;
 }
-.wot-entry-score-max { font-size: 0.95rem; color: var(--txt-muted); font-weight: 400; }
-.wot-entry-score-bars { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; padding-top: 0.2rem; }
-.wot-entry-bar-row {
-  display: grid; grid-template-columns: 110px 1fr 30px;
+.wot-detail-score-max { font-size: 1rem; color: var(--txt-muted); font-weight: 400; }
+.wot-detail-score-bars { flex: 1; display: flex; flex-direction: column; gap: 0.55rem; padding-top: 0.25rem; }
+.wot-detail-bar-row {
+  display: grid; grid-template-columns: 100px 1fr 30px;
   align-items: center; gap: 0.5rem;
 }
-.wot-entry-bar-label { font-size: 0.72rem; color: var(--txt-secondary); }
-.wot-entry-bar-track { height: 4px; border-radius: 2px; background: var(--border-muted, rgba(255,255,255,0.08)); overflow: hidden; }
-.wot-entry-bar-fill { height: 100%; border-radius: 2px; background: rgba(214, 190, 150, 0.6); transition: width 0.4s; }
-[data-theme="light"] .wot-entry-bar-fill { background: rgba(130, 110, 70, 0.45); }
-.wot-entry-bar-val { font-size: 0.72rem; font-weight: 600; color: var(--txt-primary); text-align: right; }
+.wot-detail-bar-label { font-size: 0.68rem; color: var(--txt-secondary); }
+.wot-detail-bar-track { height: 4px; border-radius: 2px; background: var(--border-muted, rgba(255,255,255,0.08)); overflow: hidden; }
+.wot-detail-bar-fill { height: 100%; border-radius: 2px; background: rgba(214, 190, 150, 0.6); transition: width 0.4s; }
+[data-theme="light"] .wot-detail-bar-fill { background: rgba(130, 110, 70, 0.45); }
+.wot-detail-bar-val { font-size: 0.68rem; font-weight: 600; color: var(--txt-primary); text-align: right; }
 /* Metrics grid */
-.wot-entry-metrics-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
+.wot-detail-metrics-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem;
 }
-.wot-entry-metric {
+.wot-detail-metric {
   display: flex; flex-direction: column; gap: 0.1rem;
-  padding: 0.6rem 0.55rem; border-radius: 8px;
-  background: rgba(0,0,0,0.1);
+  padding: 0.65rem 0.6rem; border-radius: 8px;
+  background: rgba(0,0,0,0.12);
   border: 1px solid var(--border-muted, rgba(255,255,255,0.04));
 }
-[data-theme="light"] .wot-entry-metric { background: rgba(0,0,0,0.025); }
-.wot-entry-metric-val {
-  font-family: 'DM Serif Display', serif; font-size: 1rem; font-weight: 400;
+[data-theme="light"] .wot-detail-metric { background: rgba(0,0,0,0.025); }
+.wot-detail-metric-val {
+  font-family: 'DM Serif Display', serif; font-size: 1.05rem; font-weight: 400;
   color: var(--txt-primary); line-height: 1.1;
 }
-.wot-entry-metric-label {
+.wot-detail-metric-label {
   font-size: 0.55rem; font-weight: 600; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--txt-muted);
 }
 /* Compliance list */
-.wot-entry-compliance { display: flex; flex-direction: column; gap: 0.4rem; }
-.wot-entry-comp-row {
-  display: flex; align-items: center; gap: 0.45rem;
+.wot-detail-compliance-list { display: flex; flex-direction: column; gap: 0.45rem; }
+.wot-detail-compliance-row {
+  display: flex; align-items: center; gap: 0.5rem;
   font-size: 0.78rem; color: var(--txt-secondary);
 }
-.wot-entry-comp-row svg { color: rgba(34, 197, 94, 0.7); flex-shrink: 0; }
+.wot-detail-compliance-row svg { width: 15px; height: 15px; color: rgba(34, 197, 94, 0.7); flex-shrink: 0; }
 /* Info grid */
-.wot-entry-info-grid {
+.wot-detail-info-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem;
 }
-.wot-entry-info-item { display: flex; flex-direction: column; gap: 0.1rem; }
-.wot-entry-info-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--txt-muted); }
-.wot-entry-info-val { font-size: 0.82rem; color: var(--txt-primary); font-weight: 500; }
-.wot-entry-info-val--green { color: rgba(34, 197, 94, 0.85); }
+.wot-detail-info-item { display: flex; flex-direction: column; gap: 0.1rem; }
+.wot-detail-info-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--txt-muted); }
+.wot-detail-info-val { font-size: 0.82rem; color: var(--txt-primary); font-weight: 500; }
+.wot-detail-info-val--green { color: rgba(34, 197, 94, 0.85); }
 /* Footer seal */
-.wot-entry-seal {
-  display: flex; align-items: center; gap: 0.45rem;
-  margin-top: 1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border-muted, rgba(255,255,255,0.06));
-  font-size: 0.65rem; font-weight: 600; color: rgba(34, 197, 94, 0.6);
+.wot-detail-footer {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem 1.75rem;
+  background: rgba(0,0,0,0.1);
+  font-size: 0.68rem; font-weight: 600; color: rgba(34, 197, 94, 0.6);
   letter-spacing: 0.04em;
 }
-.wot-entry-seal svg { color: rgba(34, 197, 94, 0.5); flex-shrink: 0; }
+.wot-detail-footer svg { color: rgba(34, 197, 94, 0.5); }
+[data-theme="light"] .wot-detail-footer { background: rgba(0,0,0,0.025); }
 
 @media (max-width: 640px) {
-  .wot-entry-header { padding: 0.7rem 0.85rem; gap: 0.55rem; }
-  .wot-entry-avatar { width: 30px; height: 30px; }
-  .wot-entry-avatar svg { width: 15px; height: 15px; }
-  .wot-entry-nick { font-size: 0.8rem; }
-  .wot-entry-body { padding: 1rem 1rem 1.25rem; }
-  .wot-entry-score-block { flex-direction: column; gap: 0.75rem; }
-  .wot-entry-metrics-grid { grid-template-columns: repeat(2, 1fr); }
-  .wot-entry-bar-row { grid-template-columns: 80px 1fr 26px; }
-  .wot-entry-info-grid { grid-template-columns: 1fr; }
+  .wot-tiles { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.65rem; }
+  .wot-tile { padding: 1.1rem 0.5rem 0.85rem; }
+  .wot-tile-avatar { width: 38px; height: 38px; }
+  .wot-tile-avatar svg { width: 18px; height: 18px; }
+  .wot-tile-nick { font-size: 0.75rem; }
+  .wot-detail-panel { border-radius: 12px; }
+  .wot-detail-header { padding: 1.25rem 1.25rem 1rem; }
+  .wot-detail-section { padding: 1rem 1.25rem; }
+  .wot-detail-score-block { flex-direction: column; gap: 0.85rem; }
+  .wot-detail-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+  .wot-detail-bar-row { grid-template-columns: 80px 1fr 26px; }
+  .wot-detail-info-grid { grid-template-columns: 1fr; }
 }
 
 /* Country select in registration */

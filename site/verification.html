@@ -407,6 +407,55 @@
 </div>
 </section>
 </main>
+<!-- PRE-CHALLENGE RULE ACKNOWLEDGMENT OVERLAY -->
+<div class="vs-ack-overlay" id="verifAckOverlay" style="display:none;">
+<div class="vs-ack-panel">
+<div class="vs-ack-header">
+<div class="vs-ack-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+</div>
+<h2 class="vs-ack-title" data-i18n="verif_ack_title">Challenge Rule Framework</h2>
+<p class="vs-ack-sub" data-i18n="verif_ack_sub">The US100 Validation Challenge is evaluated on procedural compliance, not financial outcome alone. Before accessing Challenge Status, you must acknowledge and accept the following rule framework.</p>
+</div>
+<div class="vs-ack-rules-summary">
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label" data-i18n="verif_ack_rule1_label">Session Window</span>
+<span class="vs-ack-rule-desc" data-i18n="verif_ack_rule1_desc">Trades may only be opened within the permitted challenge execution window.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label" data-i18n="verif_ack_rule2_label">Maximum Risk</span>
+<span class="vs-ack-rule-desc" data-i18n="verif_ack_rule2_desc">Risk per trade must not exceed the defined maximum allocation threshold.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label" data-i18n="verif_ack_rule3_label">Stop Loss Requirement</span>
+<span class="vs-ack-rule-desc" data-i18n="verif_ack_rule3_desc">Every trade must have a stop loss defined at entry. Trades without stop loss are treated as hard breaches.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label" data-i18n="verif_ack_rule4_label">Trade Documentation</span>
+<span class="vs-ack-rule-desc" data-i18n="verif_ack_rule4_desc">Each trade must include valid documentation (entry, exit, screenshot, notes). Incomplete trades may be invalidated.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label" data-i18n="verif_ack_rule5_label">Framework Compliance</span>
+<span class="vs-ack-rule-desc" data-i18n="verif_ack_rule5_desc">Each trade must comply with the defined execution framework. Non-framework trades may be invalidated or treated as breaches.</span>
+</div>
+<div class="vs-ack-rule-item">
+<span class="vs-ack-rule-label" data-i18n="verif_ack_rule6_label">Invalidation vs Disqualification</span>
+<span class="vs-ack-rule-desc" data-i18n="verif_ack_rule6_desc">Some violations invalidate a single trade (it does not count). Others disqualify the entire challenge immediately and permanently.</span>
+</div>
+</div>
+<div class="vs-ack-checkboxes">
+<label class="vs-ack-check"><input type="checkbox" class="verif-ack-cb" /> <span data-i18n="verif_ack_cb1">I understand that challenge evaluation is based on rule compliance, not financial outcome alone.</span></label>
+<label class="vs-ack-check"><input type="checkbox" class="verif-ack-cb" /> <span data-i18n="verif_ack_cb2">I understand that some violations invalidate a trade, while others can disqualify the entire challenge.</span></label>
+<label class="vs-ack-check"><input type="checkbox" class="verif-ack-cb" /> <span data-i18n="verif_ack_cb3">I understand that trading outside the permitted framework may result in challenge failure.</span></label>
+<label class="vs-ack-check"><input type="checkbox" class="verif-ack-cb" /> <span data-i18n="verif_ack_cb4">I understand that all challenge rules are fixed and cannot be changed during evaluation.</span></label>
+<label class="vs-ack-check"><input type="checkbox" class="verif-ack-cb" /> <span data-i18n="verif_ack_cb5">I understand that ALTIVOR evaluates execution behavior according to predefined validation rules.</span></label>
+</div>
+<div class="vs-ack-actions">
+<button class="btn btn-primary vs-ack-activate-btn" id="verifAckProceedBtn" disabled type="button" data-i18n="verif_ack_proceed">Proceed to Challenge Status</button>
+<button class="vs-ack-cancel-btn" id="verifAckCancelBtn" type="button" data-i18n="verif_ack_cancel">Cancel</button>
+</div>
+</div>
+</div>
 <!-- FOOTER -->
 <footer class="site-footer" aria-label="Site footer">
 <div class="footer-inner container">
@@ -647,6 +696,70 @@
 <script src="auth-modals.js">
 </script>
 <script src="verification-app.js">
+</script>
+<script>
+(function(){
+  var ACK_KEY = 'altivor_challenge_ack_v1';
+  var certCard = document.getElementById('verifCardCertification');
+  var overlay = document.getElementById('verifAckOverlay');
+  var proceedBtn = document.getElementById('verifAckProceedBtn');
+  var cancelBtn = document.getElementById('verifAckCancelBtn');
+  var checkboxes = document.querySelectorAll('.verif-ack-cb');
+
+  function isAcknowledged() {
+    return localStorage.getItem(ACK_KEY) === '1';
+  }
+
+  function updateProceedState() {
+    var all = true;
+    checkboxes.forEach(function(cb) { if (!cb.checked) all = false; });
+    if (proceedBtn) proceedBtn.disabled = !all;
+  }
+
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener('change', updateProceedState);
+  });
+
+  if (certCard) {
+    certCard.addEventListener('click', function(e) {
+      if (isAcknowledged()) return;
+      e.preventDefault();
+      if (overlay) {
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  }
+
+  if (proceedBtn) {
+    proceedBtn.addEventListener('click', function() {
+      localStorage.setItem(ACK_KEY, '1');
+      if (overlay) overlay.style.display = 'none';
+      document.body.style.overflow = '';
+      window.location.href = 'verification-status.html';
+    });
+  }
+
+  if (cancelBtn) {
+    cancelBtn.addEventListener('click', function() {
+      if (overlay) overlay.style.display = 'none';
+      document.body.style.overflow = '';
+      checkboxes.forEach(function(cb) { cb.checked = false; });
+      updateProceedState();
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+        checkboxes.forEach(function(cb) { cb.checked = false; });
+        updateProceedState();
+      }
+    });
+  }
+})();
 </script>
 </body>
 </html>

@@ -12356,7 +12356,28 @@ Object.assign(TRANSLATIONS.en, {
     verif_info_title: 'Challenge Requirements',
     verif_info_profit_title: 'Profit Target',
     verif_info_drawdown_title: 'Maximum Drawdown',
-    verif_info_cycle_title: '55 trade Cycle'
+    verif_info_cycle_title: '55 trade Cycle',
+    verif_ack_title: 'Challenge Rule Framework',
+    verif_ack_sub: 'The US100 Validation Challenge is evaluated on procedural compliance, not financial outcome alone. Before accessing Challenge Status, you must acknowledge and accept the following rule framework.',
+    verif_ack_rule1_label: 'Session Window',
+    verif_ack_rule1_desc: 'Trades may only be opened within the permitted challenge execution window.',
+    verif_ack_rule2_label: 'Maximum Risk',
+    verif_ack_rule2_desc: 'Risk per trade must not exceed the defined maximum allocation threshold.',
+    verif_ack_rule3_label: 'Stop Loss Requirement',
+    verif_ack_rule3_desc: 'Every trade must have a stop loss defined at entry. Trades without stop loss are treated as hard breaches.',
+    verif_ack_rule4_label: 'Trade Documentation',
+    verif_ack_rule4_desc: 'Each trade must include valid documentation (entry, exit, screenshot, notes). Incomplete trades may be invalidated.',
+    verif_ack_rule5_label: 'Framework Compliance',
+    verif_ack_rule5_desc: 'Each trade must comply with the defined execution framework. Non-framework trades may be invalidated or treated as breaches.',
+    verif_ack_rule6_label: 'Invalidation vs Disqualification',
+    verif_ack_rule6_desc: 'Some violations invalidate a single trade (it does not count). Others disqualify the entire challenge immediately and permanently.',
+    verif_ack_cb1: 'I understand that challenge evaluation is based on rule compliance, not financial outcome alone.',
+    verif_ack_cb2: 'I understand that some violations invalidate a trade, while others can disqualify the entire challenge.',
+    verif_ack_cb3: 'I understand that trading outside the permitted framework may result in challenge failure.',
+    verif_ack_cb4: 'I understand that all challenge rules are fixed and cannot be changed during evaluation.',
+    verif_ack_cb5: 'I understand that ALTIVOR evaluates execution behavior according to predefined validation rules.',
+    verif_ack_proceed: 'Proceed to Challenge Status',
+    verif_ack_cancel: 'Cancel'
 });
 Object.assign(TRANSLATIONS.pl, {
     nav_verification: 'Weryfikacja',
@@ -12374,7 +12395,28 @@ Object.assign(TRANSLATIONS.pl, {
     verif_profit_title: 'Tracker Zysku',
     verif_profit_desc: 'Śledź skumulowany zysk z obu miesięcy. Minimum 6% łącznego zysku wymagane w okresie 2 miesięcy.',
     verif_cert_title: 'Status Challenge',
-    verif_cert_desc: 'Zobacz finalną ocenę Challenge, pobierz certyfikat po zdaniu i odbierz 20% zniżki na Accessories.'
+    verif_cert_desc: 'Zobacz finalną ocenę Challenge, pobierz certyfikat po zdaniu i odbierz 20% zniżki na Accessories.',
+    verif_ack_title: 'Regulamin Challenge',
+    verif_ack_sub: 'US100 Validation Challenge oceniany jest na podstawie zgodności proceduralnej, a nie samego wyniku finansowego. Przed uzyskaniem dostępu do statusu Challenge musisz zapoznać się i zaakceptować poniższy regulamin.',
+    verif_ack_rule1_label: 'Okno Sesyjne',
+    verif_ack_rule1_desc: 'Transakcje mogą być otwierane wyłącznie w dozwolonym oknie sesyjnym challenge.',
+    verif_ack_rule2_label: 'Maksymalne Ryzyko',
+    verif_ack_rule2_desc: 'Ryzyko na transakcję nie może przekraczać zdefiniowanego maksymalnego progu alokacji.',
+    verif_ack_rule3_label: 'Wymóg Stop Loss',
+    verif_ack_rule3_desc: 'Każda transakcja musi mieć zdefiniowany stop loss przy wejściu. Transakcje bez stop loss traktowane są jako poważne naruszenia.',
+    verif_ack_rule4_label: 'Dokumentacja Transakcji',
+    verif_ack_rule4_desc: 'Każda transakcja musi zawierać pełną dokumentację (wejście, wyjście, screenshot, notatki). Niekompletne transakcje mogą zostać unieważnione.',
+    verif_ack_rule5_label: 'Zgodność z Framework',
+    verif_ack_rule5_desc: 'Każda transakcja musi być zgodna z zdefiniowanym frameworkiem egzekucji. Transakcje poza frameworkiem mogą być unieważnione lub uznane za naruszenia.',
+    verif_ack_rule6_label: 'Unieważnienie vs Dyskwalifikacja',
+    verif_ack_rule6_desc: 'Niektóre naruszenia unieważniają pojedynczą transakcję (nie jest liczona). Inne dyskwalifikują cały challenge natychmiast i permanentnie.',
+    verif_ack_cb1: 'Rozumiem, że ocena challenge opiera się na zgodności z zasadami, a nie wyłącznie na wyniku finansowym.',
+    verif_ack_cb2: 'Rozumiem, że niektóre naruszenia unieważniają transakcję, a inne mogą zdyskwalifikować cały challenge.',
+    verif_ack_cb3: 'Rozumiem, że handel poza dozwolonym frameworkiem może skutkować niezdaniem challenge.',
+    verif_ack_cb4: 'Rozumiem, że wszystkie zasady challenge są stałe i nie mogą być zmieniane w trakcie oceny.',
+    verif_ack_cb5: 'Rozumiem, że ALTIVOR ocenia zachowanie egzekucyjne zgodnie z predefiniowanymi regułami walidacji.',
+    verif_ack_proceed: 'Przejdź do Statusu Challenge',
+    verif_ack_cancel: 'Anuluj'
 });
 Object.assign(TRANSLATIONS.de, {
     nav_verification: 'Verifizierung',
@@ -12386,7 +12428,11 @@ Object.assign(TRANSLATIONS.de, {
     verif_statement_title: 'Broker-Auszug',
     verif_drawdown_title: 'Drawdown-Monitor',
     verif_profit_title: 'Gewinn-Tracker',
-    verif_cert_title: 'Challenge-Status'
+    verif_cert_title: 'Challenge-Status',
+    verif_ack_title: 'Challenge-Regelwerk',
+    verif_ack_sub: 'Die US100 Validation Challenge wird auf Grundlage der Verfahrenskonformität bewertet, nicht allein des finanziellen Ergebnisses. Vor dem Zugang zum Challenge-Status müssen Sie das folgende Regelwerk anerkennen und akzeptieren.',
+    verif_ack_proceed: 'Weiter zum Challenge-Status',
+    verif_ack_cancel: 'Abbrechen'
 });
 Object.assign(TRANSLATIONS.it, {
     nav_verification: 'Verifica',
@@ -12398,7 +12444,11 @@ Object.assign(TRANSLATIONS.it, {
     verif_statement_title: 'Estratto Broker',
     verif_drawdown_title: 'Monitor Drawdown',
     verif_profit_title: 'Tracker Profitto',
-    verif_cert_title: 'Stato Challenge'
+    verif_cert_title: 'Stato Challenge',
+    verif_ack_title: 'Regolamento Challenge',
+    verif_ack_sub: 'La US100 Validation Challenge viene valutata sulla conformità procedurale, non solo sul risultato finanziario. Prima di accedere allo Stato Challenge, è necessario prendere visione e accettare il seguente regolamento.',
+    verif_ack_proceed: 'Procedi allo Stato Challenge',
+    verif_ack_cancel: 'Annulla'
 });
 Object.assign(TRANSLATIONS.es, {
     nav_verification: 'Verificación',
@@ -12410,7 +12460,11 @@ Object.assign(TRANSLATIONS.es, {
     verif_statement_title: 'Extracto del Broker',
     verif_drawdown_title: 'Monitor de Drawdown',
     verif_profit_title: 'Rastreador de Ganancias',
-    verif_cert_title: 'Estado del Challenge'
+    verif_cert_title: 'Estado del Challenge',
+    verif_ack_title: 'Reglamento del Challenge',
+    verif_ack_sub: 'El US100 Validation Challenge se evalúa en base al cumplimiento procedimental, no solo al resultado financiero. Antes de acceder al Estado del Challenge, debe reconocer y aceptar el siguiente reglamento.',
+    verif_ack_proceed: 'Continuar al Estado del Challenge',
+    verif_ack_cancel: 'Cancelar'
 });
 Object.assign(TRANSLATIONS.pt, {
     nav_verification: 'Verificação',
@@ -12422,7 +12476,11 @@ Object.assign(TRANSLATIONS.pt, {
     verif_statement_title: 'Extrato do Broker',
     verif_drawdown_title: 'Monitor de Drawdown',
     verif_profit_title: 'Rastreador de Lucro',
-    verif_cert_title: 'Status do Challenge'
+    verif_cert_title: 'Status do Challenge',
+    verif_ack_title: 'Regulamento do Challenge',
+    verif_ack_sub: 'O US100 Validation Challenge é avaliado com base na conformidade processual, não apenas no resultado financeiro. Antes de acessar o Status do Challenge, você deve reconhecer e aceitar o seguinte regulamento.',
+    verif_ack_proceed: 'Continuar para o Status do Challenge',
+    verif_ack_cancel: 'Cancelar'
 });
 Object.assign(TRANSLATIONS.fr, {
     nav_verification: 'Vérification',
@@ -12434,7 +12492,11 @@ Object.assign(TRANSLATIONS.fr, {
     verif_statement_title: 'Relevé du Broker',
     verif_drawdown_title: 'Moniteur de Drawdown',
     verif_profit_title: 'Suivi des Profits',
-    verif_cert_title: 'Statut du Challenge'
+    verif_cert_title: 'Statut du Challenge',
+    verif_ack_title: 'Règlement du Challenge',
+    verif_ack_sub: 'Le US100 Validation Challenge est évalué sur la conformité procédurale, et non uniquement sur le résultat financier. Avant d\'accéder au Statut du Challenge, vous devez reconnaître et accepter le règlement suivant.',
+    verif_ack_proceed: 'Accéder au Statut du Challenge',
+    verif_ack_cancel: 'Annuler'
 });
 Object.assign(TRANSLATIONS.ar, {
     nav_verification: 'التحقق',
@@ -12446,7 +12508,11 @@ Object.assign(TRANSLATIONS.ar, {
     verif_statement_title: 'كشف الوسيط',
     verif_drawdown_title: 'مراقب التراجع',
     verif_profit_title: 'متتبع الأرباح',
-    verif_cert_title: 'حالة التحدي'
+    verif_cert_title: 'حالة التحدي',
+    verif_ack_title: 'إطار قواعد التحدي',
+    verif_ack_sub: 'يتم تقييم تحدي التحقق US100 بناءً على الامتثال الإجرائي، وليس فقط على النتيجة المالية. قبل الوصول إلى حالة التحدي، يجب عليك الاطلاع على إطار القواعد التالي وقبوله.',
+    verif_ack_proceed: 'المتابعة إلى حالة التحدي',
+    verif_ack_cancel: 'إلغاء'
 });
 Object.assign(TRANSLATIONS.zh, {
     nav_verification: '验证',
@@ -12458,7 +12524,11 @@ Object.assign(TRANSLATIONS.zh, {
     verif_statement_title: '经纪商报表',
     verif_drawdown_title: '回撤监控',
     verif_profit_title: '利润跟踪',
-    verif_cert_title: '挑战状态'
+    verif_cert_title: '挑战状态',
+    verif_ack_title: '挑战规则框架',
+    verif_ack_sub: 'US100验证挑战根据程序合规性进行评估，而不仅仅是财务结果。在访问挑战状态之前，您必须确认并接受以下规则框架。',
+    verif_ack_proceed: '继续查看挑战状态',
+    verif_ack_cancel: '取消'
 });
 Object.assign(TRANSLATIONS.ru, {
     nav_verification: 'Верификация',
@@ -12470,7 +12540,11 @@ Object.assign(TRANSLATIONS.ru, {
     verif_statement_title: 'Выписка брокера',
     verif_drawdown_title: 'Монитор просадки',
     verif_profit_title: 'Трекер прибыли',
-    verif_cert_title: 'Статус Challenge'
+    verif_cert_title: 'Статус Challenge',
+    verif_ack_title: 'Правила Challenge',
+    verif_ack_sub: 'US100 Validation Challenge оценивается на основе процедурного соответствия, а не только финансового результата. Перед доступом к статусу Challenge вы должны ознакомиться и принять следующие правила.',
+    verif_ack_proceed: 'Перейти к статусу Challenge',
+    verif_ack_cancel: 'Отмена'
 });
 Object.assign(TRANSLATIONS.hi, {
     nav_verification: 'सत्यापन',
@@ -12482,7 +12556,11 @@ Object.assign(TRANSLATIONS.hi, {
     verif_statement_title: 'ब्रोकर स्टेटमेंट',
     verif_drawdown_title: 'ड्रॉडाउन मॉनिटर',
     verif_profit_title: 'लाभ ट्रैकर',
-    verif_cert_title: 'चैलेंज स्थिति'
+    verif_cert_title: 'चैलेंज स्थिति',
+    verif_ack_title: 'चैलेंज नियम ढांचा',
+    verif_ack_sub: 'US100 सत्यापन चैलेंज का मूल्यांकन प्रक्रियात्मक अनुपालन के आधार पर किया जाता है, केवल वित्तीय परिणाम पर नहीं। चैलेंज स्थिति तक पहुंचने से पहले, आपको निम्नलिखित नियम ढांचे को स्वीकार करना होगा।',
+    verif_ack_proceed: 'चैलेंज स्थिति पर जाएं',
+    verif_ack_cancel: 'रद्द करें'
 });
 Object.assign(TRANSLATIONS.en, {
     hero_h1: 'Execution&#160;Framework&#160;for<br>Funded-Level Trading',

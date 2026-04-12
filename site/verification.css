@@ -1161,6 +1161,15 @@
 .vs-ack-activate-btn:disabled {
   opacity: 0.4; cursor: not-allowed; pointer-events: none;
 }
+.vs-ack-cancel-btn {
+  background: none; border: 1px solid var(--border-subtle);
+  border-radius: 8px; padding: 0.55rem 1.25rem;
+  font-size: 0.78rem; font-weight: 600; color: var(--txt-muted);
+  cursor: pointer; transition: background 0.2s, color 0.2s;
+  font-family: inherit;
+}
+.vs-ack-cancel-btn:hover { background: rgba(255,255,255,0.04); color: var(--txt-secondary); }
+[data-theme="light"] .vs-ack-cancel-btn:hover { background: rgba(0,0,0,0.03); }
 
 /* ── Challenge Rules Modal ───────────────── */
 /* Body scroll lock when modal is open */
