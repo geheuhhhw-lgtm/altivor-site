@@ -229,6 +229,14 @@
 <h1 data-i18n="verif_status_title">Qualification Dashboard</h1>
 <p class="verif-page-desc" data-i18n="verif_status_desc">Real-time qualification assessment under ALTIVOR evaluation protocol. Your progression, risk state, and eligibility status are determined by validated performance data.</p>
 </div>
+<!-- CHALLENGE SCORE SYSTEM -->
+<div id="csScoreBar"></div>
+<div id="csBreakdown"></div>
+<div id="csAlerts"></div>
+<!-- BEHAVIORAL CONTROL SYSTEM -->
+<div class="vt-live-bar" id="vtLiveBar"></div>
+<div class="vt-sys-messages" id="vtSysMessages" style="display:none;"></div>
+<div class="vt-discipline-section" id="vtDisciplineSection"></div>
 <!-- QUALIFICATION VERDICT -->
 <div class="vs-verdict-block" id="vsVerdictBlock">
 <div class="vs-verdict-top">
@@ -1907,5 +1915,8 @@
   updateUI();
 })();
 </script>
+<script src="verification-behavior.js"></script>
+<script src="challenge-score.js"></script>
+<script src="footer-widgets.js"></script>
 </body>
 </html>

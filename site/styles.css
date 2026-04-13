@@ -4893,15 +4893,15 @@ small {
 
 .support-right {
   position: relative;
-  min-height: 500px;
+  min-height: 620px;
 }
 
 @media (max-width: 900px) {
-  .support-right { min-height: 440px; }
+  .support-right { min-height: 540px; }
 }
 
 @media (max-width: 480px) {
-  .support-right { min-height: 380px; }
+  .support-right { min-height: 440px; }
 }
 
 .support-h2 {
