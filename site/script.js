@@ -1676,3 +1676,149 @@ document.addEventListener('click', function (e) {
     });
     if (saved) sel.value = saved;
 })();
+
+/* ─── CLARITY BLOCK (injected before #about) ───────────────────────────── */
+(function () {
+    var aboutSection = document.getElementById('about');
+    if (!aboutSection) return;
+    if (document.getElementById('clarityBlock')) return;
+
+    /* inject scoped styles */
+    var style = document.createElement('style');
+    style.textContent =
+        '#clarityBlock{padding:5rem 0;border-top:1px solid var(--border-subtle)}' +
+        '#clarityBlock .section-header{max-width:720px;margin-bottom:2.5rem}' +
+        '#clarityBlock h2{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.9rem);line-height:1.12;letter-spacing:-0.01em;color:var(--txt-accent,#f0f0f0);margin:0 0 0.6rem}' +
+        '#clarityBlock .section-body{font-family:"Inter",sans-serif;font-size:1rem;line-height:1.75;color:var(--txt-secondary,#888);margin-top:0.6rem}' +
+        '.cb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;margin-top:2.5rem}' +
+        '.cb-card{background:var(--bg-card,#141414);border:1px solid var(--border-subtle,rgba(255,255,255,0.06));border-radius:12px;padding:1.6rem 1.4rem;transition:border-color .25s,box-shadow .25s}' +
+        '.cb-card:hover{border-color:var(--border-default,rgba(255,255,255,0.10));box-shadow:0 4px 24px rgba(0,0,0,0.25)}' +
+        '.cb-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;background:rgba(214,190,150,0.07);border:1px solid rgba(214,190,150,0.18)}' +
+        '.cb-icon svg{width:18px;height:18px;color:rgba(214,190,150,0.85)}' +
+        '.cb-card h4{font-family:"Inter",sans-serif;font-size:0.9rem;font-weight:600;color:var(--txt-primary,#f0f0f0);margin:0 0 0.5rem;letter-spacing:0.01em}' +
+        '.cb-card p{font-family:"Inter",sans-serif;font-size:0.85rem;line-height:1.65;color:var(--txt-secondary,#888);margin:0}' +
+        '.cb-benefits{display:flex;gap:2rem;margin-top:2.5rem;padding:1.5rem 1.8rem;border-radius:12px;background:var(--bg-elevated,#181818);border:1px solid var(--border-subtle,rgba(255,255,255,0.06))}' +
+        '.cb-benefit{display:flex;align-items:flex-start;gap:0.7rem;flex:1}' +
+        '.cb-benefit-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(159,204,138,0.1);border:1px solid rgba(159,204,138,0.2)}' +
+        '.cb-benefit-icon svg{width:14px;height:14px;color:rgba(159,204,138,0.85)}' +
+        '.cb-benefit-text h5{font-family:"Inter",sans-serif;font-size:0.82rem;font-weight:600;color:var(--txt-primary,#f0f0f0);margin:0 0 0.2rem}' +
+        '.cb-benefit-text p{font-family:"Inter",sans-serif;font-size:0.8rem;color:var(--txt-secondary,#888);margin:0;line-height:1.55}' +
+        '.cb-bottom{display:flex;gap:0.85rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}' +
+        '.cb-pill{display:inline-flex;align-items:center;gap:0.5rem;padding:0.55rem 1.2rem;border-radius:100px;font-family:"Inter",sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.01em;transition:transform .2s}' +
+        '.cb-pill:hover{transform:translateY(-1px)}' +
+        '.cb-pill svg{width:13px;height:13px;flex-shrink:0}' +
+        '.cb-pill-no{background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.10);color:rgba(248,113,113,0.65)}' +
+        '.cb-pill-yes{background:rgba(159,204,138,0.06);border:1px solid rgba(159,204,138,0.18);color:rgba(159,204,138,0.85);font-weight:600}' +
+        '@media(max-width:768px){.cb-grid{grid-template-columns:repeat(2,1fr)}.cb-benefits{flex-direction:column;gap:1rem}.cb-bottom{gap:0.5rem}}' +
+        '@media(max-width:480px){.cb-grid{grid-template-columns:1fr}}';
+    document.head.appendChild(style);
+
+    var section = document.createElement('section');
+    section.className = 'section';
+    section.id = 'clarityBlock';
+    section.setAttribute('aria-label', 'What this is');
+
+    var svgSystem = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>';
+    var svgShield = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>';
+    var svgCalendar = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>';
+    var svgTarget = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>';
+    var svgCheck = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    var svgX = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+
+    section.innerHTML =
+        '<div class="container">' +
+          '<div class="section-header" data-reveal>' +
+            '<p class="label-tag">Clarity</p>' +
+            '<h2>What this actually is</h2>' +
+            '<p class="section-body">Not a course, not signals, not a bot &mdash; a structured execution system for funded&nbsp;challenges.</p>' +
+          '</div>' +
+          '<div class="cb-grid" data-reveal>' +
+            '<div class="cb-card"><div class="cb-icon">' + svgSystem + '</div><h4>Trading System</h4><p>Structured US100 framework with defined entries, exits, and position&nbsp;sizing.</p></div>' +
+            '<div class="cb-card"><div class="cb-icon">' + svgShield + '</div><h4>Risk Rules</h4><p>Fixed drawdown limits, exposure caps, and non-negotiable risk&nbsp;parameters.</p></div>' +
+            '<div class="cb-card"><div class="cb-icon">' + svgCalendar + '</div><h4>Daily Process</h4><p>Pre-session checklist, trade logging, and structured daily&nbsp;review.</p></div>' +
+            '<div class="cb-card"><div class="cb-icon">' + svgTarget + '</div><h4>Funded Validation</h4><p>55-trade cycle proving your process holds under funded&nbsp;conditions.</p></div>' +
+          '</div>' +
+          '<div class="cb-benefits" data-reveal>' +
+            '<div class="cb-benefit"><div class="cb-benefit-icon">' + svgCheck + '</div><div class="cb-benefit-text"><h5>Know exactly what to do</h5><p>No guessing. Clear rules for every trading day.</p></div></div>' +
+            '<div class="cb-benefit"><div class="cb-benefit-icon">' + svgCheck + '</div><div class="cb-benefit-text"><h5>Stop breaking rules</h5><p>Built-in discipline system that tracks violations.</p></div></div>' +
+            '<div class="cb-benefit"><div class="cb-benefit-icon">' + svgCheck + '</div><div class="cb-benefit-text"><h5>Prove you’re funded-ready</h5><p>Documented validation that your process works.</p></div></div>' +
+          '</div>' +
+        '</div>';
+
+    aboutSection.parentNode.insertBefore(section, aboutSection);
+})();
+
+/* ─── HOW IT WORKS (injected after clarity, before #about) ─────────────── */
+(function () {
+    var aboutSection = document.getElementById('about');
+    if (!aboutSection) return;
+    if (document.getElementById('howItWorks')) return;
+
+    var style = document.createElement('style');
+    style.textContent =
+        '#howItWorks{padding:5rem 0;border-top:1px solid var(--border-subtle)}' +
+        '#howItWorks .section-header{max-width:720px;margin-bottom:2.5rem}' +
+        '#howItWorks h2{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(1.75rem,3.5vw,2.9rem);line-height:1.12;letter-spacing:-0.01em;color:var(--txt-accent,#f0f0f0);margin:0 0 0.6rem}' +
+        '#howItWorks .section-body{font-family:"Inter",sans-serif;font-size:1rem;line-height:1.75;color:var(--txt-secondary,#888);margin-top:0.6rem}' +
+        '.hiw-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:2.5rem;position:relative}' +
+        '.hiw-step{position:relative;padding:2rem 1.8rem;text-align:center}' +
+        '.hiw-step:not(:last-child){border-right:1px solid var(--border-subtle,rgba(255,255,255,0.06))}' +
+        '.hiw-num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;font-family:"DM Serif Display",Georgia,serif;font-size:1.1rem;color:rgba(214,190,150,0.9);background:rgba(214,190,150,0.07);border:1px solid rgba(214,190,150,0.18);margin-bottom:1.2rem}' +
+        '.hiw-step h4{font-family:"Inter",sans-serif;font-size:0.95rem;font-weight:600;color:var(--txt-primary,#f0f0f0);margin:0 0 0.5rem}' +
+        '.hiw-step p{font-family:"Inter",sans-serif;font-size:0.85rem;line-height:1.65;color:var(--txt-secondary,#888);margin:0}' +
+        '.hiw-step .hiw-price{display:inline-block;margin-top:0.8rem;font-family:"Inter",sans-serif;font-size:0.78rem;font-weight:600;color:rgba(214,190,150,0.7);letter-spacing:0.04em}' +
+        '.hiw-arrow{position:absolute;top:50%;right:-12px;transform:translateY(-50%);z-index:2;width:24px;height:24px;border-radius:50%;background:var(--bg-base,#0a0a0a);border:1px solid var(--border-subtle,rgba(255,255,255,0.06));display:flex;align-items:center;justify-content:center}' +
+        '.hiw-arrow svg{width:12px;height:12px;color:rgba(214,190,150,0.6)}' +
+        '.hiw-note{margin-top:2rem;padding:1.4rem 1.8rem;border-radius:12px;background:var(--bg-elevated,#181818);border:1px solid var(--border-subtle,rgba(255,255,255,0.06));display:flex;align-items:flex-start;gap:0.8rem}' +
+        '.hiw-note-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(96,165,250,0.08);border:1px solid rgba(96,165,250,0.18)}' +
+        '.hiw-note-icon svg{width:15px;height:15px;color:rgba(96,165,250,0.8)}' +
+        '.hiw-note p{font-family:"Inter",sans-serif;font-size:0.85rem;line-height:1.65;color:var(--txt-secondary,#888);margin:0}' +
+        '.hiw-note strong{color:var(--txt-primary,#f0f0f0);font-weight:600}' +
+        '@media(max-width:768px){.hiw-steps{grid-template-columns:1fr;gap:0}.hiw-step:not(:last-child){border-right:none;border-bottom:1px solid var(--border-subtle,rgba(255,255,255,0.06))}.hiw-arrow{top:auto;bottom:-12px;right:50%;transform:translateX(50%);}.hiw-arrow svg{transform:rotate(90deg)}}';
+    document.head.appendChild(style);
+
+    var sec = document.createElement('section');
+    sec.className = 'section';
+    sec.id = 'howItWorks';
+    sec.setAttribute('aria-label', 'How it works');
+
+    var svgArrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>';
+    var svgInfo = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+
+    sec.innerHTML =
+        '<div class="container">' +
+          '<div class="section-header" data-reveal>' +
+            '<p class="label-tag">Process</p>' +
+            '<h2>How it works</h2>' +
+            '<p class="section-body">Access is deliberately structured in stages. You cannot skip ahead &mdash; and that is the point.</p>' +
+          '</div>' +
+          '<div class="hiw-steps" data-reveal>' +
+            '<div class="hiw-step">' +
+              '<div class="hiw-num">1</div>' +
+              '<h4>PREPARE</h4>' +
+              '<p>Complete 10 compliant trades under controlled conditions. This is a mandatory qualification gate &mdash; it proves you can follow rules before risking more capital.</p>' +
+              '<span class="hiw-price">29 &euro; &middot; one-time</span>' +
+              '<div class="hiw-arrow">' + svgArrow + '</div>' +
+            '</div>' +
+            '<div class="hiw-step">' +
+              '<div class="hiw-num">2</div>' +
+              '<h4>Choose Your Challenge</h4>' +
+              '<p>Once PREPARE is passed, you unlock the US100 Challenge &mdash; a 55-trade validation cycle with strict risk rules, session windows, and full documentation requirements.</p>' +
+              '<span class="hiw-price">from 59 &euro;</span>' +
+              '<div class="hiw-arrow">' + svgArrow + '</div>' +
+            '</div>' +
+            '<div class="hiw-step">' +
+              '<div class="hiw-num">3</div>' +
+              '<h4>Execute &amp; Validate</h4>' +
+              '<p>Trade under funded-level conditions. Every trade is logged, scored, and measured against compliance standards. The system tells you if your process holds.</p>' +
+              '<span class="hiw-price">55 trades &middot; 2 months max</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="hiw-note" data-reveal>' +
+            '<div class="hiw-note-icon">' + svgInfo + '</div>' +
+            '<p><strong>Why the gate?</strong> Most traders fail funded challenges not because of bad strategy, but because they are not operationally ready. PREPARE exists to filter that out &mdash; so you don\'t spend 129&nbsp;&euro; on a challenge you\'re not yet equipped to pass. Think of it as a structural readiness check, not a paywall.</p>' +
+          '</div>' +
+        '</div>';
+
+    aboutSection.parentNode.insertBefore(sec, aboutSection);
+})();
