@@ -158,7 +158,7 @@
             check2FAStatus().then(function (factors) {
                 var active = factors.filter(function (f) { return f.status === 'verified'; });
                 el.textContent = active.length > 0 ? 'ON' : 'OFF';
-                el.style.color = active.length > 0 ? '#22c55e' : '';
+                el.style.color = active.length > 0 ? 'var(--pd-green,#22c55e)' : '';
             }).catch(function () { el.textContent = '\u2014'; });
         }
 
@@ -256,9 +256,9 @@
             if (Array.isArray(factors)) { factors.forEach(function (f) { if (f.status === 'verified') verified.push(f); else unverified.push(f); }); }
             var html = '';
             if (verified.length > 0) {
-                html += '<div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5" stroke="#22c55e" stroke-width="2"/></svg><span style="font-size:.88rem;">Two-Factor Authentication is <strong style="color:#22c55e;">enabled</strong></span></div>';
+                html += '<div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pd-green,#22c55e)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5" stroke="var(--pd-green,#22c55e)" stroke-width="2"/></svg><span style="font-size:.88rem;">Two-Factor Authentication is <strong style="color:var(--pd-green,#22c55e);">enabled</strong></span></div>';
                 verified.forEach(function (f) {
-                    html += '<div class="pd-row"><span class="pd-lbl">TOTP \u2014 ' + (f.friendly_name || 'Authenticator') + '</span><span class="pd-val" style="display:flex;align-items:center;gap:.5rem;">' + formatDate(f.created_at) + ' <button class="btn btn-ghost btn-sm pd-2fa-rm" data-fid="' + f.id + '" style="color:#ef4444;font-size:.7rem;">Remove</button></span></div>';
+                    html += '<div class="pd-row"><span class="pd-lbl">TOTP \u2014 ' + (f.friendly_name || 'Authenticator') + '</span><span class="pd-val" style="display:flex;align-items:center;gap:.5rem;">' + formatDate(f.created_at) + ' <button class="btn btn-ghost btn-sm pd-2fa-rm" data-fid="' + f.id + '" style="color:var(--pd-red,#ef4444);font-size:.7rem;">Remove</button></span></div>';
                 });
             } else {
                 html += '<div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span style="font-size:.88rem;">Two-Factor Authentication is <strong>not enabled</strong></span></div>';
