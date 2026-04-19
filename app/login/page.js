@@ -6,15 +6,29 @@ import { supabase } from '@/lib/supabase'
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleLogin = async () => {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
+    setMessage('Logging in...')
 
-    console.log('DATA:', data)
-    console.log('ERROR:', error)
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (error) {
+        setMessage(`ERROR: ${error.message}`)
+        console.error('SUPABASE ERROR:', error)
+        return
+      }
+
+      setMessage('SUCCESS: logged in')
+      console.log('LOGIN DATA:', data)
+    } catch (err) {
+      setMessage(`CATCH ERROR: ${err.message}`)
+      console.error('CATCH ERROR:', err)
+    }
   }
 
   return (
@@ -25,6 +39,7 @@ export default function LoginPage() {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        style={{ display: 'block', marginBottom: 12, padding: 8 }}
       />
 
       <input
@@ -32,9 +47,14 @@ export default function LoginPage() {
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
+        style={{ display: 'block', marginBottom: 12, padding: 8 }}
       />
 
-      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleLogin} style={{ padding: 8 }}>
+        Login
+      </button>
+
+      <p style={{ marginTop: 20 }}>{message}</p>
     </div>
   )
 }
