@@ -328,18 +328,26 @@ a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}i
 <div class="a-side-group">
 <div class="a-side-label">Dashboard</div>
 <button class="a-side-btn active" data-p="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overview</button>
+<button class="a-side-btn" data-p="analytics"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Analytics</button>
 </div>
 <div class="a-side-group">
 <div class="a-side-label">Management</div>
 <button class="a-side-btn" data-p="users"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Users<span class="a-badge-count" id="admUsersBadge"></span></button>
+<button class="a-side-btn" data-p="revenue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Revenue</button>
 <button class="a-side-btn" data-p="pages"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Site Pages</button>
 </div>
 <div class="a-side-group">
 <div class="a-side-label">System</div>
 <button class="a-side-btn" data-p="health"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>System Health</button>
+<button class="a-side-btn" data-p="security"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security</button>
+<button class="a-side-btn" data-p="database"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Database</button>
 <button class="a-side-btn" data-p="env"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Environment</button>
 <button class="a-side-btn" data-p="audit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Audit Log</button>
 <button class="a-side-btn" data-p="links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Quick Links</button>
+</div>
+<div class="a-side-group">
+<div class="a-side-label">Configuration</div>
+<button class="a-side-btn" data-p="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</button>
 </div>
 </nav>
 <div class="a-side-foot">
@@ -440,10 +448,58 @@ a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}i
 <div class="a-card"><div class="a-card-body" id="auditList"><p style="color:var(--a-txt3);font-size:.8rem">No events recorded yet.</p></div></div>
 </div></div>
 
+<!-- ══════ ANALYTICS ══════ -->
+<div class="a-panel" id="pAnalytics"><div class="a-page">
+<div class="a-page-head"><div><h1>Analytics</h1><p>Platform usage statistics and engagement metrics.</p></div></div>
+<div class="a-stats" id="analyticsStats"></div>
+<div class="a-card-grid">
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg><span class="a-card-title">User Growth</span></div><div class="a-card-body" id="analyticsGrowth"></div></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20"/></svg><span class="a-card-title">Email Verification Rate</span></div><div class="a-card-body" id="analyticsVerification"></div></div>
+</div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="a-card-title">Auth Provider Breakdown</span></div><div class="a-card-body" id="analyticsProviders"></div></div>
+</div></div>
+
+<!-- ══════ REVENUE ══════ -->
+<div class="a-panel" id="pRevenue"><div class="a-page">
+<div class="a-page-head"><div><h1>Revenue</h1><p>Product catalog and Stripe payment configuration.</p></div>
+<div class="a-page-actions"><a href="https://dashboard.stripe.com" target="_blank" class="a-btn a-btn--primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open Stripe</a></div>
+</div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><span class="a-card-title">Product Catalog</span></div><div class="a-card-body" id="revenueProducts"></div></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="a-card-title">Payment Links</span></div><div class="a-card-body" id="revenueLinks"></div></div>
+</div></div>
+
+<!-- ══════ SECURITY ══════ -->
+<div class="a-panel" id="pSecurity"><div class="a-page">
+<div class="a-page-head"><div><h1>Security</h1><p>Authentication configuration and access control policies.</p></div></div>
+<div class="a-card-grid">
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="a-card-title">Auth Configuration</span></div><div class="a-card-body" id="secAuth"></div></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="a-card-title">Access Control</span></div><div class="a-card-body" id="secAccess"></div></div>
+</div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><span class="a-card-title">Security Headers</span></div><div class="a-card-body" id="secHeaders"></div></div>
+</div></div>
+
+<!-- ══════ DATABASE ══════ -->
+<div class="a-panel" id="pDatabase"><div class="a-page">
+<div class="a-page-head"><div><h1>Database</h1><p>Supabase schema overview and data storage configuration.</p></div>
+<div class="a-page-actions"><a href="https://supabase.com/dashboard" target="_blank" class="a-btn a-btn--primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Open Supabase</a></div>
+</div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg><span class="a-card-title">Tables &amp; Services</span></div><div class="a-card-body" id="dbTables"></div></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><span class="a-card-title">Client-Side Storage Keys</span></div><div class="a-card-body" id="dbLocalKeys"></div></div>
+</div></div>
+
 <!-- ══════ QUICK LINKS ══════ -->
 <div class="a-panel" id="pLinks"><div class="a-page">
 <div class="a-page-head"><div><h1>Quick Links</h1><p>External services, tooling and developer resources.</p></div></div>
 <div class="a-links" id="quickLinksList"></div>
+</div></div>
+
+<!-- ══════ SETTINGS ══════ -->
+<div class="a-panel" id="pSettings"><div class="a-page">
+<div class="a-page-head"><div><h1>Settings</h1><p>Console preferences and configuration.</p></div></div>
+<div class="a-card-grid">
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="a-card-title">Console Preferences</span></div><div class="a-card-body" id="settingsPrefs"></div></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span class="a-card-title">About Console</span></div><div class="a-card-body" id="settingsAbout"></div></div>
+</div>
 </div></div>
 
 </main>
@@ -517,7 +573,7 @@ document.querySelectorAll('.a-theme-pill').forEach(function(b){
 /* Navigation */
 var panels=document.querySelectorAll('.a-panel');
 var navBtns=document.querySelectorAll('.a-side-btn[data-p]');
-var panelTitles={overview:'Overview',users:'User Management',pages:'Site Pages',health:'System Health',env:'Environment',audit:'Audit Log',links:'Quick Links'};
+var panelTitles={overview:'Overview',analytics:'Analytics',users:'User Management',revenue:'Revenue',pages:'Site Pages',health:'System Health',security:'Security',database:'Database',env:'Environment',audit:'Audit Log',links:'Quick Links',settings:'Settings'};
 function switchPanel(id){
   navBtns.forEach(function(b){b.classList.toggle('active',b.dataset.p===id)});
   panels.forEach(function(p){p.classList.toggle('active',p.id==='p'+id.charAt(0).toUpperCase()+id.slice(1))});
@@ -769,9 +825,77 @@ $('quickLinksList').innerHTML=qlinks.map(function(l){
   return'<a href="'+l.u+'" target="_blank" class="a-link"><div class="a-link-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div><div><div class="a-link-text">'+esc(l.n)+'</div><div class="a-link-desc">'+esc(l.d)+'</div></div></a>'
 }).join('');
 
+/* Analytics */
+function renderAnalytics(){
+  if(!allUsers.length)return;
+  var confirmed=allUsers.filter(function(u){return u.email_confirmed_at}).length;
+  var unconfirmed=allUsers.length-confirmed;
+  var thisWeek=allUsers.filter(function(u){var d=new Date(u.created_at);var ago=Date.now()-7*86400000;return d.getTime()>ago}).length;
+  var thisMonth=allUsers.filter(function(u){var d=new Date(u.created_at);var now=new Date();return d.getMonth()===now.getMonth()&&d.getFullYear()===now.getFullYear()}).length;
+  $('analyticsStats').innerHTML='<div class="a-stat purple"><div class="a-stat-val">'+thisWeek+'</div><div class="a-stat-lbl">This Week</div></div><div class="a-stat green"><div class="a-stat-val">'+thisMonth+'</div><div class="a-stat-lbl">This Month</div></div><div class="a-stat blue"><div class="a-stat-val">'+(allUsers.length>0?((confirmed/allUsers.length)*100).toFixed(0)+'%':'0%')+'</div><div class="a-stat-lbl">Verification Rate</div></div><div class="a-stat red"><div class="a-stat-val">'+(allUsers.length>1?((thisWeek/(allUsers.length-thisWeek||1))*100).toFixed(0)+'%':'0%')+'</div><div class="a-stat-lbl">Week Growth</div></div>';
+  /* Growth by month */
+  var months={};allUsers.forEach(function(u){var k=u.created_at?u.created_at.slice(0,7):'unknown';months[k]=(months[k]||0)+1});
+  var mKeys=Object.keys(months).sort().slice(-6);
+  var mMax=Math.max.apply(null,mKeys.map(function(k){return months[k]}))||1;
+  var gh='<div style="display:flex;align-items:flex-end;gap:8px;height:80px">';
+  mKeys.forEach(function(k){var h=Math.max(months[k]/mMax*100,6);gh+='<div style="flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%"><div style="font-size:.65rem;font-weight:700;color:var(--a-green);margin-bottom:4px">'+months[k]+'</div><div style="background:linear-gradient(180deg,var(--a-green),rgba(52,211,153,.25));border-radius:4px 4px 0 0;height:'+h+'%;width:100%;max-width:36px"></div><div style="font-size:.56rem;color:var(--a-txt3);margin-top:6px;font-weight:500">'+k+'</div></div>'});
+  gh+='</div>';$('analyticsGrowth').innerHTML=gh;
+  /* Verification donut */
+  var pct=allUsers.length?((confirmed/allUsers.length)*100).toFixed(1):0;
+  $('analyticsVerification').innerHTML='<div style="text-align:center"><div style="font-family:DM Serif Display,serif;font-size:2.5rem;color:var(--a-txt)">'+pct+'%</div><div style="font-size:.7rem;color:var(--a-txt3);margin-top:.25rem">'+confirmed+' verified · '+unconfirmed+' pending</div></div>';
+  /* Providers */
+  var provs={};allUsers.forEach(function(u){var p=(u.app_metadata&&u.app_metadata.provider)||'email';provs[p]=(provs[p]||0)+1});
+  var ph='';Object.keys(provs).sort(function(a,b){return provs[b]-provs[a]}).forEach(function(p){var w=((provs[p]/allUsers.length)*100).toFixed(0);ph+='<div class="a-row"><span class="a-row-lbl" style="text-transform:capitalize">'+esc(p)+'</span><span class="a-row-val">'+provs[p]+' <span style="color:var(--a-txt3);font-size:.65rem">('+w+'%)</span></span></div>'});
+  $('analyticsProviders').innerHTML=ph;
+}
+
+/* Revenue */
+function renderRevenue(){
+  var products=[{name:'Altivor PREPARE',price:'\u20ac29',type:'One-time',stripe:'prepare'},{name:'Accessories Suite',price:'\u20ac79/mo',type:'Subscription',stripe:'accessories'},{name:'Framework Pack',price:'\u20ac59',type:'One-time',stripe:'frameworkPack'},{name:'US100 Framework',price:'\u20ac129',type:'One-time',stripe:'us100Framework'}];
+  var links={prepare:'https://buy.stripe.com/8x25kEf2F93M3O50bOdby01',accessories:'https://buy.stripe.com/aFa6oI5s5a7QdoFgaMdby03',frameworkPack:'https://buy.stripe.com/4gM9AUdYBbbUfwN4s4dby02',us100Framework:'https://buy.stripe.com/00wdRabQt93M5Wde2Edby00'};
+  var ph='';products.forEach(function(p){ph+='<div class="a-row"><span class="a-row-lbl"><strong style="color:var(--a-txt)">'+esc(p.name)+'</strong><br><span style="font-size:.62rem">'+p.type+'</span></span><span class="a-row-val" style="font-family:DM Serif Display,serif;font-size:1rem">'+p.price+'</span></div>'});
+  $('revenueProducts').innerHTML=ph;
+  var lh='';products.forEach(function(p){var url=links[p.stripe]||'';lh+='<div class="a-row"><span class="a-row-lbl">'+esc(p.name)+'</span><span class="a-row-val mono" style="font-size:.6rem;max-width:260px;overflow:hidden;text-overflow:ellipsis">'+(url?'<a href="'+url+'" target="_blank" style="color:var(--a-accent)">'+url.slice(0,45)+'\u2026</a>':'Not configured')+'</span></div>'});
+  $('revenueLinks').innerHTML=lh;
+}
+
+/* Security */
+function renderSecurity(){
+  var ah='';ah+='<div class="a-row"><span class="a-row-lbl">Auth Provider</span><span class="a-row-val">Supabase GoTrue</span></div>';ah+='<div class="a-row"><span class="a-row-lbl">Session Storage</span><span class="a-row-val mono">localStorage (altivor_session)</span></div>';ah+='<div class="a-row"><span class="a-row-lbl">Token Type</span><span class="a-row-val mono">JWT (HS256)</span></div>';ah+='<div class="a-row"><span class="a-row-lbl">MFA Support</span><span class="a-row-val"><span style="color:var(--a-green)">\u25cf</span> TOTP Enabled</span></div>';ah+='<div class="a-row"><span class="a-row-lbl">Password Policy</span><span class="a-row-val">8+ chars, uppercase, number, special</span></div>';ah+='<div class="a-row"><span class="a-row-lbl">Email Confirmation</span><span class="a-row-val"><span style="color:var(--a-green)">\u25cf</span> Required</span></div>';
+  $('secAuth').innerHTML=ah;
+  var ac='';ac+='<div class="a-row"><span class="a-row-lbl">Admin Gate</span><span class="a-row-val">Email-based (client-side)</span></div>';ac+='<div class="a-row"><span class="a-row-lbl">Admin Email</span><span class="a-row-val mono">'+esc(ADM_EMAIL)+'</span></div>';ac+='<div class="a-row"><span class="a-row-lbl">API Authorization</span><span class="a-row-val">service_role key (server-level)</span></div>';ac+='<div class="a-row"><span class="a-row-lbl">RLS (Row-Level Security)</span><span class="a-row-val">Managed via Supabase</span></div>';ac+='<div class="a-row"><span class="a-row-lbl">CORS</span><span class="a-row-val">Default Supabase policy</span></div>';
+  $('secAccess').innerHTML=ac;
+  var sh='';sh+='<div class="a-row"><span class="a-row-lbl">X-Frame-Options</span><span class="a-row-val mono">DENY (recommended)</span></div>';sh+='<div class="a-row"><span class="a-row-lbl">Content-Security-Policy</span><span class="a-row-val mono">Not set (review needed)</span></div>';sh+='<div class="a-row"><span class="a-row-lbl">Strict-Transport-Security</span><span class="a-row-val mono">Managed by hosting</span></div>';sh+='<div class="a-row"><span class="a-row-lbl">Referrer-Policy</span><span class="a-row-val mono">strict-origin-when-cross-origin</span></div>';sh+='<div class="a-row"><span class="a-row-lbl">X-Content-Type-Options</span><span class="a-row-val mono">nosniff</span></div>';
+  $('secHeaders').innerHTML=sh;
+}
+
+/* Database */
+function renderDatabase(){
+  var tables=[{name:'auth.users',desc:'User accounts & metadata',rows:allUsers.length},{name:'auth.sessions',desc:'Active login sessions',rows:'\u2014'},{name:'auth.mfa_factors',desc:'TOTP 2FA enrollments',rows:'\u2014'},{name:'auth.audit_log_entries',desc:'Auth event log',rows:'\u2014'},{name:'storage.buckets',desc:'File storage buckets',rows:'\u2014'},{name:'storage.objects',desc:'Uploaded files & assets',rows:'\u2014'}];
+  var th='';tables.forEach(function(t){th+='<div class="a-row"><span class="a-row-lbl"><strong style="color:var(--a-txt)">'+esc(t.name)+'</strong><br><span style="font-size:.62rem">'+esc(t.desc)+'</span></span><span class="a-row-val mono">'+t.rows+' rows</span></div>'});
+  $('dbTables').innerHTML=th;
+  var keys=[];try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);var v=localStorage.getItem(k);keys.push({key:k,size:((k.length+v.length)*2/1024).toFixed(1)})}}catch(e){}
+  keys.sort(function(a,b){return parseFloat(b.size)-parseFloat(a.size)});
+  var kh='';keys.forEach(function(k){kh+='<div class="a-row"><span class="a-row-lbl mono" style="font-size:.65rem;max-width:200px;overflow:hidden;text-overflow:ellipsis">'+esc(k.key)+'</span><span class="a-row-val mono">'+k.size+' KB</span></div>'});
+  if(!kh)kh='<p style="color:var(--a-txt3);font-size:.78rem">No keys found.</p>';
+  $('dbLocalKeys').innerHTML=kh;
+}
+
+/* Settings */
+function renderSettings(){
+  var ph='';ph+='<div class="a-row"><span class="a-row-lbl">Theme</span><span class="a-row-val">'+(localStorage.getItem('altivor-theme')||'dark')+'</span></div>';ph+='<div class="a-row"><span class="a-row-lbl">Console Version</span><span class="a-row-val mono">3.0.0</span></div>';ph+='<div class="a-row"><span class="a-row-lbl">Session Started</span><span class="a-row-val mono">'+fDateTime(new Date().toISOString())+'</span></div>';ph+='<div class="a-row"><span class="a-row-lbl">Data Refresh</span><span class="a-row-val">Auto (every 10s for status)</span></div>';ph+='<div class="a-row"><span class="a-row-lbl">Keyboard Shortcuts</span><span class="a-row-val">Esc to close modals</span></div>';
+  $('settingsPrefs').innerHTML=ph;
+  var ab='';ab+='<div class="a-row"><span class="a-row-lbl">Application</span><span class="a-row-val">ALTIVOR Admin Console</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Architecture</span><span class="a-row-val">Standalone SPA (vanilla JS)</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Backend</span><span class="a-row-val">Supabase (GoTrue + PostgREST)</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Payments</span><span class="a-row-val">Stripe Payment Links</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Hosting</span><span class="a-row-val">Vercel (Edge Network)</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Repository</span><span class="a-row-val"><a href="https://github.com/geheuhhhw-lgtm/altivor-site" target="_blank" style="color:var(--a-accent)">geheuhhhw-lgtm/altivor-site</a></span></div>';
+  $('settingsAbout').innerHTML=ab;
+}
+
 /* Init */
-loadUsers();renderSysStatus();renderHealth();renderEnv();
+loadUsers();
+renderSysStatus();renderHealth();renderEnv();renderRevenue();renderSecurity();renderSettings();
 setInterval(renderSysStatus,10000);
+/* Deferred analytics render after users load */
+var _origLoad=loadUsers;
+loadUsers=function(){_origLoad();setTimeout(function(){renderAnalytics();renderDatabase()},1500)};
 })();
 </script>
 </body>
