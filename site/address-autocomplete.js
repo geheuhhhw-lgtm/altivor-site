@@ -60,6 +60,7 @@
     wrap.appendChild(err);
 
     var timer, results = [], hlIdx = -1, picked = false;
+    input.setCustomValidity('Start typing and select an address from the list.');
 
     function open() { drop.classList.add('open'); }
     function close() { drop.classList.remove('open'); hlIdx = -1; }
@@ -89,6 +90,7 @@
       input.value = results[i].display;
       picked = true;
       err.style.display = 'none';
+      input.setCustomValidity('');
       close();
     }
 
@@ -120,6 +122,7 @@
     /* ── Events ──────────────────────────────────────────────────────── */
     input.addEventListener('input', function () {
       picked = false; err.style.display = 'none';
+      input.setCustomValidity('Please select a valid address from the suggestions.');
       var q = (input.value || '').trim();
       if (q.length < MIN_CHARS) { render([]); return; }
       clearTimeout(timer);
@@ -141,22 +144,39 @@
     input.addEventListener('blur', function () { setTimeout(close, 120); });
 
     /* ── Block submit if no valid address picked ─────────────────────── */
-    function hookForm(form) {
-      if (!form || form._addrHooked) return;
-      form._addrHooked = true;
-      form.addEventListener('submit', function (e) {
-        if (!(input.value || '').trim()) return;
-        if (!picked) {
-          e.preventDefault(); e.stopImmediatePropagation();
-          err.style.display = 'block';
-          input.focus();
-        }
-      }, true);
+    function blockIfInvalid() {
+      if (!(input.value || '').trim()) return true;
+      if (!picked) {
+        err.style.display = 'block';
+        input.setCustomValidity('Please select a valid address from the suggestions.');
+        input.reportValidity();
+        input.focus();
+        return false;
+      }
+      return true;
     }
-    var f = input.closest('form');
-    if (f) hookForm(f);
-    new MutationObserver(function () { var f2 = input.closest('form'); if (f2) hookForm(f2); })
-      .observe(document.body, { childList: true, subtree: true });
+
+    // Capture phase on document — fires before any other handler
+    document.addEventListener('submit', function (e) {
+      var form = e.target;
+      if (!form || !form.contains(input)) return;
+      if (!blockIfInvalid()) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }, true);
+
+    // Also intercept any JS that calls form.submit() or clicks submit btn
+    document.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[type="submit"], input[type="submit"]');
+      if (!btn) return;
+      var form = btn.closest('form');
+      if (!form || !form.contains(input)) return;
+      if (!blockIfInvalid()) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }, true);
   }
 
   /* ── Scan & auto-attach ─────────────────────────────────────────────── */
