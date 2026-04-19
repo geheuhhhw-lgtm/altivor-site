@@ -8,151 +8,339 @@
 <link rel="stylesheet" href="styles.css?v=20250419" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 <style>
-/* ═══ ADMIN PANEL ═════════════════════════════════════════════════════════ */
-:root,[data-theme="dark"]{--adm-accent:rgba(168,85,247,.85);--adm-accent-soft:rgba(168,85,247,.1);--adm-accent-border:rgba(168,85,247,.4)}
-[data-theme="light"]{--adm-accent:rgba(126,34,206,.85);--adm-accent-soft:rgba(126,34,206,.07);--adm-accent-border:rgba(126,34,206,.3)}
-[data-theme="navy"]{--adm-accent:rgba(192,132,252,.85);--adm-accent-soft:rgba(192,132,252,.1);--adm-accent-border:rgba(192,132,252,.4)}
+/* ═══ ADMIN PANEL — Corporate Developer Console ══════════════════════════ */
+:root,[data-theme="dark"]{
+  --adm-accent:#a855f7;--adm-accent-soft:rgba(168,85,247,.08);--adm-accent-border:rgba(168,85,247,.35);
+  --adm-green:#22c55e;--adm-green-bg:rgba(34,197,94,.1);
+  --adm-red:#ef4444;--adm-red-bg:rgba(239,68,68,.1);
+  --adm-yellow:#eab308;--adm-yellow-bg:rgba(234,179,8,.1);
+  --adm-blue:#60a5fa;--adm-blue-bg:rgba(96,165,250,.1);
+  --adm-sidebar-bg:var(--bg-surface);--adm-sidebar-border:var(--border-subtle);
+}
+[data-theme="light"]{
+  --adm-accent:#7c3aed;--adm-accent-soft:rgba(124,58,237,.06);--adm-accent-border:rgba(124,58,237,.25);
+  --adm-green:#15803d;--adm-green-bg:rgba(21,128,61,.07);
+  --adm-red:#dc2626;--adm-red-bg:rgba(220,38,38,.07);
+  --adm-yellow:#a16207;--adm-yellow-bg:rgba(161,98,7,.07);
+  --adm-blue:#2563eb;--adm-blue-bg:rgba(37,99,235,.06);
+  --adm-sidebar-bg:#ffffff;--adm-sidebar-border:rgba(0,0,0,.06);
+}
+[data-theme="navy"]{
+  --adm-accent:#c084fc;--adm-accent-soft:rgba(192,132,252,.08);--adm-accent-border:rgba(192,132,252,.3);
+  --adm-green:#4ade80;--adm-green-bg:rgba(74,222,128,.1);
+  --adm-red:#f87171;--adm-red-bg:rgba(248,113,113,.1);
+  --adm-yellow:#facc15;--adm-yellow-bg:rgba(250,204,21,.1);
+  --adm-blue:#93c5fd;--adm-blue-bg:rgba(147,197,253,.08);
+  --adm-sidebar-bg:#0d1525;--adm-sidebar-border:rgba(160,185,230,.08);
+}
 
+/* Gate */
 .adm-gate{text-align:center;padding:8rem 1rem;min-height:80vh}
 .adm-gate h2{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--txt-primary);margin-bottom:.5rem}
-.adm-gate p{color:var(--txt-secondary);font-size:.88rem}
+.adm-gate p{color:var(--txt-secondary);font-size:.88rem;max-width:420px;margin:0 auto}
 
-.adm-wrap{max-width:1200px;margin:0 auto;padding:7rem 1.5rem 4rem}
-.adm-header{margin-bottom:1.5rem}
-.adm-header h1{font-family:'DM Serif Display',serif;font-size:1.75rem;color:var(--txt-primary);margin:0 0 .25rem}
-.adm-header p{color:var(--txt-secondary);font-size:.82rem;margin:0}
+/* Layout */
+.adm-layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh;padding-top:0}
+.adm-sidebar{position:fixed;top:0;left:0;bottom:0;width:240px;background:var(--adm-sidebar-bg);border-right:1px solid var(--adm-sidebar-border);display:flex;flex-direction:column;z-index:200;overflow-y:auto}
+.adm-sidebar-brand{padding:1.5rem 1.25rem 1rem;border-bottom:1px solid var(--adm-sidebar-border)}
+.adm-sidebar-brand a{display:flex;align-items:center;gap:.5rem;text-decoration:none}
+.adm-sidebar-brand img{height:22px;width:auto;opacity:.85}
+.adm-sidebar-brand span{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--adm-accent);background:var(--adm-accent-soft);padding:.15rem .45rem;border-radius:.3rem;margin-left:.25rem}
 
-.adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
-.adm-stat{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.1rem 1rem;text-align:center}
-.adm-stat-val{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--txt-primary);line-height:1.2}
-.adm-stat-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);margin-top:.25rem}
+.adm-sidebar-nav{flex:1;padding:.75rem 0}
+.adm-nav-section{padding:0 1rem;margin-bottom:.25rem}
+.adm-nav-section-title{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt-muted);padding:.5rem .25rem .3rem}
+.adm-nav-item{display:flex;align-items:center;gap:.6rem;width:100%;padding:.55rem .75rem;font-size:.8rem;font-weight:500;color:var(--txt-secondary);background:none;border:none;border-radius:.5rem;cursor:pointer;transition:all .15s;text-align:left;text-decoration:none;font-family:inherit;margin-bottom:1px}
+.adm-nav-item:hover{color:var(--txt-primary);background:var(--bg-elevated)}
+.adm-nav-item.active{color:var(--adm-accent);background:var(--adm-accent-soft);font-weight:600}
+.adm-nav-item svg{width:16px;height:16px;flex-shrink:0;opacity:.65}
+.adm-nav-item.active svg{opacity:1}
+.adm-nav-sep{height:1px;background:var(--adm-sidebar-border);margin:.5rem 1rem}
 
-.adm-toolbar{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap}
-.adm-toolbar input{flex:1;min-width:200px;padding:.5rem .75rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit}
-.adm-toolbar input:focus{outline:none;border-color:var(--adm-accent-border);box-shadow:0 0 0 3px var(--adm-accent-soft)}
+.adm-sidebar-footer{padding:1rem 1.25rem;border-top:1px solid var(--adm-sidebar-border);font-size:.7rem;color:var(--txt-muted)}
+.adm-sidebar-footer a{color:var(--adm-accent);text-decoration:none}
+.adm-sidebar-footer a:hover{text-decoration:underline}
 
+/* Main area */
+.adm-main{margin-left:240px;padding:2rem 2.5rem 3rem;min-width:0}
+.adm-page-header{margin-bottom:1.5rem}
+.adm-page-header h1{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--txt-primary);margin:0 0 .2rem}
+.adm-page-header p{font-size:.82rem;color:var(--txt-muted);margin:0}
+
+/* Stats */
+.adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem}
+.adm-stat{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.15rem 1rem}
+.adm-stat-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:.4rem}
+.adm-stat-icon{width:32px;height:32px;border-radius:.5rem;display:flex;align-items:center;justify-content:center}
+.adm-stat-icon.purple{background:var(--adm-accent-soft);color:var(--adm-accent)}
+.adm-stat-icon.green{background:var(--adm-green-bg);color:var(--adm-green)}
+.adm-stat-icon.blue{background:var(--adm-blue-bg);color:var(--adm-blue)}
+.adm-stat-icon.red{background:var(--adm-red-bg);color:var(--adm-red)}
+.adm-stat-val{font-family:'DM Serif Display',serif;font-size:1.75rem;color:var(--txt-primary);line-height:1.1}
+.adm-stat-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted)}
+
+/* Toolbar */
+.adm-toolbar{display:flex;align-items:center;gap:.65rem;margin-bottom:1rem;flex-wrap:wrap}
+.adm-toolbar input{flex:1;min-width:220px;padding:.5rem .85rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit;transition:border-color .2s}
+.adm-toolbar input:focus{outline:none;border-color:var(--adm-accent-border)}
+.adm-toolbar select{padding:.5rem .65rem;font-size:.8rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit}
+.adm-count{font-size:.75rem;color:var(--txt-muted);margin-left:auto}
+
+/* Table */
 .adm-table-wrap{overflow-x:auto;border:1px solid var(--border-subtle);border-radius:1rem;background:var(--bg-card)}
 .adm-table{width:100%;border-collapse:collapse;font-size:.8rem}
-.adm-table th{text-align:left;padding:.7rem .75rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);border-bottom:1px solid var(--border-default);background:var(--bg-elevated)}
-.adm-table td{padding:.6rem .75rem;border-bottom:1px solid var(--border-subtle);color:var(--txt-primary);white-space:nowrap}
+.adm-table th{text-align:left;padding:.65rem .85rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);border-bottom:1px solid var(--border-default);background:var(--bg-elevated)}
+.adm-table td{padding:.55rem .85rem;border-bottom:1px solid var(--border-subtle);color:var(--txt-primary);white-space:nowrap}
 .adm-table tr:last-child td{border-bottom:none}
 .adm-table tr:hover td{background:var(--bg-elevated)}
 
-.adm-pill{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
-.adm-pill--admin{background:rgba(168,85,247,.12);color:#a855f7}
-.adm-pill--authenticated,.adm-pill--user{background:rgba(100,116,139,.1);color:var(--txt-secondary)}
-.adm-pill--confirmed{background:rgba(34,197,94,.1);color:#22c55e}
-.adm-pill--unconfirmed{background:rgba(234,179,8,.1);color:#eab308}
-.adm-pill--banned{background:rgba(239,68,68,.12);color:#ef4444}
-[data-theme="light"] .adm-pill--admin{color:#7c3aed}
-[data-theme="light"] .adm-pill--confirmed{color:#15803d}
-[data-theme="light"] .adm-pill--unconfirmed{color:#a16207}
-[data-theme="light"] .adm-pill--banned{color:#dc2626}
+.adm-pill{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.62rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.adm-pill--admin{background:var(--adm-accent-soft);color:var(--adm-accent)}
+.adm-pill--user,.adm-pill--authenticated{background:rgba(128,128,128,.1);color:var(--txt-secondary)}
+.adm-pill--confirmed{background:var(--adm-green-bg);color:var(--adm-green)}
+.adm-pill--unconfirmed{background:var(--adm-yellow-bg);color:var(--adm-yellow)}
+.adm-pill--banned{background:var(--adm-red-bg);color:var(--adm-red)}
 
-.adm-edit-btn{background:none;border:1px solid var(--border-default);color:var(--txt-secondary);padding:3px 10px;border-radius:6px;font-size:.72rem;cursor:pointer;transition:border-color .15s,color .15s;font-family:inherit}
+.adm-edit-btn{background:none;border:1px solid var(--border-default);color:var(--txt-secondary);padding:3px 10px;border-radius:6px;font-size:.7rem;cursor:pointer;transition:all .15s;font-family:inherit}
 .adm-edit-btn:hover{border-color:var(--adm-accent-border);color:var(--adm-accent)}
+.adm-ban-btn{background:none;border:1px solid var(--adm-red-bg);color:var(--adm-red);padding:3px 10px;border-radius:6px;font-size:.7rem;cursor:pointer;transition:all .15s;font-family:inherit;margin-left:4px}
+.adm-ban-btn:hover{background:var(--adm-red-bg)}
 
-.adm-empty{text-align:center;padding:3rem;color:var(--txt-muted);font-size:.88rem}
-.adm-loading{text-align:center;padding:2rem;color:var(--txt-muted);font-size:.82rem}
+.adm-empty{text-align:center;padding:3rem;color:var(--txt-muted);font-size:.85rem}
+.adm-mono{font-family:'Courier New',monospace;font-size:.68rem;max-width:100px;overflow:hidden;text-overflow:ellipsis}
+
+/* Section panel */
+.adm-section{display:none}
+.adm-section.active{display:block}
+
+/* Card */
+.adm-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1rem;padding:1.5rem;margin-bottom:1.25rem}
+.adm-card-head{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border-subtle)}
+.adm-card-head svg{flex-shrink:0;color:var(--adm-accent)}
+.adm-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--adm-accent)}
+.adm-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid var(--border-subtle)}
+.adm-row:last-child{border-bottom:none}
+.adm-row-lbl{font-size:.8rem;color:var(--txt-muted)}
+.adm-row-val{font-size:.8rem;font-weight:500;color:var(--txt-primary)}
+
+/* Quick links grid */
+.adm-quick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.adm-quick-link{display:flex;align-items:center;gap:.75rem;padding:1rem;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;text-decoration:none;color:var(--txt-primary);transition:all .2s}
+.adm-quick-link:hover{border-color:var(--adm-accent-border);background:var(--adm-accent-soft)}
+.adm-quick-link .ql-icon{width:36px;height:36px;border-radius:.5rem;display:flex;align-items:center;justify-content:center;background:var(--adm-accent-soft);color:var(--adm-accent)}
+.adm-quick-link .ql-text{font-size:.8rem;font-weight:600}
+.adm-quick-link .ql-desc{font-size:.68rem;color:var(--txt-muted);margin-top:.1rem}
 
 /* Edit modal */
 .adm-modal-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
 .adm-modal-overlay.open{display:flex}
-.adm-modal{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.25rem;padding:2rem;max-width:480px;width:92%;box-shadow:0 24px 48px rgba(0,0,0,.25)}
-.adm-modal h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--txt-primary);margin:0 0 .25rem}
+.adm-modal{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.25rem;padding:2rem;max-width:520px;width:92%;box-shadow:0 24px 48px rgba(0,0,0,.25)}
+.adm-modal h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--txt-primary);margin:0 0 .15rem}
 .adm-modal-email{font-size:.78rem;color:var(--txt-muted);margin:0 0 1.25rem;word-break:break-all}
-.adm-modal-field{margin-bottom:1rem}
-.adm-modal-field label{display:block;font-size:.7rem;font-weight:600;color:var(--txt-secondary);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.06em}
-.adm-modal-field select,.adm-modal-field input{width:100%;padding:.5rem .65rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit}
-.adm-modal-field input:disabled{opacity:.45}
+.adm-modal-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.adm-modal-field{margin-bottom:.85rem}
+.adm-modal-field label{display:block;font-size:.68rem;font-weight:600;color:var(--txt-secondary);margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.06em}
+.adm-modal-field select,.adm-modal-field input{width:100%;padding:.45rem .65rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit}
+.adm-modal-field input:disabled{opacity:.5;cursor:not-allowed}
 .adm-modal-actions{display:flex;gap:.5rem;margin-top:1.25rem}
-.adm-modal-status{font-size:.78rem;margin-top:.5rem;min-height:1.2em}
-.adm-modal-status.ok{color:#22c55e}
-.adm-modal-status.err{color:#ef4444}
+.adm-modal-status{font-size:.78rem;margin-top:.4rem;min-height:1.2em}
+.adm-modal-status.ok{color:var(--adm-green)}
+.adm-modal-status.err{color:var(--adm-red)}
 
-.adm-mono{font-family:'Courier New',monospace;font-size:.7rem;word-break:break-all;max-width:120px;overflow:hidden;text-overflow:ellipsis}
-
-@media(max-width:860px){
-.adm-stats{grid-template-columns:1fr 1fr}
+/* Responsive */
+@media(max-width:960px){
+  .adm-layout{grid-template-columns:1fr}
+  .adm-sidebar{position:relative;width:100%;height:auto;flex-direction:row;flex-wrap:wrap;border-right:none;border-bottom:1px solid var(--adm-sidebar-border)}
+  .adm-sidebar-brand{border-bottom:none;padding:.75rem 1rem}
+  .adm-sidebar-nav{display:flex;flex-wrap:wrap;gap:.25rem;padding:.5rem 1rem}
+  .adm-nav-section{padding:0;display:flex;gap:.25rem;flex-wrap:wrap}
+  .adm-nav-section-title{display:none}
+  .adm-nav-sep{display:none}
+  .adm-nav-item{padding:.4rem .65rem;font-size:.75rem;border-radius:.35rem}
+  .adm-sidebar-footer{display:none}
+  .adm-main{margin-left:0;padding:1.5rem 1rem}
+  .adm-stats{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
-.adm-stats{grid-template-columns:1fr}
-.adm-toolbar{flex-direction:column}
+  .adm-stats{grid-template-columns:1fr}
+  .adm-toolbar{flex-direction:column}
+  .adm-modal-row{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<!-- GATE: shown when not admin -->
+<!-- GATE -->
 <div id="admGate" class="adm-gate" style="display:none;">
-<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.2" style="opacity:.3;margin-bottom:1rem;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.2" style="opacity:.25;margin-bottom:1rem;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
 <h2>Access Restricted</h2>
 <p>This page is only available to authorized administrators.</p>
 <p style="margin-top:1.5rem;"><a href="index.html" class="btn btn-primary">Return to Home</a></p>
 </div>
 
-<!-- ADMIN PANEL: shown when admin -->
-<div id="admPanel" class="adm-wrap" style="display:none;">
-<div class="adm-header">
-<h1>Admin Panel</h1>
-<p>Manage users, subscriptions, and account statuses.</p>
-</div>
+<!-- ADMIN CONSOLE -->
+<div id="admLayout" class="adm-layout" style="display:none;">
 
-<!-- Stats -->
+<!-- SIDEBAR -->
+<aside class="adm-sidebar">
+<div class="adm-sidebar-brand">
+<a href="index.html">
+<img src="logo.png" alt="ALTIVOR" />
+<span>ADMIN</span>
+</a>
+</div>
+<div class="adm-sidebar-nav">
+<div class="adm-nav-section">
+<div class="adm-nav-section-title">Dashboard</div>
+<button class="adm-nav-item active" data-panel="overview">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+Overview
+</button>
+</div>
+<div class="adm-nav-sep"></div>
+<div class="adm-nav-section">
+<div class="adm-nav-section-title">Management</div>
+<button class="adm-nav-item" data-panel="users">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+Users
+</button>
+<button class="adm-nav-item" data-panel="site">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+Site Pages
+</button>
+</div>
+<div class="adm-nav-sep"></div>
+<div class="adm-nav-section">
+<div class="adm-nav-section-title">System</div>
+<button class="adm-nav-item" data-panel="quicklinks">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Quick Links
+</button>
+</div>
+</div>
+<div class="adm-sidebar-footer">
+Logged in as <strong>Admin</strong><br/>
+<a href="index.html">&larr; Back to Site</a>
+</div>
+</aside>
+
+<!-- MAIN -->
+<div class="adm-main">
+
+<!-- OVERVIEW -->
+<div class="adm-section active" id="panelOverview">
+<div class="adm-page-header">
+<h1>Dashboard Overview</h1>
+<p>System metrics and quick access to administration tools.</p>
+</div>
 <div class="adm-stats">
-<div class="adm-stat"><div class="adm-stat-val" id="admStatTotal">—</div><div class="adm-stat-lbl">Total Users</div></div>
-<div class="adm-stat"><div class="adm-stat-val" id="admStatConfirmed">—</div><div class="adm-stat-lbl">Confirmed</div></div>
-<div class="adm-stat"><div class="adm-stat-val" id="admStatToday">—</div><div class="adm-stat-lbl">Signed Up Today</div></div>
-<div class="adm-stat"><div class="adm-stat-val" id="admStatBanned">—</div><div class="adm-stat-lbl">Banned</div></div>
+<div class="adm-stat">
+<div class="adm-stat-top"><div class="adm-stat-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div></div>
+<div class="adm-stat-val" id="admStatTotal">&mdash;</div>
+<div class="adm-stat-lbl">Total Users</div>
+</div>
+<div class="adm-stat">
+<div class="adm-stat-top"><div class="adm-stat-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+<div class="adm-stat-val" id="admStatConfirmed">&mdash;</div>
+<div class="adm-stat-lbl">Confirmed</div>
+</div>
+<div class="adm-stat">
+<div class="adm-stat-top"><div class="adm-stat-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+<div class="adm-stat-val" id="admStatToday">&mdash;</div>
+<div class="adm-stat-lbl">Today</div>
+</div>
+<div class="adm-stat">
+<div class="adm-stat-top"><div class="adm-stat-icon red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div></div>
+<div class="adm-stat-val" id="admStatBanned">&mdash;</div>
+<div class="adm-stat-lbl">Banned</div>
+</div>
 </div>
 
-<!-- Toolbar -->
+<div class="adm-card">
+<div class="adm-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+<span class="adm-card-title">Recent Signups</span>
+</div>
+<div id="recentSignups"><p style="color:var(--txt-muted);font-size:.82rem;">Loading...</p></div>
+</div>
+</div>
+
+<!-- USERS -->
+<div class="adm-section" id="panelUsers">
+<div class="adm-page-header">
+<h1>User Management</h1>
+<p>View, search, and manage all registered accounts.</p>
+</div>
 <div class="adm-toolbar">
-<input type="text" id="admSearch" placeholder="Search by email or name..." />
+<input type="text" id="admSearch" placeholder="Search by email, name or ID..." />
+<select id="admFilterStatus"><option value="">All Statuses</option><option value="confirmed">Confirmed</option><option value="unconfirmed">Unconfirmed</option><option value="banned">Banned</option></select>
 <button class="btn btn-ghost btn-sm" id="admRefresh">Refresh</button>
+<span class="adm-count" id="admCount"></span>
 </div>
-
-<!-- Table -->
 <div class="adm-table-wrap">
 <table class="adm-table">
-<thead><tr>
-<th>Email</th>
-<th>Name</th>
-<th>Role</th>
-<th>Email Status</th>
-<th>Created</th>
-<th>Last Sign In</th>
-<th>Provider</th>
-<th></th>
-</tr></thead>
-<tbody id="admTableBody">
-<tr><td colspan="8" class="adm-loading">Loading users...</td></tr>
-</tbody>
+<thead><tr><th>Email</th><th>Name</th><th>Role</th><th>Status</th><th>Created</th><th>Last Sign In</th><th>Provider</th><th>Actions</th></tr></thead>
+<tbody id="admTableBody"><tr><td colspan="8" class="adm-empty">Loading...</td></tr></tbody>
 </table>
 </div>
 </div>
 
-<!-- Edit Modal -->
+<!-- SITE PAGES -->
+<div class="adm-section" id="panelSite">
+<div class="adm-page-header">
+<h1>Site Pages</h1>
+<p>Quick access to all site pages for review and testing.</p>
+</div>
+<div class="adm-quick-grid" id="sitePagesList"></div>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="adm-section" id="panelQuicklinks">
+<div class="adm-page-header">
+<h1>Quick Links</h1>
+<p>External services and development tools.</p>
+</div>
+<div class="adm-quick-grid">
+<a href="https://supabase.com/dashboard" target="_blank" class="adm-quick-link">
+<div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
+<div><div class="ql-text">Supabase Dashboard</div><div class="ql-desc">Database, Auth, Storage</div></div>
+</a>
+<a href="https://github.com/geheuhhhw-lgtm/altivor-site" target="_blank" class="adm-quick-link">
+<div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+<div><div class="ql-text">GitHub Repository</div><div class="ql-desc">Source code & deployments</div></div>
+</a>
+<a href="https://vercel.com/dashboard" target="_blank" class="adm-quick-link">
+<div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 22 20 2 20"/></svg></div>
+<div><div class="ql-text">Vercel Dashboard</div><div class="ql-desc">Hosting & deployments</div></div>
+</a>
+<a href="https://analytics.google.com" target="_blank" class="adm-quick-link">
+<div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+<div><div class="ql-text">Google Analytics</div><div class="ql-desc">Traffic & user insights</div></div>
+</a>
+</div>
+</div>
+
+</div><!-- /adm-main -->
+</div><!-- /admLayout -->
+
+<!-- EDIT MODAL -->
 <div class="adm-modal-overlay" id="admEditOverlay">
 <div class="adm-modal">
 <h3>Edit User</h3>
 <p class="adm-modal-email" id="admEditEmail"></p>
 <input type="hidden" id="admEditId" />
-<div class="adm-modal-field">
-<label>User ID</label>
-<input type="text" id="admEditUid" disabled />
+<div class="adm-modal-row">
+<div class="adm-modal-field"><label>User ID</label><input type="text" id="admEditUid" disabled /></div>
+<div class="adm-modal-field"><label>Provider</label><input type="text" id="admEditProvider" disabled /></div>
 </div>
-<div class="adm-modal-field">
-<label>Display Name</label>
-<input type="text" id="admEditName" placeholder="First Last" />
+<div class="adm-modal-row">
+<div class="adm-modal-field"><label>First Name</label><input type="text" id="admEditFirst" placeholder="First" /></div>
+<div class="adm-modal-field"><label>Last Name</label><input type="text" id="admEditLast" placeholder="Last" /></div>
 </div>
-<div class="adm-modal-field">
-<label>Ban User</label>
-<select id="admEditBan">
-<option value="">Not Banned</option>
-<option value="banned">Banned</option>
-</select>
+<div class="adm-modal-row">
+<div class="adm-modal-field"><label>Email Confirmed</label><input type="text" id="admEditConfirmed" disabled /></div>
+<div class="adm-modal-field"><label>Ban Status</label><select id="admEditBan"><option value="">Not Banned</option><option value="banned">Banned</option></select></div>
 </div>
 <div class="adm-modal-actions">
 <button class="btn btn-ghost btn-sm" id="admEditClose">Cancel</button>
@@ -162,11 +350,9 @@
 </div>
 </div>
 
-<!-- Scripts -->
+<!-- SCRIPTS -->
 <script src="script.js"></script>
 <script src="i18n.js"></script>
-<script src="auth-modals.js"></script>
-
 <script>
 (function () {
     'use strict';
@@ -176,10 +362,9 @@
     var ADMIN_EMAIL = 'aleksanderdobieszewski@gmail.com';
     var SESSION_KEY = 'altivor_session';
 
-    /* ── Helpers ── */
     function $(id) { return document.getElementById(id); }
-    function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
-    function fmtDate(iso) { if (!iso) return '\u2014'; var d = new Date(iso); return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); }
+    function esc(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+    function fmtDate(iso) { if (!iso) return '\u2014'; return new Date(iso).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); }
     function fmtDateTime(iso) { if (!iso) return '\u2014'; var d = new Date(iso); return fmtDate(iso) + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); }
 
     function adminApi(path, method, body) {
@@ -187,171 +372,189 @@
         var opts = { method: method || 'GET', headers: h };
         if (body) opts.body = JSON.stringify(body);
         return fetch(SUPA_URL + path, opts).then(function (r) {
-            return r.json().then(function (d) {
-                if (!r.ok) throw new Error(d.msg || d.message || d.error_description || 'Request failed');
-                return d;
-            });
+            return r.json().then(function (d) { if (!r.ok) throw new Error(d.msg || d.message || d.error_description || 'Failed'); return d; });
         });
     }
 
-    /* ── Gate check ── */
+    /* ── Gate ── */
     function getLoggedInEmail() {
-        try {
-            var s = JSON.parse(localStorage.getItem(SESSION_KEY));
-            if (!s || !s.user) return null;
-            return (s.user.email || '').trim().toLowerCase();
-        } catch (_) { return null; }
+        try { var s = JSON.parse(localStorage.getItem(SESSION_KEY)); return s && s.user ? (s.user.email || '').trim().toLowerCase() : null; } catch (_) { return null; }
     }
+    if (getLoggedInEmail() !== ADMIN_EMAIL) { $('admGate').style.display = ''; return; }
+    $('admLayout').style.display = 'grid';
 
-    var email = getLoggedInEmail();
-    if (email !== ADMIN_EMAIL) {
-        $('admGate').style.display = '';
-        return;
-    }
-    $('admPanel').style.display = '';
+    /* ── Navigation ── */
+    var navItems = document.querySelectorAll('.adm-nav-item[data-panel]');
+    var sections = document.querySelectorAll('.adm-section');
+    navItems.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            navItems.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            sections.forEach(function (s) { s.classList.remove('active'); });
+            var target = $('panel' + btn.dataset.panel.charAt(0).toUpperCase() + btn.dataset.panel.slice(1));
+            if (target) target.classList.add('active');
+        });
+    });
 
-    /* ── State ── */
+    /* ── Users ── */
     var allUsers = [];
 
-    /* ── Load users ── */
     function loadUsers() {
-        $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-loading">Loading users...</td></tr>';
-
-        adminApi('/auth/v1/admin/users?per_page=1000', 'GET')
-            .then(function (data) {
-                allUsers = data.users || [];
-                updateStats();
-                renderTable(allUsers);
-            })
-            .catch(function (err) {
-                $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">Failed to load: ' + escHtml(err.message) + '</td></tr>';
-            });
+        $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">Loading users...</td></tr>';
+        adminApi('/auth/v1/admin/users?per_page=1000', 'GET').then(function (data) {
+            allUsers = (data.users || []).sort(function (a, b) { return new Date(b.created_at) - new Date(a.created_at); });
+            updateStats();
+            renderTable(filterUsers());
+            renderRecent();
+        }).catch(function (err) {
+            $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">Failed: ' + esc(err.message) + '</td></tr>';
+        });
     }
 
     function updateStats() {
         $('admStatTotal').textContent = allUsers.length;
-        var confirmed = allUsers.filter(function (u) { return u.email_confirmed_at; }).length;
-        $('admStatConfirmed').textContent = confirmed;
+        $('admStatConfirmed').textContent = allUsers.filter(function (u) { return u.email_confirmed_at; }).length;
         var today = new Date().toISOString().slice(0, 10);
-        var todayCount = allUsers.filter(function (u) { return u.created_at && u.created_at.slice(0, 10) === today; }).length;
-        $('admStatToday').textContent = todayCount;
-        var banned = allUsers.filter(function (u) { return u.banned_until && new Date(u.banned_until) > new Date(); }).length;
-        $('admStatBanned').textContent = banned;
+        $('admStatToday').textContent = allUsers.filter(function (u) { return u.created_at && u.created_at.slice(0, 10) === today; }).length;
+        $('admStatBanned').textContent = allUsers.filter(function (u) { return u.banned_until && new Date(u.banned_until) > new Date(); }).length;
+    }
+
+    function renderRecent() {
+        var recent = allUsers.slice(0, 5);
+        if (!recent.length) { $('recentSignups').innerHTML = '<p class="adm-empty">No users yet.</p>'; return; }
+        var html = '';
+        recent.forEach(function (u) {
+            var meta = u.user_metadata || {};
+            var name = ((meta.first_name || '') + ' ' + (meta.last_name || '')).trim() || '\u2014';
+            html += '<div class="adm-row"><span class="adm-row-lbl">' + esc(u.email) + '</span><span class="adm-row-val">' + fmtDateTime(u.created_at) + '</span></div>';
+        });
+        $('recentSignups').innerHTML = html;
+    }
+
+    function isBanned(u) { return u.banned_until && new Date(u.banned_until) > new Date(); }
+
+    function filterUsers() {
+        var q = ($('admSearch').value || '').trim().toLowerCase();
+        var status = ($('admFilterStatus').value || '');
+        return allUsers.filter(function (u) {
+            var meta = u.user_metadata || {};
+            var text = ((u.email || '') + ' ' + (meta.first_name || '') + ' ' + (meta.last_name || '') + ' ' + (meta.username || '') + ' ' + u.id).toLowerCase();
+            if (q && text.indexOf(q) === -1) return false;
+            if (status === 'confirmed' && !u.email_confirmed_at) return false;
+            if (status === 'unconfirmed' && u.email_confirmed_at) return false;
+            if (status === 'banned' && !isBanned(u)) return false;
+            return true;
+        });
     }
 
     function renderTable(users) {
-        if (!users.length) {
-            $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">No users found.</td></tr>';
-            return;
-        }
+        $('admCount').textContent = users.length + ' user' + (users.length !== 1 ? 's' : '');
+        if (!users.length) { $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">No users match your filters.</td></tr>'; return; }
         var html = '';
         users.forEach(function (u) {
             var meta = u.user_metadata || {};
             var name = ((meta.first_name || '') + ' ' + (meta.last_name || '')).trim() || meta.username || '\u2014';
-            var isAdmin = (u.email || '').trim().toLowerCase() === ADMIN_EMAIL;
-            var roleCls = isAdmin ? 'admin' : 'authenticated';
-            var roleLabel = isAdmin ? 'admin' : (u.role || 'user');
-            var emailConfirmed = u.email_confirmed_at;
-            var emailCls = emailConfirmed ? 'confirmed' : 'unconfirmed';
-            var emailLabel = emailConfirmed ? 'Confirmed' : 'Unconfirmed';
-            var isBanned = u.banned_until && new Date(u.banned_until) > new Date();
-            if (isBanned) { emailCls = 'banned'; emailLabel = 'Banned'; }
+            var isAdm = (u.email || '').trim().toLowerCase() === ADMIN_EMAIL;
+            var roleCls = isAdm ? 'admin' : 'user';
+            var roleLabel = isAdm ? 'Admin' : 'User';
+            var banned = isBanned(u);
+            var statusCls = banned ? 'banned' : (u.email_confirmed_at ? 'confirmed' : 'unconfirmed');
+            var statusLabel = banned ? 'Banned' : (u.email_confirmed_at ? 'Confirmed' : 'Unconfirmed');
             var provider = (u.app_metadata && u.app_metadata.provider) || 'email';
-
             html += '<tr data-uid="' + u.id + '">'
-                + '<td>' + escHtml(u.email) + '</td>'
-                + '<td>' + escHtml(name) + '</td>'
-                + '<td><span class="adm-pill adm-pill--' + roleCls + '">' + escHtml(roleLabel) + '</span></td>'
-                + '<td><span class="adm-pill adm-pill--' + emailCls + '">' + escHtml(emailLabel) + '</span></td>'
+                + '<td>' + esc(u.email) + '</td>'
+                + '<td>' + esc(name) + '</td>'
+                + '<td><span class="adm-pill adm-pill--' + roleCls + '">' + roleLabel + '</span></td>'
+                + '<td><span class="adm-pill adm-pill--' + statusCls + '">' + statusLabel + '</span></td>'
                 + '<td>' + fmtDate(u.created_at) + '</td>'
                 + '<td>' + fmtDateTime(u.last_sign_in_at) + '</td>'
-                + '<td>' + escHtml(provider) + '</td>'
+                + '<td>' + esc(provider) + '</td>'
                 + '<td><button class="adm-edit-btn" data-uid="' + u.id + '">Edit</button></td>'
                 + '</tr>';
         });
         $('admTableBody').innerHTML = html;
     }
 
-    /* ── Search ── */
-    $('admSearch').addEventListener('input', function () {
-        var q = this.value.trim().toLowerCase();
-        if (!q) { renderTable(allUsers); return; }
-        var filtered = allUsers.filter(function (u) {
-            var meta = u.user_metadata || {};
-            var name = ((meta.first_name || '') + ' ' + (meta.last_name || '') + ' ' + (meta.username || '')).toLowerCase();
-            return (u.email || '').toLowerCase().indexOf(q) !== -1 || name.indexOf(q) !== -1;
-        });
-        renderTable(filtered);
-    });
-
-    /* ── Refresh ── */
+    $('admSearch').addEventListener('input', function () { renderTable(filterUsers()); });
+    $('admFilterStatus').addEventListener('change', function () { renderTable(filterUsers()); });
     $('admRefresh').addEventListener('click', loadUsers);
 
     /* ── Edit modal ── */
     var overlay = $('admEditOverlay');
     function openEdit(uid) {
-        var user = allUsers.find(function (u) { return u.id === uid; });
-        if (!user) return;
-        var meta = user.user_metadata || {};
-        $('admEditId').value = user.id;
-        $('admEditUid').value = user.id;
-        $('admEditEmail').textContent = user.email;
-        $('admEditName').value = ((meta.first_name || '') + (meta.last_name ? ' ' + meta.last_name : '')).trim();
-        var isBanned = user.banned_until && new Date(user.banned_until) > new Date();
-        $('admEditBan').value = isBanned ? 'banned' : '';
+        var u = allUsers.find(function (x) { return x.id === uid; });
+        if (!u) return;
+        var meta = u.user_metadata || {};
+        $('admEditId').value = u.id;
+        $('admEditUid').value = u.id;
+        $('admEditEmail').textContent = u.email;
+        $('admEditFirst').value = meta.first_name || '';
+        $('admEditLast').value = meta.last_name || '';
+        $('admEditProvider').value = (u.app_metadata && u.app_metadata.provider) || 'email';
+        $('admEditConfirmed').value = u.email_confirmed_at ? 'Yes (' + fmtDate(u.email_confirmed_at) + ')' : 'No';
+        $('admEditBan').value = isBanned(u) ? 'banned' : '';
         $('admEditStatus').textContent = '';
         $('admEditStatus').className = 'adm-modal-status';
         overlay.classList.add('open');
     }
     function closeEdit() { overlay.classList.remove('open'); }
-
     $('admEditClose').addEventListener('click', closeEdit);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) closeEdit(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) closeEdit(); });
-
-    $('admTableBody').addEventListener('click', function (e) {
-        var btn = e.target.closest('.adm-edit-btn');
-        if (btn) openEdit(btn.dataset.uid);
-    });
+    $('admTableBody').addEventListener('click', function (e) { var btn = e.target.closest('.adm-edit-btn'); if (btn) openEdit(btn.dataset.uid); });
 
     $('admEditSave').addEventListener('click', function () {
         var uid = $('admEditId').value;
-        var statusEl = $('admEditStatus');
+        var st = $('admEditStatus');
         var saveBtn = $('admEditSave');
         saveBtn.disabled = true;
-        statusEl.textContent = '';
-        statusEl.className = 'adm-modal-status';
-
-        var nameVal = ($('admEditName').value || '').trim();
-        var nameParts = nameVal.split(/\s+/);
-        var firstName = nameParts[0] || '';
-        var lastName = nameParts.slice(1).join(' ') || '';
-
-        var banVal = $('admEditBan').value;
-        var body = {
-            user_metadata: { first_name: firstName, last_name: lastName }
-        };
-        if (banVal === 'banned') {
-            body.ban_duration = '876000h'; // ~100 years
-        } else {
-            body.ban_duration = 'none';
-        }
-
-        adminApi('/auth/v1/admin/users/' + uid, 'PUT', body)
-            .then(function (updated) {
-                allUsers = allUsers.map(function (u) { return u.id === updated.id ? updated : u; });
-                updateStats();
-                renderTable(allUsers);
-                statusEl.textContent = 'Saved successfully.';
-                statusEl.className = 'adm-modal-status ok';
-                setTimeout(closeEdit, 800);
-            })
-            .catch(function (err) {
-                statusEl.textContent = err.message || 'Failed to save.';
-                statusEl.className = 'adm-modal-status err';
-            })
-            .then(function () { saveBtn.disabled = false; });
+        st.textContent = ''; st.className = 'adm-modal-status';
+        var body = { user_metadata: { first_name: $('admEditFirst').value.trim(), last_name: $('admEditLast').value.trim() } };
+        body.ban_duration = $('admEditBan').value === 'banned' ? '876000h' : 'none';
+        adminApi('/auth/v1/admin/users/' + uid, 'PUT', body).then(function (updated) {
+            allUsers = allUsers.map(function (u) { return u.id === updated.id ? updated : u; });
+            updateStats(); renderTable(filterUsers()); renderRecent();
+            st.textContent = 'Saved.'; st.className = 'adm-modal-status ok';
+            setTimeout(closeEdit, 700);
+        }).catch(function (err) {
+            st.textContent = err.message; st.className = 'adm-modal-status err';
+        }).then(function () { saveBtn.disabled = false; });
     });
+
+    /* ── Site pages ── */
+    var sitePages = [
+        { name: 'Home', url: 'index.html', desc: 'Main landing page' },
+        { name: 'US100 Framework', url: 'us100-framework.html', desc: 'Nasdaq framework page' },
+        { name: 'FAQ', url: 'faq.html', desc: 'Frequently asked questions' },
+        { name: 'Trading Updates', url: 'trading-updates.html', desc: 'Live market updates' },
+        { name: 'Verification', url: 'verification.html', desc: 'Verification system' },
+        { name: 'Trading Log', url: 'trading-log.html', desc: 'Daily journal' },
+        { name: 'Trading Wiki', url: 'trading-wiki.html', desc: 'Market concepts' },
+        { name: 'PnL Calendar', url: 'pnl.html', desc: 'Profit & loss tracker' },
+        { name: 'Economic Calendar', url: 'calendar.html', desc: 'Macro events' },
+        { name: 'Trading Symbols', url: 'symbols.html', desc: 'Spreads & hours' },
+        { name: 'Execution Checklist', url: 'execution-checklist.html', desc: 'Trade decision engine' },
+        { name: 'Calculators', url: 'calculators.html', desc: 'Position size, RR' },
+        { name: 'Accessories Hub', url: 'accessories.html', desc: 'All accessories' },
+        { name: 'Terms of Service', url: 'terms-of-service.html', desc: 'Legal terms' },
+        { name: 'Privacy Policy', url: 'privacy-policy.html', desc: 'Data privacy' },
+        { name: 'Risk Disclosure', url: 'risk-disclosure.html', desc: 'Risk statement' },
+        { name: 'Refund Policy', url: 'refund-policy.html', desc: 'Refund terms' },
+        { name: 'Challenge Rules', url: 'challenge-rules.html', desc: 'Verification rules' },
+        { name: 'Press Kit', url: 'press-kit.html', desc: 'Brand assets' },
+        { name: 'Social Proof', url: 'social-proof.html', desc: 'Testimonials' },
+        { name: 'Partnerships', url: 'partnerships.html', desc: 'Partner program' },
+        { name: 'Invitations', url: 'invitations.html', desc: 'Invite system' },
+        { name: 'Profile Dashboard', url: 'profile.html', desc: 'User profile' }
+    ];
+    var spHtml = '';
+    sitePages.forEach(function (p) {
+        spHtml += '<a href="' + p.url + '" class="adm-quick-link" target="_blank">'
+            + '<div class="ql-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>'
+            + '<div><div class="ql-text">' + esc(p.name) + '</div><div class="ql-desc">' + esc(p.desc) + '</div></div>'
+            + '</a>';
+    });
+    $('sitePagesList').innerHTML = spHtml;
 
     /* ── Init ── */
     loadUsers();

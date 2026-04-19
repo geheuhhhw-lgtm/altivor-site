@@ -137,9 +137,14 @@
         if (currentUser) {
             hideEl(loginBtn);
             hideEl(regBtn);
-            showEl(profBtn);
             showEl(logBtn);
-            if (isAdmin(currentUser)) { showEl(adminLink); } else { hideEl(adminLink); }
+            if (isAdmin(currentUser)) {
+                hideEl(profBtn);
+                showEl(adminLink);
+            } else {
+                showEl(profBtn);
+                hideEl(adminLink);
+            }
         } else {
             showEl(loginBtn);
             showEl(regBtn);
