@@ -4,520 +4,358 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>Admin Panel ALTIVOR INSTITUTE</title>
-<link rel="stylesheet" href="styles.css" />
+<title>Admin Panel &mdash; ALTIVOR INSTITUTE</title>
+<link rel="stylesheet" href="styles.css?v=20250419" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-<style> /* Admin Panel Scoped Styles */ .admin-wrap{max-width:1100px;margin:0 auto;padding:100px 24px 60px} .admin-header{margin-bottom:32px} .admin-header h1{font-family:'DM Serif Display',serif;font-size:1.75rem;color:var(--txt-primary);margin:0 0 6px} .admin-header p{color:var(--txt-secondary);font-size:.875rem;margin:0} .admin-toolbar{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap} .admin-toolbar button{font-size:.8125rem} .admin-count{color:var(--txt-tertiary);font-size:.8125rem} .admin-table-wrap{overflow-x:auto;border:1px solid var(--border-default);border-radius:10px;background:var(--bg-card)} .admin-table{width:100%;border-collapse:collapse;font-size:.8125rem} .admin-table th,.admin-table td{padding:10px 14px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--border-subtle)} .admin-table th{font-weight:600;color:var(--txt-secondary);font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;background:var(--bg-raised)} .admin-table tr:last-child td{border-bottom:none} .admin-table tr:hover td{background:var(--bg-raised)} .admin-pill{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.7rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase} .admin-pill--admin{background:rgba(168,85,247,.15);color:#a855f7} .admin-pill--user{background:rgba(100,116,139,.12);color:var(--txt-secondary)} .admin-pill--active{background:rgba(34,197,94,.12);color:#22c55e} .admin-pill--inactive,.admin-pill--none{background:rgba(100,116,139,.10);color:var(--txt-tertiary)} .admin-pill--blocked,.admin-pill--suspended,.admin-pill--disqualified{background:rgba(239,68,68,.12);color:#ef4444} .admin-pill--pending{background:rgba(234,179,8,.12);color:#eab308} .admin-pill--qualified{background:rgba(34,197,94,.12);color:#22c55e} .admin-edit-btn{background:none;border:1px solid var(--border-default);color:var(--txt-secondary);padding:4px 12px;border-radius:6px;font-size:.75rem;cursor:pointer;transition:border-color .15s,color .15s} .admin-edit-btn:hover{border-color:var(--txt-primary);color:var(--txt-primary)} .admin-msg{padding:24px;text-align:center;color:var(--txt-tertiary);font-size:.875rem} /* Edit Modal */ .admin-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100000;display:none;align-items:center;justify-content:center} .admin-modal-overlay.open{display:flex} .admin-modal{background:var(--bg-card);border:1px solid var(--border-default);border-radius:12px;padding:28px 32px;width:100%;max-width:420px;position:relative} .admin-modal h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--txt-primary);margin:0 0 4px} .admin-modal .admin-modal-sub{color:var(--txt-tertiary);font-size:.8rem;margin:0 0 20px} .admin-modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--txt-tertiary);font-size:1.1rem;cursor:pointer} .admin-field{margin-bottom:14px} .admin-field label{display:block;font-size:.75rem;font-weight:600;color:var(--txt-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:.03em} .admin-field select{width:100%;padding:8px 12px;border:1px solid var(--border-default);border-radius:8px;background:var(--bg-base);color:var(--txt-primary);font-size:.85rem;font-family:inherit} .admin-field select:focus{outline:none;border-color:var(--accent)} .admin-save-btn{width:100%;margin-top:8px} .admin-modal-status{font-size:.8rem;margin-top:10px;min-height:1.2em;color:#ef4444} .admin-modal-status.success{color:#22c55e} @media(max-width:768px){ .admin-wrap{padding:90px 12px 40px} .admin-table{font-size:.75rem} .admin-table th,.admin-table td{padding:8px 10px} } </style>
+<style>
+/* ═══ ADMIN PANEL ═════════════════════════════════════════════════════════ */
+:root,[data-theme="dark"]{--adm-accent:rgba(168,85,247,.85);--adm-accent-soft:rgba(168,85,247,.1);--adm-accent-border:rgba(168,85,247,.4)}
+[data-theme="light"]{--adm-accent:rgba(126,34,206,.85);--adm-accent-soft:rgba(126,34,206,.07);--adm-accent-border:rgba(126,34,206,.3)}
+[data-theme="navy"]{--adm-accent:rgba(192,132,252,.85);--adm-accent-soft:rgba(192,132,252,.1);--adm-accent-border:rgba(192,132,252,.4)}
+
+.adm-gate{text-align:center;padding:8rem 1rem;min-height:80vh}
+.adm-gate h2{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--txt-primary);margin-bottom:.5rem}
+.adm-gate p{color:var(--txt-secondary);font-size:.88rem}
+
+.adm-wrap{max-width:1200px;margin:0 auto;padding:7rem 1.5rem 4rem}
+.adm-header{margin-bottom:1.5rem}
+.adm-header h1{font-family:'DM Serif Display',serif;font-size:1.75rem;color:var(--txt-primary);margin:0 0 .25rem}
+.adm-header p{color:var(--txt-secondary);font-size:.82rem;margin:0}
+
+.adm-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.adm-stat{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.1rem 1rem;text-align:center}
+.adm-stat-val{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--txt-primary);line-height:1.2}
+.adm-stat-lbl{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);margin-top:.25rem}
+
+.adm-toolbar{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap}
+.adm-toolbar input{flex:1;min-width:200px;padding:.5rem .75rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit}
+.adm-toolbar input:focus{outline:none;border-color:var(--adm-accent-border);box-shadow:0 0 0 3px var(--adm-accent-soft)}
+
+.adm-table-wrap{overflow-x:auto;border:1px solid var(--border-subtle);border-radius:1rem;background:var(--bg-card)}
+.adm-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.adm-table th{text-align:left;padding:.7rem .75rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);border-bottom:1px solid var(--border-default);background:var(--bg-elevated)}
+.adm-table td{padding:.6rem .75rem;border-bottom:1px solid var(--border-subtle);color:var(--txt-primary);white-space:nowrap}
+.adm-table tr:last-child td{border-bottom:none}
+.adm-table tr:hover td{background:var(--bg-elevated)}
+
+.adm-pill{display:inline-block;padding:2px 10px;border-radius:100px;font-size:.65rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.adm-pill--admin{background:rgba(168,85,247,.12);color:#a855f7}
+.adm-pill--authenticated,.adm-pill--user{background:rgba(100,116,139,.1);color:var(--txt-secondary)}
+.adm-pill--confirmed{background:rgba(34,197,94,.1);color:#22c55e}
+.adm-pill--unconfirmed{background:rgba(234,179,8,.1);color:#eab308}
+.adm-pill--banned{background:rgba(239,68,68,.12);color:#ef4444}
+[data-theme="light"] .adm-pill--admin{color:#7c3aed}
+[data-theme="light"] .adm-pill--confirmed{color:#15803d}
+[data-theme="light"] .adm-pill--unconfirmed{color:#a16207}
+[data-theme="light"] .adm-pill--banned{color:#dc2626}
+
+.adm-edit-btn{background:none;border:1px solid var(--border-default);color:var(--txt-secondary);padding:3px 10px;border-radius:6px;font-size:.72rem;cursor:pointer;transition:border-color .15s,color .15s;font-family:inherit}
+.adm-edit-btn:hover{border-color:var(--adm-accent-border);color:var(--adm-accent)}
+
+.adm-empty{text-align:center;padding:3rem;color:var(--txt-muted);font-size:.88rem}
+.adm-loading{text-align:center;padding:2rem;color:var(--txt-muted);font-size:.82rem}
+
+/* Edit modal */
+.adm-modal-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px)}
+.adm-modal-overlay.open{display:flex}
+.adm-modal{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.25rem;padding:2rem;max-width:480px;width:92%;box-shadow:0 24px 48px rgba(0,0,0,.25)}
+.adm-modal h3{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--txt-primary);margin:0 0 .25rem}
+.adm-modal-email{font-size:.78rem;color:var(--txt-muted);margin:0 0 1.25rem;word-break:break-all}
+.adm-modal-field{margin-bottom:1rem}
+.adm-modal-field label{display:block;font-size:.7rem;font-weight:600;color:var(--txt-secondary);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.06em}
+.adm-modal-field select,.adm-modal-field input{width:100%;padding:.5rem .65rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit}
+.adm-modal-field input:disabled{opacity:.45}
+.adm-modal-actions{display:flex;gap:.5rem;margin-top:1.25rem}
+.adm-modal-status{font-size:.78rem;margin-top:.5rem;min-height:1.2em}
+.adm-modal-status.ok{color:#22c55e}
+.adm-modal-status.err{color:#ef4444}
+
+.adm-mono{font-family:'Courier New',monospace;font-size:.7rem;word-break:break-all;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+
+@media(max-width:860px){
+.adm-stats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+.adm-stats{grid-template-columns:1fr}
+.adm-toolbar{flex-direction:column}
+}
+</style>
 </head>
 <body>
-<!-- --- TOP ANNOUNCEMENT BANNER ---------------------------------------- -->
-<div class="promo-bar" id="promoBar">
-<a href="us100-framework.html" class="promo-bar-inner">
-<span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
-<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework Structural Execution System</span>
-<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
-<path d="M5 12h14"/>
-<polyline points="12 5 19 12 12 19"/>
-</svg>
-</span>
-</a>
-<button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
+<!-- GATE: shown when not admin -->
+<div id="admGate" class="adm-gate" style="display:none;">
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.2" style="opacity:.3;margin-bottom:1rem;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+<h2>Access Restricted</h2>
+<p>This page is only available to authorized administrators.</p>
+<p style="margin-top:1.5rem;"><a href="index.html" class="btn btn-primary">Return to Home</a></p>
 </div>
-<!-- === NAVIGATION === -->
-<header class="nav-bar" id="navbar">
-<div class="nav-inner container">
-<a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
-<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img nav-logo-img" style="height:34px;width:auto;display:block;" draggable="false" />
-</a>
-<nav class="nav-links" aria-label="Primary navigation">
-<a href="index.html" data-i18n="nav_about">About</a>
-<div class="nav-dropdown-wrap">
-<button class="nav-dropdown-trigger" id="frameworksDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
-<span data-i18n="nav_frameworks">Frameworks</span>
-<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
-<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-</svg>
-</button>
-<div class="nav-dropdown-panel" id="frameworksDropdown">
-<a href="us100-framework.html" class="nav-dropdown-item">
-<span class="nav-drop-badge active" data-i18n="fw_active">Active</span>
-<span class="nav-drop-name" data-i18n="nav_us100">US100</span>
-<span class="nav-drop-desc" data-i18n="fw_us100_compact">Nasdaq 100 CFD</span>
-</a>
-<a href="#" class="nav-dropdown-item locked" onclick="return false;">
-<span class="nav-drop-badge dev" data-i18n="fw_dev">In Dev</span>
-<span class="nav-drop-name" data-i18n="fw_us30_short">US30</span>
-<span class="nav-drop-desc" data-i18n="fw_coming_soon">Coming soon</span>
-<svg class="nav-drop-lock" viewBox="0 0 16 16" fill="none">
-<rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.3" />
-<path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
-</svg>
-</a>
-</div>
-</div>
-<a href="index.html#infrastructure" data-i18n="nav_infra">Infrastructure</a>
-<a href="index.html#pricing" data-i18n="nav_access">Access</a>
-<a href="faq.html" data-i18n="nav_faq">FAQ</a>
-<a href="trading-updates.html" data-i18n="nav_updates">Updates</a>
-<div class="nav-dropdown-wrap">
-<button class="nav-dropdown-trigger" id="accessoriesDropBtn" type="button" aria-expanded="false" aria-haspopup="true">
-<span data-i18n="nav_accessories">Accessories</span>
-<svg class="nav-drop-chevron" viewBox="0 0 10 6" fill="none">
-<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-</svg>
-</button>
-<div class="nav-dropdown-panel" id="accessoriesDropdown">
-<a href="trading-log.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<path d="M12 20h9"/>
-<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_log">Trading Log</span>
-<span class="nav-drop-desc" data-i18n="acc_log_desc">Daily trading journal</span>
-</span>
-</a>
-<a href="trading-wiki.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_wiki">Trading Wiki</span>
-<span class="nav-drop-desc" data-i18n="acc_wiki_desc">Institutional market concepts</span>
-</span>
-</a>
-<a href="pnl.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-<polyline points="16 7 22 7 22 13"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_pnl">PnL Calendar</span>
-<span class="nav-drop-desc" data-i18n="acc_pnl_desc">Daily profit &amp; loss tracker</span>
-</span>
-</a>
-<a href="calendar.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-<line x1="16" y1="2" x2="16" y2="6"/>
-<line x1="8" y1="2" x2="8" y2="6"/>
-<line x1="3" y1="10" x2="21" y2="10"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_cal">Economic Calendar</span>
-<span class="nav-drop-desc" data-i18n="acc_cal_desc">High-impact macro events</span>
-</span>
-</a>
-<a href="symbols.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<line x1="18" y1="20" x2="18" y2="10"/>
-<line x1="12" y1="20" x2="12" y2="4"/>
-<line x1="6" y1="20" x2="6" y2="14"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_sym">Trading Symbols</span>
-<span class="nav-drop-desc" data-i18n="acc_sym_desc">Spreads, swaps &amp; hours</span>
-</span>
-</a>
-<a href="execution-checklist.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<polyline points="9 11 12 14 22 4"/>
-<path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_checklist">Execution Checklist</span>
-<span class="nav-drop-desc" data-i18n="acc_checklist_desc">6-stage trade decision engine</span>
-</span>
-</a>
-<a href="calculators.html" class="nav-dropdown-item">
-<span class="nav-drop-icon">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-<rect x="4" y="2" width="16" height="20" rx="2"/>
-<line x1="8" y1="6" x2="16" y2="6"/>
-<line x1="8" y1="10" x2="10" y2="10"/>
-<line x1="13" y1="10" x2="16" y2="10"/>
-<line x1="8" y1="14" x2="10" y2="14"/>
-<line x1="13" y1="14" x2="16" y2="14"/>
-<line x1="8" y1="18" x2="10" y2="18"/>
-<line x1="13" y1="18" x2="16" y2="18"/>
-</svg>
-</span>
-<span class="nav-drop-text">
-<span class="nav-drop-name" data-i18n="acc_calc">Trading Calculators</span>
-<span class="nav-drop-desc" data-i18n="acc_calc_desc">Position size, RR &amp; more</span>
-</span>
-</a>
-</div>
-</div>
-</nav>
-<div class="nav-actions">
-<div class="lang-picker" id="langPicker">
-<button class="lang-picker-btn" id="langPickerBtn" type="button" aria-label="Select language">
-<span class="lang-flag-circle">????</span>
-<span class="lang-code">EN</span>
-<svg class="lang-chevron" viewBox="0 0 10 6" fill="none">
-<path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-</svg>
-</button>
-<div class="lang-dropdown" id="langDropdown">
-</div>
-</div>
-<div class="theme-switcher" role="group" aria-label="Select color theme">
-<button class="theme-btn active" data-theme="dark" title="Dark mode" data-i18n="theme_dark">Dark</button>
-<button class="theme-btn" data-theme="light" title="Light mode" data-i18n="theme_light">Light</button>
-<button class="theme-btn" data-theme="navy" title="Navy mode" data-i18n="theme_navy">Navy</button>
-</div>
-<button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
-<button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
-</div>
-<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-<span>
-</span>
-<span>
-</span>
-<span>
-</span>
-</button>
-</div>
-</header>
-<!-- === ADMIN PANEL CONTENT === -->
-<main class="admin-wrap" id="adminRoot">
-<div class="admin-header">
+
+<!-- ADMIN PANEL: shown when admin -->
+<div id="admPanel" class="adm-wrap" style="display:none;">
+<div class="adm-header">
 <h1>Admin Panel</h1>
-<p>User management ALTIVOR INSTITUTE</p>
+<p>Manage users, subscriptions, and account statuses.</p>
 </div>
-<div class="admin-toolbar">
-<button class="btn btn-ghost" id="adminRefresh" type="button">Refresh</button>
-<span class="admin-count" id="adminCount">
-</span>
+
+<!-- Stats -->
+<div class="adm-stats">
+<div class="adm-stat"><div class="adm-stat-val" id="admStatTotal">—</div><div class="adm-stat-lbl">Total Users</div></div>
+<div class="adm-stat"><div class="adm-stat-val" id="admStatConfirmed">—</div><div class="adm-stat-lbl">Confirmed</div></div>
+<div class="adm-stat"><div class="adm-stat-val" id="admStatToday">—</div><div class="adm-stat-lbl">Signed Up Today</div></div>
+<div class="adm-stat"><div class="adm-stat-val" id="admStatBanned">—</div><div class="adm-stat-lbl">Banned</div></div>
 </div>
-<div class="admin-table-wrap">
-<table class="admin-table" id="adminTable">
-<thead>
-<tr>
+
+<!-- Toolbar -->
+<div class="adm-toolbar">
+<input type="text" id="admSearch" placeholder="Search by email or name..." />
+<button class="btn btn-ghost btn-sm" id="admRefresh">Refresh</button>
+</div>
+
+<!-- Table -->
+<div class="adm-table-wrap">
+<table class="adm-table">
+<thead><tr>
 <th>Email</th>
 <th>Name</th>
 <th>Role</th>
-<th>Subscription</th>
-<th>Challenge</th>
-<th>Account</th>
-<th>Registered</th>
-<th>
-</th>
-</tr>
-</thead>
-<tbody id="adminTableBody">
-<tr>
-<td colspan="8" class="admin-msg" id="adminLoading">Loading users</td>
-</tr>
+<th>Email Status</th>
+<th>Created</th>
+<th>Last Sign In</th>
+<th>Provider</th>
+<th></th>
+</tr></thead>
+<tbody id="admTableBody">
+<tr><td colspan="8" class="adm-loading">Loading users...</td></tr>
 </tbody>
 </table>
 </div>
-</main>
-<!-- === EDIT USER MODAL === -->
-<div class="admin-modal-overlay" id="adminEditOverlay">
-<div class="admin-modal">
-<button class="admin-modal-close" id="adminEditClose" aria-label="Close">&#x2715;</button>
-<h3 id="adminEditTitle">Edit User</h3>
-<p class="admin-modal-sub" id="adminEditEmail">
-</p>
-<form id="adminEditForm">
-<input type="hidden" id="adminEditUserId" />
-<div class="admin-field">
-<label for="adminEditSubscription">Subscription Status</label>
-<select id="adminEditSubscription">
-<option value="inactive">Inactive</option>
-<option value="active">Active</option>
-<option value="suspended">Suspended</option>
-</select>
-</div>
-<div class="admin-field">
-<label for="adminEditChallenge">Challenge Status</label>
-<select id="adminEditChallenge">
-<option value="none">None</option>
-<option value="pending">Pending</option>
-<option value="active">Active</option>
-<option value="qualified">Qualified</option>
-<option value="disqualified">Disqualified</option>
-</select>
-</div>
-<div class="admin-field">
-<label for="adminEditAccount">Account Status</label>
-<select id="adminEditAccount">
-<option value="active">Active</option>
-<option value="blocked">Blocked</option>
-</select>
-</div>
-<button type="submit" class="btn btn-primary admin-save-btn">Save Changes</button>
-<div class="admin-modal-status" id="adminEditStatus">
-</div>
-</form>
-</div>
-</div>
-<!-- === FOOTER === -->
-<footer class="site-footer" aria-label="Site footer">
-<div class="footer-inner container">
-<div class="footer-brand">
-<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img footer-logo-img" style="height:28px;width:auto;display:block;opacity:0.85;" draggable="false" />
-<p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
-<p class="footer-disclaimer" data-i18n="footer_brand_desc">ALTIVOR INSTITUTE does not provide investment advice, financial services, or market signals. All framework content is for structural process documentation purposes only. Market participation involves risk. Past process consistency does not indicate future behavioral or financial outcomes.</p>
-</div>
-<div class="footer-links">
-<div class="footer-col">
-<h4 data-i18n="footer_platform">Platform</h4>
-<a href="index.html#about" data-i18n="footer_about">About</a>
-<a href="index.html#frameworks" data-i18n="footer_frameworks">Frameworks</a>
-<a href="index.html#infrastructure" data-i18n="footer_infra">Infrastructure</a>
-<a href="index.html#pricing" data-i18n="footer_pricing">Pricing</a>
-<a href="accessories.html" data-i18n="footer_accessories">Accessories</a>
-<a href="verification.html" data-i18n="nav_verification">Verification</a>
-</div>
-<div class="footer-col">
-<h4 data-i18n="footer_support">Support</h4>
-<a href="faq.html" data-i18n="footer_faq">FAQ</a>
-<a href="mailto:contact@altivor.institute" data-i18n="footer_contact">Contact</a>
-<a href="press-kit.html" data-i18n="footer_press_kit">Press Kit</a>
-<a href="social-proof.html" data-i18n="footer_social_proof">Social Proof</a>
-<a href="partnerships.html" data-i18n="footer_partnerships">Partnerships</a>
-<a href="invitations.html" data-i18n="footer_invitations">Invitations</a>
-</div>
-<div class="footer-col">
-<h4 data-i18n="footer_legal">Legal</h4>
-<a href="terms-of-service.html" style="white-space:nowrap;" data-i18n="footer_terms">Terms &amp; Conditions</a>
-<a href="privacy-policy.html" style="white-space:nowrap;" data-i18n="footer_privacy">Privacy Policy</a>
-<a href="risk-disclosure.html" style="white-space:nowrap;" data-i18n="footer_risk">Risk Disclosure</a>
-<a href="refund-policy.html" style="white-space:nowrap;" data-i18n="footer_refund">Refund Policy</a>
-</div>
-</div>
-</div>
-<div class="footer-bottom container">
-<p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
-<p data-i18n="footer_reg">Registered as an operational documentation entity. Not a regulated financial services provider.</p>
-</div>
-</footer>
-<!-- === AUTH MODALS === -->
-<div class="auth-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
-<div class="auth-modal">
-<button class="auth-close" onclick="closeModal('loginModal')" aria-label="Close">&#x2715;</button>
-<div class="auth-logo">
-<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
-</div>
-<h2 class="auth-title" id="loginTitle" data-i18n="login_title">Welcome Back</h2>
-<p class="auth-sub" data-i18n="login_sub">Sign in to your ALTIVOR account</p>
-<form class="auth-form" id="loginForm" onsubmit="handleLogin(event)">
-<div class="auth-field">
-<label for="loginEmail" data-i18n="login_email">Email Address</label>
-<input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
-</div>
-<div class="auth-field">
-<label for="loginPassword" data-i18n="login_pw">Password</label>
-<div class="auth-password-wrap">
-<input type="password" id="loginPassword" name="password" placeholder="Enter your password" required autocomplete="current-password" />
-<button type="button" class="auth-eye" onclick="togglePw('loginPassword', this)" aria-label="Toggle password visibility">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-<circle cx="12" cy="12" r="3" />
-</svg>
-</button>
-</div>
-</div>
-<div class="auth-forgot">
-<a href="#" data-i18n="login_forgot">Forgot password?</a>
-</div>
-<button type="submit" class="btn btn-primary auth-submit" data-i18n="login_btn">Sign In</button>
-</form>
-<p class="auth-switch">
-<span data-i18n="login_switch">Don't have an account?</span>
-<a href="#" onclick="switchModal('loginModal','registerModal');return false;" data-i18n="login_switch_link">Register</a>
-</p>
-</div>
-</div>
-<div class="auth-overlay" id="registerModal" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
-<div class="auth-modal auth-modal--wide">
-<button class="auth-close" onclick="closeModal('registerModal')" aria-label="Close">&#x2715;</button>
-<div class="auth-logo">
-<img src="logo.png" alt="ALTIVOR INSTITUTE" class="brand-logo-img auth-logo-img" draggable="false" />
-</div>
-<h2 class="auth-title" id="registerTitle" data-i18n="reg_title">Create Account</h2>
-<p class="auth-sub" data-i18n="reg_sub">Join ALTIVOR INSTITUTE</p>
-<form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
-<div class="auth-row">
-<div class="auth-field">
-<label for="regFirstName" data-i18n="reg_first">First Name</label>
-<input type="text" id="regFirstName" name="firstName" placeholder="John" required autocomplete="given-name" />
-</div>
-<div class="auth-field">
-<label for="regLastName" data-i18n="reg_last">Last Name</label>
-<input type="text" id="regLastName" name="lastName" placeholder="Doe" required autocomplete="family-name" />
-</div>
-</div>
-<div class="auth-field">
-<label for="regUsername" data-i18n="reg_username">Username</label>
-<input type="text" id="regUsername" name="username" placeholder="johndoe_trader" required autocomplete="username" />
-</div>
-<div class="auth-field">
-<label for="regEmail" data-i18n="reg_email">Email Address</label>
-<input type="email" id="regEmail" name="email" placeholder="your@email.com" required autocomplete="email" />
-</div>
-<div class="auth-field">
-<label for="regAddress" data-i18n="reg_address">Address</label>
-<input type="text" id="regAddress" name="address" placeholder="Start typing city or street..." required autocomplete="street-address" list="regAddressSuggestions" />
-<datalist id="regAddressSuggestions">
-</datalist>
 </div>
 
-<div class="auth-field">
-<label for="regCountry" data-i18n="reg_country">Country</label>
-<div class="auth-country-wrap">
-<select class="auth-country-select" id="regCountry" name="country" required>
-<option value="" disabled selected>Select your country</option>
-<option value="AF">&#x1F1E6;&#x1F1EB; Afghanistan</option>
-<option value="AL">&#x1F1E6;&#x1F1F1; Albania</option>
-<option value="DZ">&#x1F1E9;&#x1F1FF; Algeria</option>
-<option value="AR">&#x1F1E6;&#x1F1F7; Argentina</option>
-<option value="AU">&#x1F1E6;&#x1F1FA; Australia</option>
-<option value="AT">&#x1F1E6;&#x1F1F9; Austria</option>
-<option value="BE">&#x1F1E7;&#x1F1EA; Belgium</option>
-<option value="BR">&#x1F1E7;&#x1F1F7; Brazil</option>
-<option value="BG">&#x1F1E7;&#x1F1EC; Bulgaria</option>
-<option value="CA">&#x1F1E8;&#x1F1E6; Canada</option>
-<option value="CL">&#x1F1E8;&#x1F1F1; Chile</option>
-<option value="CN">&#x1F1E8;&#x1F1F3; China</option>
-<option value="CO">&#x1F1E8;&#x1F1F4; Colombia</option>
-<option value="HR">&#x1F1ED;&#x1F1F7; Croatia</option>
-<option value="CZ">&#x1F1E8;&#x1F1FF; Czech Republic</option>
-<option value="DK">&#x1F1E9;&#x1F1F0; Denmark</option>
-<option value="EG">&#x1F1EA;&#x1F1EC; Egypt</option>
-<option value="EE">&#x1F1EA;&#x1F1EA; Estonia</option>
-<option value="FI">&#x1F1EB;&#x1F1EE; Finland</option>
-<option value="FR">&#x1F1EB;&#x1F1F7; France</option>
-<option value="DE">&#x1F1E9;&#x1F1EA; Germany</option>
-<option value="GR">&#x1F1EC;&#x1F1F7; Greece</option>
-<option value="HU">&#x1F1ED;&#x1F1FA; Hungary</option>
-<option value="IN">&#x1F1EE;&#x1F1F3; India</option>
-<option value="ID">&#x1F1EE;&#x1F1E9; Indonesia</option>
-<option value="IE">&#x1F1EE;&#x1F1EA; Ireland</option>
-<option value="IL">&#x1F1EE;&#x1F1F1; Israel</option>
-<option value="IT">&#x1F1EE;&#x1F1F9; Italy</option>
-<option value="JP">&#x1F1EF;&#x1F1F5; Japan</option>
-<option value="KR">&#x1F1F0;&#x1F1F7; South Korea</option>
-<option value="LV">&#x1F1F1;&#x1F1FB; Latvia</option>
-<option value="LT">&#x1F1F1;&#x1F1F9; Lithuania</option>
-<option value="MY">&#x1F1F2;&#x1F1FE; Malaysia</option>
-<option value="MX">&#x1F1F2;&#x1F1FD; Mexico</option>
-<option value="NL">&#x1F1F3;&#x1F1F1; Netherlands</option>
-<option value="NZ">&#x1F1F3;&#x1F1FF; New Zealand</option>
-<option value="NG">&#x1F1F3;&#x1F1EC; Nigeria</option>
-<option value="NO">&#x1F1F3;&#x1F1F4; Norway</option>
-<option value="PK">&#x1F1F5;&#x1F1F0; Pakistan</option>
-<option value="PH">&#x1F1F5;&#x1F1ED; Philippines</option>
-<option value="PL">&#x1F1F5;&#x1F1F1; Poland</option>
-<option value="PT">&#x1F1F5;&#x1F1F9; Portugal</option>
-<option value="RO">&#x1F1F7;&#x1F1F4; Romania</option>
-<option value="SA">&#x1F1F8;&#x1F1E6; Saudi Arabia</option>
-<option value="RS">&#x1F1F7;&#x1F1F8; Serbia</option>
-<option value="SG">&#x1F1F8;&#x1F1EC; Singapore</option>
-<option value="SK">&#x1F1F8;&#x1F1F0; Slovakia</option>
-<option value="SI">&#x1F1F8;&#x1F1EE; Slovenia</option>
-<option value="ZA">&#x1F1FF;&#x1F1E6; South Africa</option>
-<option value="ES">&#x1F1EA;&#x1F1F8; Spain</option>
-<option value="SE">&#x1F1F8;&#x1F1EA; Sweden</option>
-<option value="CH">&#x1F1E8;&#x1F1ED; Switzerland</option>
-<option value="TH">&#x1F1F9;&#x1F1ED; Thailand</option>
-<option value="TR">&#x1F1F9;&#x1F1F7; Turkey</option>
-<option value="UA">&#x1F1FA;&#x1F1E6; Ukraine</option>
-<option value="AE">&#x1F1E6;&#x1F1EA; United Arab Emirates</option>
-<option value="GB">&#x1F1EC;&#x1F1E7; United Kingdom</option>
-<option value="US">&#x1F1FA;&#x1F1F8; United States</option>
-<option value="VN">&#x1F1FB;&#x1F1F3; Vietnam</option>
+<!-- Edit Modal -->
+<div class="adm-modal-overlay" id="admEditOverlay">
+<div class="adm-modal">
+<h3>Edit User</h3>
+<p class="adm-modal-email" id="admEditEmail"></p>
+<input type="hidden" id="admEditId" />
+<div class="adm-modal-field">
+<label>User ID</label>
+<input type="text" id="admEditUid" disabled />
+</div>
+<div class="adm-modal-field">
+<label>Display Name</label>
+<input type="text" id="admEditName" placeholder="First Last" />
+</div>
+<div class="adm-modal-field">
+<label>Ban User</label>
+<select id="admEditBan">
+<option value="">Not Banned</option>
+<option value="banned">Banned</option>
 </select>
-<svg class="auth-country-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</div>
+<div class="adm-modal-actions">
+<button class="btn btn-ghost btn-sm" id="admEditClose">Cancel</button>
+<button class="btn btn-primary btn-sm" id="admEditSave">Save Changes</button>
+</div>
+<p class="adm-modal-status" id="admEditStatus"></p>
 </div>
 </div>
-<div class="auth-row">
-<div class="auth-field">
-<label for="regPassword" data-i18n="reg_pw">Password</label>
-<div class="auth-password-wrap">
-<input type="password" id="regPassword" name="password" placeholder="Create a password" required autocomplete="new-password" />
-<button type="button" class="auth-eye" onclick="togglePw('regPassword', this)" aria-label="Toggle password visibility">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-<circle cx="12" cy="12" r="3" />
-</svg>
-</button>
-</div>
-</div>
-<div class="auth-field">
-<label for="regPasswordConfirm" data-i18n="reg_pw2">Confirm Password</label>
-<div class="auth-password-wrap">
-<input type="password" id="regPasswordConfirm" name="passwordConfirm" placeholder="Repeat password" required autocomplete="new-password" />
-<button type="button" class="auth-eye" onclick="togglePw('regPasswordConfirm', this)" aria-label="Toggle password visibility">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-<circle cx="12" cy="12" r="3" />
-</svg>
-</button>
-</div>
-</div>
-</div>
-<div class="auth-pw-error" id="regPwError" data-i18n="pw_error">Passwords do not match.</div>
-<div class="auth-consent">
-<label class="auth-consent-label">
-<input type="checkbox" id="regConsent" name="consent" required />
-<span class="auth-consent-box" aria-hidden="true">
-</span>
-<span class="auth-consent-text" data-i18n="reg_consent">I acknowledge that trading involves risk and that the services provided are educational in nature. I agree to the <a href="terms-of-service.html" target="_blank">Terms &amp; Conditions</a>, <a href="privacy-policy.html" target="_blank">Privacy Policy</a>, <a href="risk-disclosure.html" target="_blank">Risk Disclosure</a>, <a href="refund-policy.html" target="_blank">Refund Policy</a> and <a href="challenge-rules.html" target="_blank">Challenge Rules</a>.</span>
-</label>
-<div class="auth-consent-error" id="regConsentError" data-i18n="reg_consent_error">You must accept the terms to create an account.</div>
-</div>
-<button type="submit" class="btn btn-primary auth-submit" data-i18n="reg_btn">Create Account</button>
-</form>
-<p class="auth-switch">
-<span data-i18n="reg_switch">Already have an account?</span>
-<a href="#" onclick="switchModal('registerModal','loginModal');return false;" data-i18n="reg_switch_link">Sign In</a>
-</p>
-</div>
-</div>
-<!-- === SCRIPTS === -->
-<script src="script.js">
+
+<!-- Scripts -->
+<script src="script.js"></script>
+<script src="i18n.js"></script>
+<script src="auth-modals.js"></script>
+
+<script>
+(function () {
+    'use strict';
+
+    var SUPA_URL = 'https://lssedurdadjngqbchjbj.supabase.co';
+    var SERVICE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxzc2VkdXJkYWRqbmdxYmNoamJqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjU1OTk5OSwiZXhwIjoyMDkyMTM1OTk5fQ.IIwv1FAui_6ScsNAbuv-HmRxvBJkWZGtMmSCUyAmJYA';
+    var ADMIN_EMAIL = 'aleksanderdobieszewski@gmail.com';
+    var SESSION_KEY = 'altivor_session';
+
+    /* ── Helpers ── */
+    function $(id) { return document.getElementById(id); }
+    function escHtml(s) { var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+    function fmtDate(iso) { if (!iso) return '\u2014'; var d = new Date(iso); return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); }
+    function fmtDateTime(iso) { if (!iso) return '\u2014'; var d = new Date(iso); return fmtDate(iso) + ' ' + d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }); }
+
+    function adminApi(path, method, body) {
+        var h = { 'apikey': SERVICE_KEY, 'Authorization': 'Bearer ' + SERVICE_KEY, 'Content-Type': 'application/json' };
+        var opts = { method: method || 'GET', headers: h };
+        if (body) opts.body = JSON.stringify(body);
+        return fetch(SUPA_URL + path, opts).then(function (r) {
+            return r.json().then(function (d) {
+                if (!r.ok) throw new Error(d.msg || d.message || d.error_description || 'Request failed');
+                return d;
+            });
+        });
+    }
+
+    /* ── Gate check ── */
+    function getLoggedInEmail() {
+        try {
+            var s = JSON.parse(localStorage.getItem(SESSION_KEY));
+            if (!s || !s.user) return null;
+            return (s.user.email || '').trim().toLowerCase();
+        } catch (_) { return null; }
+    }
+
+    var email = getLoggedInEmail();
+    if (email !== ADMIN_EMAIL) {
+        $('admGate').style.display = '';
+        return;
+    }
+    $('admPanel').style.display = '';
+
+    /* ── State ── */
+    var allUsers = [];
+
+    /* ── Load users ── */
+    function loadUsers() {
+        $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-loading">Loading users...</td></tr>';
+
+        adminApi('/auth/v1/admin/users?per_page=1000', 'GET')
+            .then(function (data) {
+                allUsers = data.users || [];
+                updateStats();
+                renderTable(allUsers);
+            })
+            .catch(function (err) {
+                $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">Failed to load: ' + escHtml(err.message) + '</td></tr>';
+            });
+    }
+
+    function updateStats() {
+        $('admStatTotal').textContent = allUsers.length;
+        var confirmed = allUsers.filter(function (u) { return u.email_confirmed_at; }).length;
+        $('admStatConfirmed').textContent = confirmed;
+        var today = new Date().toISOString().slice(0, 10);
+        var todayCount = allUsers.filter(function (u) { return u.created_at && u.created_at.slice(0, 10) === today; }).length;
+        $('admStatToday').textContent = todayCount;
+        var banned = allUsers.filter(function (u) { return u.banned_until && new Date(u.banned_until) > new Date(); }).length;
+        $('admStatBanned').textContent = banned;
+    }
+
+    function renderTable(users) {
+        if (!users.length) {
+            $('admTableBody').innerHTML = '<tr><td colspan="8" class="adm-empty">No users found.</td></tr>';
+            return;
+        }
+        var html = '';
+        users.forEach(function (u) {
+            var meta = u.user_metadata || {};
+            var name = ((meta.first_name || '') + ' ' + (meta.last_name || '')).trim() || meta.username || '\u2014';
+            var isAdmin = (u.email || '').trim().toLowerCase() === ADMIN_EMAIL;
+            var roleCls = isAdmin ? 'admin' : 'authenticated';
+            var roleLabel = isAdmin ? 'admin' : (u.role || 'user');
+            var emailConfirmed = u.email_confirmed_at;
+            var emailCls = emailConfirmed ? 'confirmed' : 'unconfirmed';
+            var emailLabel = emailConfirmed ? 'Confirmed' : 'Unconfirmed';
+            var isBanned = u.banned_until && new Date(u.banned_until) > new Date();
+            if (isBanned) { emailCls = 'banned'; emailLabel = 'Banned'; }
+            var provider = (u.app_metadata && u.app_metadata.provider) || 'email';
+
+            html += '<tr data-uid="' + u.id + '">'
+                + '<td>' + escHtml(u.email) + '</td>'
+                + '<td>' + escHtml(name) + '</td>'
+                + '<td><span class="adm-pill adm-pill--' + roleCls + '">' + escHtml(roleLabel) + '</span></td>'
+                + '<td><span class="adm-pill adm-pill--' + emailCls + '">' + escHtml(emailLabel) + '</span></td>'
+                + '<td>' + fmtDate(u.created_at) + '</td>'
+                + '<td>' + fmtDateTime(u.last_sign_in_at) + '</td>'
+                + '<td>' + escHtml(provider) + '</td>'
+                + '<td><button class="adm-edit-btn" data-uid="' + u.id + '">Edit</button></td>'
+                + '</tr>';
+        });
+        $('admTableBody').innerHTML = html;
+    }
+
+    /* ── Search ── */
+    $('admSearch').addEventListener('input', function () {
+        var q = this.value.trim().toLowerCase();
+        if (!q) { renderTable(allUsers); return; }
+        var filtered = allUsers.filter(function (u) {
+            var meta = u.user_metadata || {};
+            var name = ((meta.first_name || '') + ' ' + (meta.last_name || '') + ' ' + (meta.username || '')).toLowerCase();
+            return (u.email || '').toLowerCase().indexOf(q) !== -1 || name.indexOf(q) !== -1;
+        });
+        renderTable(filtered);
+    });
+
+    /* ── Refresh ── */
+    $('admRefresh').addEventListener('click', loadUsers);
+
+    /* ── Edit modal ── */
+    var overlay = $('admEditOverlay');
+    function openEdit(uid) {
+        var user = allUsers.find(function (u) { return u.id === uid; });
+        if (!user) return;
+        var meta = user.user_metadata || {};
+        $('admEditId').value = user.id;
+        $('admEditUid').value = user.id;
+        $('admEditEmail').textContent = user.email;
+        $('admEditName').value = ((meta.first_name || '') + (meta.last_name ? ' ' + meta.last_name : '')).trim();
+        var isBanned = user.banned_until && new Date(user.banned_until) > new Date();
+        $('admEditBan').value = isBanned ? 'banned' : '';
+        $('admEditStatus').textContent = '';
+        $('admEditStatus').className = 'adm-modal-status';
+        overlay.classList.add('open');
+    }
+    function closeEdit() { overlay.classList.remove('open'); }
+
+    $('admEditClose').addEventListener('click', closeEdit);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeEdit(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) closeEdit(); });
+
+    $('admTableBody').addEventListener('click', function (e) {
+        var btn = e.target.closest('.adm-edit-btn');
+        if (btn) openEdit(btn.dataset.uid);
+    });
+
+    $('admEditSave').addEventListener('click', function () {
+        var uid = $('admEditId').value;
+        var statusEl = $('admEditStatus');
+        var saveBtn = $('admEditSave');
+        saveBtn.disabled = true;
+        statusEl.textContent = '';
+        statusEl.className = 'adm-modal-status';
+
+        var nameVal = ($('admEditName').value || '').trim();
+        var nameParts = nameVal.split(/\s+/);
+        var firstName = nameParts[0] || '';
+        var lastName = nameParts.slice(1).join(' ') || '';
+
+        var banVal = $('admEditBan').value;
+        var body = {
+            user_metadata: { first_name: firstName, last_name: lastName }
+        };
+        if (banVal === 'banned') {
+            body.ban_duration = '876000h'; // ~100 years
+        } else {
+            body.ban_duration = 'none';
+        }
+
+        adminApi('/auth/v1/admin/users/' + uid, 'PUT', body)
+            .then(function (updated) {
+                allUsers = allUsers.map(function (u) { return u.id === updated.id ? updated : u; });
+                updateStats();
+                renderTable(allUsers);
+                statusEl.textContent = 'Saved successfully.';
+                statusEl.className = 'adm-modal-status ok';
+                setTimeout(closeEdit, 800);
+            })
+            .catch(function (err) {
+                statusEl.textContent = err.message || 'Failed to save.';
+                statusEl.className = 'adm-modal-status err';
+            })
+            .then(function () { saveBtn.disabled = false; });
+    });
+
+    /* ── Init ── */
+    loadUsers();
+})();
 </script>
-<script src="i18n.js">
-</script>
-<script> function openModal(id) { document.querySelectorAll('.auth-overlay.active').forEach(function (m) { if (m.id !== id) m.classList.remove('active'); }); document.getElementById(id).classList.add('active'); document.body.classList.add('modal-open'); } function closeModal(id) { document.getElementById(id).classList.remove('active'); if (!document.querySelector('.auth-overlay.active')) document.body.classList.remove('modal-open'); } function switchModal(from, to) { closeModal(from); setTimeout(function () { openModal(to); }, 220); } function togglePw(inputId, btn) { var input = document.getElementById(inputId); input.type = input.type === 'password' ? 'text' : 'password'; btn.classList.toggle('active'); } document.querySelectorAll('.auth-overlay').forEach(function (overlay) { overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(overlay.id); }); }); document.addEventListener('keydown', function (e) { if (e.key === 'Escape') document.querySelectorAll('.auth-overlay.active').forEach(function (m) { closeModal(m.id); }); }); function handleLogin(e) { e.preventDefault(); } function handleRegister(e) { e.preventDefault(); } </script>
-<!-- === ADMIN PANEL LOGIC === -->
-<script> (function () { 'use strict'; var tbody = document.getElementById('adminTableBody'); var countEl = document.getElementById('adminCount'); var refreshBtn = document.getElementById('adminRefresh'); var overlay = document.getElementById('adminEditOverlay'); var editForm = document.getElementById('adminEditForm'); var editUserId = document.getElementById('adminEditUserId'); var editEmail = document.getElementById('adminEditEmail'); var editSubscription = document.getElementById('adminEditSubscription'); var editChallenge = document.getElementById('adminEditChallenge'); var editAccount = document.getElementById('adminEditAccount'); var editStatus = document.getElementById('adminEditStatus'); var closeBtn = document.getElementById('adminEditClose'); var users = []; function pillClass(value) { return 'admin-pill admin-pill--' + (value || 'none'); } function fmtDate(iso) { if (!iso) return ''; var d = new Date(iso); return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); } function renderUsers() { if (!users.length) { tbody.innerHTML = '<tr>
-<td colspan="8" class="admin-msg">No users found.</td>
-</tr>'; countEl.textContent = ''; return; } countEl.textContent = users.length + ' user' + (users.length !== 1 ? 's' : ''); tbody.innerHTML = users.map(function (u) { var name = [u.firstName || '', u.lastName || ''].join(' ').trim() || ''; return '<tr data-uid="' + u.id + '">' + '<td>' + escHtml(u.email) + '</td>' + '<td>' + escHtml(name) + '</td>' + '<td>
-<span class="' + pillClass(u.role) + '">' + escHtml(u.role) + '</span>
-</td>' + '<td>
-<span class="' + pillClass(u.subscriptionStatus) + '">' + escHtml(u.subscriptionStatus || 'inactive') + '</span>
-</td>' + '<td>
-<span class="' + pillClass(u.challengeStatus) + '">' + escHtml(u.challengeStatus || 'none') + '</span>
-</td>' + '<td>
-<span class="' + pillClass(u.accountStatus) + '">' + escHtml(u.accountStatus || 'active') + '</span>
-</td>' + '<td>' + fmtDate(u.createdAt) + '</td>' + '<td>
-<button class="admin-edit-btn" data-uid="' + u.id + '">Edit</button>
-</td>' + '</tr>'; }).join(''); } function escHtml(str) { var d = document.createElement('div'); d.textContent = str || ''; return d.innerHTML; } function loadUsers() { tbody.innerHTML = '<tr>
-<td colspan="8" class="admin-msg">Loading users</td>
-</tr>'; fetch('/api/admin/users', { credentials: 'same-origin' }) .then(function (r) { if (r.status === 401 || r.status === 403) { tbody.innerHTML = '<tr>
-<td colspan="8" class="admin-msg">Access denied. Please log in as admin.</td>
-</tr>'; throw new Error('forbidden'); } return r.json(); }) .then(function (data) { users = data.users || []; renderUsers(); }) .catch(function (err) { if (err.message !== 'forbidden') { tbody.innerHTML = '<tr>
-<td colspan="8" class="admin-msg">Failed to load users.</td>
-</tr>'; } }); } function openEditModal(userId) { var user = users.find(function (u) { return u.id === userId; }); if (!user) return; editUserId.value = user.id; editEmail.textContent = user.email; editSubscription.value = user.subscriptionStatus || 'inactive'; editChallenge.value = user.challengeStatus || 'none'; editAccount.value = user.accountStatus || 'active'; editStatus.textContent = ''; editStatus.className = 'admin-modal-status'; overlay.classList.add('open'); } function closeEditModal() { overlay.classList.remove('open'); } tbody.addEventListener('click', function (e) { var btn = e.target.closest('.admin-edit-btn'); if (!btn) return; openEditModal(btn.dataset.uid); }); closeBtn.addEventListener('click', closeEditModal); overlay.addEventListener('click', function (e) { if (e.target === overlay) closeEditModal(); }); document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('open')) closeEditModal(); }); editForm.addEventListener('submit', function (e) { e.preventDefault(); editStatus.textContent = ''; editStatus.className = 'admin-modal-status'; var uid = editUserId.value; var payload = { subscriptionStatus: editSubscription.value, challengeStatus: editChallenge.value, accountStatus: editAccount.value }; fetch('/api/admin/users/' + encodeURIComponent(uid), { method: 'PATCH', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }) .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, data: d }; }); }) .then(function (result) { if (!result.ok) { editStatus.textContent = result.data.error || 'Update failed.'; return; } editStatus.textContent = 'Saved.'; editStatus.className = 'admin-modal-status success'; var updated = result.data.user; if (updated) { users = users.map(function (u) { return u.id === updated.id ? updated : u; }); renderUsers(); } setTimeout(closeEditModal, 800); }) .catch(function () { editStatus.textContent = 'Network error.'; }); }); refreshBtn.addEventListener('click', loadUsers); loadUsers(); })(); </script>
 </body>
-</html> 
+</html>

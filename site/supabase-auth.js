@@ -8,6 +8,7 @@
     var BASE = 'https://lssedurdadjngqbchjbj.supabase.co';
     var KEY  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxzc2VkdXJkYWRqbmdxYmNoamJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY1NTk5OTksImV4cCI6MjA5MjEzNTk5OX0.PG6Ljeo9i0apJkU-X0QWsoS0KMn5CmnmFtmaIl3JdAs';
     var SESSION_KEY = 'altivor_session';
+    var ADMIN_EMAIL  = 'aleksanderdobieszewski@gmail.com';
 
     window.__USE_SUPABASE_AUTH = true;
 
@@ -73,6 +74,32 @@
         return btn;
     }
 
+    function ensureAdminLink() {
+        var link = document.getElementById('authAdminLink');
+        if (link) return link;
+        var nav = document.querySelector('.nav-actions');
+        if (!nav) return null;
+        link = document.createElement('a');
+        link.id = 'authAdminLink';
+        link.href = 'admin.html';
+        link.className = 'btn btn-ghost nav-cta';
+        link.style.fontWeight = '600';
+        link.textContent = 'Admin';
+        link.style.display = 'none';
+        var profBtn = document.getElementById('authProfileBtn');
+        if (profBtn) {
+            nav.insertBefore(link, profBtn);
+        } else {
+            nav.appendChild(link);
+        }
+        return link;
+    }
+
+    function isAdmin(user) {
+        if (!user || !user.email) return false;
+        return user.email.trim().toLowerCase() === ADMIN_EMAIL;
+    }
+
     function ensureLogoutButton() {
         var btn = document.getElementById('authLogoutBtn');
         if (btn) return btn;
@@ -105,16 +132,20 @@
         var profBtn  = ensureProfileButton();
         var logBtn   = ensureLogoutButton();
 
+        var adminLink = ensureAdminLink();
+
         if (currentUser) {
             hideEl(loginBtn);
             hideEl(regBtn);
             showEl(profBtn);
             showEl(logBtn);
+            if (isAdmin(currentUser)) { showEl(adminLink); } else { hideEl(adminLink); }
         } else {
             showEl(loginBtn);
             showEl(regBtn);
             hideEl(profBtn);
             hideEl(logBtn);
+            hideEl(adminLink);
         }
 
         document.querySelectorAll('a[data-i18n="footer_login"]').forEach(function (el) {
