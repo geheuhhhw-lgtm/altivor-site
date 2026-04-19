@@ -3,38 +3,108 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Profile — ALTIVOR INSTITUTE</title>
+<title>Profile Dashboard &#8212; ALTIVOR INSTITUTE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-<style> .profile-layout { min-height: 100vh; padding-top: 8rem; padding-bottom: 4rem; } .profile-header { text-align: center; margin-bottom: 3rem; } .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(214, 190, 150, 0.15)); border: 2px solid var(--border-default); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; color: rgba(214, 190, 150, 0.8); } .profile-name { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: rgba(214, 190, 150, 0.9); margin: 0 0 0.25rem; } [data-theme="light"] .profile-name { color: rgba(130, 110, 70, 0.9); } .profile-email { font-size: 0.9rem; color: var(--txt-secondary); } .profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; } .profile-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 1rem; padding: 1.5rem; } .profile-card-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(96, 165, 250, 0.8); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); } [data-theme="light"] .profile-card-title { color: rgba(37, 99, 175, 0.85); } .profile-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border-subtle); } .profile-row:last-child { border-bottom: none; } .profile-label { font-size: 0.85rem; color: var(--txt-muted); } .profile-value { font-size: 0.85rem; font-weight: 500; color: var(--txt-primary); } .profile-status { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; } .status-not-started { background: rgba(100, 100, 100, 0.15); color: var(--txt-muted); } .status-active { background: rgba(96, 165, 250, 0.15); color: rgba(96, 165, 250, 0.9); } .status-qualified, .status-passed { background: rgba(34, 197, 94, 0.15); color: #22c55e; } .status-disqualified, .status-failed { background: rgba(239, 68, 68, 0.15); color: #ef4444; } .profile-progress { margin-top: 1rem; } .profile-progress-bar { height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden; margin-bottom: 0.5rem; } .profile-progress-fill { height: 100%; background: linear-gradient(90deg, rgba(96, 165, 250, 0.8), rgba(214, 190, 150, 0.8)); border-radius: 3px; transition: width 0.5s ease; } .profile-progress-text { font-size: 0.75rem; color: var(--txt-muted); text-align: center; } .profile-actions { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; } .profile-loading { text-align: center; padding: 4rem 0; color: var(--txt-muted); } .profile-not-logged { text-align: center; padding: 4rem 0; } .profile-not-logged h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--txt-primary); margin-bottom: 1rem; } .profile-not-logged p { color: var(--txt-secondary); margin-bottom: 1.5rem; } </style>
+<style>
+.dash-layout{min-height:100vh;padding-top:7rem;padding-bottom:4rem}
+.dash-loading,.dash-not-logged{text-align:center;padding:6rem 1rem}
+.dash-not-logged h2{font-family:'DM Serif Display',serif;font-size:1.8rem;margin-bottom:0.5rem}
+.dash-header{display:flex;align-items:center;gap:1.5rem;padding:2rem;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.dash-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,rgba(96,165,250,0.15),rgba(214,190,150,0.15));border:2px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:rgba(214,190,150,0.8);background-size:cover;background-position:center;flex-shrink:0;cursor:pointer;transition:border-color .2s}
+.dash-avatar:hover{border-color:rgba(96,165,250,0.5)}
+.dash-avatar.has-img{color:transparent}
+.dash-header-info{flex:1;min-width:200px}
+.dash-user-name{font-family:'DM Serif Display',serif;font-size:1.6rem;color:rgba(214,190,150,0.9);margin:0 0 0.15rem}
+[data-theme="light"] .dash-user-name{color:rgba(130,110,70,0.9)}
+.dash-user-email{font-size:0.85rem;color:var(--txt-secondary);margin:0 0 0.3rem}
+.dash-user-role{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.6rem;border-radius:1rem;background:rgba(96,165,250,0.12);color:rgba(96,165,250,0.85)}
+.dash-header-actions{display:flex;gap:0.5rem;flex-wrap:wrap}
+.dash-tabs{display:flex;gap:0.25rem;padding:0.25rem;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:0.75rem;margin-bottom:1.5rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.dash-tab{padding:0.6rem 1rem;border-radius:0.5rem;font-size:0.8rem;font-weight:600;color:var(--txt-secondary);background:transparent;border:none;cursor:pointer;white-space:nowrap;transition:all .2s}
+.dash-tab:hover{color:var(--txt-primary);background:var(--bg-elevated)}
+.dash-tab.active{color:var(--txt-primary);background:var(--bg-elevated);box-shadow:0 1px 3px rgba(0,0,0,0.15)}
+.dash-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1rem;padding:1.5rem;margin-bottom:1.25rem}
+.dash-card-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(96,165,250,0.8);margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;gap:0.5rem}
+[data-theme="light"] .dash-card-title{color:rgba(37,99,175,0.85)}
+.dash-card-title svg{flex-shrink:0}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem}
+.dash-row{display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0;border-bottom:1px solid var(--border-subtle)}
+.dash-row:last-child{border-bottom:none}
+.dash-label{font-size:0.82rem;color:var(--txt-muted)}
+.dash-value{font-size:0.82rem;font-weight:500;color:var(--txt-primary)}
+.dash-mono{font-family:'Courier New',monospace;font-size:0.75rem;word-break:break-all}
+.dash-muted{font-size:0.82rem;color:var(--txt-muted);margin:0.5rem 0}
+.dash-badge{display:inline-flex;align-items:center;gap:0.3rem;padding:0.2rem 0.6rem;border-radius:1rem;font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.03em}
+.dash-badge--green{background:rgba(34,197,94,0.12);color:#22c55e}
+.dash-badge--red{background:rgba(239,68,68,0.12);color:#ef4444}
+.dash-badge--yellow{background:rgba(234,179,8,0.12);color:#eab308}
+.dash-badge--blue{background:rgba(96,165,250,0.12);color:#60a5fa}
+.dash-badge--gray{background:rgba(100,100,100,0.12);color:var(--txt-muted)}
+.dash-form-group{margin-bottom:1rem}
+.dash-form-group label{display:block;font-size:0.78rem;font-weight:600;color:var(--txt-secondary);margin-bottom:0.35rem;text-transform:uppercase;letter-spacing:0.05em}
+.dash-form-group input,.dash-form-group select,.dash-form-group textarea{width:100%;padding:0.6rem 0.8rem;font-size:0.85rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:0.5rem;color:var(--txt-primary);font-family:inherit;transition:border-color .2s}
+.dash-form-group input:focus,.dash-form-group select:focus{outline:none;border-color:rgba(96,165,250,0.5)}
+.dash-form-group input:disabled{opacity:0.5;cursor:not-allowed}
+.dash-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.dash-form-status{font-size:0.8rem;margin-top:0.5rem;min-height:1.2em}
+.dash-form-status--error{color:#ef4444}
+.dash-form-status--success{color:#22c55e}
+.dash-form-actions{display:flex;gap:0.5rem;margin-top:1rem}
+.btn-sm{font-size:0.78rem;padding:0.45rem 0.9rem}
+.dash-2fa-status{margin-bottom:1rem}
+.dash-2fa-enabled,.dash-2fa-disabled{display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;margin-bottom:0.75rem}
+.dash-2fa-factor{display:flex;align-items:center;gap:1rem;padding:0.6rem 0;border-top:1px solid var(--border-subtle);flex-wrap:wrap}
+.dash-2fa-setup h4{font-size:1rem;margin:0 0 0.5rem;color:var(--txt-primary)}
+.dash-2fa-qr{text-align:center;margin:1.5rem 0;padding:1rem;background:#fff;border-radius:0.75rem;display:inline-block}
+.dash-2fa-secret{margin:1rem 0}
+.dash-2fa-secret label{display:block;font-size:0.75rem;font-weight:600;color:var(--txt-muted);margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.05em}
+.dash-2fa-secret code{display:block;padding:0.6rem 0.8rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:0.5rem;font-size:0.85rem;word-break:break-all;color:var(--txt-primary);font-family:'Courier New',monospace;letter-spacing:0.1em}
+.dash-2fa-code-row{display:flex;gap:0.5rem;align-items:center;margin-top:0.5rem}
+.dash-2fa-code-row input{max-width:150px;text-align:center;font-size:1.2rem;letter-spacing:0.3em;font-weight:600}
+.dash-table{width:100%;border-collapse:collapse;font-size:0.82rem}
+.dash-table th{text-align:left;padding:0.6rem 0.5rem;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--txt-muted);border-bottom:1px solid var(--border-default)}
+.dash-table td{padding:0.6rem 0.5rem;border-bottom:1px solid var(--border-subtle);color:var(--txt-primary)}
+.dash-empty{text-align:center;padding:3rem 1rem;color:var(--txt-muted)}
+.dash-empty svg{margin-bottom:1rem;opacity:0.4}
+.dash-empty p{margin:0.3rem 0}
+.dash-session-card{padding:0.5rem 0}
+.dash-session-row{display:flex;justify-content:space-between;align-items:center;padding:0.45rem 0;border-bottom:1px solid var(--border-subtle)}
+.dash-session-row:last-child{border-bottom:none}
+.dash-avatar-section{display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.dash-avatar-large{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,rgba(96,165,250,0.15),rgba(214,190,150,0.15));border:2px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:700;color:rgba(214,190,150,0.8);background-size:cover;background-position:center;flex-shrink:0}
+.dash-avatar-large.has-img{color:transparent}
+.dash-avatar-btns{display:flex;flex-direction:column;gap:0.4rem}
+.dash-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);padding:0.7rem 1.4rem;border-radius:0.6rem;font-size:0.82rem;font-weight:500;z-index:10000;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;font-family:inherit}
+.dash-toast--visible{opacity:1;transform:translateX(-50%) translateY(0)}
+.dash-toast--success{background:#166534;color:#bbf7d0}
+.dash-toast--error{background:#7f1d1d;color:#fecaca}
+.dash-toast--info{background:rgba(30,30,30,0.95);color:#e0e0e0;border:1px solid var(--border-default)}
+.dash-danger-zone{border-color:rgba(239,68,68,0.2)}
+.dash-danger-zone .dash-card-title{color:#ef4444}
+@media(max-width:640px){
+.dash-header{flex-direction:column;text-align:center}
+.dash-form-row{grid-template-columns:1fr}
+.dash-avatar-section{flex-direction:column;text-align:center}
+.dash-tabs{gap:0}
+.dash-tab{padding:0.5rem 0.7rem;font-size:0.72rem}
+}
+</style>
 </head>
 <body>
-<!-- === NAVIGATION === -->
 <div class="promo-bar" id="promoBar">
 <a href="us100-framework.html" class="promo-bar-inner">
 <span class="promo-bar-badge" data-i18n="announce_badge">NEW</span>
-<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework — Structural Execution System</span>
-<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;">
-<path d="M5 12h14"/>
-<polyline points="12 5 19 12 12 19"/>
-</svg>
-</span>
+<span class="promo-bar-text" data-i18n="announce_text_html">US100 Framework &#8212; Structural Execution System</span>
+<span class="promo-bar-cta" data-i18n="announce_cta">Start now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></span>
 </a>
 <button class="announce-close" id="promoBarClose" aria-label="Dismiss">&#x2715;</button>
 </div>
 <header class="nav-bar" id="navbar">
 <div class="nav-inner container">
 <a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home">
-<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
-<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
-<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
-<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
-<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
-<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
-<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
-<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
-</svg>
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);"><path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/><path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/><line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/><text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text><line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/><text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text><line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/></svg>
 </a>
 <nav class="nav-links" aria-label="Primary navigation">
 <a href="index.html#about" data-i18n="nav_about">About</a>
@@ -52,124 +122,148 @@
 <button class="btn btn-ghost nav-cta" id="openLoginBtn" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
 <button class="btn btn-primary nav-cta" id="openRegisterBtn" onclick="openModal('registerModal')" data-i18n="nav_register">Register</button>
 </div>
-<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-<span>
-</span>
-<span>
-</span>
-<span>
-</span>
-</button>
+<button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div>
 </header>
-<!-- === MAIN CONTENT === -->
-<main class="profile-layout">
+
+<main class="dash-layout">
 <div class="container">
-<!-- Loading state -->
-<div id="profileLoading" class="profile-loading">
-<p>Loading profile...</p>
+<div id="dashLoading" class="dash-loading"><p>Loading dashboard...</p></div>
+<div id="dashNotLogged" class="dash-not-logged" style="display:none;">
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+<h2>Not Logged In</h2>
+<p style="color:var(--txt-secondary);margin-bottom:1.5rem;">Please log in to access your dashboard.</p>
+<button class="btn btn-primary" onclick="openModal('loginModal')">Login</button>
 </div>
-<!-- Not logged in state -->
-<div id="profileNotLogged" class="profile-not-logged" style="display:none;">
-<h2 data-i18n="profile_not_logged_title">Not Logged In</h2>
-<p data-i18n="profile_not_logged_desc">Please log in to view your profile.</p>
-<button class="btn btn-primary" onclick="openModal('loginModal')" data-i18n="nav_login">Login</button>
+<div id="dashContent" style="display:none;">
+
+<div class="dash-header">
+<div class="dash-avatar" id="dashAvatar" title="Click to change avatar"></div>
+<div class="dash-header-info">
+<h1 class="dash-user-name" id="dashUserName">&#8212;</h1>
+<p class="dash-user-email" id="dashUserEmail">&#8212;</p>
+<span class="dash-user-role" id="dashUserRole">USER</span>
 </div>
-<!-- Profile content -->
-<div id="profileContent" style="display:none;">
-<div class="profile-header">
-<div class="profile-avatar" id="profileAvatar">👤</div>
-<h1 class="profile-name" id="profileName">—</h1>
-<p class="profile-email" id="profileEmail">—</p>
-</div>
-<div class="profile-grid">
-<!-- Account Info -->
-<div class="profile-card">
-<div class="profile-card-title" data-i18n="profile_account_info">Account Information</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_email">Email</span>
-<span class="profile-value" id="profileEmailValue">—</span>
-</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_verified">Email Verified</span>
-<span class="profile-value" id="profileVerified">—</span>
-</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_member_since">Member Since</span>
-<span class="profile-value" id="profileCreatedAt">—</span>
-</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_last_login">Last Login</span>
-<span class="profile-value" id="profileLastLogin">—</span>
+<div class="dash-header-actions">
+<a href="index.html" class="btn btn-ghost btn-sm">Back to Home</a>
+<button class="btn btn-ghost btn-sm" id="dashLogoutBtn2">Logout</button>
 </div>
 </div>
-<!-- PREPARE Status -->
-<div class="profile-card">
-<div class="profile-card-title" data-i18n="profile_prepare_status">PREPARE Status</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_status">Status</span>
-<span class="profile-status" id="profilePrepareStatus">—</span>
+
+<div class="dash-tabs" role="tablist">
+<button class="dash-tab active" data-tab="overview" role="tab">Overview</button>
+<button class="dash-tab" data-tab="personal" role="tab">Personal Info</button>
+<button class="dash-tab" data-tab="security" role="tab">Security</button>
+<button class="dash-tab" data-tab="purchases" role="tab">Purchases</button>
+<button class="dash-tab" data-tab="settings" role="tab">Settings</button>
 </div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_compliant_trades">Compliant Trades</span>
-<span class="profile-value" id="profilePrepareCompliant">0 / 8</span>
+
+<!-- OVERVIEW -->
+<div data-section="overview">
+<div class="dash-grid">
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg> Account Information</div>
+<div class="dash-row"><span class="dash-label">Email</span><span class="dash-value" id="ovEmail">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">Email Status</span><span id="ovVerified" class="dash-badge dash-badge--gray">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">Username</span><span class="dash-value" id="ovUsername">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">Country</span><span class="dash-value" id="ovCountry">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">Member Since</span><span class="dash-value" id="ovMemberSince">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">Last Login</span><span class="dash-value" id="ovLastLogin">&#8212;</span></div>
 </div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_noncompliant_trades">Non-Compliant Trades</span>
-<span class="profile-value" id="profilePrepareNonCompliant">0 / 20</span>
-</div>
-<div class="profile-progress" id="profilePrepareProgress">
-<div class="profile-progress-bar">
-<div class="profile-progress-fill" id="profilePrepareProgressFill" style="width:0%">
-</div>
-</div>
-<p class="profile-progress-text" id="profilePrepareProgressText">0% complete</p>
-</div>
-</div>
-<!-- Challenge Status -->
-<div class="profile-card">
-<div class="profile-card-title" data-i18n="profile_challenge_status">Challenge Status</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_status">Status</span>
-<span class="profile-status" id="profileChallengeStatus">—</span>
-</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_total_trades">Total Trades</span>
-<span class="profile-value" id="profileChallengeTotalTrades">0 / 55</span>
-</div>
-<div class="profile-row">
-<span class="profile-label" data-i18n="profile_compliant_trades">Compliant Trades</span>
-<span class="profile-value" id="profileChallengeCompliant">0</span>
-</div>
-<div class="profile-progress" id="profileChallengeProgress">
-<div class="profile-progress-bar">
-<div class="profile-progress-fill" id="profileChallengeProgressFill" style="width:0%">
-</div>
-</div>
-<p class="profile-progress-text" id="profileChallengeProgressText">0% complete</p>
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security Overview</div>
+<div class="dash-row"><span class="dash-label">Auth Provider</span><span class="dash-value" id="ovProvider">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">Two-Factor Auth</span><span id="ov2FA" class="dash-badge dash-badge--gray">&#8212;</span></div>
+<div class="dash-row"><span class="dash-label">User ID</span><span class="dash-value dash-mono" id="ovUserId">&#8212;</span></div>
 </div>
 </div>
 </div>
-<div class="profile-actions">
-<a href="prepare.html" class="btn btn-primary" data-i18n="profile_go_prepare">Go to PREPARE</a>
-<button class="btn btn-ghost" id="profileLogoutBtn" data-i18n="nav_logout">Logout</button>
+
+<!-- PERSONAL INFO -->
+<div data-section="personal" style="display:none;">
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg> Profile Picture</div>
+<div class="dash-avatar-section">
+<div class="dash-avatar-large" id="dashAvatarLarge"></div>
+<div class="dash-avatar-btns">
+<input type="file" id="avatarFileInput" accept="image/*" style="display:none" />
+<button class="btn btn-primary btn-sm" id="avatarUploadBtn">Upload Photo</button>
+<button class="btn btn-ghost btn-sm" id="avatarRemoveBtn">Remove Photo</button>
+<p class="dash-muted">Max 2MB. JPG, PNG or GIF.</p>
 </div>
+</div>
+</div>
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Edit Profile</div>
+<form id="personalInfoForm">
+<div class="dash-form-row">
+<div class="dash-form-group"><label for="editFirstName">First Name</label><input type="text" id="editFirstName" placeholder="John" /></div>
+<div class="dash-form-group"><label for="editLastName">Last Name</label><input type="text" id="editLastName" placeholder="Doe" /></div>
+</div>
+<div class="dash-form-group"><label for="editUsername">Username</label><input type="text" id="editUsername" placeholder="johndoe_trader" /></div>
+<div class="dash-form-group"><label for="editEmail">Email</label><input type="email" id="editEmail" disabled title="Email cannot be changed here" /></div>
+<div class="dash-form-group"><label for="editAddress">Address</label><input type="text" id="editAddress" placeholder="123 Street, City" /></div>
+<div class="dash-form-group"><label for="editCountry">Country</label><select id="editCountry"><option value="">Select country</option></select></div>
+<div class="dash-form-actions"><button type="submit" class="btn btn-primary btn-sm">Save Changes</button></div>
+</form>
+</div>
+</div>
+
+<!-- SECURITY -->
+<div data-section="security" style="display:none;">
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Change Password</div>
+<form id="passwordForm">
+<div class="dash-form-group"><label for="newPassword">New Password</label><input type="password" id="newPassword" placeholder="Min 8 characters" autocomplete="new-password" /></div>
+<div class="dash-form-group"><label for="confirmNewPassword">Confirm New Password</label><input type="password" id="confirmNewPassword" placeholder="Repeat password" autocomplete="new-password" /></div>
+<p class="dash-muted">Password must be at least 8 characters with uppercase, number, and special character.</p>
+<p class="dash-form-status" id="pwChangeStatus"></p>
+<div class="dash-form-actions"><button type="submit" class="btn btn-primary btn-sm">Update Password</button></div>
+</form>
+</div>
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Two-Factor Authentication (2FA)</div>
+<div id="twoFactorContent"><p class="dash-muted">Loading...</p></div>
+</div>
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 7h8M8 11h5"/></svg> Active Session</div>
+<div id="sessionsContent"><p class="dash-muted">Loading...</p></div>
+</div>
+</div>
+
+<!-- PURCHASES -->
+<div data-section="purchases" style="display:none;">
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> Purchase History</div>
+<div id="purchasesContent"><p class="dash-muted">Loading...</p></div>
+</div>
+</div>
+
+<!-- SETTINGS -->
+<div data-section="settings" style="display:none;">
+<div class="dash-card">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Account Settings</div>
+<div class="dash-row"><span class="dash-label">Theme</span><span class="dash-value">Managed via top bar</span></div>
+<div class="dash-row"><span class="dash-label">Language</span><span class="dash-value">English</span></div>
+</div>
+<div class="dash-card dash-danger-zone">
+<div class="dash-card-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Danger Zone</div>
+<p class="dash-muted" style="margin-bottom:1rem;">Permanently delete your account and all data. This action cannot be undone.</p>
+<button class="btn btn-ghost btn-sm" style="color:#ef4444;border-color:rgba(239,68,68,0.3);" onclick="alert('Please contact support to delete your account.')">Delete Account</button>
+</div>
+<div style="text-align:center;padding:2rem 0;">
+<button class="btn btn-ghost" id="dashLogoutBtn">Sign Out</button>
+</div>
+</div>
+
 </div>
 </div>
 </main>
-<!-- === FOOTER === -->
+
 <footer class="site-footer" aria-label="Site footer">
 <div class="footer-inner container">
 <div class="footer-brand">
-<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;">
-<path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
-<path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
-<line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/>
-<text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text>
-<line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/>
-<text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text>
-<line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/>
-</svg>
+<svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:28px;width:auto;display:block;color:var(--txt-primary);opacity:0.85;"><path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/><path d="M44 14 C40 24 22 38 10 50 C20 44 32 41 44 44 C56 41 68 44 78 50 C66 38 48 24 44 14 Z" fill="none" stroke="currentColor" stroke-width="1.2" opacity="0.45"/><line x1="44" y1="2" x2="44" y2="44" stroke="currentColor" stroke-width="0.9" opacity="0.5"/><text x="102" y="36" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="800" letter-spacing="1.5" fill="currentColor">ALTIVOR</text><line x1="102" y1="47" x2="124" y2="47" stroke="currentColor" stroke-width="1.2"/><text x="130" y="51" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="600" letter-spacing="4.5" fill="currentColor">INSTITUTE</text><line x1="254" y1="47" x2="276" y2="47" stroke="currentColor" stroke-width="1.2"/></svg>
 <p class="footer-tagline" data-i18n="footer_tagline">Operational frameworks for disciplined market execution.</p>
 </div>
 </div>
@@ -177,10 +271,10 @@
 <p data-i18n="footer_copy">&copy; 2025 ALTIVOR INSTITUTE. All rights reserved.</p>
 </div>
 </footer>
-<script src="i18n.js">
-</script>
-<script src="script.js">
-</script>
-<script> (function() { 'use strict'; const loadingEl = document.getElementById('profileLoading'); const notLoggedEl = document.getElementById('profileNotLogged'); const contentEl = document.getElementById('profileContent'); const logoutBtn = document.getElementById('profileLogoutBtn'); function formatDate(dateStr) { if (!dateStr) return '—'; const d = new Date(dateStr); return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }); } function getStatusClass(status) { switch (status) { case 'NOT_STARTED': return 'status-not-started'; case 'ACTIVE': return 'status-active'; case 'QUALIFIED': case 'PASSED': return 'status-qualified'; case 'DISQUALIFIED': case 'FAILED': return 'status-disqualified'; default: return 'status-not-started'; } } function getStatusLabel(status) { switch (status) { case 'NOT_STARTED': return 'Not Started'; case 'ACTIVE': return 'Active'; case 'QUALIFIED': return 'Qualified'; case 'PASSED': return 'Passed'; case 'DISQUALIFIED': return 'Disqualified'; case 'FAILED': return 'Failed'; default: return status || 'Unknown'; } } function renderProfile(user) { loadingEl.style.display = 'none'; notLoggedEl.style.display = 'none'; contentEl.style.display = 'block'; // Header const displayName = user.displayName || user.firstName || user.email.split('@')[0]; document.getElementById('profileName').textContent = displayName; document.getElementById('profileEmail').textContent = user.email; document.getElementById('profileAvatar').textContent = displayName.charAt(0).toUpperCase(); // Account info document.getElementById('profileEmailValue').textContent = user.email; document.getElementById('profileVerified').textContent = user.emailVerified ? '✓ Yes' : '✗ No'; document.getElementById('profileCreatedAt').textContent = formatDate(user.createdAt); document.getElementById('profileLastLogin').textContent = formatDate(user.lastLoginAt); // PREPARE status const prepStatus = document.getElementById('profilePrepareStatus'); prepStatus.textContent = getStatusLabel(user.prepareStatus); prepStatus.className = 'profile-status ' + getStatusClass(user.prepareStatus); document.getElementById('profilePrepareCompliant').textContent = (user.prepareCompliantTrades || 0) + ' / 8'; document.getElementById('profilePrepareNonCompliant').textContent = (user.prepareNonCompliantTrades || 0) + ' / 20'; const prepProgress = Math.min(100, ((user.prepareCompliantTrades || 0) / 8) * 100); document.getElementById('profilePrepareProgressFill').style.width = prepProgress + '%'; document.getElementById('profilePrepareProgressText').textContent = Math.round(prepProgress) + '% complete'; // Challenge status const chalStatus = document.getElementById('profileChallengeStatus'); chalStatus.textContent = getStatusLabel(user.challengeStatus); chalStatus.className = 'profile-status ' + getStatusClass(user.challengeStatus); document.getElementById('profileChallengeTotalTrades').textContent = (user.challengeTotalTrades || 0) + ' / 55'; document.getElementById('profileChallengeCompliant').textContent = user.challengeCompliantTrades || 0; const chalProgress = Math.min(100, ((user.challengeTotalTrades || 0) / 55) * 100); document.getElementById('profileChallengeProgressFill').style.width = chalProgress + '%'; document.getElementById('profileChallengeProgressText').textContent = Math.round(chalProgress) + '% complete'; } function showNotLogged() { loadingEl.style.display = 'none'; notLoggedEl.style.display = 'block'; contentEl.style.display = 'none'; } async function loadProfile() { try { const res = await fetch('/api/auth/me', { credentials: 'include' }); const data = await res.json(); if (data.user) { renderProfile(data.user); } else { showNotLogged(); } } catch (err) { console.error('[Profile] Error loading:', err); showNotLogged(); } } if (logoutBtn) { logoutBtn.addEventListener('click', async function() { try { await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }); } catch (_) {} window.location.href = 'index.html'; }); } document.addEventListener('altivor:authchange', function(e) { if (e.detail && e.detail.user) { renderProfile(e.detail.user); } else { showNotLogged(); } }); loadProfile(); })(); </script>
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+<script src="auth-modals.js"></script>
+<script src="supabase-auth.js"></script>
+<script src="profile-dashboard.js"></script>
 </body>
-</html> 
+</html>
