@@ -339,11 +339,17 @@ a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}i
 <div class="a-side-group">
 <div class="a-side-label">System</div>
 <button class="a-side-btn" data-p="health"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>System Health</button>
+<button class="a-side-btn" data-p="errors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Error Tracker<span class="a-badge-count" id="admErrorBadge" style="display:none"></span></button>
 <button class="a-side-btn" data-p="security"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Security</button>
 <button class="a-side-btn" data-p="database"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Database</button>
 <button class="a-side-btn" data-p="env"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Environment</button>
 <button class="a-side-btn" data-p="audit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Audit Log</button>
 <button class="a-side-btn" data-p="links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Quick Links</button>
+</div>
+<div class="a-side-group">
+<div class="a-side-label">Monitoring</div>
+<button class="a-side-btn" data-p="uptime"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Uptime Monitor</button>
+<button class="a-side-btn" data-p="seo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>SEO Audit</button>
 </div>
 <div class="a-side-group">
 <div class="a-side-label">Configuration</div>
@@ -493,6 +499,33 @@ a{color:inherit;text-decoration:none}button{cursor:pointer;font-family:inherit}i
 <div class="a-links" id="quickLinksList"></div>
 </div></div>
 
+<!-- ══════ ERROR TRACKER ══════ -->
+<div class="a-panel" id="pErrors"><div class="a-page">
+<div class="a-page-head"><div><h1>Error Tracker</h1><p>Real-time JavaScript errors, unhandled rejections and failed requests captured during this session.</p></div>
+<div class="a-page-actions"><button class="a-btn a-btn--danger" id="admClearErrors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Clear</button></div>
+</div>
+<div class="a-stats" id="errorStats"></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span class="a-card-title">Captured Errors</span></div><div class="a-card-body" id="errorList"><p style="color:var(--a-green);font-size:.78rem">&#9679; No errors captured. Session is clean.</p></div></div>
+</div></div>
+
+<!-- ══════ UPTIME MONITOR ══════ -->
+<div class="a-panel" id="pUptime"><div class="a-page">
+<div class="a-page-head"><div><h1>Uptime Monitor</h1><p>Ping all site pages to verify availability and response times.</p></div>
+<div class="a-page-actions"><button class="a-btn a-btn--primary" id="admRunPing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>Run Check</button></div>
+</div>
+<div class="a-stats" id="uptimeStats"></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M2 12h20"/></svg><span class="a-card-title">Page Status</span></div><div class="a-card-body" id="uptimeResults"><p style="color:var(--a-txt3);font-size:.78rem">Click "Run Check" to ping all pages.</p></div></div>
+</div></div>
+
+<!-- ══════ SEO AUDIT ══════ -->
+<div class="a-panel" id="pSeo"><div class="a-page">
+<div class="a-page-head"><div><h1>SEO Audit</h1><p>Meta tags, Open Graph, structured data and indexing configuration check.</p></div>
+<div class="a-page-actions"><button class="a-btn a-btn--primary" id="admRunSeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Run Audit</button></div>
+</div>
+<div class="a-stats" id="seoStats"></div>
+<div class="a-card"><div class="a-card-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span class="a-card-title">Page-by-Page Results</span></div><div class="a-card-body" id="seoResults"><p style="color:var(--a-txt3);font-size:.78rem">Click "Run Audit" to scan all pages.</p></div></div>
+</div></div>
+
 <!-- ══════ SETTINGS ══════ -->
 <div class="a-panel" id="pSettings"><div class="a-page">
 <div class="a-page-head"><div><h1>Settings</h1><p>Console preferences and configuration.</p></div></div>
@@ -573,7 +606,7 @@ document.querySelectorAll('.a-theme-pill').forEach(function(b){
 /* Navigation */
 var panels=document.querySelectorAll('.a-panel');
 var navBtns=document.querySelectorAll('.a-side-btn[data-p]');
-var panelTitles={overview:'Overview',analytics:'Analytics',users:'User Management',revenue:'Revenue',pages:'Site Pages',health:'System Health',security:'Security',database:'Database',env:'Environment',audit:'Audit Log',links:'Quick Links',settings:'Settings'};
+var panelTitles={overview:'Overview',analytics:'Analytics',users:'User Management',revenue:'Revenue',pages:'Site Pages',health:'System Health',errors:'Error Tracker',security:'Security',database:'Database',env:'Environment',audit:'Audit Log',links:'Quick Links',uptime:'Uptime Monitor',seo:'SEO Audit',settings:'Settings'};
 function switchPanel(id){
   navBtns.forEach(function(b){b.classList.toggle('active',b.dataset.p===id)});
   panels.forEach(function(p){p.classList.toggle('active',p.id==='p'+id.charAt(0).toUpperCase()+id.slice(1))});
@@ -889,6 +922,107 @@ function renderSettings(){
   var ab='';ab+='<div class="a-row"><span class="a-row-lbl">Application</span><span class="a-row-val">ALTIVOR Admin Console</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Architecture</span><span class="a-row-val">Standalone SPA (vanilla JS)</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Backend</span><span class="a-row-val">Supabase (GoTrue + PostgREST)</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Payments</span><span class="a-row-val">Stripe Payment Links</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Hosting</span><span class="a-row-val">Vercel (Edge Network)</span></div>';ab+='<div class="a-row"><span class="a-row-lbl">Repository</span><span class="a-row-val"><a href="https://github.com/geheuhhhw-lgtm/altivor-site" target="_blank" style="color:var(--a-accent)">geheuhhhw-lgtm/altivor-site</a></span></div>';
   $('settingsAbout').innerHTML=ab;
 }
+
+/* Error Tracker */
+var capturedErrors=[];
+function pushError(type,msg,source){
+  capturedErrors.unshift({type:type,msg:msg,source:source||'',time:new Date().toISOString()});
+  renderErrors();
+  logAudit('error','['+type+'] '+msg);
+}
+function renderErrors(){
+  var el=$('errorList');var badge=$('admErrorBadge');var stats=$('errorStats');
+  if(badge){badge.textContent=capturedErrors.length;badge.style.display=capturedErrors.length?'':'none';badge.style.background='var(--a-red-bg)';badge.style.color='var(--a-red)';badge.style.borderColor='rgba(248,113,113,.2)';}
+  var errs=capturedErrors.length;var warns=capturedErrors.filter(function(e){return e.type==='warning'}).length;
+  stats.innerHTML='<div class="a-stat '+(errs===0?'green':'red')+'"><div class="a-stat-val">'+(errs===0?'0':errs)+'</div><div class="a-stat-lbl">Total Errors</div></div><div class="a-stat '+(warns?'yellow':'green')+'"><div class="a-stat-val">'+warns+'</div><div class="a-stat-lbl">Warnings</div></div><div class="a-stat blue"><div class="a-stat-val">'+(capturedErrors.filter(function(e){return e.type==='rejection'}).length)+'</div><div class="a-stat-lbl">Rejections</div></div><div class="a-stat '+(errs===0?'green':'purple')+'"><div class="a-stat-val">'+(errs===0?'Clean':'Dirty')+'</div><div class="a-stat-lbl">Session Status</div></div>';
+  if(!capturedErrors.length){el.innerHTML='<p style="color:var(--a-green);font-size:.78rem">&#9679; No errors captured. Session is clean.</p>';return}
+  el.innerHTML=capturedErrors.slice(0,30).map(function(e){
+    var color=e.type==='error'?'var(--a-red)':e.type==='rejection'?'var(--a-yellow)':'var(--a-blue)';
+    return'<div class="a-log-item"><div class="a-log-dot" style="background:'+color+'"></div><div style="flex:1;min-width:0"><div class="a-log-text" style="word-break:break-all">'+esc(e.msg)+'</div><div class="a-log-time">'+e.type.toUpperCase()+' · '+(e.source?esc(e.source)+' · ':'')+fDateTime(e.time)+'</div></div></div>'
+  }).join('');
+}
+window.onerror=function(msg,src,line,col){pushError('error',msg+(line?' (L'+line+':'+col+')':''),src);return false};
+window.addEventListener('unhandledrejection',function(e){pushError('rejection',e.reason?String(e.reason.message||e.reason):'Unhandled rejection')});
+var _origConsErr=console.error;console.error=function(){var a=Array.prototype.slice.call(arguments).map(function(x){return typeof x==='object'?JSON.stringify(x):String(x)}).join(' ');pushError('error',a);_origConsErr.apply(console,arguments)};
+$('admClearErrors').onclick=function(){capturedErrors=[];renderErrors();logAudit('info','Error log cleared')};
+renderErrors();
+
+/* Uptime Monitor */
+function runUptimeCheck(){
+  var el=$('uptimeResults');var stats=$('uptimeStats');
+  el.innerHTML='<p style="color:var(--a-txt3);font-size:.78rem">Pinging '+pages.length+' pages…</p>';
+  var results=[];var done=0;
+  pages.forEach(function(p){
+    var start=performance.now();
+    fetch(p.u,{method:'HEAD',mode:'no-cors',cache:'no-store'}).then(function(){
+      results.push({name:p.n,url:p.u,ok:true,ms:Math.round(performance.now()-start)});
+    }).catch(function(){
+      results.push({name:p.n,url:p.u,ok:false,ms:Math.round(performance.now()-start)});
+    }).then(function(){
+      done++;
+      if(done===pages.length){
+        results.sort(function(a,b){return a.ok===b.ok?a.ms-b.ms:(a.ok?-1:1)});
+        var up=results.filter(function(r){return r.ok}).length;
+        var avgMs=results.length?Math.round(results.reduce(function(s,r){return s+r.ms},0)/results.length):0;
+        var pct=results.length?((up/results.length)*100).toFixed(0):'0';
+        stats.innerHTML='<div class="a-stat '+(pct==='100'?'green':'red')+'"><div class="a-stat-val">'+pct+'%</div><div class="a-stat-lbl">Uptime</div></div><div class="a-stat green"><div class="a-stat-val">'+up+'</div><div class="a-stat-lbl">Reachable</div></div><div class="a-stat '+(up<results.length?'red':'green')+'"><div class="a-stat-val">'+(results.length-up)+'</div><div class="a-stat-lbl">Failed</div></div><div class="a-stat blue"><div class="a-stat-val">'+avgMs+'ms</div><div class="a-stat-lbl">Avg Response</div></div>';
+        el.innerHTML=results.map(function(r){
+          var color=r.ok?'var(--a-green)':'var(--a-red)';var label=r.ok?'UP':'DOWN';
+          return'<div class="a-row"><span class="a-row-lbl"><span style="color:'+color+';font-weight:700">● '+label+'</span> &nbsp;'+esc(r.name)+'</span><span class="a-row-val mono">'+r.ms+'ms</span></div>'
+        }).join('');
+        logAudit('success','Uptime check: '+up+'/'+results.length+' pages reachable (avg '+avgMs+'ms)');
+      }
+    });
+  });
+}
+$('admRunPing').addEventListener('click',runUptimeCheck);
+
+/* SEO Audit */
+function runSeoAudit(){
+  var el=$('seoResults');var stats=$('seoStats');
+  el.innerHTML='<p style="color:var(--a-txt3);font-size:.78rem">Scanning '+pages.length+' pages…</p>';
+  var results=[];var done=0;
+  pages.forEach(function(p){
+    fetch(p.u,{cache:'no-store'}).then(function(r){return r.text()}).then(function(html){
+      var parser=new DOMParser();var doc=parser.parseFromString(html,'text/html');
+      var title=doc.querySelector('title');var desc=doc.querySelector('meta[name="description"]');
+      var ogTitle=doc.querySelector('meta[property="og:title"]');var ogDesc=doc.querySelector('meta[property="og:description"]');var ogImg=doc.querySelector('meta[property="og:image"]');
+      var canonical=doc.querySelector('link[rel="canonical"]');var viewport=doc.querySelector('meta[name="viewport"]');
+      var h1s=doc.querySelectorAll('h1');
+      var issues=[];
+      if(!title||!title.textContent.trim())issues.push('Missing <title>');
+      else if(title.textContent.length>60)issues.push('Title too long ('+title.textContent.length+' chars)');
+      if(!desc||!desc.content.trim())issues.push('Missing meta description');
+      else if(desc.content.length>160)issues.push('Description too long ('+desc.content.length+')');
+      if(!ogTitle)issues.push('Missing og:title');
+      if(!ogDesc)issues.push('Missing og:description');
+      if(!ogImg)issues.push('Missing og:image');
+      if(!canonical)issues.push('Missing canonical URL');
+      if(!viewport)issues.push('Missing viewport meta');
+      if(h1s.length===0)issues.push('No H1 tag found');
+      else if(h1s.length>1)issues.push('Multiple H1 tags ('+h1s.length+')');
+      results.push({name:p.n,url:p.u,issues:issues,score:Math.max(0,100-issues.length*12)});
+    }).catch(function(){
+      results.push({name:p.n,url:p.u,issues:['Failed to fetch'],score:0});
+    }).then(function(){
+      done++;
+      if(done===pages.length){
+        results.sort(function(a,b){return b.score-a.score});
+        var avgScore=Math.round(results.reduce(function(s,r){return s+r.score},0)/results.length);
+        var perfect=results.filter(function(r){return r.issues.length===0}).length;
+        var totalIssues=results.reduce(function(s,r){return s+r.issues.length},0);
+        stats.innerHTML='<div class="a-stat '+(avgScore>=80?'green':avgScore>=50?'yellow':'red')+'"><div class="a-stat-val">'+avgScore+'</div><div class="a-stat-lbl">Avg Score</div></div><div class="a-stat green"><div class="a-stat-val">'+perfect+'</div><div class="a-stat-lbl">Perfect Pages</div></div><div class="a-stat '+(totalIssues>10?'red':'yellow')+'"><div class="a-stat-val">'+totalIssues+'</div><div class="a-stat-lbl">Total Issues</div></div><div class="a-stat blue"><div class="a-stat-val">'+results.length+'</div><div class="a-stat-lbl">Pages Scanned</div></div>';
+        el.innerHTML=results.map(function(r){
+          var color=r.score>=80?'var(--a-green)':r.score>=50?'var(--a-yellow)':'var(--a-red)';
+          var issueHtml=r.issues.length?'<div style="margin-top:.3rem">'+r.issues.map(function(i){return'<span style="display:inline-block;font-size:.58rem;background:var(--a-red-bg);color:var(--a-red);padding:1px 8px;border-radius:100px;margin:2px 3px 2px 0;font-weight:600">'+esc(i)+'</span>'}).join('')+'</div>':'<span style="font-size:.62rem;color:var(--a-green);font-weight:600">✓ All checks passed</span>';
+          return'<div style="padding:.75rem 0;border-bottom:1px solid var(--a-border)"><div style="display:flex;justify-content:space-between;align-items:center"><span class="a-row-lbl" style="font-weight:600;color:var(--a-txt)">'+esc(r.name)+'</span><span style="font-family:DM Serif Display,serif;font-size:1.1rem;color:'+color+'">'+r.score+'</span></div>'+issueHtml+'</div>'
+        }).join('');
+        logAudit('success','SEO audit: avg score '+avgScore+', '+totalIssues+' issues across '+results.length+' pages');
+      }
+    });
+  });
+}
+$('admRunSeo').addEventListener('click',runSeoAudit);
 
 /* Init */
 loadUsers();
