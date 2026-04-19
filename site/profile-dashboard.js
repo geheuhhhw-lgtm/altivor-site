@@ -382,6 +382,25 @@
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) closeConfirm(); });
     }
 
+    /* ── Welcome greeting & datetime ────────────────────────────────── */
+    function renderWelcome(user) {
+        var h = new Date().getHours();
+        var greet = h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+        var meta = user.user_metadata || {};
+        var name = (meta.first_name || '').trim();
+        if (!name) name = (meta.username || user.email.split('@')[0]);
+        var el = $('pdGreeting');
+        if (el) el.textContent = greet + ', ' + name;
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+    }
+    function updateDateTime() {
+        var el = $('pdDateTime');
+        if (!el) return;
+        var now = new Date();
+        el.textContent = now.toLocaleDateString('en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }) + '  •  ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+    }
+
     /* ── Main init ─────────────────────────────────────────────────────── */
     function init() {
         var loadingEl = $('pdLoading');
@@ -398,6 +417,7 @@
                 show(dash);
                 loadAvatar();
                 renderUserHeader(user);
+                renderWelcome(user);
                 renderOverview(user);
                 renderPersonalInfo(user);
                 render2FASection();
