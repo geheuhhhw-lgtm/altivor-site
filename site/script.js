@@ -817,9 +817,11 @@ document.addEventListener('DOMContentLoaded', function () {
         link = document.createElement('a');
         link.id = 'authAdminLink';
         link.href = '/admin.html';
-        link.className = 'btn btn-ghost nav-cta';
-        link.style.fontWeight = '600';
-        link.textContent = 'Admin Panel';
+        link.className = 'btn nav-cta';
+        link.style.cssText = 'font-weight:700;background:linear-gradient(135deg,rgba(167,139,250,.15),rgba(96,165,250,.1));color:#a78bfa;border:1px solid rgba(167,139,250,.25);letter-spacing:.06em;font-size:.72rem;text-transform:uppercase;transition:all .2s';
+        link.textContent = 'Admin';
+        link.addEventListener('mouseenter',function(){link.style.background='linear-gradient(135deg,rgba(167,139,250,.25),rgba(96,165,250,.18)';link.style.borderColor='rgba(167,139,250,.45)';link.style.boxShadow='0 0 16px rgba(167,139,250,.12)'});
+        link.addEventListener('mouseleave',function(){link.style.background='linear-gradient(135deg,rgba(167,139,250,.15),rgba(96,165,250,.1))';link.style.borderColor='rgba(167,139,250,.25)';link.style.boxShadow='none'});
         var logoutBtn = document.getElementById('authLogoutBtn');
         if (logoutBtn) {
             navActions.insertBefore(link, logoutBtn);
