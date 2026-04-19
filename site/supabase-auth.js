@@ -84,7 +84,7 @@
         btn.className = 'btn btn-ghost nav-cta';
         btn.textContent = 'Logout';
         btn.style.display = 'none';
-        btn.addEventListener('click', function () { doLogout(); });
+        btn.addEventListener('click', function () { showLogoutConfirm(); });
         var regBtn = document.getElementById('openRegisterBtn');
         if (regBtn && regBtn.nextSibling) {
             nav.insertBefore(btn, regBtn.nextSibling);
@@ -295,6 +295,46 @@
         if (token) {
             api('/auth/v1/logout', 'POST', {}, token).catch(function () {});
         }
+    }
+
+    // ─── Logout confirmation modal ───────────────────────────────────────────
+    function ensureLogoutModal() {
+        if (document.getElementById('authLogoutOverlay')) return;
+        var css = '<style>'
+            + '.auth-logout-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}'
+            + '.auth-logout-overlay.active{display:flex}'
+            + '.auth-logout-box{background:var(--bg-card,#1a1a1a);border:1px solid var(--border-subtle,#333);border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 48px rgba(0,0,0,.25)}'
+            + '.auth-logout-icon{width:56px;height:56px;border-radius:50%;background:rgba(239,68,68,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}'
+            + '.auth-logout-title{font-family:"DM Serif Display",serif;font-size:1.25rem;color:var(--txt-primary,#fff);margin:0 0 .5rem}'
+            + '.auth-logout-desc{font-size:.82rem;color:var(--txt-secondary,#999);margin:0 0 1.5rem;line-height:1.5}'
+            + '.auth-logout-btns{display:flex;gap:.65rem;justify-content:center}'
+            + '.auth-logout-btns .btn{min-width:110px}'
+            + '.auth-logout-btns .btn-danger{background:rgba(239,68,68,.9);color:#fff;border:none}.auth-logout-btns .btn-danger:hover{background:#ef4444}'
+            + '</style>';
+        var html = '<div class="auth-logout-overlay" id="authLogoutOverlay">'
+            + '<div class="auth-logout-box">'
+            + '<div class="auth-logout-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div>'
+            + '<h3 class="auth-logout-title">Sign Out?</h3>'
+            + '<p class="auth-logout-desc">Are you sure you want to sign out of your ALTIVOR account? You will need to sign in again to access your dashboard.</p>'
+            + '<div class="auth-logout-btns">'
+            + '<button class="btn btn-ghost" id="authLogoutCancel">Cancel</button>'
+            + '<button class="btn btn-danger" id="authLogoutConfirmBtn">Sign Out</button>'
+            + '</div></div></div>';
+        document.body.insertAdjacentHTML('beforeend', css + html);
+        var overlay = document.getElementById('authLogoutOverlay');
+        document.getElementById('authLogoutCancel').addEventListener('click', function () { overlay.classList.remove('active'); });
+        document.getElementById('authLogoutConfirmBtn').addEventListener('click', function () {
+            overlay.classList.remove('active');
+            doLogout();
+        });
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) overlay.classList.remove('active'); });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && overlay.classList.contains('active')) overlay.classList.remove('active'); });
+    }
+
+    function showLogoutConfirm() {
+        ensureLogoutModal();
+        var ov = document.getElementById('authLogoutOverlay');
+        if (ov) ov.classList.add('active');
     }
 
     function refreshSession() {
