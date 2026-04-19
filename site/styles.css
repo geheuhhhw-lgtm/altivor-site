@@ -14736,3 +14736,188 @@ body.rtl .doc-page .doc-section ul > li::before {
   }
 
 }
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (max-width: 1024px)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .container { padding: 0 1.5rem; }
+  .section { padding: 3.5rem 0; }
+  .section-header { margin-bottom: 2.5rem; }
+  .hero { padding: 7rem 0 3rem; min-height: auto; }
+  .home-legacy .hero-h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+  .hero-h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+  .hero-sub { font-size: 1rem; }
+  .home-legacy .hero-sub { font-size: 1rem; }
+
+  .three-col { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr 1fr; }
+
+  .fw-showcase { grid-template-columns: 1fr; gap: 1.5rem; }
+  .fw-challenge-card-inner, .fw-dev-card-inner { padding: 2rem 1.5rem; }
+
+  .wot-promo-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .wot-promo-left h2 { font-size: 2.2rem; }
+  .wot-promo-right { max-width: 480px; margin: 0 auto; }
+
+  .pricing-cards--four { grid-template-columns: 1fr 1fr; }
+  .pricing-cards--three { grid-template-columns: 1fr 1fr; }
+  .home-legacy .pricing-cards--four { grid-template-columns: 1fr 1fr; }
+  .home-legacy .pricing-cards--three { grid-template-columns: 1fr 1fr; }
+
+  .support-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .support-right { min-height: 500px; }
+
+  .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-links { grid-template-columns: repeat(3, 1fr); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — SMALL TABLET / LARGE PHONE (max-width: 768px)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.2rem; }
+  .section { padding: 2.5rem 0; }
+  .section-header { margin-bottom: 2rem; max-width: 100%; }
+  .section-body { font-size: 0.92rem; }
+
+  .hero { padding: 6rem 0 2.5rem; }
+  .hero-center { max-width: 100%; }
+  .home-legacy .hero-h1 { font-size: clamp(1.8rem, 5.5vw, 3rem); }
+  .hero-h1 { font-size: clamp(1.8rem, 5.5vw, 3rem); }
+  .hero-h1 span { white-space: normal !important; }
+  .hero-sub { font-size: 0.92rem; line-height: 1.7; }
+  .hero-sub span { white-space: normal !important; }
+  .home-legacy .hero-sub { font-size: 0.92rem; max-width: 100%; }
+  .hero-buttons { flex-direction: column; gap: 0.75rem; align-items: stretch; }
+  .hero-buttons .btn { width: 100%; text-align: center; justify-content: center; }
+  .home-legacy .hero-buttons { flex-direction: column; gap: 0.75rem; }
+
+  .hero-mini-ad { margin-top: 2rem; }
+  .hero-mini-ad-content { padding: 1.2rem; }
+
+  .hero-challenge-banner { padding: 1.5rem; }
+  .hcb-gfx { display: none; }
+  .hcb-desc { font-size: 0.88rem; }
+
+  .hero-dashboard { display: none; }
+
+  .hstat-bar { flex-direction: column; gap: 1rem; padding: 1.2rem; }
+  .hstat-item { min-width: auto; }
+
+  .label-tag { font-size: 0.7rem; }
+  h2 { font-size: clamp(1.6rem, 4.5vw, 2.4rem); }
+
+  .three-col { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .card-row { gap: 1rem; }
+
+  .fw-showcase { grid-template-columns: 1fr; }
+  .fw-spec-grid { grid-template-columns: 1fr 1fr; }
+  .fw-rule-list { gap: 0.6rem; }
+  .fw-challenge-cta { flex-direction: column; gap: 0.5rem; }
+  .fw-challenge-cta .btn { width: 100%; text-align: center; }
+
+  .infra-features { grid-template-columns: 1fr 1fr; }
+
+  .pnl-features { grid-template-columns: 1fr; }
+  .pnl-mockup { max-width: 100%; overflow-x: auto; }
+
+  .wot-promo-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .wot-promo-left h2 { font-size: 1.8rem; }
+  .wot-promo-right { max-width: 100%; }
+  .wot-spotlight-card { padding: 1.2rem; }
+  .wot-registry-card { padding: 0; }
+  .wot-promo-cta { flex-direction: column; gap: 0.5rem; }
+  .wot-promo-cta .btn { width: 100%; text-align: center; }
+
+  .pricing-cards--four { grid-template-columns: 1fr; }
+  .pricing-cards--three { grid-template-columns: 1fr; }
+  .home-legacy .pricing-cards--four { grid-template-columns: 1fr; }
+  .home-legacy .pricing-cards--three { grid-template-columns: 1fr; }
+  .pricing-step-flow { flex-direction: column; }
+  .card-pricing { max-width: 100%; }
+
+  .support-inner { grid-template-columns: 1fr; }
+  .support-right { min-height: 420px; }
+  .support-stats { flex-direction: column; gap: 0.75rem; }
+  .support-channels { grid-template-columns: 1fr; }
+
+  .faq-grid { columns: 1; }
+
+  .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-links { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+
+  .toolchain-cards { grid-template-columns: 1fr; }
+
+  .promo-bar { font-size: 0.75rem; }
+  .promo-bar-inner { padding: 0.5rem 1rem; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — PHONE (max-width: 480px)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 480px) {
+  .container { padding: 0 1rem; }
+  .section { padding: 2rem 0; }
+  .section-header { margin-bottom: 1.5rem; }
+
+  .hero { padding: 5rem 0 2rem; }
+  .home-legacy .hero-h1 { font-size: clamp(1.5rem, 7vw, 2.2rem); }
+  .hero-h1 { font-size: clamp(1.5rem, 7vw, 2.2rem); letter-spacing: -0.02em; }
+  .hero-h1 span { transform: none !important; }
+  .hero-sub { font-size: 0.85rem; line-height: 1.65; }
+  .home-legacy .hero-sub { font-size: 0.85rem; }
+
+  .hero-mini-ad-content { padding: 1rem; }
+  .hero-mini-ad-headline { font-size: 0.95rem; }
+  .hero-mini-ad-desc { font-size: 0.78rem; }
+
+  h2 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  .section-body { font-size: 0.85rem; line-height: 1.65; }
+
+  .card { padding: 1.2rem; }
+  .card-row { gap: 0.85rem; }
+
+  .fw-spec-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .fw-challenge-card-inner, .fw-dev-card-inner { padding: 1.5rem 1.2rem; }
+  .fw-challenge-name { font-size: 1.3rem; }
+
+  .infra-features { grid-template-columns: 1fr; }
+
+  .wot-promo-left h2 { font-size: 1.5rem; }
+  .wot-spotlight-metrics { grid-template-columns: 1fr 1fr; }
+  .wot-promo-lead { font-size: 0.9rem; }
+  .wot-promo-body { font-size: 0.82rem; }
+
+  .pricing-amount { font-size: 2rem; }
+  .pricing-desc { font-size: 0.85rem; }
+  .pricing-list li { font-size: 0.82rem; }
+
+  .support-h2 { font-size: 1.5rem; }
+  .support-sub { font-size: 0.85rem; }
+  .support-right { min-height: 380px; }
+
+  .faq-item summary { font-size: 0.88rem; padding: 0.85rem; }
+  .faq-body { font-size: 0.82rem; }
+
+  .footer-links { grid-template-columns: 1fr; gap: 1rem; }
+  .footer-tagline { font-size: 0.82rem; }
+  .footer-disclaimer { font-size: 0.72rem; }
+  .footer-bottom p { font-size: 0.72rem; }
+
+  .promo-bar-text { font-size: 0.7rem; }
+  .promo-bar-badge { font-size: 0.6rem; }
+  .promo-bar-cta { font-size: 0.65rem; }
+
+  .nav-inner { height: 52px; padding: 0 1rem; }
+  .nav-logo-img { height: 36px; }
+
+  .btn { font-size: 0.82rem; padding: 0.65rem 1.2rem; }
+  .btn-primary { padding: 0.7rem 1.4rem; }
+}
