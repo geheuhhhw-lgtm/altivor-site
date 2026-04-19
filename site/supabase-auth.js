@@ -200,6 +200,7 @@
             });
         }).then(function (result) {
             if (result.error) throw result.error;
+            console.log('[Supabase] LOGIN SUCCESS:', result.data);
             if (remember && result.data && result.data.user) {
                 try { localStorage.setItem('altivor_remembered_user', JSON.stringify({ email: result.data.user.email })); } catch (_) {}
             } else {
@@ -210,9 +211,12 @@
             form.reset();
             closeModalForForm(form);
         }).catch(function (err) {
+            console.error('[Supabase] LOGIN ERROR:', err);
             clearPasswords(form);
             var msg = (err && err.message) || 'Login failed.';
-            if (/email not confirmed/i.test(msg)) {
+            if (/anonymous sign-ins are disabled/i.test(msg)) {
+                msg = 'Email/password login is not enabled in Supabase. Go to Supabase Dashboard → Authentication → Providers → Email → enable it.';
+            } else if (/email not confirmed/i.test(msg)) {
                 msg = 'Please verify your email address before signing in. Check your inbox for the confirmation link.';
             } else if (/invalid login credentials/i.test(msg)) {
                 msg = 'Invalid email or password.';
@@ -246,16 +250,36 @@
             });
         }).then(function (result) {
             if (result.error) throw result.error;
+            console.log('[Supabase] REGISTER SUCCESS:', result.data);
+            // Best-effort: insert profile row if a `profiles` table exists.
+            if (result.data && result.data.user) {
+                getClient().then(function (client) {
+                    return client.from('profiles').insert([{
+                        id: result.data.user.id,
+                        email: result.data.user.email,
+                        first_name: data.firstName || null,
+                        last_name: data.lastName || null,
+                        username: data.username || null
+                    }]);
+                }).then(function (r) {
+                    if (r && r.error) console.warn('[Supabase] profiles insert skipped:', r.error.message);
+                }).catch(function (e) { console.warn('[Supabase] profiles insert failed:', e && e.message); });
+            }
             clearPasswords(form);
             form.reset();
             closeModalForForm(form);
             // Supabase may or may not auto-confirm; always redirect to verify page.
             window.location.href = '/verify-email.html';
         }).catch(function (err) {
+            console.error('[Supabase] REGISTER ERROR:', err);
             clearPasswords(form);
             var msg = (err && err.message) || 'Registration failed.';
-            if (/already registered|already exists/i.test(msg)) {
+            if (/anonymous sign-ins are disabled/i.test(msg)) {
+                msg = 'Email/password signup is not enabled in Supabase. Go to Supabase Dashboard → Authentication → Providers → Email → enable it.';
+            } else if (/already registered|already exists/i.test(msg)) {
                 msg = 'An account with this email already exists.';
+            } else if (/password.*weak|password.*short/i.test(msg)) {
+                msg = 'Password is too weak. Use at least 8 characters with uppercase, number and special character.';
             }
             setStatus(form, msg);
         }).then(function () {
