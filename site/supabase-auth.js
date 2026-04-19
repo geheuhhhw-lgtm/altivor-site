@@ -42,10 +42,15 @@
     }
 
     // ─── UI helpers ───────────────────────────────────────────────────────────
-    function toggleEl(el, hidden) {
+    function showEl(el) {
         if (!el) return;
-        if (!el.dataset.authOrig) el.dataset.authOrig = el.style.display || '';
-        el.style.display = hidden ? 'none' : el.dataset.authOrig;
+        el.style.display = '';
+        el.style.removeProperty('display');
+        el.removeAttribute('hidden');
+    }
+    function hideEl(el) {
+        if (!el) return;
+        el.style.display = 'none';
     }
 
     function ensureProfileButton() {
@@ -58,7 +63,13 @@
         btn.href = 'profile.html';
         btn.className = 'btn btn-primary nav-cta';
         btn.textContent = 'Profile';
-        nav.appendChild(btn);
+        btn.style.display = 'none';
+        var loginBtn = document.getElementById('openLoginBtn');
+        if (loginBtn) {
+            nav.insertBefore(btn, loginBtn);
+        } else {
+            nav.appendChild(btn);
+        }
         return btn;
     }
 
@@ -72,8 +83,14 @@
         btn.id = 'authLogoutBtn';
         btn.className = 'btn btn-ghost nav-cta';
         btn.textContent = 'Logout';
+        btn.style.display = 'none';
         btn.addEventListener('click', function () { doLogout(); });
-        nav.appendChild(btn);
+        var regBtn = document.getElementById('openRegisterBtn');
+        if (regBtn && regBtn.nextSibling) {
+            nav.insertBefore(btn, regBtn.nextSibling);
+        } else {
+            nav.appendChild(btn);
+        }
         return btn;
     }
 
@@ -81,11 +98,29 @@
 
     function updateAuthUi(user) {
         currentUser = user || null;
-        document.querySelectorAll('#openLoginBtn, #openRegisterBtn, a[data-i18n="footer_login"]').forEach(function (el) {
-            toggleEl(el, Boolean(currentUser));
+        console.log('[Auth] updateAuthUi:', currentUser ? currentUser.email : 'null');
+
+        var loginBtn = document.getElementById('openLoginBtn');
+        var regBtn   = document.getElementById('openRegisterBtn');
+        var profBtn  = ensureProfileButton();
+        var logBtn   = ensureLogoutButton();
+
+        if (currentUser) {
+            hideEl(loginBtn);
+            hideEl(regBtn);
+            showEl(profBtn);
+            showEl(logBtn);
+        } else {
+            showEl(loginBtn);
+            showEl(regBtn);
+            hideEl(profBtn);
+            hideEl(logBtn);
+        }
+
+        document.querySelectorAll('a[data-i18n="footer_login"]').forEach(function (el) {
+            if (currentUser) hideEl(el); else showEl(el);
         });
-        var p = ensureProfileButton(); if (p) toggleEl(p, !currentUser);
-        var l = ensureLogoutButton(); if (l) toggleEl(l, !currentUser);
+
         document.dispatchEvent(new CustomEvent('altivor:authchange', { detail: { user: currentUser } }));
     }
 

@@ -684,7 +684,7 @@ document.addEventListener('DOMContentLoaded', function () {
     (function loadSupabaseAuth() {
         if (document.querySelector('script[data-supabase-auth]')) return;
         var s = document.createElement('script');
-        s.src = 'supabase-auth.js';
+        s.src = 'supabase-auth.js?v=20250419';
         s.setAttribute('data-supabase-auth', '1');
         document.head.appendChild(s);
     })();
