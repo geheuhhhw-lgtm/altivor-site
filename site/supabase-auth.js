@@ -271,13 +271,16 @@
             // Supabase may or may not auto-confirm; always redirect to verify page.
             window.location.href = '/verify-email.html';
         }).catch(function (err) {
-            console.error('[Supabase] REGISTER ERROR:', err);
+            console.error('[Supabase] REGISTER ERROR:', err, 'code:', err && err.code, 'status:', err && err.status);
             clearPasswords(form);
             var msg = (err && err.message) || 'Registration failed.';
-            if (/anonymous sign-ins are disabled/i.test(msg)) {
+            var code = err && (err.code || err.error_code || '');
+            if (/over_email_send_rate_limit|rate limit/i.test(msg) || code === 'over_email_send_rate_limit' || err.status === 429) {
+                msg = 'Too many signup attempts. Please wait ~1 hour before trying again, or set up a custom SMTP in Supabase Dashboard → Authentication → SMTP Settings.';
+            } else if (/anonymous sign-ins are disabled/i.test(msg)) {
                 msg = 'Email/password signup is not enabled in Supabase. Go to Supabase Dashboard → Authentication → Providers → Email → enable it.';
-            } else if (/already registered|already exists/i.test(msg)) {
-                msg = 'An account with this email already exists.';
+            } else if (/already registered|already exists|user already/i.test(msg)) {
+                msg = 'An account with this email already exists. Try logging in instead.';
             } else if (/password.*weak|password.*short/i.test(msg)) {
                 msg = 'Password is too weak. Use at least 8 characters with uppercase, number and special character.';
             }
