@@ -211,17 +211,9 @@
             form.reset();
             closeModalForForm(form);
         }).catch(function (err) {
-            console.error('[Supabase] LOGIN ERROR:', err);
+            console.error('[Supabase] LOGIN ERROR:', err, { code: err && err.code, status: err && err.status, name: err && err.name });
             clearPasswords(form);
-            var msg = (err && err.message) || 'Login failed.';
-            if (/anonymous sign-ins are disabled/i.test(msg)) {
-                msg = 'Email/password login is not enabled in Supabase. Go to Supabase Dashboard → Authentication → Providers → Email → enable it.';
-            } else if (/email not confirmed/i.test(msg)) {
-                msg = 'Please verify your email address before signing in. Check your inbox for the confirmation link.';
-            } else if (/invalid login credentials/i.test(msg)) {
-                msg = 'Invalid email or password.';
-            }
-            setStatus(form, msg);
+            setStatus(form, (err && err.message) || 'Login failed.');
         }).then(function () {
             setBusy(form, false);
         });
@@ -238,7 +230,6 @@
                 email: String(data.email || '').trim(),
                 password: String(data.password || ''),
                 options: {
-                    emailRedirectTo: window.location.origin + '/verify-email.html?status=success',
                     data: {
                         first_name: data.firstName || '',
                         last_name: data.lastName || '',
@@ -268,23 +259,17 @@
             clearPasswords(form);
             form.reset();
             closeModalForForm(form);
-            // Supabase may or may not auto-confirm; always redirect to verify page.
-            window.location.href = '/verify-email.html';
-        }).catch(function (err) {
-            console.error('[Supabase] REGISTER ERROR:', err, 'code:', err && err.code, 'status:', err && err.status);
-            clearPasswords(form);
-            var msg = (err && err.message) || 'Registration failed.';
-            var code = err && (err.code || err.error_code || '');
-            if (/over_email_send_rate_limit|rate limit/i.test(msg) || code === 'over_email_send_rate_limit' || err.status === 429) {
-                msg = 'Too many signup attempts. Please wait ~1 hour before trying again, or set up a custom SMTP in Supabase Dashboard → Authentication → SMTP Settings.';
-            } else if (/anonymous sign-ins are disabled/i.test(msg)) {
-                msg = 'Email/password signup is not enabled in Supabase. Go to Supabase Dashboard → Authentication → Providers → Email → enable it.';
-            } else if (/already registered|already exists|user already/i.test(msg)) {
-                msg = 'An account with this email already exists. Try logging in instead.';
-            } else if (/password.*weak|password.*short/i.test(msg)) {
-                msg = 'Password is too weak. Use at least 8 characters with uppercase, number and special character.';
+            if (result.data && result.data.session) {
+                // Auto-confirmed (email confirmation disabled) → user is logged in
+                updateAuthUi(result.data.user);
+            } else {
+                // Email confirmation required → show verify-email page
+                setStatus(form, 'Account created. Check your email for the confirmation link.', true);
             }
-            setStatus(form, msg);
+        }).catch(function (err) {
+            console.error('[Supabase] REGISTER ERROR:', err, { code: err && err.code, status: err && err.status, name: err && err.name });
+            clearPasswords(form);
+            setStatus(form, (err && err.message) || 'Registration failed.');
         }).then(function () {
             setBusy(form, false);
         });
