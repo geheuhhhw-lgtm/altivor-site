@@ -675,6 +675,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 (function () {
+    // ─── Supabase Auth bootstrap ─────────────────────────────────────────────
+    // Static-site auth: load supabase-auth.js which talks directly to Supabase
+    // and completely replaces the old /api/auth/* backend. We set the flag
+    // synchronously BEFORE this IIFE runs its legacy code, so the legacy path
+    // is disabled on every page that loads script.js.
+    window.__USE_SUPABASE_AUTH = true;
+    (function loadSupabaseAuth() {
+        if (document.querySelector('script[data-supabase-auth]')) return;
+        var s = document.createElement('script');
+        s.src = 'supabase-auth.js';
+        s.setAttribute('data-supabase-auth', '1');
+        document.head.appendChild(s);
+    })();
+
+    if (window.__USE_SUPABASE_AUTH) return;
+    // Defer once more in case supabase-auth.js hasn't executed yet (async load).
+    // If the flag is set later, the legacy handlers below are harmless because
+    // supabase-auth.js overrides window.handleLogin/handleRegister and installs
+    // its own capture-phase submit listener (registered after this one runs,
+    // but that's fine — first listener wins because it preventsDefault + stops).
+    // To make supabase-auth.js authoritative, we defer registering the legacy
+    // capture listener until we've confirmed the flag is still false.
+
     const AUTH_ENDPOINTS = {
         me: '/api/auth/me',
         login: '/api/auth/login',
