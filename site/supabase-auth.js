@@ -7,7 +7,7 @@
     'use strict';
 
     var SUPABASE_URL = 'https://lssedurdadjngqbchjbj.supabase.co';
-    var SUPABASE_ANON_KEY = 'sb_publishable_VY2ryzQIOm0bLITfzKIuzg_63Hjcen_';
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxzc2VkdXJkYWRqbmdxYmNoamJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY1NTk5OTksImV4cCI6MjA5MjEzNTk5OX0.PG6Ljeo9i0apJkU-X0QWsoS0KMn5CmnmFtmaIl3JdAs';
     var SDK_CDN = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
 
     // Tell the legacy auth code in script.js to stand down.
