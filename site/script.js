@@ -1847,3 +1847,6 @@ document.addEventListener('click', function (e) {
 
     aboutSection.parentNode.insertBefore(sec, aboutSection);
 })();
+
+/* Auto-load address autocomplete */
+(function(){var s=document.createElement('script');s.src='address-autocomplete.js';document.head.appendChild(s)})();
