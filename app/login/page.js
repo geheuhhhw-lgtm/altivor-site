@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '../../lib/supabase'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -18,16 +18,16 @@ export default function LoginPage() {
       })
 
       if (error) {
-        setMessage(`ERROR: ${error.message}`)
         console.error('SUPABASE ERROR:', error)
+        setMessage(`ERROR: ${error.message}`)
         return
       }
 
-      setMessage('SUCCESS: logged in')
       console.log('LOGIN DATA:', data)
+      setMessage('SUCCESS: logged in')
     } catch (err) {
-      setMessage(`CATCH ERROR: ${err.message}`)
       console.error('CATCH ERROR:', err)
+      setMessage(`CATCH ERROR: ${err?.message || 'Unknown error'}`)
     }
   }
 
