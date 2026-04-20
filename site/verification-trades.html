@@ -170,6 +170,7 @@
 <span class="nav-drop-desc">Position size, RR &amp; more</span>
 </span>
 </a>
+<a href="strategy-builder.html" class="nav-dropdown-item"><span class="nav-drop-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span class="nav-drop-text"><span class="nav-drop-name">Strategy Builder</span><span class="nav-drop-desc">Create &amp; backtest strategies</span></span></a>
 </div>
 </div>
 </nav>
@@ -510,6 +511,13 @@ Discipline Rules
 </select>
 </div>
 <div class="verif-field">
+<label for="tradeStrategy">Strategy</label>
+<select id="tradeStrategy">
+<option value="">— Select Strategy —</option>
+</select>
+<p style="font-size:.65rem;color:var(--txt-muted);margin-top:.25rem;">Create strategies in <a href="strategy-builder.html" style="color:rgba(214,190,150,0.7)">Strategy Builder</a></p>
+</div>
+<div class="verif-field">
 <label for="tradeLotSize">Lot Size</label>
 <input type="number" id="tradeLotSize" placeholder="e.g., 0.10" step="0.01" min="0.01" />
 </div>
@@ -567,6 +575,21 @@ Discipline Rules
 <button class="btn btn-primary" id="tradeSubmitBtn" style="width:100%;margin-top:1.5rem;">
 <span>Log Trade</span>
 </button>
+<!-- Compliance Result Panel (shown after trade submission) -->
+<div id="complianceResult" style="display:none;margin-top:1.5rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;flex-wrap:wrap;gap:.5rem;">
+<div style="display:flex;align-items:center;gap:.5rem;">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(214,190,150,0.7)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+<span style="font-size:.8rem;font-weight:600;color:var(--txt-primary);">Strategy Compliance Report</span>
+</div>
+<span id="complianceBadge" style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:100px;"></span>
+</div>
+<div id="complianceScore" style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem;">
+<span id="complianceScoreText" style="font-size:.75rem;font-weight:600;color:var(--txt-primary);"></span>
+<span style="flex:1;height:6px;background:var(--bg-card);border-radius:3px;overflow:hidden;max-width:200px;"><span id="complianceScoreFill" style="display:block;height:100%;border-radius:3px;transition:width .3s;width:0;"></span></span>
+</div>
+<div id="complianceChecks" style="display:flex;flex-direction:column;gap:.25rem;"></div>
+</div>
 </div>
 <!-- Trade History -->
 <div class="verif-history" style="margin-top:3rem;">
@@ -638,10 +661,67 @@ Discipline Rules
 <script src="verification-behavior.js">
 </script>
 <script src="challenge-score.js"></script>
-<script> (function() { const STORAGE_KEY = 'altivor_verification_trades_v1'; function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { trades: [] }; } catch(e) { return { trades: [] }; } } function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } function updateUI() { const data = loadData(); const trades = data.trades; const count = trades.length; const total = 55; document.getElementById('tradesProgressValue').textContent = count + ' / ' + total; document.getElementById('tradesProgressBar').style.width = (count / total * 100) + '%'; document.getElementById('currentTradeNum').textContent = Math.min(count + 1, total); document.getElementById('statsTradesLeft').textContent = Math.max(0, total - count); // Calculate stats if (count > 0) { const wins = trades.filter(t => t.pl > 0).length; const totalPL = trades.reduce((sum, t) => sum + t.pl, 0); const avgRR = trades.filter(t => t.rr).reduce((sum, t) => sum + t.rr, 0) / count; document.getElementById('statsWinRate').textContent = ((wins / count) * 100).toFixed(1) + '%'; document.getElementById('statsTotalPL').textContent = (totalPL >= 0 ? '+' : '') + '$' + totalPL.toFixed(2); document.getElementById('statsTotalPL').style.color = totalPL >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)'; document.getElementById('statsAvgRR').textContent = avgRR.toFixed(2) + 'R'; } // Render history const historyList = document.getElementById('tradesHistoryList'); if (count === 0) { historyList.innerHTML = '<p style="color:var(--txt-muted);font-size:0.85rem;text-align:center;padding:2rem;">No trades logged yet.</p>'; } else { historyList.innerHTML = trades.map((t, i) => { const date = new Date(t.entryTime).toLocaleDateString(); const plClass = t.pl >= 0 ? 'item-complete' : 'item-failed'; const plColor = t.pl >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)'; return '<div class="verif-history-item ' + plClass + '">' + '<span class="verif-history-num">#' + (i + 1) + '</span>' + '<div class="verif-history-info">' + '<span class="verif-history-date">' + t.symbol + ' ' + t.direction.toUpperCase() + ' ' + date + '</span>' + '<span class="verif-history-meta">Entry: ' + t.entryPrice + ' Exit: ' + t.exitPrice + '</span>' + '</div>' + '<span style="font-weight:600;color:' + plColor + ';">' + (t.pl >= 0 ? '+' : '') + '$' + t.pl.toFixed(2) + '</span>' + '</div>'; }).reverse().join(''); } if (count >= total) { document.querySelector('.verif-form-section').innerHTML = '<div style="text-align:center;padding:3rem;">' + '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
+<script src="strategy-compliance.js"></script>
+<script> (function() { const STRAT_KEY = 'altivor_strategies_v1'; function loadStrategies() { try { return JSON.parse(localStorage.getItem(STRAT_KEY)) || []; } catch(e) { return []; } } function populateStrategySelect() { var sel = document.getElementById('tradeStrategy'); if (!sel) return; var strats = loadStrategies(); var val = sel.value; sel.innerHTML = '<option value="">— Select Strategy —</option>'; strats.forEach(function(s) { var opt = document.createElement('option'); opt.value = s.id; opt.textContent = s.name + ' (' + (s.type||'core') + ')'; sel.appendChild(opt); }); if (val) sel.value = val; } populateStrategySelect(); window.addEventListener('focus', populateStrategySelect); const STORAGE_KEY = 'altivor_verification_trades_v1'; function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { trades: [] }; } catch(e) { return { trades: [] }; } } function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } function updateUI() { const data = loadData(); const trades = data.trades; const count = trades.length; const total = 55; document.getElementById('tradesProgressValue').textContent = count + ' / ' + total; document.getElementById('tradesProgressBar').style.width = (count / total * 100) + '%'; document.getElementById('currentTradeNum').textContent = Math.min(count + 1, total); document.getElementById('statsTradesLeft').textContent = Math.max(0, total - count); // Calculate stats if (count > 0) { const wins = trades.filter(t => t.pl > 0).length; const totalPL = trades.reduce((sum, t) => sum + t.pl, 0); const avgRR = trades.filter(t => t.rr).reduce((sum, t) => sum + t.rr, 0) / count; document.getElementById('statsWinRate').textContent = ((wins / count) * 100).toFixed(1) + '%'; document.getElementById('statsTotalPL').textContent = (totalPL >= 0 ? '+' : '') + '$' + totalPL.toFixed(2); document.getElementById('statsTotalPL').style.color = totalPL >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)'; document.getElementById('statsAvgRR').textContent = avgRR.toFixed(2) + 'R'; } // Render history const historyList = document.getElementById('tradesHistoryList'); if (count === 0) { historyList.innerHTML = '<p style="color:var(--txt-muted);font-size:0.85rem;text-align:center;padding:2rem;">No trades logged yet.</p>'; } else { historyList.innerHTML = trades.map((t, i) => { const date = new Date(t.entryTime).toLocaleDateString(); const plClass = t.pl >= 0 ? 'item-complete' : 'item-failed'; const plColor = t.pl >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)'; return '<div class="verif-history-item ' + plClass + '">' + '<span class="verif-history-num">#' + (i + 1) + '</span>' + '<div class="verif-history-info">' + '<span class="verif-history-date">' + t.symbol + ' ' + t.direction.toUpperCase() + ' ' + date + '</span>' + '<span class="verif-history-meta">Entry: ' + t.entryPrice + ' Exit: ' + t.exitPrice + '</span>' + '</div>' + '<span style="font-weight:600;color:' + plColor + ';">' + (t.pl >= 0 ? '+' : '') + '$' + t.pl.toFixed(2) + '</span>' + '</div>'; }).reverse().join(''); } if (count >= total) { document.querySelector('.verif-form-section').innerHTML = '<div style="text-align:center;padding:3rem;">' + '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
 <polyline points="22 4 12 14.01 9 11.01"/>
-</svg>' + '<h3 style="color:rgba(34,197,94,0.9);margin-top:1rem;">55 trade Cycle Complete!</h3>' + '<p style="color:var(--txt-secondary);margin-top:0.5rem;">You have successfully logged all 55 trades.</p>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('tradeUploadArea'); const fileInput = document.getElementById('tradeFileInput'); const preview = document.getElementById('tradePreview'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (!file.type.startsWith('image/')) return alert('Please upload an image file.'); if (file.size > 5 * 1024 * 1024) return alert('File too large. Max 5MB.'); selectedFile = file; const reader = new FileReader(); reader.onload = (e) => { preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:100%;border-radius:8px;border:1px solid var(--border-default);" />'; preview.style.display = 'block'; }; reader.readAsDataURL(file); } // Submit document.getElementById('tradeSubmitBtn').addEventListener('click', () => { const lotSize = parseFloat(document.getElementById('tradeLotSize').value); const entryPrice = parseFloat(document.getElementById('tradeEntryPrice').value); const exitPrice = parseFloat(document.getElementById('tradeExitPrice').value); const sl = parseFloat(document.getElementById('tradeSL').value); const tp = parseFloat(document.getElementById('tradeTP').value); const pl = parseFloat(document.getElementById('tradePL').value); const entryTime = document.getElementById('tradeEntryTime').value; const exitTime = document.getElementById('tradeExitTime').value; if (!lotSize || !entryPrice || !exitPrice || isNaN(pl) || !entryTime || !exitTime) { return alert('Please fill in all required fields.'); } if (!selectedFile) return alert('Please upload a TradingView screenshot.'); const data = loadData(); if (data.trades.length >= 55) return alert('All 55 trades already logged.'); // Calculate RR const direction = document.getElementById('tradeDirection').value; let rr = 0; if (sl && entryPrice) { const risk = Math.abs(entryPrice - sl); const reward = Math.abs(exitPrice - entryPrice); rr = risk > 0 ? reward / risk : 0; } data.trades.push({ symbol: document.getElementById('tradeSymbol').value, direction: direction, lotSize: lotSize, entryPrice: entryPrice, exitPrice: exitPrice, sl: sl, tp: tp, pl: pl, rr: rr, entryTime: entryTime, exitTime: exitTime, notes: document.getElementById('tradeNotes').value || '' }); saveData(data); updateUI(); if (window.AltivorBehavior) window.AltivorBehavior.onTradeSubmitted(); // Reset form document.getElementById('tradeLotSize').value = ''; document.getElementById('tradeEntryPrice').value = ''; document.getElementById('tradeExitPrice').value = ''; document.getElementById('tradeSL').value = ''; document.getElementById('tradeTP').value = ''; document.getElementById('tradePL').value = ''; document.getElementById('tradeEntryTime').value = ''; document.getElementById('tradeExitTime').value = ''; document.getElementById('tradeNotes').value = ''; preview.style.display = 'none'; selectedFile = null; fileInput.value = ''; alert('Trade #' + data.trades.length + ' logged successfully!'); }); updateUI(); if (window.AltivorBehavior) window.AltivorBehavior.renderAll(); })(); </script>
+</svg>' + '<h3 style="color:rgba(34,197,94,0.9);margin-top:1rem;">55 trade Cycle Complete!</h3>' + '<p style="color:var(--txt-secondary);margin-top:0.5rem;">You have successfully logged all 55 trades.</p>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('tradeUploadArea'); const fileInput = document.getElementById('tradeFileInput'); const preview = document.getElementById('tradePreview'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (!file.type.startsWith('image/')) return alert('Please upload an image file.'); if (file.size > 5 * 1024 * 1024) return alert('File too large. Max 5MB.'); selectedFile = file; const reader = new FileReader(); reader.onload = (e) => { preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:100%;border-radius:8px;border:1px solid var(--border-default);" />'; preview.style.display = 'block'; }; reader.readAsDataURL(file); } // Submit document.getElementById('tradeSubmitBtn').addEventListener('click', () => { const lotSize = parseFloat(document.getElementById('tradeLotSize').value); const entryPrice = parseFloat(document.getElementById('tradeEntryPrice').value); const exitPrice = parseFloat(document.getElementById('tradeExitPrice').value); const sl = parseFloat(document.getElementById('tradeSL').value); const tp = parseFloat(document.getElementById('tradeTP').value); const pl = parseFloat(document.getElementById('tradePL').value); const strategy = document.getElementById('tradeStrategy').value; const entryTime = document.getElementById('tradeEntryTime').value; const exitTime = document.getElementById('tradeExitTime').value; if (!lotSize || !entryPrice || !exitPrice || isNaN(pl) || !entryTime || !exitTime) { return alert('Please fill in all required fields.'); } if (!selectedFile) return alert('Please upload a TradingView screenshot.'); const data = loadData(); if (data.trades.length >= 55) return alert('All 55 trades already logged.'); // Calculate RR const direction = document.getElementById('tradeDirection').value; let rr = 0; if (sl && entryPrice) { const risk = Math.abs(entryPrice - sl); const reward = Math.abs(exitPrice - entryPrice); rr = risk > 0 ? reward / risk : 0; } data.trades.push({ symbol: document.getElementById('tradeSymbol').value, direction: direction, strategy: strategy, lotSize: lotSize, entryPrice: entryPrice, exitPrice: exitPrice, sl: sl, tp: tp, pl: pl, rr: rr, entryTime: entryTime, exitTime: exitTime, notes: document.getElementById('tradeNotes').value || '' }); saveData(data); updateUI(); if (window.AltivorBehavior) window.AltivorBehavior.onTradeSubmitted(); // Reset form document.getElementById('tradeLotSize').value = ''; document.getElementById('tradeEntryPrice').value = ''; document.getElementById('tradeExitPrice').value = ''; document.getElementById('tradeSL').value = ''; document.getElementById('tradeTP').value = ''; document.getElementById('tradePL').value = ''; document.getElementById('tradeEntryTime').value = ''; document.getElementById('tradeExitTime').value = ''; document.getElementById('tradeNotes').value = ''; preview.style.display = 'none'; selectedFile = null; fileInput.value = ''; alert('Trade #' + data.trades.length + ' logged successfully!'); }); updateUI(); if (window.AltivorBehavior) window.AltivorBehavior.renderAll(); })(); </script>
 <script src="footer-widgets.js"></script>
+<script>
+/* ═══ Trade Compliance Scanner ═══ */
+(function(){
+  if(!window.AltivorCompliance) return;
+  var panel = document.getElementById('complianceResult');
+  var badge = document.getElementById('complianceBadge');
+  var scoreText = document.getElementById('complianceScoreText');
+  var scoreFill = document.getElementById('complianceScoreFill');
+  var checksWrap = document.getElementById('complianceChecks');
+  if(!panel) return;
+  var STORAGE_KEY = 'altivor_verification_trades_v1';
+  function loadData(){ try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { trades:[] }; } catch(e){ return { trades:[] }; } }
+  function showComplianceReport(trade, stratId){
+    var result = window.AltivorCompliance.scanTradeCompliance(trade, stratId);
+    if(!result || result.verdict === 'no_strategy' || result.total === 0){ panel.style.display = 'none'; return; }
+    panel.style.display = 'block';
+    var pct = result.score;
+    scoreText.textContent = result.passed + ' / ' + result.total + ' checks passed (' + pct + '%)';
+    var color = pct >= 80 ? 'rgba(34,197,94,0.8)' : (pct >= 50 ? 'rgba(234,179,8,0.8)' : 'rgba(239,68,68,0.7)');
+    scoreFill.style.width = pct + '%';
+    scoreFill.style.background = color;
+    var verdictMap = { compliant:{ text:'COMPLIANT', bg:'rgba(34,197,94,0.1)', c:'rgba(34,197,94,0.9)', border:'rgba(34,197,94,0.2)' }, partial:{ text:'PARTIAL', bg:'rgba(234,179,8,0.1)', c:'rgba(234,179,8,0.9)', border:'rgba(234,179,8,0.2)' }, non_compliant:{ text:'NON-COMPLIANT', bg:'rgba(239,68,68,0.08)', c:'rgba(239,68,68,0.8)', border:'rgba(239,68,68,0.15)' } };
+    var v = verdictMap[result.verdict] || verdictMap.non_compliant;
+    badge.textContent = v.text;
+    badge.style.cssText = 'font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:3px 10px;border-radius:100px;background:' + v.bg + ';color:' + v.c + ';border:1px solid ' + v.border + ';';
+    checksWrap.innerHTML = '';
+    result.checks.forEach(function(chk){
+      var row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:.5rem;padding:.3rem 0;font-size:.75rem;';
+      var icon = chk.pass ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(239,68,68,0.7)" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      row.innerHTML = icon + '<span style="font-weight:600;min-width:80px;color:' + (chk.pass ? 'rgba(34,197,94,0.8)' : 'rgba(239,68,68,0.7)') + ';">' + chk.label + '</span><span style="color:var(--txt-secondary);">' + chk.detail + '</span>';
+      checksWrap.appendChild(row);
+    });
+    panel.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+  /* Hook into trade submissions by observing DOM changes to the history list */
+  var lastTradeCount = loadData().trades.length;
+  var observer = new MutationObserver(function(){
+    var data = loadData();
+    if(data.trades.length > lastTradeCount){
+      var trade = data.trades[data.trades.length - 1];
+      lastTradeCount = data.trades.length;
+      if(trade.strategy){ showComplianceReport(trade, trade.strategy); }
+      else { panel.style.display = 'none'; }
+    }
+  });
+  var historyList = document.getElementById('tradesHistoryList');
+  if(historyList){ observer.observe(historyList, { childList:true, subtree:true, characterData:true }); }
+  /* Also show last trade compliance on page load if available */
+  var data = loadData();
+  if(data.trades.length > 0){
+    var lastTrade = data.trades[data.trades.length - 1];
+    if(lastTrade.strategy){ showComplianceReport(lastTrade, lastTrade.strategy); }
+  }
+})();
+</script>
 </body>
 </html>
