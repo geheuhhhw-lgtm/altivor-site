@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿<!DOCTYPE html>
+﻿﻿﻿﻿<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -1164,10 +1164,10 @@
 <ul class="pricing-list" role="list">
 <li data-i18n="price_fwpack_li1">Everything from PREPARE included</li>
 <li data-i18n="price_fwpack_li2">Product Files 01, 02, 03, 04</li>
-<li data-i18n="price_fwpack_li3">Operational parameters &amp; execution rules</li>
-<li class="excluded" data-i18n="price_fwpack_li4">Product Files 05, 06</li>
-<li class="excluded" data-i18n="price_fwpack_li5">Monthly Performance Report</li>
-<li class="excluded" data-i18n="price_fwpack_li6">Accessories Suite</li>
+<li class="pricing-li-unlocked" data-i18n="price_fwpack_li3">Verification</li>
+<li data-i18n="price_fwpack_li3b">55-trade validation cycle</li>
+<li class="excluded" data-i18n="price_fwpack_li5">Accessories Suite</li>
+<li class="excluded" data-i18n="price_fwpack_li6">Product Files 05, 06</li>
 </ul>
 <div class="pricing-card-footer">
 <a href="prepare.html" class="btn btn-outline pricing-btn" data-i18n="price_fwpack_btn">Access Framework Pack</a>
@@ -1186,6 +1186,7 @@
 <li data-i18n="price_us100_li1">Everything from PREPARE included</li>
 <li data-i18n="price_us100_li2">All Product Files (01&mdash;06)</li>
 <li data-i18n="price_us100_li3">Full Accessories Suite included</li>
+<li class="pricing-li-unlocked" data-i18n="price_us100_li3b">Verification</li>
 <li data-i18n="price_us100_li4">55-trade validation cycle</li>
 <li data-i18n="price_us100_li5">6% profit target over 2 months</li>
 <li data-i18n="price_us100_li6">10% max drawdown &mdash; breach = fail</li>
@@ -1205,16 +1206,20 @@
 </div>
 <p class="pricing-desc" data-i18n="price_acc_desc">Standalone monthly access to the full Accessories suite. No PREPARE required. Subscribe independently.</p>
 <ul class="pricing-list" role="list">
-<li data-i18n="price_acc_li1">Trading Log &mdash; Daily Journal</li>
-<li data-i18n="price_acc_li2">PnL Calendar &mdash; Heatmap Tracker</li>
+<li data-i18n="price_acc_li1">Trading Log</li>
+<li data-i18n="price_acc_li2">PnL Calendar</li>
 <li data-i18n="price_acc_li3">Economic Calendar</li>
-<li data-i18n="price_acc_li4">Trading Symbols &mdash; Spreads &amp; Swaps</li>
+<li data-i18n="price_acc_li4">Trading Symbols</li>
 <li data-i18n="price_acc_li5">Execution Checklist</li>
 <li data-i18n="price_acc_li6">Trading Calculators</li>
+<li data-i18n="price_acc_li6b">Trading Wiki</li>
+<li data-i18n="price_acc_li6c">Strategy Builder</li>
 <li class="excluded" data-i18n="price_acc_li7">Framework Documentation</li>
+<li class="excluded" data-i18n="price_acc_li8">Verification</li>
+<li class="excluded" data-i18n="price_acc_li9">55-trade validation cycle</li>
 </ul>
 <div class="pricing-card-footer">
-<a href="accessories.html" class="btn btn-outline pricing-btn" data-i18n="price_acc_btn">Subscribe &mdash; Accessories</a>
+<a href="#" class="btn btn-outline pricing-btn" id="accSubscribeBtn" data-i18n="price_acc_btn" onclick="event.preventDefault();window.handleAccSubscribe();">Subscribe &mdash; Accessories</a>
 <p class="pricing-fine" data-i18n="price_acc_fine">Monthly subscription. No PREPARE required.</p>
 </div>
 </div>

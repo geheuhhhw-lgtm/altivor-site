@@ -1933,16 +1933,31 @@ function handleRegister(e) {
   alert('Registration submitted - backend integration pending.');
 }
 
-// Product file library logic
-var LOCKED_FILE_IDS = ['file-ledger-journal-05', 'file-onboarding-guide-06'];
+// Product file library logic — access tiers
+// Framework Pack → Files 01-04 only
+// US100 Challenge → Files 01-06 (all)
+var US100_ONLY_FILES = ['file-ledger-journal-05', 'file-onboarding-guide-06'];
+var ADMIN_EMAIL = 'aleksanderdobieszewski@gmail.com';
 
-function isUserAuthenticated() {
-  return false; // TODO: Replace with actual auth check
+function pfGetUser(){
+  return (window.altivorAuth && window.altivorAuth.getUser) ? window.altivorAuth.getUser() : null;
+}
+function pfUserEmail(){
+  var u = pfGetUser();
+  return u && u.email ? u.email.toLowerCase() : null;
+}
+function pfHasUs100(){
+  var e = pfUserEmail();
+  return e ? localStorage.getItem('altivor_us100_purchased_' + e) === '1' : false;
+}
+function pfIsAdmin(){
+  return pfUserEmail() === ADMIN_EMAIL;
 }
 
 function isFileLocked(fileId) {
-  if (isUserAuthenticated()) return false;
-  return LOCKED_FILE_IDS.indexOf(fileId) !== -1;
+  if (US100_ONLY_FILES.indexOf(fileId) === -1) return false;
+  if (pfIsAdmin()) return false;
+  return !pfHasUs100();
 }
 
 function getProductFileArticleByHash(hashValue) {
@@ -1959,7 +1974,11 @@ function showProductFile(fileId) {
   
   // Check if file is locked
   if (isFileLocked(fileId)) {
-    alert('This file requires US100 Challenge access. Please purchase to unlock.');
+    if (window.altivorGate && window.altivorGate.showGate) {
+      window.altivorGate.showGate('us100Upgrade');
+    } else {
+      alert('This file requires US100 Challenge access.');
+    }
     return;
   }
   
@@ -2002,12 +2021,46 @@ function scrollToProductFileTarget() {
   window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
 }
 
-function handleProductFileRoute(shouldScroll) {
+function guardedSyncProductFileView(){
+  var hash = String(window.location.hash || '').replace(/^#/, '');
+  if(hash && isFileLocked(hash)){
+    var library = document.getElementById('product-file-library');
+    if(library) library.hidden = true;
+    if(window.altivorGate && window.altivorGate.showGate){
+      window.altivorGate.showGate('us100Upgrade');
+    }
+    window.history.replaceState({}, '', window.location.pathname);
+    return;
+  }
   syncProductFileView();
+}
+
+function handleProductFileRoute(shouldScroll) {
+  guardedSyncProductFileView();
   if (shouldScroll && window.location.hash) {
     requestAnimationFrame(function() { scrollToProductFileTarget(); });
   }
 }
+
+function updateFileCardStates(){
+  var cards = document.querySelectorAll('.pf-file-card[data-requires-auth="us100-challenge"]');
+  var unlocked = pfHasUs100() || pfIsAdmin();
+  cards.forEach(function(card){
+    if(unlocked){
+      card.classList.remove('pf-file-card--locked');
+      var stateEl = card.querySelector('.pf-file-state--locked');
+      if(stateEl){ stateEl.classList.remove('pf-file-state--locked'); stateEl.textContent = 'Unlocked'; }
+      var linkEl = card.querySelector('.pf-file-link');
+      if(linkEl && linkEl.querySelector('.pf-lock-icon')){
+        linkEl.innerHTML = 'Enter file';
+      }
+    } else {
+      card.classList.add('pf-file-card--locked');
+    }
+  });
+}
+updateFileCardStates();
+document.addEventListener('altivor:authchange', function(){ updateFileCardStates(); });
 
 window.addEventListener('hashchange', function() { handleProductFileRoute(true); });
 document.addEventListener('altivor:languagechange', function() { handleProductFileRoute(false); });

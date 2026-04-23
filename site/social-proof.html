@@ -1032,197 +1032,226 @@
 </svg>
 </div>
 <h2 class="sp-section-title">Trade Breakdowns</h2>
-<p class="sp-section-subtitle">Examples of how trades are evaluated within the validation framework.</p>
+<p class="sp-section-subtitle">Anonymized execution analysis from the US100 validation framework. Every trade scored against structural, risk, and session compliance.</p>
 </div>
-<!-- Trade Breakdown Feed -->
-<div class="sp-breakdown-feed" data-reveal>
-<!-- Trade 1 - Invalid -->
-<div class="sp-breakdown-card">
-<div class="sp-breakdown-header">
-<span class="sp-breakdown-label">Trade Example</span>
-<span class="sp-breakdown-status sp-status-invalid">Invalid</span>
+<!-- Summary Stats -->
+<div class="spb-stats-bar" data-reveal>
+<div class="spb-stat"><span class="spb-stat-val">8</span><span class="spb-stat-label">Trades Reviewed</span></div>
+<div class="spb-stat"><span class="spb-stat-val">62.5%</span><span class="spb-stat-label">Compliance Rate</span></div>
+<div class="spb-stat"><span class="spb-stat-val">3.3R</span><span class="spb-stat-label">Avg Valid Win</span></div>
+<div class="spb-stat"><span class="spb-stat-val">60%</span><span class="spb-stat-label">Valid Win Rate</span></div>
 </div>
-<div class="sp-breakdown-details">
-<div class="sp-breakdown-row">
-<span>Entry:</span>
-<span>Impulsive</span>
+<!-- Filters -->
+<div class="spb-filters" data-reveal>
+<button class="spb-filter-btn active" data-spb-filter="all">All</button>
+<button class="spb-filter-btn" data-spb-filter="valid">Valid</button>
+<button class="spb-filter-btn" data-spb-filter="invalid">Invalid</button>
 </div>
-<div class="sp-breakdown-row">
-<span>Confirmation:</span>
-<span>None</span>
+<!-- Trade Feed -->
+<div class="spb-feed" data-reveal>
+<!-- #012 — Valid Win -->
+<div class="spb-card spb-card--valid" data-spb-status="valid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#012</span><span class="spb-date">28 Jan 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-long">Long</span><span class="spb-status spb-status--valid">Valid</span></div>
 </div>
-<div class="sp-breakdown-row">
-<span>Risk:</span>
-<span>Acceptable</span>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,342.5</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,290.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,500.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-pos">+3.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">NY AM</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-pos">Win</span></div>
 </div>
-<div class="sp-breakdown-row">
-<span>RR:</span>
-<span>Acceptable</span>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--pass">Structured entry</span>
+<span class="spb-check spb-check--pass">Confirmation present</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Clean pullback to the 15m demand zone with order flow confirmation. Position sized at 0.5% equity risk. Textbook structural entry with multi-timeframe confluence.</p></div>
 </div>
-<div class="sp-breakdown-row">
-<span>Session:</span>
-<span>Within window</span>
+<!-- #015 — Invalid Loss -->
+<div class="spb-card spb-card--invalid" data-spb-status="invalid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#015</span><span class="spb-date">03 Feb 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-short">Short</span><span class="spb-status spb-status--invalid">Invalid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,580.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,630.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,420.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-neg">&minus;1.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">London</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-neg">Loss</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--fail">Impulsive entry</span>
+<span class="spb-check spb-check--fail">No confirmation</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Entered short without waiting for lower-timeframe confirmation. Price retraced into supply but no structural shift occurred. Impulsive decision triggered by bias, not process.</p></div>
+</div>
+<!-- #019 — Valid Win -->
+<div class="spb-card spb-card--valid" data-spb-status="valid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#019</span><span class="spb-date">11 Feb 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-long">Long</span><span class="spb-status spb-status--valid">Valid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,185.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,140.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,320.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-pos">+3.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">NY AM</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-pos">Win</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--pass">Structured entry</span>
+<span class="spb-check spb-check--pass">Confirmation present</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Price swept Asian session low and immediately reclaimed structure. Entry triggered off bullish engulfing at key demand. Strong asymmetric setup with defined invalidation.</p></div>
+</div>
+<!-- #023 — Invalid Loss -->
+<div class="spb-card spb-card--invalid" data-spb-status="invalid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#023</span><span class="spb-date">19 Feb 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-long">Long</span><span class="spb-status spb-status--invalid">Invalid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,450.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,400.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,600.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-neg">&minus;1.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">Asia</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-neg">Loss</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--pass">Structured entry</span>
+<span class="spb-check spb-check--pass">Confirmation present</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--fail">Outside session window</span>
+</div></div>
+<div class="spb-eval"><p>Trade was structurally sound but executed during the Asian session, which falls outside the defined operational window. Session constraint violated despite valid setup.</p></div>
+</div>
+<!-- #028 — Valid Win -->
+<div class="spb-card spb-card--valid" data-spb-status="valid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#028</span><span class="spb-date">26 Feb 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-short">Short</span><span class="spb-status spb-status--valid">Valid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,720.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,760.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,560.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-pos">+4.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">NY AM</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-pos">Win</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--pass">Structured entry</span>
+<span class="spb-check spb-check--pass">Confirmation present</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Clean break of structure on the 5m chart. Entry at retest of broken support with volume confirmation. Disciplined execution &mdash; held through minor drawdown to reach target.</p></div>
+</div>
+<!-- #031 — Valid BE -->
+<div class="spb-card spb-card--valid" data-spb-status="valid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#031</span><span class="spb-date">04 Mar 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-long">Long</span><span class="spb-status spb-status--valid">Valid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,290.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,230.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,470.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-neu">0.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">NY AM</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-neu">Breakeven</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--pass">Structured entry</span>
+<span class="spb-check spb-check--pass">Confirmation present</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Valid structural entry at demand zone. Price moved 40 points in favor before retracing. Stop moved to breakeven per risk protocol. Process followed &mdash; outcome neutral.</p></div>
+</div>
+<!-- #035 — Invalid Loss -->
+<div class="spb-card spb-card--invalid" data-spb-status="invalid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#035</span><span class="spb-date">10 Mar 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-long">Long</span><span class="spb-status spb-status--invalid">Invalid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,555.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,490.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,750.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-neg">&minus;1.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">NY PM</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-neg">Loss</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--fail">Anticipatory entry</span>
+<span class="spb-check spb-check--fail">No confirmation</span>
+<span class="spb-check spb-check--fail">Risk exceeded (1.2%)</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Position oversized at 1.2% equity risk, exceeding the 1% maximum. Entry lacked confirmation &mdash; anticipatory rather than reactive. Two compliance failures on a single trade.</p></div>
+</div>
+<!-- #041 — Valid Loss -->
+<div class="spb-card spb-card--valid" data-spb-status="valid">
+<div class="spb-top">
+<div class="spb-id"><span class="spb-num">#041</span><span class="spb-date">18 Mar 2025</span></div>
+<div class="spb-badges"><span class="spb-badge spb-badge-instr">US100</span><span class="spb-badge spb-badge-short">Short</span><span class="spb-status spb-status--valid">Valid</span></div>
+</div>
+<div class="spb-grid">
+<div class="spb-cell"><span class="spb-cell-label">Entry</span><span class="spb-cell-val">21,880.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Stop Loss</span><span class="spb-cell-val">21,920.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Take Profit</span><span class="spb-cell-val">21,680.0</span></div>
+<div class="spb-cell"><span class="spb-cell-label">RR Achieved</span><span class="spb-cell-val spb-val-neg">&minus;1.0R</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Session</span><span class="spb-cell-val">NY AM</span></div>
+<div class="spb-cell"><span class="spb-cell-label">Result</span><span class="spb-cell-val spb-val-neg">Loss</span></div>
+</div>
+<div class="spb-compliance"><span class="spb-compliance-title">Compliance</span>
+<div class="spb-checks">
+<span class="spb-check spb-check--pass">Structured entry</span>
+<span class="spb-check spb-check--pass">Confirmation present</span>
+<span class="spb-check spb-check--pass">Risk within limits</span>
+<span class="spb-check spb-check--pass">Within session window</span>
+</div></div>
+<div class="spb-eval"><p>Structurally valid short at supply zone with confirmation. Market absorbed selling pressure and continued higher. Valid execution &mdash; outcome determined by market, not process failure.</p></div>
 </div>
 </div>
-<div class="sp-breakdown-eval">
-<span class="sp-breakdown-eval-label">Evaluation</span>
-<p>The trade lacks structural confirmation before entry.</p>
-</div>
-<div class="sp-breakdown-tags">
-<span class="sp-tag sp-tag-warn">No confirmation</span>
-<span class="sp-tag sp-tag-warn">Impulsive entry</span>
-</div>
-</div>
-<!-- Trade 2 - Valid -->
-<div class="sp-breakdown-card">
-<div class="sp-breakdown-header">
-<span class="sp-breakdown-label">Trade Example</span>
-<span class="sp-breakdown-status sp-status-valid">Valid</span>
-</div>
-<div class="sp-breakdown-details">
-<div class="sp-breakdown-row">
-<span>Entry:</span>
-<span>Pullback</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Confirmation:</span>
-<span>Present</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Risk:</span>
-<span>Acceptable</span>
-</div>
-<div class="sp-breakdown-row">
-<span>RR:</span>
-<span>Acceptable</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Session:</span>
-<span>Within window</span>
-</div>
-</div>
-<div class="sp-breakdown-eval">
-<span class="sp-breakdown-eval-label">Evaluation</span>
-<p>The trade meets validation criteria across structure and risk.</p>
-</div>
-<div class="sp-breakdown-tags">
-<span class="sp-tag sp-tag-ok">Structured entry</span>
-<span class="sp-tag sp-tag-ok">Valid execution</span>
-</div>
-</div>
-<!-- Trade 3 - Invalid -->
-<div class="sp-breakdown-card">
-<div class="sp-breakdown-header">
-<span class="sp-breakdown-label">Trade Example</span>
-<span class="sp-breakdown-status sp-status-invalid">Invalid</span>
-</div>
-<div class="sp-breakdown-details">
-<div class="sp-breakdown-row">
-<span>Entry:</span>
-<span>Structured</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Confirmation:</span>
-<span>Present</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Risk:</span>
-<span>Acceptable</span>
-</div>
-<div class="sp-breakdown-row">
-<span>RR:</span>
-<span>Acceptable</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Session:</span>
-<span>Outside window</span>
-</div>
-</div>
-<div class="sp-breakdown-eval">
-<span class="sp-breakdown-eval-label">Evaluation</span>
-<p>The trade violates defined session constraints.</p>
-</div>
-<div class="sp-breakdown-tags">
-<span class="sp-tag sp-tag-warn">Outside session</span>
-</div>
-</div>
-<!-- Trade 4 - Invalid -->
-<div class="sp-breakdown-card">
-<div class="sp-breakdown-header">
-<span class="sp-breakdown-label">Trade Example</span>
-<span class="sp-breakdown-status sp-status-invalid">Invalid</span>
-</div>
-<div class="sp-breakdown-details">
-<div class="sp-breakdown-row">
-<span>Entry:</span>
-<span>Impulsive</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Confirmation:</span>
-<span>None</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Risk:</span>
-<span>Exceeded</span>
-</div>
-<div class="sp-breakdown-row">
-<span>RR:</span>
-<span>Acceptable</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Session:</span>
-<span>Within window</span>
-</div>
-</div>
-<div class="sp-breakdown-eval">
-<span class="sp-breakdown-eval-label">Evaluation</span>
-<p>The trade exceeds allowed risk parameters and lacks confirmation.</p>
-</div>
-<div class="sp-breakdown-tags">
-<span class="sp-tag sp-tag-warn">Risk exceeded</span>
-<span class="sp-tag sp-tag-warn">No confirmation</span>
-</div>
-</div>
-<!-- Trade 5 - Valid -->
-<div class="sp-breakdown-card">
-<div class="sp-breakdown-header">
-<span class="sp-breakdown-label">Trade Example</span>
-<span class="sp-breakdown-status sp-status-valid">Valid</span>
-</div>
-<div class="sp-breakdown-details">
-<div class="sp-breakdown-row">
-<span>Entry:</span>
-<span>Structured</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Confirmation:</span>
-<span>Present</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Risk:</span>
-<span>Acceptable</span>
-</div>
-<div class="sp-breakdown-row">
-<span>RR:</span>
-<span>Above standard</span>
-</div>
-<div class="sp-breakdown-row">
-<span>Session:</span>
-<span>Within window</span>
-</div>
-</div>
-<div class="sp-breakdown-eval">
-<span class="sp-breakdown-eval-label">Evaluation</span>
-<p>The trade demonstrates disciplined execution with favorable risk-reward.</p>
-</div>
-<div class="sp-breakdown-tags">
-<span class="sp-tag sp-tag-ok">Structured entry</span>
-<span class="sp-tag sp-tag-ok">Valid execution</span>
-<span class="sp-tag sp-tag-ok">Strong RR</span>
-</div>
-</div>
-</div>
-<p class="sp-micro-label" data-reveal>Trade evaluations reflect platform validation logic.</p>
+<p class="sp-micro-label" data-reveal>All trade data is anonymized. Evaluations reflect platform validation logic. Valid trades can still produce losses &mdash; compliance measures process, not outcome.</p>
+<script>
+(function(){
+  var btns = document.querySelectorAll('[data-spb-filter]');
+  var cards = document.querySelectorAll('[data-spb-status]');
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var f = btn.getAttribute('data-spb-filter');
+      cards.forEach(function(c){
+        if(f === 'all') { c.classList.remove('spb-hidden'); }
+        else { c.classList.toggle('spb-hidden', c.getAttribute('data-spb-status') !== f); }
+      });
+    });
+  });
+})();
+</script>
 </div>
 </section>
 <!-- ─── TRANSPARENCY NOTICE ───────────────────────────────────────── -->

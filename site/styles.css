@@ -3866,7 +3866,54 @@ small {
 
 }
 
+.pricing-li-unlocked::after {
+  content: 'unlocked';
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(74, 222, 128, 0.95);
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 4px;
+  vertical-align: middle;
+}
 
+[data-theme="light"] .pricing-li-unlocked::after {
+  color: rgba(22, 163, 74, 0.9);
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.18);
+}
+
+.btn-skip-link {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--txt-muted);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+  vertical-align: middle;
+}
+
+.btn-skip-link:hover {
+  color: var(--txt-secondary);
+  border-color: rgba(255,255,255,0.25);
+}
+
+[data-theme="light"] .btn-skip-link {
+  border-color: rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .btn-skip-link:hover {
+  border-color: rgba(0,0,0,0.25);
+}
 
 .pricing-free-label,
 
@@ -14705,7 +14752,70 @@ body.rtl .doc-page .doc-section ul > li::before {
 
 }
 
+/* ─── TRADE BREAKDOWNS v2 — FINTECH REDESIGN ──────────────────────────── */
+.spb-stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: 12px; overflow: hidden; margin-bottom: 2rem; }
+.spb-stat { padding: 1.25rem 1rem; background: var(--bg-card); text-align: center; }
+.spb-stat-val { display: block; font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: rgba(214, 190, 150, 0.9); line-height: 1.2; }
+[data-theme="light"] .spb-stat-val { color: rgba(130, 110, 70, 0.9); }
+.spb-stat-label { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--txt-muted); margin-top: 0.3rem; display: block; }
 
+.spb-filters { display: flex; gap: 0.5rem; margin-bottom: 1.75rem; justify-content: center; }
+.spb-filter-btn { padding: 0.4rem 1.1rem; border-radius: 100px; border: 1px solid var(--border-subtle); background: transparent; color: var(--txt-secondary); font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: Inter, sans-serif; }
+.spb-filter-btn:hover { border-color: var(--border-default); }
+.spb-filter-btn.active { background: rgba(96, 165, 250, 0.1); border-color: rgba(96, 165, 250, 0.3); color: rgba(96, 165, 250, 0.9); font-weight: 600; }
+[data-theme="light"] .spb-filter-btn.active { background: rgba(37, 99, 175, 0.08); border-color: rgba(37, 99, 175, 0.25); color: rgba(37, 99, 175, 0.9); }
+
+.spb-feed { display: flex; flex-direction: column; gap: 1rem; max-width: 780px; margin: 0 auto; }
+
+.spb-card { padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 14px; border-left: 3px solid var(--border-subtle); transition: border-color 0.3s, box-shadow 0.3s, opacity 0.3s; }
+.spb-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.12); border-color: var(--border-default); }
+[data-theme="light"] .spb-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+.spb-card--valid { border-left-color: rgba(52, 211, 153, 0.5); }
+.spb-card--invalid { border-left-color: rgba(239, 68, 68, 0.35); }
+
+.spb-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+.spb-id { display: flex; align-items: center; gap: 0.75rem; }
+.spb-num { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace; font-size: 0.88rem; font-weight: 700; color: var(--txt-primary); }
+.spb-date { font-size: 0.75rem; color: var(--txt-muted); }
+.spb-badges { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+
+.spb-badge { font-size: 0.62rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+.spb-badge-instr { background: rgba(96, 165, 250, 0.1); color: rgba(96, 165, 250, 0.85); border: 1px solid rgba(96, 165, 250, 0.15); }
+[data-theme="light"] .spb-badge-instr { background: rgba(37, 99, 175, 0.08); color: rgba(37, 99, 175, 0.8); border-color: rgba(37, 99, 175, 0.15); }
+.spb-badge-long { background: rgba(52, 211, 153, 0.08); color: rgba(52, 211, 153, 0.85); border: 1px solid rgba(52, 211, 153, 0.12); }
+.spb-badge-short { background: rgba(239, 68, 68, 0.06); color: rgba(239, 68, 68, 0.75); border: 1px solid rgba(239, 68, 68, 0.1); }
+
+.spb-status { font-size: 0.65rem; font-weight: 700; padding: 0.22rem 0.6rem; border-radius: 100px; letter-spacing: 0.03em; text-transform: uppercase; }
+.spb-status--valid { background: rgba(52, 211, 153, 0.1); color: rgba(52, 211, 153, 0.85); }
+.spb-status--invalid { background: rgba(239, 68, 68, 0.06); color: rgba(239, 68, 68, 0.7); }
+
+.spb-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-subtle); border: 1px solid var(--border-subtle); border-radius: 10px; overflow: hidden; margin-bottom: 1rem; }
+.spb-cell { padding: 0.7rem 0.85rem; background: var(--bg-elevated, var(--bg-surface)); }
+.spb-cell-label { display: block; font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--txt-muted); margin-bottom: 0.15rem; }
+.spb-cell-val { display: block; font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace; font-size: 0.82rem; font-weight: 600; color: var(--txt-primary); }
+.spb-val-pos { color: rgba(52, 211, 153, 0.9) !important; }
+.spb-val-neg { color: rgba(239, 68, 68, 0.8) !important; }
+.spb-val-neu { color: var(--txt-secondary) !important; }
+
+.spb-compliance { margin-bottom: 0.85rem; }
+.spb-compliance-title { display: block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--txt-muted); margin-bottom: 0.45rem; }
+.spb-checks { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.spb-check { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; font-weight: 500; padding: 0.22rem 0.55rem; border-radius: 4px; }
+.spb-check--pass { background: rgba(52, 211, 153, 0.06); color: rgba(52, 211, 153, 0.8); }
+.spb-check--pass::before { content: '\2713'; font-weight: 700; font-size: 0.68rem; }
+.spb-check--fail { background: rgba(239, 68, 68, 0.06); color: rgba(239, 68, 68, 0.7); }
+.spb-check--fail::before { content: '\2717'; font-weight: 700; font-size: 0.72rem; }
+
+.spb-eval { padding: 0.85rem 1rem; background: var(--bg-surface); border-radius: 8px; border-left: 2px solid var(--border-subtle); }
+.spb-eval p { font-size: 0.82rem; color: var(--txt-secondary); margin: 0; line-height: 1.6; font-style: italic; }
+
+.spb-hidden { display: none !important; }
+
+@media (max-width: 640px) {
+  .spb-stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .spb-grid { grid-template-columns: repeat(2, 1fr); }
+  .spb-top { flex-direction: column; align-items: flex-start; }
+}
 
 /* Responsive */
 
@@ -14920,4 +15030,158 @@ body.rtl .doc-page .doc-section ul > li::before {
 
   .btn { font-size: 0.82rem; padding: 0.65rem 1.2rem; }
   .btn-primary { padding: 0.7rem 1.4rem; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   LIGHT THEME — COMPREHENSIVE FIXES
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Hero mini-ad: text & borders invisible on light bg */
+[data-theme="light"] .hero-mini-ad-headline { color: var(--txt-accent); }
+[data-theme="light"] .hero-mini-ad-desc { color: var(--txt-secondary); }
+[data-theme="light"] .hero-mini-ad-cta-secondary {
+  border-color: rgba(0, 0, 0, 0.25);
+  color: var(--txt-primary);
+}
+[data-theme="light"] .hero-mini-ad:hover {
+  border-color: rgba(13, 150, 104, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(13, 150, 104, 0.08);
+}
+[data-theme="light"] .hero-mini-ad-gfx { color: rgba(37, 99, 175, 0.25); }
+[data-theme="light"] .hero-mini-ad-num { color: rgba(37, 99, 175, 0.12); text-shadow: none; }
+[data-theme="light"] .hero-mini-ad-chart { color: rgba(37, 99, 175, 0.2); }
+[data-theme="light"] .hero-mini-ad { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); }
+
+/* Hero challenge badge: white-alpha bg invisible */
+[data-theme="light"] .hero-challenge-badge {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Hero challenge card hover */
+[data-theme="light"] .fw-challenge-card:hover {
+  border-color: rgba(13, 150, 104, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(13, 150, 104, 0.06);
+}
+[data-theme="light"] .fw-dev-card:hover {
+  border-color: rgba(37, 99, 175, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(37, 99, 175, 0.06);
+}
+
+/* Card gfx overlay colours (fw-card-gfx) */
+[data-theme="light"] .fw-card-gfx { color: rgba(37, 99, 175, 0.15); }
+
+/* fw-badge.dev text — hardcoded white alpha */
+[data-theme="light"] .fw-badge.dev .fw-badge-text {
+  color: rgba(37, 99, 175, 0.65);
+}
+
+/* Progress bar fill gradient */
+[data-theme="light"] .dash-progress-fill {
+  background: linear-gradient(90deg, var(--txt-primary) 0%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+/* PnL mock wrap gradient */
+[data-theme="light"] .pnl-mock-wrap {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%), var(--bg-card);
+}
+
+/* Card/Section bg gradients: white overlay on white bg is invisible, swap to dark subtle */
+[data-theme="light"] .cta-block {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%), var(--bg-card);
+}
+
+/* Pricing cards: hardcoded dark bg + white borders */
+[data-theme="light"] .card-pricing:hover {
+  border-color: rgba(160, 140, 100, 0.22);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(160, 140, 100, 0.06);
+}
+
+/* Pricing step arrow */
+[data-theme="light"] .pricing-step:hover {
+  transform: translateY(-2px);
+}
+
+/* Pricing amount — already has override, good */
+
+/* Pricing description — hardcoded rgba(255,255,255,0.55) */
+/* Already overridden — good */
+
+/* Pricing list items — hardcoded rgba(255,255,255,0.65) */
+/* Already overridden — good */
+
+/* Pricing list excluded — hardcoded white alpha */
+[data-theme="light"] .pricing-list li.excluded {
+  color: rgba(0, 0, 0, 0.3);
+}
+[data-theme="light"] .pricing-list li.excluded::before {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Featured pricing card */
+[data-theme="light"] .card-pricing--featured:hover {
+  border-color: rgba(16, 120, 100, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(16, 120, 100, 0.06);
+}
+
+/* fw-challenge-actions border */
+/* Already overridden — good */
+
+/* Announce close hover */
+[data-theme="light"] .announce-close:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* btn-skip-link — already overridden — good */
+
+/* Support section inline styles fix is in index.html below */
+
+/* Pricing label (paid) hardcoded rgba(255,255,255,0.5) */
+/* Already overridden — good */
+
+/* Nav dropdown panel shadow for light */
+[data-theme="light"] .nav-dropdown-panel {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+/* WoT spotlight card borders — use CSS var fallbacks, already handled */
+
+/* General .card on light — ensure border is visible */
+[data-theme="light"] .card {
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Dashboard calendar and stats on light */
+[data-theme="light"] .dashboard-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Cookie banner shadow */
+[data-theme="light"] .cookie-banner {
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Auth modal shadow */
+[data-theme="light"] .auth-modal {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* Cookie prefs modal shadow */
+[data-theme="light"] .cookie-prefs-modal {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* Support section tag — was inline rgba(255,255,255) */
+.support-tag {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
+}
+[data-theme="light"] .support-tag {
+  border-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.4);
+}
+[data-theme="navy"] .support-tag {
+  border-color: rgba(160, 185, 230, 0.15);
+  color: rgba(160, 185, 230, 0.5);
 }

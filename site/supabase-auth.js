@@ -333,6 +333,7 @@
         if (token) {
             api('/auth/v1/logout', 'POST', {}, token).catch(function () {});
         }
+        window.location.href = 'index.html';
     }
 
     // ─── Logout confirmation modal ───────────────────────────────────────────

@@ -401,6 +401,66 @@
         el.textContent = now.toLocaleDateString('en-GB', { weekday: 'short', day: '2-digit', month: 'short', year: 'numeric' }) + '  •  ' + now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
     }
 
+    /* â”€â”€ Render: Products & Access status â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    function renderProducts(user) {
+        if (!user) return;
+        var email = user.email || '';
+        var prep = localStorage.getItem('altivor_prepare_purchased_' + email) === '1';
+        var fwp = localStorage.getItem('altivor_fwpack_purchased_' + email) === '1';
+        var us100 = localStorage.getItem('altivor_us100_purchased_' + email) === '1';
+        var acc = localStorage.getItem('altivor_acc_purchased_' + email) === '1' || us100;
+
+        function setStatus(id, active, label) {
+            var el = $(id);
+            if (!el) return;
+            el.textContent = active ? (label || 'Active') : 'Locked';
+            el.className = 'pd-product-status ' + (active ? 'pd-product-status--active' : 'pd-product-status--locked');
+        }
+        // Overview cards
+        setStatus('pdPrepStatus', prep);
+        setStatus('pdFwpStatus', fwp);
+        setStatus('pdUs100Status', us100);
+        setStatus('pdAccStatus', acc, acc ? 'Active' : 'Locked');
+        // Full tab
+        setStatus('pdPrepStatusFull', prep);
+        setStatus('pdFwpStatusFull', fwp);
+        setStatus('pdUs100StatusFull', us100);
+        setStatus('pdAccStatusFull', acc, acc ? 'Active' : 'Locked');
+        // Detail text
+        var el;
+        el = $('pdPrepDetail');    if (el) el.textContent = prep ? 'Purchased \u2014 Access Granted' : 'Not Purchased';
+        el = $('pdFwpDetail');     if (el) el.textContent = fwp ? 'Purchased \u2014 Access Granted' : 'Not Purchased';
+        el = $('pdUs100Detail');   if (el) el.textContent = us100 ? 'Purchased \u2014 Access Granted' : 'Not Purchased';
+        el = $('pdAccDetail');     if (el) el.textContent = acc ? 'Active Subscription' : 'Not Subscribed';
+
+        // Count active products for stat
+        var count = [prep, fwp, us100, acc].filter(Boolean).length;
+        el = $('ovStatPurchases'); if (el) el.textContent = count;
+    }
+
+    /* â”€â”€ Render: Activity Timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+    function renderTimeline(user) {
+        var tl = $('pdTimeline');
+        if (!tl || !user) return;
+        var items = [];
+        // Account created
+        if (user.created_at) items.push({ date: user.created_at, label: 'Account created', dot: 'blue' });
+        // Email verified
+        if (user.email_confirmed_at) items.push({ date: user.email_confirmed_at, label: 'Email verified', dot: 'green' });
+        // Last sign in
+        if (user.last_sign_in_at) items.push({ date: user.last_sign_in_at, label: 'Last sign in', dot: 'gold' });
+        // PREPARE purchased
+        var email = user.email || '';
+        if (localStorage.getItem('altivor_prepare_purchased_' + email) === '1') items.push({ date: null, label: 'PREPARE Access purchased', dot: 'gold' });
+        if (localStorage.getItem('altivor_acc_purchased_' + email) === '1') items.push({ date: null, label: 'Accessories Subscription activated', dot: 'green' });
+
+        items.sort(function (a, b) { if (!a.date) return -1; if (!b.date) return 1; return new Date(b.date) - new Date(a.date); });
+        var html = '';
+        items.forEach(function (it) {
+            html += '<div class="pd-timeline-item"><div class="pd-timeline-dot pd-timeline-dot--' + it.dot + '"></div><div class="pd-timeline-text"><div class="pd-timeline-label">' + it.label + '</div><div class="pd-timeline-meta">' + (it.date ? formatDateTime(it.date) : 'Active') + '</div></div></div>';
+        });
+        tl.innerHTML = html || '<div class="pd-timeline-item"><div class="pd-timeline-dot pd-timeline-dot--gray"></div><div class="pd-timeline-text"><div class="pd-timeline-label">No activity yet</div><div class="pd-timeline-meta">\u2014</div></div></div>';
+    }
     /* ── Main init ─────────────────────────────────────────────────────── */
     function init() {
         var loadingEl = $('pdLoading');
@@ -419,6 +479,8 @@
                 renderUserHeader(user);
                 renderWelcome(user);
                 renderOverview(user);
+                renderProducts(user);
+                renderTimeline(user);
                 renderPersonalInfo(user);
                 render2FASection();
                 renderPurchases();

@@ -939,6 +939,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (_) {
         }
         updateAuthUi(null);
+        window.location.href = 'index.html';
     }
 
     async function submitLoginForm(form) {
@@ -1850,3 +1851,476 @@ document.addEventListener('click', function (e) {
 
 /* Auto-load address autocomplete */
 (function(){var s=document.createElement('script');s.src='address-autocomplete.js';document.head.appendChild(s)})();
+
+
+/* â•â•â• ALTIVOR ACCESS GATE SYSTEM â•â•â• */
+(function(){
+  var ACC_KEY = 'altivor_acc_purchased_';
+  var FWPACK_KEY = 'altivor_fwpack_purchased_';
+  var US100_KEY = 'altivor_us100_purchased_';
+  var ACC_STRIPE = 'https://buy.stripe.com/aFa6oI5s5a7QdoFgaMdby03';
+  var FWPACK_STRIPE = 'https://buy.stripe.com/4gM9AUdYBbbUfwN4s4dby02';
+  var US100_STRIPE = 'https://buy.stripe.com/00wdRabQt93M5Wde2Edby00';
+
+  var VERIFICATION_PAGES = ['verification.html','verification-trades.html','verification-status.html'];
+  var ACCESSORIES_PAGES = ['accessories.html','trading-log.html','pnl.html','calendar.html','symbols.html','execution-checklist.html','calculators.html','trading-wiki.html','strategy-builder.html'];
+  var PRODUCTFILES_PAGES = ['us100-product-files.html'];
+  var PREPARE_KEY = 'altivor_prepare_purchased_';
+  var ADMIN_EMAIL = 'aleksanderdobieszewski@gmail.com';
+
+  function getUser(){
+    return (window.altivorAuth && window.altivorAuth.getUser) ? window.altivorAuth.getUser() : null;
+  }
+  function userEmail(){
+    var u = getUser();
+    return u && u.email ? u.email : null;
+  }
+  function hasAcc(){
+    var e = userEmail();
+    if(!e) return false;
+    return localStorage.getItem(ACC_KEY + e) === '1' || localStorage.getItem(US100_KEY + e) === '1';
+  }
+  function hasChallenge(){
+    var e = userEmail();
+    if(!e) return false;
+    return localStorage.getItem(FWPACK_KEY + e) === '1' || localStorage.getItem(US100_KEY + e) === '1';
+  }
+  function hasPrepare(){
+    var e = userEmail();
+    if(!e) return false;
+    return localStorage.getItem(PREPARE_KEY + e) === '1';
+  }
+  function getPageName(href){
+    try{var u=new URL(href,window.location.origin);return u.pathname.split('/').pop();}
+    catch(ex){return href.split('/').pop().split('?')[0].split('#')[0];}
+  }
+
+  function isAdmin(){
+    var e = userEmail();
+    return e && e.toLowerCase() === ADMIN_EMAIL;
+  }
+
+  /* ---- Gate Modal ---- */
+  function createGateModal(type){
+    var existing = document.getElementById('altivorGateOverlay');
+    if(existing) existing.remove();
+
+    var title, desc, btnText, btnAction, bodyHtml;
+    var lockSvg = '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(214,190,150,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>';
+    var checkSvg = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(52,211,153,0.6)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+    var rowS = 'display:flex;align-items:center;gap:.5rem;padding:.3rem 0;font-size:.78rem;color:rgba(255,255,255,0.6)';
+
+    if(type === 'verification'){
+      title = 'Verification Access Required';
+      desc = 'The Verification system is available exclusively to challenge participants.';
+      bodyHtml = '<div style="text-align:left;padding:.85rem 1rem;border-radius:10px;border:1px solid rgba(214,190,150,0.1);background:rgba(214,190,150,0.03);margin-bottom:1.25rem">' +
+        '<div style="' + rowS + '">' + checkSvg + '<span>Framework Pack <span style="color:rgba(214,190,150,0.8);font-weight:600;margin-left:auto">59 \u20ac</span></span></div>' +
+        '<div style="' + rowS + '">' + checkSvg + '<span>US100 Challenge <span style="color:rgba(214,190,150,0.8);font-weight:600;margin-left:auto">129 \u20ac</span></span></div>' +
+        '</div>';
+      btnText = 'View Plans';
+      btnAction = function(){ window.location.href = (window.location.pathname.indexOf('index.html') !== -1 || window.location.pathname === '/') ? '#pricing' : 'index.html#pricing'; };
+    } else if(type === 'productfiles'){
+      title = 'PREPARE Required';
+      desc = 'Product Files require PREPARE qualification \u2014 a 10-trade compliance verification.';
+      bodyHtml = '<div style="display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-radius:10px;border:1px solid rgba(214,190,150,0.1);background:rgba(214,190,150,0.03);margin-bottom:1.25rem">' +
+        '<span style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.85)">PREPARE Qualification</span>' +
+        '<span style="font-size:.82rem;font-weight:700;color:rgba(214,190,150,0.85)">29 \u20ac</span></div>';
+      btnText = 'Go to PREPARE';
+      btnAction = function(){ window.location.href = 'prepare.html'; };
+    } else if(type === 'prepareGate'){
+      title = 'PREPARE Required';
+      desc = 'Before purchasing, you must complete PREPARE \u2014 a 10-trade compliance gate that proves operational discipline.';
+      bodyHtml = '<div style="display:flex;align-items:center;justify-content:space-between;padding:.7rem 1rem;border-radius:10px;border:1px solid rgba(214,190,150,0.1);background:rgba(214,190,150,0.03);margin-bottom:1.25rem">' +
+        '<span style="font-size:.82rem;font-weight:600;color:rgba(255,255,255,0.85)">PREPARE Qualification</span>' +
+        '<span style="font-size:.82rem;font-weight:700;color:rgba(214,190,150,0.85)">29 \u20ac</span></div>';
+      btnText = 'Visit PREPARE';
+      btnAction = function(){ window.location.href = 'prepare.html'; };
+    } else if(type === 'choosePlan'){
+      title = 'Choose Your Plan';
+      desc = 'PREPARE completed. Select a challenge product to continue.';
+      bodyHtml = buildChoosePlanButtons();
+      btnText = '';
+      btnAction = null;
+    } else if(type === 'us100Upgrade'){
+      title = 'US100 Challenge Required';
+      desc = 'Files 05 \u2013 06 are exclusive to the US100 Challenge product. Upgrade to unlock all Product Files.';
+      bodyHtml = '<div style="text-align:left;padding:.85rem 1rem;border-radius:10px;border:1px solid rgba(214,190,150,0.1);background:rgba(214,190,150,0.03);margin-bottom:1.25rem">' +
+        '<span style="display:block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,0.3);margin-bottom:.5rem">US100 Challenge includes</span>' +
+        '<div style="' + rowS + '">' + checkSvg + '<span>All Product Files (01\u201306)</span></div>' +
+        '<div style="' + rowS + '">' + checkSvg + '<span>Full Accessories Suite</span></div>' +
+        '<div style="' + rowS + '">' + checkSvg + '<span>Verification access</span></div>' +
+        '<div style="' + rowS + '">' + checkSvg + '<span>55-trade validation cycle</span></div>' +
+        '</div>';
+      btnText = 'Upgrade \u2014 129 \u20ac';
+      btnAction = function(){
+        var user = getUser();
+        if(!user){ if(typeof openModal === 'function') openModal('registerModal'); return; }
+        window.location.href = US100_STRIPE + '?prefilled_email=' + encodeURIComponent(user.email || '');
+      };
+    } else {
+      title = 'Subscription Required';
+      desc = 'The Accessories suite requires an active subscription.';
+      var tools = ['Trading Log','PnL Calendar','Economic Calendar','Trading Symbols','Execution Checklist','Trading Calculators','Trading Wiki','Strategy Builder'];
+      var toolsHtml = '';
+      for(var t=0;t<tools.length;t++){
+        toolsHtml += '<div style="' + rowS + '">' + checkSvg + '<span>' + tools[t] + '</span></div>';
+      }
+      bodyHtml = '<div style="text-align:left;padding:.85rem 1rem;border-radius:10px;border:1px solid rgba(214,190,150,0.1);background:rgba(214,190,150,0.03);margin-bottom:1.25rem">' +
+        '<span style="display:block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,0.3);margin-bottom:.4rem">Included tools</span>' +
+        toolsHtml + '</div>';
+      btnText = 'Subscribe \u2014 79 \u20ac / mo';
+      btnAction = function(){
+        var user = getUser();
+        if(!user){ if(typeof openModal === 'function') openModal('registerModal'); return; }
+        window.location.href = ACC_STRIPE + '?prefilled_email=' + encodeURIComponent(user.email || '');
+      };
+    }
+
+    var overlay = document.createElement('div');
+    overlay.id = 'altivorGateOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:gateIn .3s ease';
+
+    var card = document.createElement('div');
+    card.style.cssText = 'position:relative;max-width:400px;width:92%;padding:2rem 1.75rem;border-radius:18px;background:rgba(20,20,26,0.96);border:1px solid rgba(214,190,150,0.1);box-shadow:0 24px 64px rgba(0,0,0,0.5);text-align:center;font-family:Inter,sans-serif';
+
+    card.innerHTML =
+      '<div style="margin-bottom:1.2rem">' + lockSvg + '</div>' +
+      '<h3 style="font-family:DM Serif Display,serif;font-size:1.25rem;color:rgba(214,190,150,0.9);margin:0 0 .4rem">' + title + '</h3>' +
+      '<p style="font-size:.78rem;line-height:1.55;color:rgba(255,255,255,0.45);margin:0 0 1.1rem">' + desc + '</p>' +
+      bodyHtml +
+      (btnText ? '<button id="gateActionBtn" style="display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.75rem;border:none;border-radius:10px;cursor:pointer;font-family:Inter,sans-serif;font-size:.82rem;font-weight:700;color:#fff;background:linear-gradient(135deg,rgba(214,190,150,0.9),rgba(180,150,100,0.95));box-shadow:0 4px 16px rgba(214,190,150,0.25);transition:all .2s;letter-spacing:.02em;width:100%">' + btnText + '</button>' : '') +
+      '<button id="gateCloseBtn" style="display:block;margin:.75rem auto 0;background:none;border:none;color:rgba(255,255,255,0.3);font-size:.72rem;cursor:pointer;padding:.4rem;font-family:Inter,sans-serif">Cancel</button>' +
+      (isAdmin() ? '<button id="gateSkipBtn" style="display:block;margin:.4rem auto 0;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:rgba(239,68,68,0.8);font-size:.65rem;cursor:pointer;padding:.35rem .8rem;font-family:Inter,sans-serif;border-radius:6px;font-weight:600">Skip (Admin)</button>' : '');
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    var actionBtn = document.getElementById('gateActionBtn');
+    if(actionBtn && btnAction) actionBtn.addEventListener('click', btnAction);
+    var fwpBtn = document.getElementById('gateFwpBtn');
+    var us100Btn = document.getElementById('gateUs100Btn');
+    if(fwpBtn) fwpBtn.addEventListener('click', function(){ var u = getUser(); window.location.href = FWPACK_STRIPE + (u && u.email ? '?prefilled_email=' + encodeURIComponent(u.email) : ''); });
+    if(us100Btn) us100Btn.addEventListener('click', function(){ var u = getUser(); window.location.href = US100_STRIPE + (u && u.email ? '?prefilled_email=' + encodeURIComponent(u.email) : ''); });
+    document.getElementById('gateCloseBtn').addEventListener('click', function(){ overlay.remove(); });
+    overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.remove(); });
+    document.addEventListener('keydown', function handler(e){ if(e.key==='Escape'){ overlay.remove(); document.removeEventListener('keydown',handler); }});
+    var skipBtn = document.getElementById('gateSkipBtn');
+    if(skipBtn) skipBtn.addEventListener('click', function(){
+      var e = userEmail();
+      if(!e) return;
+      if(type === 'productfiles' || type === 'prepareGate'){ localStorage.setItem(PREPARE_KEY + e, '1'); }
+      else if(type === 'choosePlan' || type === 'verification'){ localStorage.setItem(FWPACK_KEY + e, '1'); localStorage.setItem(US100_KEY + e, '1'); }
+      else if(type === 'us100Upgrade'){ localStorage.setItem(US100_KEY + e, '1'); }
+      else if(type === 'accessories'){ localStorage.setItem(ACC_KEY + e, '1'); }
+      overlay.remove();
+      window.location.reload();
+    });
+  }
+
+  function buildChoosePlanButtons(){
+    var rs = 'display:flex;align-items:center;justify-content:space-between;padding:.6rem .85rem;border-radius:9px;cursor:pointer;transition:all .15s;margin-bottom:.5rem';
+    var html = '';
+    html += '<div id="gateFwpBtn" style="' + rs + ';border:1px solid rgba(214,190,150,0.1);background:rgba(214,190,150,0.03)" onmouseover="this.style.borderColor=\'rgba(214,190,150,0.22)\';this.style.background=\'rgba(214,190,150,0.06)\'" onmouseout="this.style.borderColor=\'rgba(214,190,150,0.1)\';this.style.background=\'rgba(214,190,150,0.03)\'">';
+    html += '<div style="text-align:left"><span style="font-weight:600;font-size:.8rem;color:rgba(255,255,255,0.88);display:block">Framework Pack</span><span style="font-size:.65rem;color:rgba(255,255,255,0.35)">Verification + 55-trade cycle</span></div>';
+    html += '<span style="font-size:.88rem;font-weight:700;color:rgba(214,190,150,0.85);white-space:nowrap">59 \u20ac</span></div>';
+    html += '<div id="gateUs100Btn" style="' + rs + ';border:1px solid rgba(214,190,150,0.15);background:rgba(214,190,150,0.05)" onmouseover="this.style.borderColor=\'rgba(214,190,150,0.28)\';this.style.background=\'rgba(214,190,150,0.08)\'" onmouseout="this.style.borderColor=\'rgba(214,190,150,0.15)\';this.style.background=\'rgba(214,190,150,0.05)\'">';
+    html += '<div style="text-align:left"><span style="font-weight:600;font-size:.8rem;color:rgba(255,255,255,0.88);display:block">US100 Challenge <span style="font-size:.5rem;padding:.12rem .35rem;border-radius:3px;background:rgba(214,190,150,0.1);color:rgba(214,190,150,0.75);margin-left:.25rem;font-weight:600;vertical-align:middle">BEST</span></span><span style="font-size:.65rem;color:rgba(255,255,255,0.35)">All Files + Accessories included</span></div>';
+    html += '<span style="font-size:.88rem;font-weight:700;color:rgba(214,190,150,0.85);white-space:nowrap">129 \u20ac</span></div>';
+    return html;
+  }
+
+  /* ---- Light theme support ---- */
+  var style = document.createElement('style');
+  style.textContent = '@keyframes gateIn{from{opacity:0}to{opacity:1}}[data-theme="light"] #altivorGateOverlay>div{background:rgba(255,255,255,0.97);border-color:rgba(130,110,70,0.15);box-shadow:0 32px 80px rgba(0,0,0,0.1)}[data-theme="light"] #altivorGateOverlay h3{color:rgba(130,110,70,0.9)}[data-theme="light"] #altivorGateOverlay p{color:rgba(0,0,0,0.5)}[data-theme="light"] #altivorGateOverlay span{color:rgba(0,0,0,0.7)!important}[data-theme="light"] #gateActionBtn{color:#1a1a1a!important}[data-theme="light"] #gateBuyBtn{color:#1a1a1a!important}[data-theme="light"] #gateCloseBtn{color:rgba(0,0,0,0.35)!important}[data-theme="light"] #gateFwpBtn,[data-theme="light"] #gateUs100Btn{border-color:rgba(130,110,70,0.12)!important;background:rgba(130,110,70,0.04)!important}[data-theme="light"] #gateFwpBtn p,[data-theme="light"] #gateUs100Btn p{color:rgba(0,0,0,0.75)!important}[data-theme="light"] #gateFwpBtn span,[data-theme="light"] #gateUs100Btn span{color:rgba(130,110,70,0.85)!important}[data-theme="light"] #gateBuyBtn{background:linear-gradient(135deg,rgba(130,110,70,0.9),rgba(100,90,60,0.95))!important;box-shadow:0 4px 20px rgba(130,110,70,0.3)!important}';
+  document.head.appendChild(style);
+
+  /* ---- Purchase Confirmation Modal ---- */
+  function createPurchaseConfirmModal(product) {
+    var existing = document.getElementById('altivorGateOverlay');
+    if(existing) existing.remove();
+
+    var products = {
+      frameworkPack: {
+        name: 'Framework Pack',
+        price: '59 \u20ac',
+        stripe: FWPACK_STRIPE,
+        features: [
+          'Everything from PREPARE included',
+          'Product Files 01, 02, 03, 04',
+          'Verification access',
+          '55-trade validation cycle'
+        ]
+      },
+      us100Framework: {
+        name: 'US100 Challenge',
+        price: '129 \u20ac',
+        stripe: US100_STRIPE,
+        badge: 'BEST VALUE',
+        features: [
+          'Everything from PREPARE included',
+          'All Product Files (01\u201306)',
+          'Full Accessories Suite included',
+          'Verification access',
+          '55-trade validation cycle',
+          '6% profit target over 2 months'
+        ]
+      }
+    };
+
+    var p = products[product];
+    if(!p) return;
+
+    var overlay = document.createElement('div');
+    overlay.id = 'altivorGateOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);animation:gateIn .3s ease';
+
+    var card = document.createElement('div');
+    card.style.cssText = 'position:relative;max-width:440px;width:92%;padding:2.5rem 2rem;border-radius:20px;background:rgba(20,20,26,0.95);border:1px solid rgba(214,190,150,0.12);box-shadow:0 32px 80px rgba(0,0,0,0.5),0 0 60px rgba(214,190,150,0.05);text-align:center;font-family:Inter,sans-serif';
+
+    var shieldSvg = '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(52,211,153,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>';
+    var checkSvg = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(52,211,153,0.6)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+
+    var featHtml = '';
+    for(var i = 0; i < p.features.length; i++){
+      featHtml += '<div style="display:flex;align-items:center;gap:.5rem;padding:.3rem 0;font-size:.78rem;color:rgba(255,255,255,0.65)">' + checkSvg + '<span>' + p.features[i] + '</span></div>';
+    }
+
+    var badgeHtml = p.badge ? ' <span style="font-size:.55rem;padding:.15rem .4rem;border-radius:4px;background:rgba(214,190,150,0.12);color:rgba(214,190,150,0.8);margin-left:.35rem;font-weight:600;vertical-align:middle">' + p.badge + '</span>' : '';
+
+    card.innerHTML =
+      '<div style="margin-bottom:1.5rem">' + shieldSvg + '</div>' +
+      '<h3 style="font-family:DM Serif Display,serif;font-size:1.4rem;color:rgba(214,190,150,0.9);margin:0 0 .4rem">Confirm Your Purchase</h3>' +
+      '<p style="font-size:.82rem;line-height:1.6;color:rgba(255,255,255,0.5);margin:0 0 1.25rem">Review the details below before proceeding to checkout.</p>' +
+      '<div style="text-align:left;padding:1rem 1.1rem;border-radius:12px;border:1px solid rgba(214,190,150,0.12);background:rgba(214,190,150,0.04);margin-bottom:1.25rem">' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem">' +
+          '<span style="font-weight:700;font-size:.92rem;color:rgba(255,255,255,0.9)">' + p.name + badgeHtml + '</span>' +
+          '<span style="font-size:1rem;font-weight:800;color:rgba(214,190,150,0.9)">' + p.price + '</span>' +
+        '</div>' +
+        '<div style="border-top:1px solid rgba(214,190,150,0.08);padding-top:.6rem">' + featHtml + '</div>' +
+      '</div>' +
+      '<button id="gateBuyBtn" style="display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 2rem;border:none;border-radius:12px;cursor:pointer;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;color:#fff;background:linear-gradient(135deg,rgba(214,190,150,0.9),rgba(180,150,100,0.95));box-shadow:0 4px 20px rgba(214,190,150,0.3);transition:all .2s;letter-spacing:.02em;width:100%">' +
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' +
+        'Buy Now \u2014 ' + p.price +
+      '</button>' +
+      '<button id="gateCloseBtn" style="display:block;margin:1rem auto 0;background:none;border:none;color:rgba(255,255,255,0.35);font-size:.78rem;cursor:pointer;padding:.5rem;font-family:Inter,sans-serif">Cancel</button>' +
+      (isAdmin() ? '<button id="gateSkipBtn" style="display:block;margin:.5rem auto 0;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:rgba(239,68,68,0.8);font-size:.7rem;cursor:pointer;padding:.4rem 1rem;font-family:Inter,sans-serif;border-radius:6px;font-weight:600;letter-spacing:.03em">Skip (Admin)</button>' : '');
+
+    overlay.appendChild(card);
+    document.body.appendChild(overlay);
+
+    document.getElementById('gateBuyBtn').addEventListener('click', function(){
+      var u = getUser();
+      window.location.href = p.stripe + (u && u.email ? '?prefilled_email=' + encodeURIComponent(u.email) : '');
+    });
+
+    document.getElementById('gateCloseBtn').addEventListener('click', function(){ overlay.remove(); });
+    overlay.addEventListener('click', function(e){ if(e.target === overlay) overlay.remove(); });
+    document.addEventListener('keydown', function handler(e){ if(e.key==='Escape'){ overlay.remove(); document.removeEventListener('keydown',handler); }});
+
+    var skipBtn = document.getElementById('gateSkipBtn');
+    if(skipBtn) skipBtn.addEventListener('click', function(){
+      var e = userEmail();
+      if(!e) return;
+      if(product === 'frameworkPack') localStorage.setItem(FWPACK_KEY + e, '1');
+      else if(product === 'us100Framework'){ localStorage.setItem(US100_KEY + e, '1'); }
+      overlay.remove();
+      window.location.reload();
+    });
+  }
+
+  /* ---- Pricing buy-button flow ---- */
+  document.addEventListener('click', function(e){
+    var buyBtn = e.target.closest ? e.target.closest('[data-buy]') : null;
+    if(!buyBtn) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    var product = buyBtn.dataset.buy;
+    var user = getUser();
+    if(!user){
+      if(typeof openModal === 'function') openModal('registerModal');
+      return;
+    }
+
+    if(hasChallenge()){
+      window.location.href = 'us100-framework.html';
+      return;
+    }
+
+    if(!hasPrepare()){
+      createGateModal('prepareGate');
+      return;
+    }
+
+    createPurchaseConfirmModal(product);
+  }, true);
+
+  /* ---- Intercept clicks globally ---- */
+  document.addEventListener('click', function(e){
+    var link = e.target.closest ? e.target.closest('a[href]') : null;
+    if(!link) return;
+    var page = getPageName(link.href);
+    var isGated = VERIFICATION_PAGES.indexOf(page) !== -1 || ACCESSORIES_PAGES.indexOf(page) !== -1 || PRODUCTFILES_PAGES.indexOf(page) !== -1;
+
+    if(!isGated) return;
+
+    // Not logged in -> show register modal first
+    var user = getUser();
+    if(!user){
+      e.preventDefault();
+      e.stopPropagation();
+      if(typeof openModal === 'function') openModal('registerModal');
+      return;
+    }
+
+    if(PRODUCTFILES_PAGES.indexOf(page) !== -1){
+      if(!hasPrepare()){
+        e.preventDefault();
+        e.stopPropagation();
+        createGateModal('productfiles');
+        return;
+      }
+      if(!hasChallenge()){
+        e.preventDefault();
+        e.stopPropagation();
+        createGateModal('choosePlan');
+        return;
+      }
+    }
+    if(VERIFICATION_PAGES.indexOf(page) !== -1 && !hasChallenge()){
+      e.preventDefault();
+      e.stopPropagation();
+      createGateModal('verification');
+      return;
+    }
+    if(ACCESSORIES_PAGES.indexOf(page) !== -1 && !hasAcc()){
+      e.preventDefault();
+      e.stopPropagation();
+      createGateModal('accessories');
+      return;
+    }
+  }, true);
+
+  /* ---- Accessories Subscribe handler (for pricing card button) ---- */
+  window.handleAccSubscribe = function(){
+    var user = getUser();
+    if(!user){
+      if(typeof openModal === 'function') openModal('registerModal');
+      return;
+    }
+    if(hasAcc()) {
+      window.location.href = 'accessories.html';
+      return;
+    }
+    window.location.href = ACC_STRIPE + '?prefilled_email=' + encodeURIComponent(user.email || '');
+  };
+
+  /* ---- Payment success check ---- */
+  (function(){
+    var params = new URLSearchParams(window.location.search);
+    if(params.get('fwpack_payment') === 'success'){
+      var ef = userEmail();
+      if(ef){ localStorage.setItem(FWPACK_KEY + ef, '1'); window.history.replaceState({}, '', window.location.pathname); }
+    }
+    if(params.get('us100_payment') === 'success'){
+      var eu = userEmail();
+      if(eu){ localStorage.setItem(US100_KEY + eu, '1'); window.history.replaceState({}, '', window.location.pathname); }
+    }
+    if(params.get('acc_payment') === 'success'){
+      var e = userEmail();
+      if(e){
+        localStorage.setItem(ACC_KEY + e, '1');
+        window.history.replaceState({}, '', window.location.pathname);
+      }
+    }
+  })();
+
+  /* ---- Expose API ---- */
+  window.altivorGate = {
+    hasAccessories: hasAcc,
+    hasChallenge: hasChallenge,
+    showGate: createGateModal
+  };
+
+  /* ---- Admin Reset Panel ---- */
+  function buildAdminPanel(){
+    if(!isAdmin()) return;
+    if(document.getElementById('altivorAdminPanel')) return;
+    var e = userEmail();
+    if(!e) return;
+
+    var panel = document.createElement('div');
+    panel.id = 'altivorAdminPanel';
+    panel.style.cssText = 'position:fixed;bottom:12px;right:12px;z-index:99999;background:rgba(15,15,20,0.95);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:10px 14px;font-family:Inter,sans-serif;font-size:.68rem;color:rgba(255,255,255,0.7);backdrop-filter:blur(12px);min-width:200px;box-shadow:0 4px 24px rgba(0,0,0,0.4)';
+
+    var title = document.createElement('div');
+    title.style.cssText = 'font-weight:700;font-size:.7rem;color:rgba(239,68,68,0.8);margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase';
+    title.textContent = 'Admin Panel';
+    panel.appendChild(title);
+
+    var keys = [
+      { label:'PREPARE', key: PREPARE_KEY + e },
+      { label:'Framework Pack', key: FWPACK_KEY + e },
+      { label:'US100 Challenge', key: US100_KEY + e },
+      { label:'Accessories', key: ACC_KEY + e }
+    ];
+
+    keys.forEach(function(item){
+      var row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px';
+
+      var lbl = document.createElement('span');
+      lbl.style.cssText = 'flex:1';
+      lbl.textContent = item.label;
+      row.appendChild(lbl);
+
+      var dot = document.createElement('span');
+      var active = localStorage.getItem(item.key) === '1';
+      dot.style.cssText = 'width:7px;height:7px;border-radius:50%;flex-shrink:0;background:' + (active ? 'rgba(52,211,153,0.8)' : 'rgba(255,255,255,0.2)');
+      dot.className = 'adm-dot';
+      dot.dataset.key = item.key;
+      row.appendChild(dot);
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = active ? 'Reset' : 'Skip';
+      btn.style.cssText = 'background:' + (active ? 'rgba(239,68,68,0.12)' : 'rgba(52,211,153,0.12)') + ';border:1px solid ' + (active ? 'rgba(239,68,68,0.25)' : 'rgba(52,211,153,0.25)') + ';color:' + (active ? 'rgba(239,68,68,0.85)' : 'rgba(52,211,153,0.85)') + ';font-size:.62rem;cursor:pointer;padding:3px 10px;border-radius:4px;font-weight:600;font-family:Inter,sans-serif';
+      btn.addEventListener('click', function(){
+        if(active){
+          localStorage.removeItem(item.key);
+        } else {
+          localStorage.setItem(item.key, '1');
+        }
+        window.location.reload();
+      });
+      row.appendChild(btn);
+      panel.appendChild(row);
+    });
+
+    var toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.textContent = 'Collapse';
+    toggleBtn.style.cssText = 'display:block;margin:8px auto 0;background:none;border:none;color:rgba(255,255,255,0.3);font-size:.58rem;cursor:pointer;font-family:Inter,sans-serif;padding:2px 6px';
+    var contentVisible = true;
+    toggleBtn.addEventListener('click', function(){
+      contentVisible = !contentVisible;
+      var rows = panel.querySelectorAll('div');
+      for(var i = 1; i < rows.length; i++) rows[i].style.display = contentVisible ? '' : 'none';
+      toggleBtn.textContent = contentVisible ? 'Collapse' : 'Admin Panel';
+      toggleBtn.style.display = '';
+    });
+    panel.appendChild(toggleBtn);
+
+    document.body.appendChild(panel);
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', buildAdminPanel);
+  } else {
+    buildAdminPanel();
+  }
+  document.addEventListener('altivor:authchange', function(){
+    var existing = document.getElementById('altivorAdminPanel');
+    if(existing) existing.remove();
+    buildAdminPanel();
+  });
+})();

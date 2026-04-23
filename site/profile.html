@@ -63,7 +63,7 @@
 }
 
 /* ── Base ── */
-.pd{min-height:100vh;padding-top:9.5rem;padding-bottom:4rem}
+.pd{min-height:100vh;padding-top:9.5rem;padding-bottom:4rem;background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(214,190,150,.03),transparent 60%)}
 .pd-loading,.pd-noauth{text-align:center;padding:8rem 1rem}
 .pd-noauth h2{font-family:'DM Serif Display',serif;font-size:1.8rem;margin-bottom:.5rem;color:var(--txt-primary)}
 .pd-noauth p{color:var(--txt-secondary);margin-bottom:1.5rem;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.6}
@@ -73,25 +73,29 @@
 .pd-shell{display:grid;grid-template-columns:270px 1fr;gap:2.25rem;max-width:1240px;margin:0 auto;padding:0 1.5rem}
 
 /* ── Sidebar ── */
-.pd-side{position:sticky;top:8.5rem;align-self:start}
-.pd-side-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.15rem;overflow:hidden;box-shadow:var(--pd-card-shadow);transition:box-shadow .25s}
-.pd-side-top{padding:2rem 1.25rem 1.5rem;text-align:center;border-bottom:1px solid var(--border-subtle);background:var(--pd-welcome-bg)}
+.pd-side{align-self:start;position:sticky;top:7rem;max-height:calc(100vh - 8rem);overflow-y:auto}
+.pd-side-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.15rem;overflow:hidden;box-shadow:var(--pd-card-shadow);transition:box-shadow .25s;height:100%;display:flex;flex-direction:column;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.pd-side-top{padding:2.25rem 1.25rem 1.75rem;text-align:center;border-bottom:1px solid var(--border-subtle);background:var(--pd-welcome-bg);position:relative;overflow:hidden}
+.pd-side-top::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(214,190,150,.06),transparent 70%);pointer-events:none}
 .pd-avatar-wrap{position:relative;width:88px;height:88px;margin:0 auto 1rem}
-.pd-avatar{width:88px;height:88px;border-radius:50%;background:var(--pd-avatar-grad);border:2.5px solid var(--border-default);display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:var(--pd-avatar-initials);background-size:cover;background-position:center;cursor:pointer;transition:border-color .25s,box-shadow .25s}
-.pd-avatar:hover{border-color:var(--pd-accent-focus);box-shadow:0 0 0 4px var(--pd-accent-focus-ring)}
+.pd-avatar-wrap::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(from 0deg,rgba(214,190,150,.25),rgba(96,165,250,.2),rgba(167,139,250,.2),rgba(214,190,150,.25));opacity:.6;animation:pdAvatarRing 8s linear infinite}
+@keyframes pdAvatarRing{to{transform:rotate(360deg)}}
+.pd-avatar{width:88px;height:88px;border-radius:50%;background:var(--pd-avatar-grad);border:3px solid var(--bg-card);display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;color:var(--pd-avatar-initials);background-size:cover;background-position:center;cursor:pointer;transition:border-color .25s,box-shadow .25s;position:relative;z-index:1}
+.pd-avatar:hover{box-shadow:0 0 0 4px var(--pd-accent-focus-ring)}
 .pd-avatar.has-img{color:transparent}
-.pd-avatar-badge{position:absolute;bottom:2px;right:2px;width:24px;height:24px;border-radius:50%;background:var(--bg-card);border:2px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
-.pd-avatar-badge:hover{background:var(--bg-elevated)}
-.pd-side-name{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--txt-primary);margin:0 0 .15rem;line-height:1.3}
-.pd-side-email{font-size:.78rem;color:var(--txt-muted);margin:0 0 .6rem;word-break:break-all}
-.pd-side-role{display:inline-block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .55rem;border-radius:1rem;background:var(--pd-accent-soft);color:var(--pd-accent)}
+.pd-avatar-badge{position:absolute;bottom:2px;right:2px;width:24px;height:24px;border-radius:50%;background:var(--bg-card);border:2px solid var(--border-subtle);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:2}
+.pd-avatar-badge:hover{background:var(--pd-accent-soft);border-color:var(--pd-accent-border);transform:scale(1.1)}
+.pd-side-name{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--txt-primary);margin:0 0 .2rem;line-height:1.3}
+.pd-side-email{font-size:.75rem;color:var(--txt-muted);margin:0 0 .65rem;word-break:break-all;opacity:.7}
+.pd-side-role{display:inline-flex;align-items:center;gap:.3rem;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;padding:.25rem .65rem;border-radius:1rem;background:var(--pd-accent-soft);color:var(--pd-accent);border:1px solid rgba(96,165,250,.1)}
 
 /* ── Sidebar Nav ── */
 .pd-nav{padding:.5rem 0}
-.pd-nav-item{display:flex;align-items:center;gap:.65rem;padding:.6rem 1.25rem;font-size:.82rem;font-weight:500;color:var(--txt-secondary);cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .2s;border-left:3px solid transparent;font-family:inherit}
+.pd-nav-item{display:flex;align-items:center;gap:.65rem;padding:.6rem 1.25rem;font-size:.8rem;font-weight:500;color:var(--txt-secondary);cursor:pointer;border:none;background:none;width:100%;text-align:left;transition:all .18s ease;border-left:3px solid transparent;font-family:inherit;letter-spacing:.01em}
 .pd-nav-item:hover{color:var(--txt-primary);background:var(--bg-elevated)}
-.pd-nav-item.active{color:var(--pd-accent);background:var(--pd-accent-soft);border-left-color:var(--pd-accent-border)}
-.pd-nav-item svg{flex-shrink:0;opacity:.65}
+.pd-nav-item.active{color:var(--pd-accent);background:var(--pd-accent-soft);border-left-color:var(--pd-accent-border);font-weight:600}
+.pd-nav-item svg{flex-shrink:0;opacity:.5;width:15px;height:15px;transition:opacity .2s}
+.pd-nav-item:hover svg{opacity:.8}
 .pd-nav-item.active svg{opacity:1}
 .pd-nav-sep{height:1px;background:var(--border-subtle);margin:.35rem 1.25rem}
 .pd-nav-item.pd-nav-danger{color:var(--pd-red)}
@@ -99,33 +103,36 @@
 
 /* ── Main content ── */
 .pd-main{min-width:0}
-.pd-page-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--txt-primary);margin:0 0 .25rem}
-.pd-page-sub{font-size:.82rem;color:var(--txt-muted);margin:0 0 1.5rem}
+.pd-page-title{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--txt-primary);margin:0 0 .3rem;letter-spacing:-.01em}
+.pd-page-sub{font-size:.8rem;color:var(--txt-muted);margin:0 0 1.5rem;opacity:.7;line-height:1.5}
 
 /* ── Cards ── */
-.pd-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1rem;padding:1.5rem;margin-bottom:1.25rem;box-shadow:var(--pd-card-shadow);transition:box-shadow .25s,transform .25s}
-.pd-card:hover{box-shadow:var(--pd-card-shadow-hover);transform:translateY(-1px)}
+.pd-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1rem;padding:1.5rem;margin-bottom:1.25rem;box-shadow:var(--pd-card-shadow);transition:box-shadow .3s ease,transform .3s ease,border-color .3s ease;position:relative;overflow:hidden}
+.pd-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(214,190,150,.15),transparent);opacity:0;transition:opacity .3s}
+.pd-card:hover{box-shadow:var(--pd-card-shadow-hover);transform:translateY(-2px);border-color:rgba(214,190,150,.12)}
+.pd-card:hover::before{opacity:1}
 .pd-card-head{display:flex;align-items:center;gap:.5rem;margin-bottom:1.1rem;padding-bottom:.85rem;border-bottom:1px solid var(--border-subtle)}
-.pd-card-head svg{flex-shrink:0;color:var(--pd-accent)}
-.pd-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pd-accent)}
+.pd-card-head svg{flex-shrink:0;color:var(--pd-accent);opacity:.7}
+.pd-card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--pd-accent)}
 .pd-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
 .pd-card-action{margin-left:auto;font-size:.72rem;font-weight:600;color:var(--pd-accent);cursor:pointer;background:none;border:none;padding:.25rem .5rem;border-radius:.4rem;transition:all .2s;font-family:inherit}
 .pd-card-action:hover{background:var(--pd-accent-hover)}
 
 /* ── Rows ── */
-.pd-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--border-subtle)}
+.pd-row{display:flex;justify-content:space-between;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--border-subtle);transition:background .15s;border-radius:.25rem;margin:0 -.35rem;padding-left:.35rem;padding-right:.35rem}
 .pd-row:last-child{border-bottom:none}
-.pd-lbl{font-size:.8rem;color:var(--txt-muted)}
-.pd-val{font-size:.8rem;font-weight:500;color:var(--txt-primary)}
-.pd-mono{font-family:'Courier New',monospace;font-size:.72rem;word-break:break-all}
+.pd-row:hover{background:var(--bg-elevated)}
+.pd-lbl{font-size:.78rem;color:var(--txt-muted);letter-spacing:.01em}
+.pd-val{font-size:.78rem;font-weight:500;color:var(--txt-primary)}
+.pd-mono{font-family:'Courier New',monospace;font-size:.7rem;word-break:break-all;opacity:.7}
 
 /* ── Badges ── */
-.pd-badge{display:inline-flex;align-items:center;gap:.3rem;padding:.18rem .55rem;border-radius:1rem;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-.pd-badge--green{background:var(--pd-green-bg);color:var(--pd-green)}
-.pd-badge--red{background:var(--pd-red-bg);color:var(--pd-red)}
-.pd-badge--yellow{background:var(--pd-yellow-bg);color:var(--pd-yellow)}
-.pd-badge--blue{background:var(--pd-accent-soft);color:var(--pd-accent)}
-.pd-badge--gray{background:rgba(128,128,128,.1);color:var(--txt-muted)}
+.pd-badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .6rem;border-radius:1rem;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;transition:all .2s}
+.pd-badge--green{background:var(--pd-green-bg);color:var(--pd-green);border:1px solid rgba(52,211,153,.12)}
+.pd-badge--red{background:var(--pd-red-bg);color:var(--pd-red);border:1px solid rgba(248,113,113,.1)}
+.pd-badge--yellow{background:var(--pd-yellow-bg);color:var(--pd-yellow);border:1px solid rgba(251,191,36,.1)}
+.pd-badge--blue{background:var(--pd-accent-soft);color:var(--pd-accent);border:1px solid rgba(96,165,250,.1)}
+.pd-badge--gray{background:rgba(128,128,128,.08);color:var(--txt-muted);border:1px solid rgba(128,128,128,.06)}
 
 /* ── Welcome banner ── */
 .pd-welcome{background:var(--pd-welcome-bg);border:1px solid var(--pd-welcome-border);border-radius:1rem;padding:1.5rem 1.75rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
@@ -135,17 +142,18 @@
 
 /* ── Stats bar ── */
 .pd-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.85rem;margin-bottom:1.5rem}
-.pd-stat{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.15rem 1rem;text-align:center;box-shadow:var(--pd-card-shadow);position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.pd-stat:hover{transform:translateY(-2px);box-shadow:var(--pd-card-shadow-hover)}
-.pd-stat::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--pd-accent);opacity:.5}
-.pd-stat-val{font-family:'DM Serif Display',serif;font-size:1.6rem;color:var(--txt-primary);line-height:1.2}
-.pd-stat-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);margin-top:.3rem}
+.pd-stat{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.25rem 1rem;text-align:center;box-shadow:var(--pd-card-shadow);position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.pd-stat:hover{transform:translateY(-3px);box-shadow:var(--pd-card-shadow-hover);border-color:rgba(214,190,150,.12)}
+.pd-stat::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(214,190,150,.5),var(--pd-accent));opacity:.4;transition:opacity .25s}
+.pd-stat:hover::after{opacity:.8}
+.pd-stat-val{font-family:'DM Serif Display',serif;font-size:1.65rem;color:var(--txt-primary);line-height:1.2;letter-spacing:-.01em}
+.pd-stat-lbl{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--txt-muted);margin-top:.35rem;opacity:.7}
 
 /* ── Forms ── */
 .pd-form-group{margin-bottom:1rem}
 .pd-form-group label{display:block;font-size:.72rem;font-weight:600;color:var(--txt-secondary);margin-bottom:.3rem;text-transform:uppercase;letter-spacing:.06em}
-.pd-form-group input,.pd-form-group select,.pd-form-group textarea{width:100%;padding:.55rem .75rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.5rem;color:var(--txt-primary);font-family:inherit;transition:border-color .2s,box-shadow .2s}
-.pd-form-group input:focus,.pd-form-group select:focus{outline:none;border-color:var(--pd-accent-focus);box-shadow:0 0 0 3px var(--pd-accent-focus-ring)}
+.pd-form-group input,.pd-form-group select,.pd-form-group textarea{width:100%;padding:.6rem .8rem;font-size:.82rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.55rem;color:var(--txt-primary);font-family:inherit;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.pd-form-group input:focus,.pd-form-group select:focus{outline:none;border-color:var(--pd-accent-focus);box-shadow:0 0 0 3px var(--pd-accent-focus-ring);background:var(--bg-card)}
 .pd-form-group input:disabled{opacity:.45;cursor:not-allowed}
 .pd-form-group select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .65rem center;padding-right:2rem}
 .pd-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -179,7 +187,7 @@
 .pd-av-btns{display:flex;flex-direction:column;gap:.4rem}
 
 /* ── Toast ── */
-.pd-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);padding:.65rem 1.3rem;border-radius:.55rem;font-size:.8rem;font-weight:500;z-index:10000;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;font-family:inherit}
+.pd-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);padding:.65rem 1.3rem;border-radius:.55rem;font-size:.78rem;font-weight:500;z-index:10000;opacity:0;transition:opacity .3s ease,transform .3s ease;pointer-events:none;font-family:inherit;box-shadow:0 8px 32px rgba(0,0,0,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .pd-toast--vis{opacity:1;transform:translateX(-50%) translateY(0)}
 .pd-toast--ok{background:var(--pd-toast-ok-bg);color:var(--pd-toast-ok-txt)}
 .pd-toast--err{background:var(--pd-toast-err-bg);color:var(--pd-toast-err-txt)}
@@ -194,7 +202,7 @@
 /* ── Logout confirmation modal ── */
 .pd-confirm-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 .pd-confirm-overlay.active{display:flex}
-.pd-confirm-box{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.25rem;padding:2rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 48px rgba(0,0,0,.25)}
+.pd-confirm-box{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.25rem;padding:2.25rem;max-width:380px;width:90%;text-align:center;box-shadow:0 24px 48px rgba(0,0,0,.25);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .pd-confirm-icon{width:56px;height:56px;border-radius:50%;background:var(--pd-red-bg);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
 .pd-confirm-title{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--txt-primary);margin:0 0 .5rem}
 .pd-confirm-desc{font-size:.82rem;color:var(--txt-secondary);margin:0 0 1.5rem;line-height:1.5}
@@ -211,8 +219,8 @@
 .pd-session-meta{font-size:.72rem;color:var(--txt-muted)}
 
 /* ── Section transitions ── */
-[data-section]{animation:pdFadeIn .3s ease}
-@keyframes pdFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+[data-section]{animation:pdFadeIn .35s cubic-bezier(.4,0,.2,1)}
+@keyframes pdFadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── Responsive ── */
 @media(max-width:860px){
@@ -236,6 +244,80 @@
 }
 .btn-sm{font-size:.76rem;padding:.42rem .85rem}
 .pd-muted{font-size:.78rem;color:var(--txt-muted);margin:.4rem 0}
+
+/* â”€â”€ CTA button in sidebar â”€â”€ */
+.pd-cta{padding:.85rem 1.25rem .5rem}
+.pd-cta-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.7rem 1rem;border-radius:.65rem;font-size:.78rem;font-weight:700;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,rgba(214,190,150,.85),rgba(180,150,100,.95));border:none;cursor:pointer;transition:all .25s ease;text-decoration:none;font-family:inherit;position:relative;overflow:hidden}
+.pd-cta-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1),transparent 60%);opacity:0;transition:opacity .25s}
+.pd-cta-btn:hover{box-shadow:0 4px 20px rgba(214,190,150,.3);transform:translateY(-1px)}
+.pd-cta-btn:hover::before{opacity:1}
+.pd-cta-btn:active{transform:translateY(0)}
+.pd-cta-btn svg{flex-shrink:0}
+
+/* â”€â”€ Hero banner â”€â”€ */
+.pd-hero{position:relative;border-radius:1.15rem;overflow:hidden;margin-bottom:1.5rem;padding:2.5rem 2.25rem 1.75rem;background:var(--pd-hero-bg,linear-gradient(135deg,rgba(214,190,150,.08) 0%,rgba(167,139,250,.06) 50%,rgba(96,165,250,.05) 100%));border:1px solid var(--pd-hero-border,rgba(214,190,150,.1));box-shadow:0 4px 24px rgba(0,0,0,.08)}
+.pd-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 90% 20%,rgba(214,190,150,.06),transparent 60%);pointer-events:none}
+.pd-hero::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 10%,rgba(214,190,150,.2) 50%,transparent 90%);pointer-events:none}
+.pd-hero-badge{display:inline-flex;align-items:center;gap:.35rem;padding:.28rem .75rem;border-radius:2rem;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;background:rgba(214,190,150,.1);color:rgba(214,190,150,.85);border:1px solid rgba(214,190,150,.12);margin-bottom:.85rem;backdrop-filter:blur(4px)}
+.pd-hero h2{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--txt-primary);margin:0 0 .5rem;line-height:1.3;max-width:600px}
+.pd-hero p{font-size:.82rem;color:var(--txt-muted);margin:0 0 1.25rem;line-height:1.55;max-width:520px}
+.pd-hero-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.pd-hero-actions .btn{font-size:.78rem;padding:.55rem 1.2rem}
+.pd-hero-sep{height:1px;background:linear-gradient(90deg,rgba(214,190,150,.12),transparent 70%);margin-bottom:.85rem}
+.pd-hero-unlocks{display:flex;flex-wrap:wrap;gap:.4rem}
+.pd-hero-unlock{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .65rem;border-radius:.4rem;font-size:.63rem;font-weight:600;color:var(--txt-muted);background:var(--bg-card);border:1px solid var(--border-subtle);transition:all .25s ease;cursor:default}
+.pd-hero-unlock:hover{border-color:rgba(214,190,150,.2);transform:translateY(-1px)}
+.pd-hero-unlock svg{flex-shrink:0;opacity:.4;width:12px;height:12px;transition:opacity .2s}
+.pd-hero-unlock:hover svg{opacity:.7}
+
+/* â”€â”€ Products & Access section â”€â”€ */
+.pd-products-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pd-accent);margin:0 0 1rem;display:flex;align-items:center;gap:.5rem}
+.pd-products-title svg{flex-shrink:0;opacity:.7}
+.pd-products{display:grid;grid-template-columns:repeat(2,1fr);gap:.85rem;margin-bottom:1.5rem}
+.pd-product{position:relative;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1rem;padding:1.25rem;transition:all .3s ease;overflow:hidden}
+.pd-product:hover{box-shadow:var(--pd-card-shadow-hover);transform:translateY(-3px);border-color:rgba(214,190,150,.12)}
+.pd-product::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0}
+.pd-product--prepare::after{background:linear-gradient(90deg,rgba(214,190,150,.6),rgba(214,190,150,.2))}
+.pd-product--fwpack::after{background:linear-gradient(90deg,rgba(96,165,250,.6),rgba(96,165,250,.2))}
+.pd-product--us100::after{background:linear-gradient(90deg,rgba(52,211,153,.6),rgba(52,211,153,.2))}
+.pd-product--acc::after{background:linear-gradient(90deg,rgba(167,139,250,.6),rgba(167,139,250,.2))}
+.pd-product-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.6rem}
+.pd-product-icon{width:36px;height:36px;border-radius:.6rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pd-product--prepare .pd-product-icon{background:rgba(214,190,150,.1);color:rgba(214,190,150,.7)}
+.pd-product--fwpack .pd-product-icon{background:rgba(96,165,250,.1);color:rgba(96,165,250,.7)}
+.pd-product--us100 .pd-product-icon{background:rgba(52,211,153,.1);color:rgba(52,211,153,.7)}
+.pd-product--acc .pd-product-icon{background:rgba(167,139,250,.1);color:rgba(167,139,250,.7)}
+.pd-product-status{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:.22rem .6rem;border-radius:2rem;transition:all .2s}
+.pd-product-status--active{background:var(--pd-green-bg);color:var(--pd-green);border:1px solid rgba(52,211,153,.15)}
+.pd-product-status--locked{background:rgba(128,128,128,.06);color:var(--txt-muted);border:1px solid rgba(128,128,128,.08)}
+.pd-product h4{font-size:.88rem;font-weight:600;color:var(--txt-primary);margin:0 0 .25rem}
+.pd-product p{font-size:.72rem;color:var(--txt-muted);margin:0 0 .65rem;line-height:1.45}
+.pd-product-footer{display:flex;align-items:center;justify-content:space-between}
+.pd-product-price{font-size:.78rem;font-weight:700;color:var(--txt-primary)}
+.pd-product-price small{font-weight:400;color:var(--txt-muted);font-size:.65rem}
+.pd-product-link{font-size:.72rem;font-weight:600;color:var(--pd-accent);text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;transition:all .2s;opacity:.8}
+.pd-product-link:hover{gap:.5rem;opacity:1}
+
+/* â”€â”€ Activity timeline â”€â”€ */
+.pd-timeline{margin-top:1.5rem}
+.pd-timeline-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pd-accent);margin:0 0 .85rem;display:flex;align-items:center;gap:.5rem}
+.pd-timeline-item{display:flex;gap:.75rem;padding:.7rem 0;border-bottom:1px solid var(--border-subtle);align-items:flex-start;transition:background .2s;border-radius:.5rem;padding-left:.5rem;padding-right:.5rem;margin:0 -.5rem}
+.pd-timeline-item:last-child{border-bottom:none}
+.pd-timeline-item:hover{background:var(--bg-elevated)}
+.pd-timeline-dot{width:8px;height:8px;border-radius:50%;margin-top:.35rem;flex-shrink:0;box-shadow:0 0 0 3px rgba(128,128,128,.06)}
+.pd-timeline-dot--gold{background:rgba(214,190,150,.7)}
+.pd-timeline-dot--blue{background:rgba(96,165,250,.7)}
+.pd-timeline-dot--green{background:rgba(52,211,153,.7)}
+.pd-timeline-dot--gray{background:rgba(128,128,128,.3)}
+.pd-timeline-text{flex:1}
+.pd-timeline-label{font-size:.8rem;font-weight:500;color:var(--txt-primary)}
+.pd-timeline-meta{font-size:.68rem;color:var(--txt-muted);margin-top:.1rem}
+
+/* â”€â”€ Nav item counts â”€â”€ */
+.pd-nav-count{margin-left:auto;font-size:.6rem;font-weight:700;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:2rem;background:var(--pd-accent-soft);color:var(--pd-accent)}
+
+/* â”€â”€ Responsive: products â”€â”€ */
+@media(max-width:640px){.pd-products{grid-template-columns:1fr}.pd-hero h2{font-size:1.15rem}}
 </style>
 </head>
 <body>
@@ -371,10 +453,12 @@
 
 <!-- Not logged in -->
 <div id="pdNoAuth" class="pd-noauth" style="display:none;">
-<svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+<div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(214,190,150,.08),rgba(96,165,250,.06));border:1px solid rgba(214,190,150,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.5" opacity=".4"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+</div>
 <h2>Authentication Required</h2>
-<p>Sign in to your ALTIVOR account to access your personal dashboard, manage security settings and view purchase history.</p>
-<button class="btn btn-primary" onclick="openModal('loginModal')">Sign In</button>
+<p>Sign in to your ALTIVOR INSTITUTE account to access your personal dashboard, manage security, and view your trading products.</p>
+<button class="btn btn-primary" onclick="openModal('loginModal')" style="margin-top:.5rem">Sign In</button>
 </div>
 
 <!-- Dashboard -->
@@ -393,12 +477,22 @@
 </div>
 <h3 class="pd-side-name" id="pdSideName">&mdash;</h3>
 <p class="pd-side-email" id="pdSideEmail">&mdash;</p>
-<span class="pd-side-role" id="pdSideRole">USER</span>
+<span class="pd-side-role" id="pdSideRole"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> USER</span>
+</div>
+<div class="pd-cta">
+<a href="prepare.html" class="pd-cta-btn">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>
+Start PREPARE
+</a>
 </div>
 <nav class="pd-nav" role="tablist">
 <button class="pd-nav-item active" data-tab="overview" role="tab">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
 Overview
+</button>
+<button class="pd-nav-item" data-tab="products" role="tab">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+Products &amp; Access
 </button>
 <button class="pd-nav-item" data-tab="personal" role="tab">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
@@ -409,8 +503,8 @@ Personal Info
 Security
 </button>
 <button class="pd-nav-item" data-tab="purchases" role="tab">
-<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-Purchases
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+Billing
 </button>
 <button class="pd-nav-item" data-tab="settings" role="tab">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -430,21 +524,93 @@ Sign Out
 
 <!-- OVERVIEW -->
 <div data-section="overview">
-<div class="pd-welcome" id="pdWelcome">
-<div>
+
+<!-- Hero Banner -->
+<div class="pd-hero">
+<div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.75rem">
+<div style="flex:1;min-width:280px">
+<span class="pd-hero-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Trader Dashboard</span>
 <h2 id="pdGreeting">Welcome back</h2>
-<p>Your account summary and key metrics at a glance.</p>
+<p>Your structured execution journey. Track progress, manage access, and build verified discipline through institutional-grade frameworks.</p>
+<div class="pd-hero-actions">
+<a href="prepare.html" class="btn btn-primary">Start PREPARE</a>
+<a href="index.html#pricing" class="btn btn-ghost">View Plans</a>
+</div>
 </div>
 <span class="pd-welcome-time" id="pdDateTime"></span>
 </div>
-
-<div class="pd-stats">
-<div class="pd-stat"><div class="pd-stat-val" id="ovStatTrades">0</div><div class="pd-stat-lbl">Total Trades</div></div>
-<div class="pd-stat"><div class="pd-stat-val" id="ovStatPurchases">0</div><div class="pd-stat-lbl">Purchases</div></div>
-<div class="pd-stat"><div class="pd-stat-val" id="ovStatDays">0</div><div class="pd-stat-lbl">Member Days</div></div>
-<div class="pd-stat"><div class="pd-stat-val" id="ovStat2FA">&mdash;</div><div class="pd-stat-lbl">2FA Status</div></div>
+<div class="pd-hero-sep"></div>
+<div class="pd-hero-unlocks">
+<span class="pd-hero-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg> PREPARE Gate</span>
+<span class="pd-hero-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg> 55-Trade Cycle</span>
+<span class="pd-hero-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Product Files</span>
+<span class="pd-hero-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Verification</span>
+<span class="pd-hero-unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg> Accessories</span>
+</div>
 </div>
 
+<!-- Stats -->
+<div class="pd-stats">
+<div class="pd-stat"><div class="pd-stat-val" id="ovStatTrades">0</div><div class="pd-stat-lbl">Trades Logged</div></div>
+<div class="pd-stat"><div class="pd-stat-val" id="ovStatPurchases">0</div><div class="pd-stat-lbl">Active Products</div></div>
+<div class="pd-stat"><div class="pd-stat-val" id="ovStatDays">0</div><div class="pd-stat-lbl">Days Active</div></div>
+<div class="pd-stat"><div class="pd-stat-val" id="ovStat2FA">&mdash;</div><div class="pd-stat-lbl">2FA Security</div></div>
+</div>
+
+<!-- Quick Products -->
+<div class="pd-products-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Your Products</div>
+<div class="pd-products" id="pdProductsGrid">
+<div class="pd-product pd-product--prepare">
+<div class="pd-product-top">
+<div class="pd-product-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg></div>
+<span class="pd-product-status pd-product-status--locked" id="pdPrepStatus">Locked</span>
+</div>
+<h4>PREPARE</h4>
+<p>10-trade qualification gate. Prove you can follow rules before risking capital.</p>
+<div class="pd-product-footer">
+<span class="pd-product-price">29 &euro; <small>one-time</small></span>
+<a href="prepare.html" class="pd-product-link">Access <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</div>
+<div class="pd-product pd-product--fwpack">
+<div class="pd-product-top">
+<div class="pd-product-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+<span class="pd-product-status pd-product-status--locked" id="pdFwpStatus">Locked</span>
+</div>
+<h4>Framework Pack</h4>
+<p>Full framework documentation, verification access, and 55-trade validation cycle.</p>
+<div class="pd-product-footer">
+<span class="pd-product-price">59 &euro; <small>one-time</small></span>
+<a href="index.html#pricing" class="pd-product-link">View Plan <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</div>
+<div class="pd-product pd-product--us100">
+<div class="pd-product-top">
+<div class="pd-product-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+<span class="pd-product-status pd-product-status--locked" id="pdUs100Status">Locked</span>
+</div>
+<h4>US100 Challenge</h4>
+<p>55-trade validation cycle with full accessories suite and framework documentation.</p>
+<div class="pd-product-footer">
+<span class="pd-product-price">129 &euro; <small>one-time</small></span>
+<a href="index.html#pricing" class="pd-product-link">View Plan <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</div>
+<div class="pd-product pd-product--acc">
+<div class="pd-product-top">
+<div class="pd-product-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg></div>
+<span class="pd-product-status pd-product-status--locked" id="pdAccStatus">Locked</span>
+</div>
+<h4>Accessories</h4>
+<p>Trading Log, PnL Calendar, Economic Calendar, Symbols, Checklist, Calculators, Wiki, Strategy Builder.</p>
+<div class="pd-product-footer">
+<span class="pd-product-price">79 &euro; <small>/mo</small></span>
+<a href="accessories.html" class="pd-product-link">Access <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg></a>
+</div>
+</div>
+</div>
+
+<!-- Account + Security cards -->
 <div class="pd-card-grid">
 <div class="pd-card">
 <div class="pd-card-head">
@@ -467,6 +633,65 @@ Sign Out
 <div class="pd-row"><span class="pd-lbl">Two-Factor Auth</span><span id="ov2FA" class="pd-badge pd-badge--gray">&mdash;</span></div>
 <div class="pd-row"><span class="pd-lbl">User ID</span><span class="pd-val pd-mono" id="ovUserId">&mdash;</span></div>
 </div>
+</div>
+
+<!-- Activity Timeline -->
+<div class="pd-timeline">
+<div class="pd-timeline-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Recent Activity</div>
+<div id="pdTimeline">
+<div class="pd-timeline-item"><div class="pd-timeline-dot pd-timeline-dot--blue"></div><div class="pd-timeline-text"><div class="pd-timeline-label">Account created</div><div class="pd-timeline-meta" id="pdTimelineCreated">&mdash;</div></div></div>
+</div>
+</div>
+</div>
+
+<!-- PRODUCTS & ACCESS (full tab) -->
+<div data-section="products" style="display:none;">
+<h1 class="pd-page-title">Products &amp; Access</h1>
+<p class="pd-page-sub">Manage your ALTIVOR products, subscriptions, and framework access.</p>
+
+<div class="pd-card">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>
+<span class="pd-card-title">PREPARE Qualification</span>
+<span class="pd-product-status pd-product-status--locked" id="pdPrepStatusFull">Locked</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">Status</span><span class="pd-val" id="pdPrepDetail">Not Purchased</span></div>
+<div class="pd-row"><span class="pd-lbl">Price</span><span class="pd-val">29 &euro; &mdash; one-time</span></div>
+<div class="pd-row"><span class="pd-lbl">Includes</span><span class="pd-val">10-trade qualification, compliance tracking, framework docs</span></div>
+<div style="margin-top:.85rem"><a href="prepare.html" class="btn btn-primary btn-sm">Go to PREPARE</a></div>
+</div>
+
+<div class="pd-card">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+<span class="pd-card-title">Framework Pack</span>
+<span class="pd-product-status pd-product-status--locked" id="pdFwpStatusFull">Locked</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">Status</span><span class="pd-val" id="pdFwpDetail">Not Purchased</span></div>
+<div class="pd-row"><span class="pd-lbl">Price</span><span class="pd-val">59 &euro; &mdash; one-time</span></div>
+<div class="pd-row"><span class="pd-lbl">Includes</span><span class="pd-val">Verification, 55-trade cycle, Product Files 01&ndash;04</span></div>
+</div>
+
+<div class="pd-card">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+<span class="pd-card-title">US100 Challenge</span>
+<span class="pd-product-status pd-product-status--locked" id="pdUs100StatusFull">Locked</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">Status</span><span class="pd-val" id="pdUs100Detail">Not Purchased</span></div>
+<div class="pd-row"><span class="pd-lbl">Price</span><span class="pd-val">129 &euro; &mdash; one-time</span></div>
+<div class="pd-row"><span class="pd-lbl">Includes</span><span class="pd-val">Everything in Framework Pack + Accessories Suite + Product Files 05&ndash;06</span></div>
+</div>
+
+<div class="pd-card">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4"/></svg>
+<span class="pd-card-title">Accessories Subscription</span>
+<span class="pd-product-status pd-product-status--locked" id="pdAccStatusFull">Locked</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">Status</span><span class="pd-val" id="pdAccDetail">Not Subscribed</span></div>
+<div class="pd-row"><span class="pd-lbl">Price</span><span class="pd-val">79 &euro; / month</span></div>
+<div class="pd-row"><span class="pd-lbl">Includes</span><span class="pd-val">Trading Log, PnL Calendar, Economic Calendar, Symbols, Checklist, Calculators, Wiki, Strategy Builder</span></div>
 </div>
 </div>
 
@@ -548,8 +773,8 @@ Sign Out
 
 <!-- PURCHASES -->
 <div data-section="purchases" style="display:none;">
-<h1 class="pd-page-title">Purchase History</h1>
-<p class="pd-page-sub">View and manage your ALTIVOR framework and subscription purchases.</p>
+<h1 class="pd-page-title">Billing &amp; Transactions</h1>
+<p class="pd-page-sub">View your payment history, invoices, and subscription status.</p>
 
 <div class="pd-card">
 <div class="pd-card-head">

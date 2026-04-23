@@ -827,7 +827,7 @@ Log Backtest Trade
 <div class="bt-field"><label>Instrument</label><select id="btInstrument"><option value="">Select...</option><option value="us100">US100</option><option value="us30">US30</option><option value="xauusd">XAUUSD</option><option value="eurusd">EUR/USD</option><option value="gbpusd">GBP/USD</option><option value="gbpjpy">GBP/JPY</option><option value="usdjpy">USD/JPY</option><option value="btcusd">BTC/USD</option></select></div>
 <div class="bt-field"><label>Session</label><select id="btSession"><option value="">Select...</option><option value="asia">Asia</option><option value="london">London</option><option value="ny">New York</option><option value="london_ny">London / NY Overlap</option></select></div>
 <div class="bt-field"><label>Direction</label><select id="btDirection"><option value="">Select...</option><option value="long">Long</option><option value="short">Short</option></select></div>
-<div class="bt-field"><label>Setup Type</label><select id="btSetup"><option value="">Select...</option><option value="bos">BOS</option><option value="choch">CHOCH</option><option value="ob_tap">OB Tap</option><option value="fvg_fill">FVG Fill</option><option value="liquidity_sweep">Liquidity Sweep</option><option value="breaker_retest">Breaker Retest</option><option value="smc_entry">SMC Entry</option><option value="custom">Custom</option></select></div>
+<div class="bt-field"><label>Setup Type</label><select id="btSetup"><option value="">Select strategy first...</option></select></div>
 <div class="bt-field"><label>Day</label><select id="btDay"><option value="">Select...</option><option value="mon">Monday</option><option value="tue">Tuesday</option><option value="wed">Wednesday</option><option value="thu">Thursday</option><option value="fri">Friday</option></select></div>
 <div class="bt-field"><label>Entry Price</label><input type="number" step="any" id="btEntry" placeholder="e.g. 18450.50"></div>
 <div class="bt-field"><label>Stop Loss</label><input type="number" step="any" id="btSL" placeholder="e.g. 18420.00"></div>
@@ -1927,9 +1927,40 @@ function btPopulateStrats(){
   if(val) btStratSel.value = val;
 }
 
+/* ── Populate Setup Type dropdown from strategy ── */
+var BT_SETUP_LABELS = {
+  pullback:'Pullback / Retracement to POI', bos_continuation:'BOS Continuation',
+  choch_reversal:'CHoCH Reversal', sweep_reversal:'Liquidity Sweep & Reversal',
+  range_play:'Range Extremes Bounce', momentum_entry:'Momentum / Displacement Entry',
+  breakout_retest:'Breakout + Retest', mean_reversion:'Mean Reversion',
+  trend_continuation:'Trend Continuation', failure_swing:'Failure Swing'
+};
+function btPopulateSetupTypes(stratId){
+  var sel = document.getElementById('btSetup');
+  var prev = sel.value;
+  sel.innerHTML = '<option value="">Select...</option>';
+  if(!stratId) { sel.innerHTML = '<option value="">Select strategy first...</option>'; return; }
+  var s = loadStrategies().find(function(x){ return x.id === stratId; });
+  if(s && s.setupType && s.setupType.length){
+    s.setupType.forEach(function(v){
+      var opt = document.createElement('option');
+      opt.value = v;
+      opt.textContent = BT_SETUP_LABELS[v] || v.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+      sel.appendChild(opt);
+    });
+  }
+  /* Always add a Custom option as fallback */
+  var cust = document.createElement('option');
+  cust.value = 'custom';
+  cust.textContent = 'Custom / Other';
+  sel.appendChild(cust);
+  if(prev) sel.value = prev;
+}
+
 /* ── Show/hide sections based on selection ── */
 function btUpdateView(){
   var sid = btStratSel.value;
+  btPopulateSetupTypes(sid);
   var trades = btLoadTrades().filter(function(t){ return t.strategyId === sid; });
   var allTrades = btLoadTrades();
   btTradeCountEl.textContent = allTrades.length + ' trade' + (allTrades.length !== 1 ? 's' : '') + ' logged';
@@ -1983,9 +2014,9 @@ function btScanCompliance(tradeData, stratId){
     var rrOk = parseFloat(tradeData.rr) >= parseFloat(s.minRR);
     items.push({ text:'RR target (' + s.minRR + 'R min): achieved ' + tradeData.rr + 'R', pass:rrOk, weight:1 });
   }
-  /* Setup type check */
+  /* Setup type check — 'custom' counts as match (user-defined variant) */
   if(s.setupType && s.setupType.length && tradeData.setup){
-    var setupMatch = s.setupType.indexOf(tradeData.setup) !== -1;
+    var setupMatch = s.setupType.indexOf(tradeData.setup) !== -1 || tradeData.setup === 'custom';
     items.push({ text:'Setup (' + label(tradeData.setup) + '): ' + (setupMatch ? 'matches' : 'not a defined setup'), pass:setupMatch, weight:2 });
   }
   /* Instrument check */
