@@ -73,8 +73,10 @@
 .pd-shell{display:grid;grid-template-columns:270px 1fr;gap:2.25rem;max-width:1240px;margin:0 auto;padding:0 1.5rem}
 
 /* ── Sidebar ── */
-.pd-side{align-self:start;position:sticky;top:7rem;max-height:calc(100vh - 8rem);overflow-y:auto}
-.pd-side-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.15rem;overflow:hidden;box-shadow:var(--pd-card-shadow);transition:box-shadow .25s;height:100%;display:flex;flex-direction:column;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.pd-side{min-width:0}
+.pd-side-card{position:sticky;top:7rem;max-height:calc(100vh - 8rem);overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(128,128,128,.2) transparent;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:1.15rem;box-shadow:var(--pd-card-shadow);transition:box-shadow .25s;display:flex;flex-direction:column;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.pd-side-card::-webkit-scrollbar{width:4px}
+.pd-side-card::-webkit-scrollbar-thumb{background:rgba(128,128,128,.2);border-radius:4px}
 .pd-side-top{padding:2.25rem 1.25rem 1.75rem;text-align:center;border-bottom:1px solid var(--border-subtle);background:var(--pd-welcome-bg);position:relative;overflow:hidden}
 .pd-side-top::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(214,190,150,.06),transparent 70%);pointer-events:none}
 .pd-avatar-wrap{position:relative;width:88px;height:88px;margin:0 auto 1rem}
@@ -226,9 +228,8 @@
 @media(max-width:860px){
 .pd{padding-top:8rem}
 .pd-shell{grid-template-columns:1fr;padding:0 1rem}
-.pd-side{position:static}
-.pd-side-card{display:flex;flex-direction:column}
-.pd-nav{display:flex;overflow-x:auto;padding:.5rem .5rem;gap:.25rem;-webkit-overflow-scrolling:touch}
+.pd-side-card{position:static;max-height:none;overflow-y:visible}
+.pd-nav{display:flex;overflow-x:auto;padding:.5rem .5rem;gap:.25rem;-webkit-overflow-scrolling:touch;flex-wrap:nowrap}
 .pd-nav-item{border-left:none;border-bottom:2px solid transparent;white-space:nowrap;padding:.5rem .75rem;font-size:.75rem}
 .pd-nav-item.active{border-bottom-color:var(--pd-accent-border);border-left-color:transparent}
 .pd-nav-sep{display:none}
@@ -318,6 +319,59 @@
 
 /* â”€â”€ Responsive: products â”€â”€ */
 @media(max-width:640px){.pd-products{grid-template-columns:1fr}.pd-hero h2{font-size:1.15rem}}
+
+/* ── Nav group label ── */
+.pd-nav-label{font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--txt-muted);padding:.65rem 1.25rem .2rem;opacity:.5}
+
+/* ── Qualification progress ── */
+.pd-qual-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.pd-qual-item{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:.75rem;padding:1rem;position:relative;overflow:hidden}
+.pd-qual-item-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
+.pd-qual-item-label{font-size:.72rem;font-weight:600;color:var(--txt-secondary);text-transform:uppercase;letter-spacing:.04em}
+.pd-qual-item-val{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--txt-primary);line-height:1.2}
+.pd-qual-bar{height:4px;border-radius:2px;background:rgba(128,128,128,.12);margin-top:.45rem;overflow:hidden}
+.pd-qual-bar-fill{height:100%;border-radius:2px;transition:width .6s ease}
+.pd-qual-bar-fill--blue{background:var(--pd-accent)}
+.pd-qual-bar-fill--green{background:var(--pd-green)}
+.pd-qual-bar-fill--gold{background:rgba(214,190,150,.7)}
+.pd-qual-status{display:flex;align-items:center;gap:.5rem;padding:1rem 1.25rem;border-radius:.85rem;margin-bottom:1rem}
+.pd-qual-status--none{background:rgba(128,128,128,.06);border:1px solid rgba(128,128,128,.08)}
+.pd-qual-status--active{background:var(--pd-accent-soft);border:1px solid rgba(96,165,250,.12)}
+.pd-qual-status--complete{background:var(--pd-green-bg);border:1px solid rgba(52,211,153,.12)}
+.pd-qual-status svg{flex-shrink:0;width:20px;height:20px}
+.pd-qual-status-text{flex:1}
+.pd-qual-status-title{font-size:.82rem;font-weight:600;color:var(--txt-primary);margin:0 0 .1rem}
+.pd-qual-status-sub{font-size:.72rem;color:var(--txt-muted);margin:0}
+
+/* ── WoT profile card ── */
+.pd-wot-card{background:linear-gradient(135deg,rgba(214,190,150,.06),rgba(167,139,250,.04));border:1px solid rgba(214,190,150,.1);border-radius:1rem;padding:1.75rem;text-align:center;margin-bottom:1.25rem}
+.pd-wot-trophy{width:64px;height:64px;border-radius:50%;background:rgba(214,190,150,.08);border:2px solid rgba(214,190,150,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.pd-wot-name{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--txt-primary);margin:0 0 .2rem}
+.pd-wot-score{font-size:2rem;font-family:'DM Serif Display',serif;color:rgba(214,190,150,.85);margin:.5rem 0 .15rem}
+.pd-wot-score-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--txt-muted)}
+.pd-wot-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border-subtle);border:1px solid var(--border-subtle);border-radius:.65rem;overflow:hidden;margin-top:1.25rem}
+.pd-wot-stat{background:var(--bg-card);padding:.75rem .5rem;text-align:center}
+.pd-wot-stat-val{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--txt-primary)}
+.pd-wot-stat-lbl{font-size:.58rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--txt-muted);margin-top:.15rem}
+
+/* ── Affiliate ── */
+.pd-aff-hero{background:linear-gradient(135deg,rgba(96,165,250,.06),rgba(167,139,250,.04));border:1px solid rgba(96,165,250,.1);border-radius:1rem;padding:1.75rem;margin-bottom:1.25rem;text-align:center}
+.pd-aff-hero h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--txt-primary);margin:0 0 .35rem}
+.pd-aff-hero p{font-size:.82rem;color:var(--txt-muted);margin:0 0 1rem;line-height:1.5;max-width:460px;margin-left:auto;margin-right:auto}
+.pd-aff-link-box{display:flex;align-items:center;gap:.5rem;background:var(--bg-surface);border:1px solid var(--border-default);border-radius:.6rem;padding:.5rem .75rem;max-width:480px;margin:0 auto}
+.pd-aff-link-box input{flex:1;background:none;border:none;color:var(--txt-primary);font-size:.78rem;font-family:'Courier New',monospace;outline:none;letter-spacing:.02em}
+.pd-aff-link-box button{flex-shrink:0;font-size:.7rem;font-weight:700;padding:.35rem .75rem;border-radius:.4rem;border:1px solid var(--pd-accent-border);background:var(--pd-accent-soft);color:var(--pd-accent);cursor:pointer;transition:all .2s;font-family:inherit}
+.pd-aff-link-box button:hover{background:var(--pd-accent);color:#fff}
+.pd-aff-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem;margin-bottom:1.25rem}
+.pd-aff-stat{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.1rem .85rem;text-align:center;box-shadow:var(--pd-card-shadow)}
+.pd-aff-stat-val{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--txt-primary)}
+.pd-aff-stat-lbl{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--txt-muted);margin-top:.25rem}
+.pd-aff-how{display:grid;grid-template-columns:repeat(3,1fr);gap:.85rem}
+.pd-aff-step{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:.85rem;padding:1.25rem 1rem;text-align:center;position:relative}
+.pd-aff-step-num{width:28px;height:28px;border-radius:50%;background:var(--pd-accent-soft);color:var(--pd-accent);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;margin:0 auto .65rem}
+.pd-aff-step h4{font-size:.82rem;font-weight:600;color:var(--txt-primary);margin:0 0 .25rem}
+.pd-aff-step p{font-size:.72rem;color:var(--txt-muted);margin:0;line-height:1.45}
+@media(max-width:640px){.pd-qual-grid{grid-template-columns:1fr}.pd-aff-stats{grid-template-columns:1fr}.pd-aff-how{grid-template-columns:1fr}.pd-wot-stats{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -490,10 +544,24 @@ Start PREPARE
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
 Overview
 </button>
+<div class="pd-nav-label">Trading</div>
+<button class="pd-nav-item" data-tab="qualification" role="tab">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+Qualification
+</button>
+<button class="pd-nav-item" data-tab="wot" role="tab">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="M18 9v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 7v14"/></svg>
+Wall of Traders
+</button>
 <button class="pd-nav-item" data-tab="products" role="tab">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
 Products &amp; Access
 </button>
+<button class="pd-nav-item" data-tab="affiliate" role="tab">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+Affiliate
+</button>
+<div class="pd-nav-label">Account</div>
 <button class="pd-nav-item" data-tab="personal" role="tab">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
 Personal Info
@@ -506,6 +574,7 @@ Security
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
 Billing
 </button>
+<div class="pd-nav-label">System</div>
 <button class="pd-nav-item" data-tab="settings" role="tab">
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
 Settings
@@ -810,6 +879,155 @@ Sign Out
 </div>
 </div>
 
+<!-- QUALIFICATION -->
+<div data-section="qualification" style="display:none;">
+<h1 class="pd-page-title">Qualification Progress</h1>
+<p class="pd-page-sub">Track your 55-trade validation cycle, weekly check-ins, and challenge milestones.</p>
+
+<div class="pd-card" style="margin-bottom:1.25rem">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10"/></svg>
+<span class="pd-card-title">PREPARE Gate</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">Status</span><span class="pd-badge pd-badge--gray" id="pdQualPrepStatus">Not Started</span></div>
+<div class="pd-row"><span class="pd-lbl">Requirement</span><span class="pd-val">10 compliant trades</span></div>
+<div style="margin-top:.5rem"><a href="prepare.html" class="btn btn-ghost btn-sm">Go to PREPARE</a></div>
+</div>
+
+<div id="pdQualStatus" class="pd-qual-status pd-qual-status--none">
+<svg viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+<div class="pd-qual-status-text">
+<p class="pd-qual-status-title" id="pdQualStatusTitle">No Active Challenge</p>
+<p class="pd-qual-status-sub" id="pdQualStatusSub">Purchase Framework Pack or US100 Challenge to begin your qualification cycle.</p>
+</div>
+</div>
+
+<div class="pd-qual-grid" id="pdQualGrid">
+<div class="pd-qual-item">
+<div class="pd-qual-item-head">
+<span class="pd-qual-item-label">Trades</span>
+<span class="pd-badge pd-badge--gray" id="pdQualTradesBadge">0 / 55</span>
+</div>
+<div class="pd-qual-item-val" id="pdQualTradesVal">0</div>
+<div class="pd-qual-bar"><div class="pd-qual-bar-fill pd-qual-bar-fill--blue" id="pdQualTradesBar" style="width:0%"></div></div>
+</div>
+<div class="pd-qual-item">
+<div class="pd-qual-item-head">
+<span class="pd-qual-item-label">Weekly Check-ins</span>
+<span class="pd-badge pd-badge--gray" id="pdQualWeeklyBadge">0 / 8</span>
+</div>
+<div class="pd-qual-item-val" id="pdQualWeeklyVal">0</div>
+<div class="pd-qual-bar"><div class="pd-qual-bar-fill pd-qual-bar-fill--green" id="pdQualWeeklyBar" style="width:0%"></div></div>
+</div>
+<div class="pd-qual-item">
+<div class="pd-qual-item-head">
+<span class="pd-qual-item-label">Profit Target</span>
+<span class="pd-badge pd-badge--gray" id="pdQualProfitBadge">0%</span>
+</div>
+<div class="pd-qual-item-val" id="pdQualProfitVal">0%</div>
+<div class="pd-qual-bar"><div class="pd-qual-bar-fill pd-qual-bar-fill--gold" id="pdQualProfitBar" style="width:0%"></div></div>
+</div>
+<div class="pd-qual-item">
+<div class="pd-qual-item-head">
+<span class="pd-qual-item-label">Drawdown</span>
+<span class="pd-badge pd-badge--green" id="pdQualDrawdownBadge">Clean</span>
+</div>
+<div class="pd-qual-item-val" id="pdQualDrawdownVal">No Violations</div>
+</div>
+</div>
+
+<div class="pd-card" style="margin-top:1.25rem">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+<span class="pd-card-title">Requirements Checklist</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">55 Trades Completed</span><span class="pd-badge pd-badge--gray" id="pdQualChk1">Pending</span></div>
+<div class="pd-row"><span class="pd-lbl">8 Weekly Check-ins</span><span class="pd-badge pd-badge--gray" id="pdQualChk2">Pending</span></div>
+<div class="pd-row"><span class="pd-lbl">Profit &ge; 6%</span><span class="pd-badge pd-badge--gray" id="pdQualChk3">Pending</span></div>
+<div class="pd-row"><span class="pd-lbl">No Drawdown Failure</span><span class="pd-badge pd-badge--gray" id="pdQualChk4">Pending</span></div>
+<div class="pd-row"><span class="pd-lbl">Broker Statement Submitted</span><span class="pd-badge pd-badge--gray" id="pdQualChk5">Pending</span></div>
+<div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap">
+<a href="verification.html" class="btn btn-primary btn-sm">Go to Verification</a>
+<a href="verification-trades.html" class="btn btn-ghost btn-sm">55-Trade Cycle</a>
+<a href="verification-status.html" class="btn btn-ghost btn-sm">Challenge Status</a>
+</div>
+</div>
+
+<div class="pd-card" style="margin-top:1.25rem">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>
+<span class="pd-card-title">Execution Credit</span>
+</div>
+<div id="pdExecCredit"></div>
+</div>
+</div>
+
+<!-- WALL OF TRADERS -->
+<div data-section="wot" style="display:none;">
+<h1 class="pd-page-title">Wall of Traders</h1>
+<p class="pd-page-sub">Your verified trader status and position on the Wall of Traders leaderboard.</p>
+
+<div id="pdWotContent">
+<div class="pd-card">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="M18 9v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/></svg>
+<span class="pd-card-title">Your WoT Status</span>
+</div>
+<div class="pd-empty" id="pdWotEmpty">
+<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--txt-muted)" stroke-width="1.2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="M18 9v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 7v14"/></svg>
+<p style="font-size:.9rem;font-weight:500">Not Yet Qualified</p>
+<p class="pd-muted">Complete the 55-trade qualification cycle to earn your verified trader status and appear on the Wall of Traders.</p>
+<a href="social-proof.html" class="btn btn-ghost btn-sm" style="margin-top:.75rem">View Wall of Traders</a>
+</div>
+</div>
+</div>
+
+<div id="pdWotCard" class="pd-wot-card" style="display:none;">
+<div class="pd-wot-trophy">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(214,190,150,.7)" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 9 7 12 7s5-3 7.5-3a2.5 2.5 0 0 1 0 5H18"/><path d="M18 9v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9"/><path d="M12 7v14"/></svg>
+</div>
+<p class="pd-wot-name" id="pdWotName">&mdash;</p>
+<p style="font-size:.72rem;color:var(--txt-muted);margin:0">Verified Trader</p>
+<div class="pd-wot-score" id="pdWotScore">&mdash;</div>
+<p class="pd-wot-score-label">Composite Score</p>
+<div class="pd-wot-stats">
+<div class="pd-wot-stat"><div class="pd-wot-stat-val" id="pdWotWR">&mdash;</div><div class="pd-wot-stat-lbl">Win Rate</div></div>
+<div class="pd-wot-stat"><div class="pd-wot-stat-val" id="pdWotRR">&mdash;</div><div class="pd-wot-stat-lbl">Avg RR</div></div>
+<div class="pd-wot-stat"><div class="pd-wot-stat-val" id="pdWotTrades">&mdash;</div><div class="pd-wot-stat-lbl">Trades</div></div>
+</div>
+</div>
+
+<div class="pd-card" id="pdWotAchievements" style="display:none;">
+<div class="pd-card-head">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+<span class="pd-card-title">Achievements</span>
+</div>
+<div class="pd-row"><span class="pd-lbl">Challenge Product</span><span class="pd-val" id="pdWotProduct">&mdash;</span></div>
+<div class="pd-row"><span class="pd-lbl">Completion Date</span><span class="pd-val" id="pdWotDate">&mdash;</span></div>
+<div class="pd-row"><span class="pd-lbl">Best Win Streak</span><span class="pd-val" id="pdWotBestStreak">&mdash;</span></div>
+<div class="pd-row"><span class="pd-lbl">Best RR</span><span class="pd-val" id="pdWotBestRR">&mdash;</span></div>
+<div style="margin-top:1rem"><a href="social-proof.html" class="btn btn-primary btn-sm">View Wall of Traders</a></div>
+</div>
+</div>
+
+<!-- AFFILIATE -->
+<div data-section="affiliate" style="display:none;">
+<h1 class="pd-page-title">Affiliate Program</h1>
+<p class="pd-page-sub">Earn commissions by referring traders to ALTIVOR INSTITUTE.</p>
+
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3.5rem 2rem;text-align:center">
+<div style="width:72px;height:72px;border-radius:50%;background:rgba(214,190,150,0.05);border:2px solid rgba(214,190,150,0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(214,190,150,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<h3 style="font-family:'DM Serif Display',serif;font-size:1.25rem;color:rgba(214,190,150,0.85);margin:0 0 .5rem">Coming Soon</h3>
+<p style="font-size:.82rem;color:rgba(255,255,255,0.4);max-width:380px;line-height:1.6;margin:0 0 1.5rem">The ALTIVOR Affiliate Program is currently in development. You will be able to earn commissions by referring traders once this feature launches.</p>
+<div style="display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .85rem;border-radius:2rem;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:rgba(214,190,150,0.06);color:rgba(214,190,150,0.6);border:1px solid rgba(214,190,150,0.1)">
+<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+In Development
+</div>
+</div>
+</div>
+
 </div><!-- /pd-main -->
 </div><!-- /pd-shell -->
 </div><!-- /pdDash -->
@@ -881,5 +1099,6 @@ Sign Out
 <script src="auth-modals.js?v=20250419"></script>
 <script src="supabase-auth.js?v=20250419"></script>
 <script src="profile-dashboard.js?v=20250419"></script>
+<script src="execution-credit.js"></script>
 </body>
 </html>

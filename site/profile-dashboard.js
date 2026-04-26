@@ -150,7 +150,19 @@
         if (el) { try { var p = JSON.parse(localStorage.getItem(PURCHASES_KEY)); el.textContent = (p && p.length) || 0; } catch (_) { el.textContent = '0'; } }
 
         el = $('ovStatTrades');
-        if (el) { try { var t = JSON.parse(localStorage.getItem('altivor_verification_trades_v1')); el.textContent = (t && t.length) || 0; } catch (_) { el.textContent = '0'; } }
+        if (el) {
+            var tCount = 0;
+            try {
+                var td = JSON.parse(localStorage.getItem('altivor_verification_trades_v1'));
+                if (td && Array.isArray(td.trades)) tCount = td.trades.length;
+                else if (Array.isArray(td)) tCount = td.length;
+            } catch (_) {}
+            try {
+                var ps = JSON.parse(localStorage.getItem('altivor-prepare-state-v1'));
+                if (ps && Array.isArray(ps.trades)) tCount += ps.trades.length;
+            } catch (_) {}
+            el.textContent = tCount;
+        }
 
         // 2FA stat
         el = $('ovStat2FA');
@@ -409,6 +421,9 @@
         var fwp = localStorage.getItem('altivor_fwpack_purchased_' + email) === '1';
         var us100 = localStorage.getItem('altivor_us100_purchased_' + email) === '1';
         var acc = localStorage.getItem('altivor_acc_purchased_' + email) === '1' || us100;
+        var prepStatus = localStorage.getItem('altivor-prepare-status') || 'NOT_STARTED';
+        var challengeCompleted = false;
+        try { challengeCompleted = !!localStorage.getItem('altivor_challenge_completed_' + email); } catch (_) {}
 
         function setStatus(id, active, label) {
             var el = $(id);
@@ -416,21 +431,40 @@
             el.textContent = active ? (label || 'Active') : 'Locked';
             el.className = 'pd-product-status ' + (active ? 'pd-product-status--active' : 'pd-product-status--locked');
         }
-        // Overview cards
-        setStatus('pdPrepStatus', prep);
-        setStatus('pdFwpStatus', fwp);
-        setStatus('pdUs100Status', us100);
+
+        // PREPARE: show qualification status if purchased
+        var prepLabel = prep ? (prepStatus === 'QUALIFIED' ? 'Qualified' : 'Active') : 'Locked';
+        var prepActive = prep;
+        setStatus('pdPrepStatus', prepActive, prepLabel);
+        setStatus('pdPrepStatusFull', prepActive, prepLabel);
+
+        // Challenge products: show 'Completed' if challenge done
+        var fwpLabel = fwp ? (challengeCompleted ? 'Completed' : 'Active') : 'Locked';
+        var us100Label = us100 ? (challengeCompleted ? 'Completed' : 'Active') : 'Locked';
+        setStatus('pdFwpStatus', fwp, fwpLabel);
+        setStatus('pdUs100Status', us100, us100Label);
         setStatus('pdAccStatus', acc, acc ? 'Active' : 'Locked');
+
         // Full tab
-        setStatus('pdPrepStatusFull', prep);
-        setStatus('pdFwpStatusFull', fwp);
-        setStatus('pdUs100StatusFull', us100);
+        setStatus('pdFwpStatusFull', fwp, fwpLabel);
+        setStatus('pdUs100StatusFull', us100, us100Label);
         setStatus('pdAccStatusFull', acc, acc ? 'Active' : 'Locked');
+
         // Detail text
         var el;
-        el = $('pdPrepDetail');    if (el) el.textContent = prep ? 'Purchased \u2014 Access Granted' : 'Not Purchased';
-        el = $('pdFwpDetail');     if (el) el.textContent = fwp ? 'Purchased \u2014 Access Granted' : 'Not Purchased';
-        el = $('pdUs100Detail');   if (el) el.textContent = us100 ? 'Purchased \u2014 Access Granted' : 'Not Purchased';
+        if (prep) {
+            el = $('pdPrepDetail');
+            if (el) {
+                if (prepStatus === 'QUALIFIED') el.textContent = 'PREPARE Completed \u2014 Qualified';
+                else if (prepStatus === 'ACTIVE') el.textContent = 'In Progress \u2014 Trades Being Verified';
+                else if (prepStatus === 'DISQUALIFIED') el.textContent = 'Disqualified \u2014 Cooldown Active';
+                else el.textContent = 'Purchased \u2014 Access Granted';
+            }
+        } else {
+            el = $('pdPrepDetail'); if (el) el.textContent = 'Not Purchased';
+        }
+        el = $('pdFwpDetail');     if (el) el.textContent = fwp ? (challengeCompleted ? 'Challenge Completed' : 'Purchased \u2014 Access Granted') : 'Not Purchased';
+        el = $('pdUs100Detail');   if (el) el.textContent = us100 ? (challengeCompleted ? 'Challenge Completed' : 'Purchased \u2014 Access Granted') : 'Not Purchased';
         el = $('pdAccDetail');     if (el) el.textContent = acc ? 'Active Subscription' : 'Not Subscribed';
 
         // Count active products for stat
@@ -449,10 +483,25 @@
         if (user.email_confirmed_at) items.push({ date: user.email_confirmed_at, label: 'Email verified', dot: 'green' });
         // Last sign in
         if (user.last_sign_in_at) items.push({ date: user.last_sign_in_at, label: 'Last sign in', dot: 'gold' });
-        // PREPARE purchased
+        // Product purchases
         var email = user.email || '';
         if (localStorage.getItem('altivor_prepare_purchased_' + email) === '1') items.push({ date: null, label: 'PREPARE Access purchased', dot: 'gold' });
+        if (localStorage.getItem('altivor_fwpack_purchased_' + email) === '1') items.push({ date: null, label: 'Framework Pack purchased', dot: 'gold' });
+        if (localStorage.getItem('altivor_us100_purchased_' + email) === '1') items.push({ date: null, label: 'US100 Challenge purchased', dot: 'gold' });
         if (localStorage.getItem('altivor_acc_purchased_' + email) === '1') items.push({ date: null, label: 'Accessories Subscription activated', dot: 'green' });
+        // PREPARE qualification
+        var prepStatus = localStorage.getItem('altivor-prepare-status');
+        if (prepStatus === 'QUALIFIED') items.push({ date: null, label: 'PREPARE Qualified \u2014 10/10 compliant trades', dot: 'green' });
+        // Challenge completion
+        try {
+            var compRec = JSON.parse(localStorage.getItem('altivor_challenge_completed_' + email));
+            if (compRec) items.push({ date: compRec.completedAt || null, label: 'Challenge Completed \u2014 Wall of Traders entry', dot: 'green' });
+        } catch (_) {}
+        // Execution credit
+        try {
+            var ec = JSON.parse(localStorage.getItem('altivor_execution_credit_' + email));
+            if (ec && ec.promotion_code) items.push({ date: null, label: 'Execution Credit unlocked (' + ec.promotion_code + ')', dot: 'blue' });
+        } catch (_) {}
 
         items.sort(function (a, b) { if (!a.date) return -1; if (!b.date) return 1; return new Date(b.date) - new Date(a.date); });
         var html = '';
@@ -461,6 +510,163 @@
         });
         tl.innerHTML = html || '<div class="pd-timeline-item"><div class="pd-timeline-dot pd-timeline-dot--gray"></div><div class="pd-timeline-text"><div class="pd-timeline-label">No activity yet</div><div class="pd-timeline-meta">\u2014</div></div></div>';
     }
+    /* ── Render: Qualification ────────────────────────────────────────── */
+    function renderQualification(user) {
+        if (!user) return;
+        var email = user.email || '';
+        var fwp = localStorage.getItem('altivor_fwpack_purchased_' + email) === '1';
+        var us100 = localStorage.getItem('altivor_us100_purchased_' + email) === '1';
+        var hasChallenge = fwp || us100;
+        var prepPurchased = localStorage.getItem('altivor_prepare_purchased_' + email) === '1';
+        var prepStatus = localStorage.getItem('altivor-prepare-status') || 'NOT_STARTED';
+
+        // Read localStorage data — values are JSON objects, not primitives
+        var tradesData = null; try { tradesData = JSON.parse(localStorage.getItem('altivor_verification_trades_v1')); } catch (_) {}
+        var weeklyData = null; try { weeklyData = JSON.parse(localStorage.getItem('altivor_verification_weekly_v1')); } catch (_) {}
+        var profitData = null; try { profitData = JSON.parse(localStorage.getItem('altivor_verification_profit_v1')); } catch (_) {}
+        var drawdownData = null; try { drawdownData = JSON.parse(localStorage.getItem('altivor_verification_drawdown_v1')); } catch (_) {}
+        var statementData = null; try { statementData = JSON.parse(localStorage.getItem('altivor_verification_statement_v1')); } catch (_) {}
+
+        // Extract values from JSON structures
+        var trades = (tradesData && Array.isArray(tradesData.trades)) ? tradesData.trades : (Array.isArray(tradesData) ? tradesData : []);
+        var checkins = (weeklyData && Array.isArray(weeklyData.checkins)) ? weeklyData.checkins : (Array.isArray(weeklyData) ? weeklyData : []);
+        var tradesCount = trades.length;
+        var weeklyCount = checkins.length;
+
+        // Profit: calculated from starting balance vs latest balance
+        var profit = 0;
+        if (profitData) {
+            var startBal = profitData.startingBalance || 10000;
+            var endBal = profitData.month2Balance || profitData.month1Balance || startBal;
+            if (startBal > 0) profit = ((endBal - startBal) / startBal) * 100;
+        }
+
+        var drawdownFailed = drawdownData ? !!drawdownData.failed : false;
+        var statementSubmitted = statementData ? !!statementData.submitted : false;
+
+        // Check completion record
+        var completionKey = 'altivor_challenge_completed_' + email;
+        var isCompleted = false;
+        try { isCompleted = !!localStorage.getItem(completionKey); } catch (_) {}
+
+        // ── PREPARE status badge ──
+        var prepEl = $('pdQualPrepStatus');
+        if (prepEl) {
+            if (prepStatus === 'QUALIFIED') {
+                prepEl.textContent = 'Qualified';
+                prepEl.className = 'pd-badge pd-badge--green';
+            } else if (prepStatus === 'ACTIVE') {
+                prepEl.textContent = 'In Progress';
+                prepEl.className = 'pd-badge pd-badge--blue';
+            } else if (prepStatus === 'DISQUALIFIED') {
+                prepEl.textContent = 'Disqualified';
+                prepEl.className = 'pd-badge pd-badge--red';
+            } else if (prepPurchased) {
+                prepEl.textContent = 'Purchased';
+                prepEl.className = 'pd-badge pd-badge--yellow';
+            } else {
+                prepEl.textContent = 'Not Started';
+                prepEl.className = 'pd-badge pd-badge--gray';
+            }
+        }
+
+        // ── Status banner ──
+        var statusEl = $('pdQualStatus');
+        var titleEl = $('pdQualStatusTitle');
+        var subEl = $('pdQualStatusSub');
+        if (statusEl && titleEl && subEl) {
+            statusEl.className = 'pd-qual-status';
+            if (isCompleted) {
+                statusEl.classList.add('pd-qual-status--complete');
+                titleEl.textContent = 'Challenge Completed';
+                subEl.textContent = 'Congratulations! You have successfully completed the qualification cycle.';
+                statusEl.querySelector('svg').setAttribute('stroke', 'var(--pd-green,#22c55e)');
+            } else if (hasChallenge) {
+                statusEl.classList.add('pd-qual-status--active');
+                titleEl.textContent = 'Challenge Active';
+                subEl.textContent = (us100 ? 'US100 Challenge' : 'Framework Pack') + ' \u2014 ' + tradesCount + '/55 trades logged';
+                statusEl.querySelector('svg').setAttribute('stroke', 'var(--pd-accent,#60a5fa)');
+            } else {
+                statusEl.classList.add('pd-qual-status--none');
+                titleEl.textContent = 'No Active Challenge';
+                subEl.textContent = 'Purchase Framework Pack or US100 Challenge to begin your qualification cycle.';
+            }
+        }
+
+        // ── Progress bars ──
+        var el;
+        el = $('pdQualTradesVal'); if (el) el.textContent = tradesCount;
+        el = $('pdQualTradesBadge'); if (el) el.textContent = tradesCount + ' / 55';
+        el = $('pdQualTradesBar'); if (el) el.style.width = Math.min(100, (tradesCount / 55) * 100).toFixed(1) + '%';
+
+        el = $('pdQualWeeklyVal'); if (el) el.textContent = weeklyCount;
+        el = $('pdQualWeeklyBadge'); if (el) el.textContent = weeklyCount + ' / 8';
+        el = $('pdQualWeeklyBar'); if (el) el.style.width = Math.min(100, (weeklyCount / 8) * 100).toFixed(1) + '%';
+
+        el = $('pdQualProfitVal'); if (el) el.textContent = profit.toFixed(1) + '%';
+        el = $('pdQualProfitBadge'); if (el) { el.textContent = profit.toFixed(1) + '%'; el.className = 'pd-badge ' + (profit >= 6 ? 'pd-badge--green' : 'pd-badge--gray'); }
+        el = $('pdQualProfitBar'); if (el) el.style.width = Math.min(100, Math.max(0, (profit / 6) * 100)).toFixed(1) + '%';
+
+        el = $('pdQualDrawdownVal'); if (el) el.textContent = drawdownFailed ? 'Failed' : 'No Violations';
+        el = $('pdQualDrawdownBadge'); if (el) { el.textContent = drawdownFailed ? 'Failed' : 'Clean'; el.className = 'pd-badge ' + (drawdownFailed ? 'pd-badge--red' : 'pd-badge--green'); }
+
+        // ── Checklist ──
+        function setChk(id, done) {
+            var c = $(id); if (!c) return;
+            c.textContent = done ? 'Done' : 'Pending';
+            c.className = 'pd-badge ' + (done ? 'pd-badge--green' : 'pd-badge--gray');
+        }
+        setChk('pdQualChk1', tradesCount >= 55);
+        setChk('pdQualChk2', weeklyCount >= 8);
+        setChk('pdQualChk3', profit >= 6);
+        setChk('pdQualChk4', !drawdownFailed);
+        setChk('pdQualChk5', statementSubmitted);
+
+        // ── Trigger execution credit render (if script loaded) ──
+        if (window.AltivorExecutionCredit && typeof window.AltivorExecutionCredit.renderProfile === 'function') {
+            window.AltivorExecutionCredit.renderProfile();
+        }
+    }
+
+    /* ── Render: Wall of Traders ──────────────────────────────────────── */
+    function renderWot(user) {
+        if (!user) return;
+        var email = user.email || '';
+        var completionKey = 'altivor_challenge_completed_' + email;
+        var record = null;
+        try { record = JSON.parse(localStorage.getItem(completionKey)); } catch (_) {}
+
+        var emptyEl = $('pdWotContent');
+        var cardEl = $('pdWotCard');
+        var achEl = $('pdWotAchievements');
+
+        if (!record) {
+            if (emptyEl) emptyEl.style.display = '';
+            if (cardEl) cardEl.style.display = 'none';
+            if (achEl) achEl.style.display = 'none';
+            return;
+        }
+
+        // Has completion
+        if (emptyEl) emptyEl.style.display = 'none';
+        if (cardEl) cardEl.style.display = '';
+        if (achEl) achEl.style.display = '';
+
+        var el;
+        el = $('pdWotName'); if (el) el.textContent = record.nickname || record.name || '\u2014';
+        el = $('pdWotScore'); if (el) el.textContent = (record.score != null ? record.score : '\u2014');
+        el = $('pdWotWR'); if (el) el.textContent = record.winRate != null ? record.winRate + '%' : '\u2014';
+        el = $('pdWotRR'); if (el) el.textContent = record.avgRR != null ? record.avgRR.toFixed(2) : '\u2014';
+        el = $('pdWotTrades'); if (el) el.textContent = record.totalTrades || record.trades || '\u2014';
+        el = $('pdWotProduct'); if (el) el.textContent = record.product || '\u2014';
+        el = $('pdWotDate'); if (el) el.textContent = record.completedAt ? formatDate(record.completedAt) : '\u2014';
+        el = $('pdWotBestStreak'); if (el) el.textContent = record.bestWinStreak || '\u2014';
+        el = $('pdWotBestRR'); if (el) el.textContent = record.bestRR != null ? record.bestRR.toFixed(2) : '\u2014';
+    }
+
+    /* ── Render: Affiliate (Coming Soon — no-op) ──────────────────────── */
+    function renderAffiliate(user) { /* placeholder — affiliate is coming soon */ }
+
     /* ── Main init ─────────────────────────────────────────────────────── */
     function init() {
         var loadingEl = $('pdLoading');
@@ -481,6 +687,9 @@
                 renderOverview(user);
                 renderProducts(user);
                 renderTimeline(user);
+                renderQualification(user);
+                renderWot(user);
+                renderAffiliate(user);
                 renderPersonalInfo(user);
                 render2FASection();
                 renderPurchases();

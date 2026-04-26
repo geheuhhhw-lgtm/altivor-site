@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8" />
+<script src="page-gate.js"></script><meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="US100 Product Files. Structured library of released US100 product documents, including the Process Validation Challenge case study and the Regulatory &amp; Evaluation Document." />
 <title>US100 Product Files | ALTIVOR INSTITUTE</title>
@@ -26,7 +26,7 @@
 <button class="announce-close" id="promoBarClose" aria-label="Dismiss" onclick="document.getElementById('promoBar').classList.add('dismissed');document.getElementById('navbar').style.top='0';sessionStorage.setItem('altivor_promo_dismissed','1');">&#x2715;</button>
 </div>
 <header class="nav-bar" id="navbar">
-<div class="nav-inner container">
+<script src="page-gate.js"></script><div class="nav-inner container">
 <a href="index.html" class="wordmark logo-link" aria-label="ALTIVOR INSTITUTE Home" id="logoLink">
 <svg viewBox="0 0 340 56" xmlns="http://www.w3.org/2000/svg" aria-label="ALTIVOR INSTITUTE" style="height:34px;width:auto;display:block;color:var(--txt-primary);">
 <path d="M44 2 C38 18 14 38 2 52 C12 44 28 40 44 44 C60 40 76 44 86 52 C74 38 50 18 44 2 Z" fill="currentColor"/>
@@ -1937,8 +1937,6 @@ function handleRegister(e) {
 // Framework Pack → Files 01-04 only
 // US100 Challenge → Files 01-06 (all)
 var US100_ONLY_FILES = ['file-ledger-journal-05', 'file-onboarding-guide-06'];
-var ADMIN_EMAIL = 'aleksanderdobieszewski@gmail.com';
-
 function pfGetUser(){
   return (window.altivorAuth && window.altivorAuth.getUser) ? window.altivorAuth.getUser() : null;
 }
@@ -1950,13 +1948,9 @@ function pfHasUs100(){
   var e = pfUserEmail();
   return e ? localStorage.getItem('altivor_us100_purchased_' + e) === '1' : false;
 }
-function pfIsAdmin(){
-  return pfUserEmail() === ADMIN_EMAIL;
-}
 
 function isFileLocked(fileId) {
   if (US100_ONLY_FILES.indexOf(fileId) === -1) return false;
-  if (pfIsAdmin()) return false;
   return !pfHasUs100();
 }
 
@@ -2044,7 +2038,7 @@ function handleProductFileRoute(shouldScroll) {
 
 function updateFileCardStates(){
   var cards = document.querySelectorAll('.pf-file-card[data-requires-auth="us100-challenge"]');
-  var unlocked = pfHasUs100() || pfIsAdmin();
+  var unlocked = pfHasUs100();
   cards.forEach(function(card){
     if(unlocked){
       card.classList.remove('pf-file-card--locked');
