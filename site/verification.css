@@ -409,6 +409,17 @@
   border: 1px solid var(--border-default);
   border-radius: 8px;
   transition: border-color 0.2s;
+  color-scheme: dark;
+}
+.verif-field input[type="datetime-local"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  min-height: 44px;
+}
+.verif-field input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+  opacity: 1;
 }
 .verif-field input:focus,
 .verif-field select:focus,

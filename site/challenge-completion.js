@@ -53,6 +53,33 @@
     var statement  = loadJSON(STATEMENT_KEY) || {};
 
     var tradesCount   = trades.length;
+    // Use ChallengeEngine validated count for consistency (single source of truth)
+    var validatedCount = 0;
+    if (window.ChallengeEngine) {
+      try {
+        var ceState = window.ChallengeEngine.loadState ? window.ChallengeEngine.loadState() : null;
+        if (ceState && ceState.validatedTradeCount !== undefined && ceState.tradeResults && ceState.tradeResults.length === tradesCount) {
+          validatedCount = ceState.validatedTradeCount;
+        } else {
+          // Engine state stale — re-evaluate
+          ceState = window.ChallengeEngine.evaluateChallenge();
+          validatedCount = ceState.validatedTradeCount || 0;
+        }
+      } catch (e) {
+        validatedCount = 0;
+      }
+    }
+    // Fallback: manual count if ChallengeEngine unavailable
+    if (!window.ChallengeEngine || validatedCount === 0) {
+      trades.forEach(function(t) {
+        var hasSL = t.stopLoss && parseFloat(t.stopLoss) > 0;
+        var hasDocs = (t.screenshot || t.screenshotFile || t.hasScreenshot) || (t.notes && t.notes.trim().length > 0);
+        var hasSetup = t.strategy || t.setup || t.frameworkType;
+        var hasFields = t.entryPrice && parseFloat(t.entryPrice) > 0 && t.takeProfit && parseFloat(t.takeProfit) > 0;
+        var notNonCompliant = t.compliant !== false && !t.nonCompliantFlag;
+        if (hasSL && hasDocs && hasSetup && hasFields && notNonCompliant) validatedCount++;
+      });
+    }
     var weeklyCount   = (weekly.checkins || []).length;
     var startBal      = profit.startingBalance || 10000;
     var curBal        = profit.month2Balance || profit.month1Balance || startBal;
@@ -63,7 +90,7 @@
     var drawdownFailed = dd >= 10 || !!drawdown.failed;
     var statementDone  = !!statement.submitted;
 
-    var allComplete = tradesCount >= 55 && weeklyCount >= 8 && profitPct >= 6 && !drawdownFailed && statementDone;
+    var allComplete = validatedCount >= 55 && weeklyCount >= 8 && profitPct >= 6 && !drawdownFailed && statementDone;
 
     /* ── Achievement stats ───────────────────────────────────────── */
     var wins = 0, totalPL = 0, totalRR = 0, rrCount = 0, bestRR = 0;
@@ -79,13 +106,13 @@
       else if (pnl < 0) { curLS++; curWS = 0; if (curLS > maxLS) maxLS = curLS; }
       else { curWS = 0; curLS = 0; }
     });
-    var winRate = tradesCount > 0 ? (wins / tradesCount * 100) : 0;
+    var winRate = validatedCount > 0 ? (wins / validatedCount * 100) : 0;
     var avgRR   = rrCount > 0 ? (totalRR / rrCount) : 0;
 
     return {
       complete: allComplete,
       failed: drawdownFailed,
-      trades: tradesCount,
+      trades: validatedCount,
       weekly: weeklyCount,
       profit: profitPct,
       drawdown: dd,
@@ -149,6 +176,11 @@
     entries.push(entry);
     entries.sort(function (a, b) { return b.score - a.score; });
     localStorage.setItem(WOT_KEY, JSON.stringify(entries));
+
+    // Persist to Supabase — challenge-sync edge function auto-adds to wall_of_traders
+    if (window.AltivorBackend && window.AltivorBackend.triggerChallengeSync) {
+      try { window.AltivorBackend.triggerChallengeSync().catch(function () {}); } catch (_) {}
+    }
   }
 
   /* ── Check if user already completed ─────────────────────────────── */

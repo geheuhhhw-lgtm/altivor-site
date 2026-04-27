@@ -52,6 +52,14 @@
     }
   } catch (_) {}
 
+  /* ── Full-access users (all products purchased) ───────────────────── */
+  if (email === 'brzozowskioff12@gmail.com') {
+    localStorage.setItem(PREPARE_KEY + email, '1');
+    localStorage.setItem(FWPACK_KEY + email, '1');
+    localStorage.setItem(US100_KEY + email, '1');
+    localStorage.setItem(ACC_KEY + email, '1');
+  }
+
   /* ── Check authorization ───────────────────────────────────────────── */
   var authorized = false;
 
@@ -70,7 +78,34 @@
     }
   }
 
-  if (authorized) return; // all good — let page render normally
+  if (authorized) {
+    // Synchronous check passed — schedule async Supabase verification
+    // If Supabase says user does NOT have access, reblock the page
+    (function verifyAsync() {
+      function doVerify() {
+        if (!window.AltivorBackend || !window.AltivorBackend.loadEntitlements) return;
+        window.AltivorBackend.loadEntitlements().then(function (ents) {
+          var products = {};
+          (ents || []).forEach(function (e) { if (e.status === 'active') products[e.product_key] = true; });
+          var ok = false;
+          if (need === 'challenge') ok = !!products['frameworkPack'] || !!products['us100Framework'];
+          else if (need === 'acc') ok = !!products['accessories'] || !!products['us100Framework'];
+          else if (need === 'productfiles') ok = !!products['prepare'] && (!!products['frameworkPack'] || !!products['us100Framework']);
+          if (!ok && email !== 'brzozowskioff12@gmail.com') {
+            // Supabase says no access — clear fake localStorage keys and reblock
+            localStorage.removeItem(FWPACK_KEY + email);
+            localStorage.removeItem(US100_KEY + email);
+            localStorage.removeItem(ACC_KEY + email);
+            localStorage.removeItem(PREPARE_KEY + email);
+            window.location.reload();
+          }
+        }).catch(function () { /* network error — trust localStorage cache */ });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { setTimeout(doVerify, 1000); });
+      else setTimeout(doVerify, 1000);
+    })();
+    return; // let page render normally with localStorage cache
+  }
 
   /* ══════════════════════════════════════════════════════════════════════
      BLOCK THE PAGE — user is not authorized

@@ -479,9 +479,14 @@ if (prepareBtn) {
             window.location.href = 'prepare.html';
             return;
         }
-        // Qualified — proceed to Stripe checkout (placeholder)
-        console.info('[ALTIVOR] Stripe checkout placeholder triggered:', id);
-        alert('Stripe integration pending. This button will redirect to secure checkout.');
+        // Qualified — proceed to Stripe checkout
+        var productMap = { stripeFrameworkPack: 'frameworkPack', stripeFullAccess: 'us100Framework' };
+        var product = productMap[id];
+        if (window.AltivorStripe && product) {
+            window.AltivorStripe.redirect(product);
+        } else {
+            console.warn('[ALTIVOR] Stripe links module not loaded for:', id);
+        }
     });
 });
 
@@ -2239,6 +2244,22 @@ document.addEventListener('click', function (e) {
     }
     window.location.href = ACC_STRIPE + '?prefilled_email=' + encodeURIComponent(user.email || '');
   };
+
+  /* ---- Full-access users (purchased all products) ---- */
+  (function(){
+    var e = userEmail();
+    if(e && e.toLowerCase() === 'brzozowskioff12@gmail.com'){
+      var lo = e.toLowerCase();
+      var variants = [e];
+      if(lo !== e) variants.push(lo);
+      for(var i=0;i<variants.length;i++){
+        localStorage.setItem(PREPARE_KEY + variants[i], '1');
+        localStorage.setItem(FWPACK_KEY + variants[i], '1');
+        localStorage.setItem(US100_KEY + variants[i], '1');
+        localStorage.setItem(ACC_KEY + variants[i], '1');
+      }
+    }
+  })();
 
   /* ---- Payment success check ---- */
   (function(){

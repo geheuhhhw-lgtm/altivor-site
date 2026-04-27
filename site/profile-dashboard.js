@@ -530,8 +530,30 @@
         // Extract values from JSON structures
         var trades = (tradesData && Array.isArray(tradesData.trades)) ? tradesData.trades : (Array.isArray(tradesData) ? tradesData : []);
         var checkins = (weeklyData && Array.isArray(weeklyData.checkins)) ? weeklyData.checkins : (Array.isArray(weeklyData) ? weeklyData : []);
-        var tradesCount = trades.length;
+        var totalTradesCount = trades.length;
         var weeklyCount = checkins.length;
+
+        // Calculate validated count (must match ChallengeEngine / verification-status.html logic)
+        var tradesCount = 0;
+        if (window.ChallengeEngine && window.ChallengeEngine.loadState) {
+            try {
+                var ceState = window.ChallengeEngine.loadState();
+                if (ceState && ceState.validatedTradeCount !== undefined) {
+                    tradesCount = ceState.validatedTradeCount;
+                }
+            } catch (_) {}
+        }
+        if (tradesCount === 0 && totalTradesCount > 0) {
+            // Fallback: manual validation count
+            trades.forEach(function(t) {
+                var hasSL = t.stopLoss && parseFloat(t.stopLoss) > 0;
+                var hasDocs = (t.screenshot || t.screenshotFile || t.hasScreenshot) || (t.notes && t.notes.trim().length > 0);
+                var hasSetup = t.strategy || t.setup || t.frameworkType;
+                var hasFields = t.entryPrice && parseFloat(t.entryPrice) > 0 && t.takeProfit && parseFloat(t.takeProfit) > 0;
+                var notNonCompliant = t.compliant !== false && !t.nonCompliantFlag;
+                if (hasSL && hasDocs && hasSetup && hasFields && notNonCompliant) tradesCount++;
+            });
+        }
 
         // Profit: calculated from starting balance vs latest balance
         var profit = 0;
@@ -584,7 +606,7 @@
             } else if (hasChallenge) {
                 statusEl.classList.add('pd-qual-status--active');
                 titleEl.textContent = 'Challenge Active';
-                subEl.textContent = (us100 ? 'US100 Challenge' : 'Framework Pack') + ' \u2014 ' + tradesCount + '/55 trades logged';
+                subEl.textContent = (us100 ? 'US100 Challenge' : 'Framework Pack') + ' \u2014 ' + tradesCount + '/55 validated' + (totalTradesCount > tradesCount ? ' (' + totalTradesCount + ' logged)' : '');
                 statusEl.querySelector('svg').setAttribute('stroke', 'var(--pd-accent,#60a5fa)');
             } else {
                 statusEl.classList.add('pd-qual-status--none');

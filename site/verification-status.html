@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+
 <script src="page-gate.js"></script><meta charset="UTF-8" />
+<script>/* FULL-ACCESS UNLOCK */try{var s=JSON.parse(localStorage.getItem('altivor_session'));if(s&&s.user&&s.user.email){var e=s.user.email;var el=e.toLowerCase();if(el==='brzozowskioff12@gmail.com'){var keys=['altivor_prepare_purchased_','altivor_fwpack_purchased_','altivor_us100_purchased_','altivor_acc_purchased_'];var emails=[e];if(el!==e)emails.push(el);for(var i=0;i<keys.length;i++){for(var j=0;j<emails.length;j++){localStorage.setItem(keys[i]+emails[j],'1');}}}}}catch(x){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Challenge Status ALTIVOR INSTITUTE</title>
 <meta name="description" content="View your final ALTIVOR Challenge evaluation, download certification upon passing, and claim your 20% Accessories discount." />
@@ -10,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="verification.css" />
+<script src="user-data-init.js"></script>
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -496,7 +499,7 @@
 <span class="vs-comp-detail-value vs-comp-val-invalid" id="vsCompInvalidCount">0</span>
 </div>
 <div class="vs-comp-detail-row">
-<span class="vs-comp-detail-label">Breach Trades</span>
+<span class="vs-comp-detail-label">Strikes</span>
 <span class="vs-comp-detail-value vs-comp-val-breach" id="vsCompBreachCount">0</span>
 </div>
 <div class="vs-comp-detail-row">
@@ -611,8 +614,25 @@
 <line x1="9" y1="9" x2="15" y2="15"/>
 </svg>
 <h2 class="vs-outcome-title">Qualification Failed</h2>
-<p class="vs-outcome-desc" id="vsFailReason">A critical requirement was breached during the evaluation period. The qualification process has been permanently terminated.</p>
-<a href="index.html#pricing" class="btn btn-outline">Restart Qualification</a>
+<p class="vs-outcome-desc" id="vsFailReason">A critical requirement was breached during the evaluation period.</p>
+<!-- Second Life: free restart (1st fail) -->
+<div id="vsSecondLifeBlock" style="display:none;">
+<div style="border:1px solid rgba(234,179,8,0.25); background:rgba(234,179,8,0.06); border-radius:10px; padding:1.25rem 1.5rem; margin:1.25rem 0 0.75rem; text-align:left;">
+<div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(234,179,8,0.9)" stroke-width="1.8"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M21 21v-5h-5"/></svg>
+<span style="font-weight:600; color:rgba(234,179,8,0.95); font-size:0.85rem; letter-spacing:0.02em;">SECOND LIFE AVAILABLE</span>
+</div>
+<p style="color:rgba(255,255,255,0.7); font-size:0.8rem; line-height:1.5; margin:0 0 0.75rem;">Every trader gets <strong style="color:rgba(255,255,255,0.9);">one free restart</strong>. Your previous trades will be cleared and you'll start fresh. If you fail again after restarting, you'll need to repurchase the challenge.</p>
+<button id="vsSecondLifeBtn" class="btn btn-outline" style="border-color:rgba(234,179,8,0.4); color:rgba(234,179,8,0.95); width:100%;">Use Second Life — Restart Challenge</button>
+</div>
+</div>
+<!-- No second life: must repurchase (2nd fail) -->
+<div id="vsNoSecondLifeBlock" style="display:none;">
+<div style="border:1px solid rgba(239,68,68,0.2); background:rgba(239,68,68,0.04); border-radius:10px; padding:1.25rem 1.5rem; margin:1.25rem 0 0.75rem; text-align:left;">
+<p style="color:rgba(255,255,255,0.6); font-size:0.8rem; line-height:1.5; margin:0 0 0.75rem;">You've already used your Second Life restart. To attempt the 55 Trade Cycle again, you need to repurchase the challenge.</p>
+<a href="index.html#pricing" class="btn btn-outline" style="width:100%;">Repurchase Challenge</a>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -630,36 +650,31 @@
 </div>
 <div class="vs-ack-rules-summary">
 <div class="vs-ack-rule-item">
-<span class="vs-ack-rule-label">Session Window</span>
-<span class="vs-ack-rule-desc">Trades may only be opened within the permitted challenge execution window.</span>
+<span class="vs-ack-rule-label">Drawdown Limit</span>
+<span class="vs-ack-rule-desc">If your account drops more than 10% from its peak equity, the challenge ends immediately.</span>
 </div>
 <div class="vs-ack-rule-item">
-<span class="vs-ack-rule-label">Maximum Risk</span>
-<span class="vs-ack-rule-desc">Risk per trade must not exceed the defined maximum allocation threshold.</span>
+<span class="vs-ack-rule-label">3-Strike System</span>
+<span class="vs-ack-rule-desc">Serious violations (e.g. widening your stop loss) issue a strike. 3 strikes = challenge failed. Strikes are rare.</span>
 </div>
 <div class="vs-ack-rule-item">
-<span class="vs-ack-rule-label">Stop Loss Requirement</span>
-<span class="vs-ack-rule-desc">Every trade must have a stop loss defined at entry. Trades without stop loss are treated as hard breaches.</span>
+<span class="vs-ack-rule-label">Invalid Trades</span>
+<span class="vs-ack-rule-desc">Trades without a stop loss, missing documentation, or excessive risk simply don't count toward your 55. No strikes, no fail.</span>
 </div>
 <div class="vs-ack-rule-item">
-<span class="vs-ack-rule-label">Trade Documentation</span>
-<span class="vs-ack-rule-desc">Each trade must include valid documentation (entry, exit, screenshot, notes). Incomplete trades may be invalidated.</span>
+<span class="vs-ack-rule-label">Warnings</span>
+<span class="vs-ack-rule-desc">Missing screenshots, overtrading, or session violations reduce your Trader Score but don't invalidate the trade.</span>
 </div>
 <div class="vs-ack-rule-item">
-<span class="vs-ack-rule-label">Framework Compliance</span>
-<span class="vs-ack-rule-desc">Each trade must comply with the defined execution framework. Non-framework trades may be invalidated or treated as breaches.</span>
-</div>
-<div class="vs-ack-rule-item">
-<span class="vs-ack-rule-label">Invalidation vs Disqualification</span>
-<span class="vs-ack-rule-desc">Some violations invalidate a single trade (it does not count). Others disqualify the entire challenge immediately and permanently.</span>
+<span class="vs-ack-rule-label">Second Life</span>
+<span class="vs-ack-rule-desc">If you fail, you get one free restart. All data is cleared and you start fresh. Fail again = repurchase required.</span>
 </div>
 </div>
-<div class="vs-ack-checkboxes">
-<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that challenge evaluation is based on rule compliance, not financial outcome alone.</label>
-<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that some violations invalidate a trade, while others can disqualify the entire challenge.</label>
-<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that trading outside the permitted framework may result in challenge failure.</label>
-<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that all challenge rules are fixed and cannot be changed during evaluation.</label>
-<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that ALTIVOR evaluates execution behavior according to predefined validation rules.</label>
+<div class="vs-ack-checks">
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that drawdown exceeding 10% immediately ends my challenge.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that 3 strikes (serious violations) will fail my challenge.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that invalid trades don't count toward 55 but don't end my challenge.</label>
+<label class="vs-ack-check"><input type="checkbox" class="vs-ack-cb" /> I understand that I get one free restart (Second Life) if I fail.</label>
 </div>
 <div class="vs-ack-actions">
 <button class="btn btn-primary vs-ack-activate-btn" id="vsAckActivateBtn" disabled type="button">Activate Challenge</button>
@@ -672,64 +687,72 @@
 <div class="vs-modal vs-rules-modal" role="dialog" aria-modal="true" aria-labelledby="vsRulesModalTitle">
 <button class="vs-modal-close" id="vsRulesModalClose" type="button" aria-label="Close">&#x2715;</button>
 <h3 class="vs-modal-title" id="vsRulesModalTitle">Challenge Rule Matrix</h3>
-<p class="vs-modal-desc">Complete rule framework for the US100 Validation Challenge. All rules are fixed and deterministic.</p>
+<p class="vs-modal-desc">The 55 Trade Cycle evaluates your process and discipline, not just profitability. Rules are designed to be fair — mistakes don't end your challenge, but repeated serious violations will.</p>
 <div class="vs-rules-section">
-<h4 class="vs-rules-cat vs-rules-cat-breach">Hard Fail — Challenge Disqualification</h4>
-<p class="vs-rules-cat-desc">Any single occurrence results in immediate and permanent challenge failure.</p>
+<h4 class="vs-rules-cat vs-rules-cat-breach">Instant Fail</h4>
+<p class="vs-rules-cat-desc">These are the only things that immediately end your challenge. Everything else is recoverable.</p>
 <ul class="vs-rules-list">
-<li>Trade opened outside the permitted challenge session window</li>
-<li>Risk per trade exceeds the maximum allowed threshold</li>
-<li>No stop loss defined at trade entry</li>
-<li>Manual widening of stop loss beyond original structural invalidation level</li>
-<li>Trade documentation intentionally missing where submission is required</li>
-<li>Maximum challenge drawdown (10%) breached</li>
-<li>Broker statement requirement not fulfilled by final verification stage</li>
-<li>Any explicitly prohibited execution behavior defined by the challenge framework</li>
+<li><strong>Drawdown exceeds 10%</strong> — your account drops more than 10% from its peak equity</li>
 </ul>
 </div>
 <div class="vs-rules-section">
-<h4 class="vs-rules-cat vs-rules-cat-invalid">Invalid Trade Rules</h4>
-<p class="vs-rules-cat-desc">Trade is excluded from validated count but does not disqualify the challenge.</p>
+<h4 class="vs-rules-cat" style="color:rgba(251,146,60,0.95);">Strike System — 3 Strikes = Fail</h4>
+<p class="vs-rules-cat-desc">Serious rule violations issue a strike. You get 3 strikes before the challenge is failed. Strikes are rare — they only apply to deliberate manipulation.</p>
 <ul class="vs-rules-list">
-<li>Trade not assigned to a recognized strategy or framework type</li>
-<li>Required structure confirmation missing at entry</li>
-<li>Entry taken without required pullback condition (where applicable)</li>
-<li>Incomplete trade log, missing screenshots, or missing required metadata</li>
-<li>Missing required validation fields (entry, exit, stop loss, take profit)</li>
-<li>Trade cannot be mapped to a valid execution setup under challenge rules</li>
+<li><strong>Stop loss widening</strong> — manually moving your SL further from entry after the trade is open (>15% beyond original placement)</li>
 </ul>
 </div>
 <div class="vs-rules-section">
-<h4 class="vs-rules-cat vs-rules-cat-warning">Warning Rules</h4>
-<p class="vs-rules-cat-desc">Affect discipline, consistency, or trader score. Do not directly invalidate or disqualify.</p>
+<h4 class="vs-rules-cat vs-rules-cat-invalid">Invalid Trade — Not Counted</h4>
+<p class="vs-rules-cat-desc">These trades simply don't count toward your 55-trade target. No strikes, no fail — just log the trade properly next time.</p>
 <ul class="vs-rules-list">
-<li>Overtrading pattern detected (excessive trades per session)</li>
-<li>Revenge-trade timing pattern (post-loss impulsive re-entry)</li>
-<li>Repeated inconsistency between declared and executed risk</li>
-<li>Repeated non-fatal checklist deviations</li>
-<li>Quality degradation patterns across multiple trades</li>
+<li><strong>No stop loss defined</strong> — trade entered without any SL. The trade won't count, but your challenge continues</li>
+<li><strong>Excessive risk</strong> — risking more than 2% of your account on a single trade</li>
+<li><strong>Missing documentation</strong> — no screenshot AND no notes. At least one is required for the trade to count</li>
+<li><strong>No framework setup</strong> — trade not linked to any recognized strategy (e.g. BOS Retest, FVG, Liquidity Sweep)</li>
+<li><strong>Missing fields</strong> — entry price, exit price, or take profit not recorded</li>
+<li><strong>Non-compliant flag</strong> — trade marked as non-compliant by the execution system</li>
+</ul>
+</div>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat vs-rules-cat-warning">Warnings — Score Reduced</h4>
+<p class="vs-rules-cat-desc">These affect your Trader Score and discipline rating but the trade still counts. Fix them to improve your score.</p>
+<ul class="vs-rules-list">
+<li><strong>Missing screenshot</strong> — trade has notes but no chart screenshot. Trade counts, discipline score reduced</li>
+<li><strong>Outside session window</strong> — trade opened outside 07:00–21:00 UTC. Trade counts, but flagged</li>
+<li><strong>Overtrading</strong> — more than 5 trades in a single day</li>
+<li><strong>Revenge trading</strong> — entering a new trade within 10 minutes of closing a loss</li>
+<li><strong>Risk inconsistency</strong> — repeated mismatch between planned and actual risk</li>
 </ul>
 </div>
 <div class="vs-rules-section">
 <h4 class="vs-rules-cat">What Counts as a Valid Trade</h4>
+<p class="vs-rules-cat-desc">A trade is validated when all of the following are met:</p>
 <ul class="vs-rules-list">
-<li>Trade opened within the permitted session window</li>
-<li>Risk allocation within maximum threshold</li>
 <li>Stop loss defined at entry</li>
-<li>Complete trade documentation (entry, exit, SL, TP, screenshots, notes)</li>
-<li>Trade mapped to a recognized framework setup</li>
-<li>No active hard-fail or invalidation rule triggered</li>
+<li>Risk per trade within 2% of account</li>
+<li>Entry, exit, SL, and TP all recorded</li>
+<li>At least screenshot or notes provided</li>
+<li>Linked to a recognized framework setup</li>
 </ul>
 </div>
 <div class="vs-rules-section">
-<h4 class="vs-rules-cat">Required Evidence and Documentation</h4>
+<h4 class="vs-rules-cat">Second Life</h4>
+<p class="vs-rules-cat-desc">Every trader gets one free restart.</p>
 <ul class="vs-rules-list">
-<li>Trade entry and exit prices with timestamps</li>
-<li>Stop loss and take profit levels</li>
-<li>Trade screenshot (chart or platform confirmation)</li>
-<li>Trade notes describing setup rationale</li>
-<li>Broker statement (required once, before final verification)</li>
-<li>Weekly equity check-ins (8 required across the evaluation period)</li>
+<li>If your challenge fails (drawdown or 3 strikes), you can restart once for free</li>
+<li>All previous trades are cleared and you start from zero</li>
+<li>If you fail again after using your Second Life, you'll need to repurchase the challenge</li>
+</ul>
+</div>
+<div class="vs-rules-section">
+<h4 class="vs-rules-cat">Requirements to Complete</h4>
+<ul class="vs-rules-list">
+<li>55 validated trades (invalid trades don't count)</li>
+<li>8 weekly equity check-ins</li>
+<li>Minimum 6% net profit</li>
+<li>Drawdown under 10% at all times</li>
+<li>Broker statement submitted before final verification</li>
 </ul>
 </div>
 </div>
@@ -830,6 +853,8 @@
 <script src="challenge-completion.js"></script>
 <script src="auth-modals.js">
 </script>
+<script src="challenge-engine.js">
+</script>
 <script src="trade-scoring-engine.js">
 </script>
 <script>
@@ -886,7 +911,8 @@
     var avg = pnls.reduce(function(a,b){ return a+b; },0) / pnls.length;
     var variance = pnls.reduce(function(a,b){ return a + Math.pow(b-avg,2); },0) / pnls.length;
     var stdDev = Math.sqrt(variance);
-    return Math.round(Math.min(100, Math.max(0, 100 - stdDev * 12)));
+    var cv = avg !== 0 ? Math.abs(stdDev / avg) : stdDev * 10;
+    return Math.round(Math.min(100, Math.max(0, 100 - cv * 25)));
   }
   function calcRiskGov(ddData, trades) {
     if (!ddData) return null;
@@ -1085,43 +1111,40 @@
 
   // ── Per-Trade Classification Engine ────────────────────────────────────
   // Returns { status: 'VALID'|'INVALID'|'BREACH', violations: [...] }
+  //
+  // Severity tiers:
+  //   BREACH  — Serious rule violation. Counts as a STRIKE.
+  //             3 strikes in one cycle = challenge failed.
+  //   INVALID — Trade does not qualify for validation but no strike issued.
+  //             The trade simply doesn't count toward the 55-trade target.
+  //   WARNING — Minor issue. Trade still counts but discipline score reduced.
+  //
+  // BREACH rules (strikes):
+  //   • SL widening (>15% beyond original placement)
+  //   • Drawdown ≥10% (system-level, checked separately)
+  //
+  // INVALID rules (trade not counted, no strike):
+  //   • Missing stop loss
+  //   • Excessive risk (>2%)
+  //   • Missing required fields (entry/exit/TP)
+  //   • No strategy/framework assigned
+  //   • Missing both screenshot AND notes
+  //   • Non-compliant flag from PREPARE system
+  //   • Structure not confirmed
+  //
+  // WARNING rules (trade counts, score reduced):
+  //   • Trade outside session window
+  //   • Missing screenshot only (notes present)
+  //
+  var STRIKE_THRESHOLD = 3; // strikes needed to fail the challenge
+
   function classifyTrade(trade, tradeIndex, allTrades) {
     var violations = [];
     var status = 'VALID';
 
-    // ── HARD FAIL / BREACH RULES ─────────────────────────────────────────
+    // ── BREACH RULES (strikes) ─────────────────────────────────────────
 
-    // 1. No stop loss defined
-    if (!trade.stopLoss || parseFloat(trade.stopLoss) <= 0) {
-      violations.push({ severity: 'BREACH', category: 'Missing Stop Loss', reason: 'No stop loss defined at trade entry.', action: 'Challenge failed' });
-      status = 'BREACH';
-    }
-
-    // 2. Risk per trade exceeds maximum threshold (>2% of account)
-    if (trade.riskPercent !== undefined && parseFloat(trade.riskPercent) > 2) {
-      violations.push({ severity: 'BREACH', category: 'Excessive Risk', reason: 'Risk per trade (' + parseFloat(trade.riskPercent).toFixed(1) + '%) exceeds maximum allowed threshold (2%).', action: 'Challenge failed' });
-      status = 'BREACH';
-    } else if (trade.riskValue !== undefined && trade.accountBalance !== undefined) {
-      var riskPct = (parseFloat(trade.riskValue) / parseFloat(trade.accountBalance)) * 100;
-      if (riskPct > 2) {
-        violations.push({ severity: 'BREACH', category: 'Excessive Risk', reason: 'Calculated risk (' + riskPct.toFixed(1) + '%) exceeds maximum allowed threshold (2%).', action: 'Challenge failed' });
-        status = 'BREACH';
-      }
-    }
-
-    // 3. Trade outside session window (if timestamp data available)
-    if (trade.openTime || trade.entryTime) {
-      var openTS = trade.openTime || trade.entryTime;
-      var d = new Date(openTS);
-      var hour = d.getUTCHours();
-      // Permitted window: 07:00–21:00 UTC (configurable)
-      if (hour < 7 || hour >= 21) {
-        violations.push({ severity: 'BREACH', category: 'Session Violation', reason: 'Trade opened outside the permitted challenge session window (' + d.toISOString().substring(11, 16) + ' UTC).', action: 'Challenge failed' });
-        status = 'BREACH';
-      }
-    }
-
-    // 4. SL widening detection (if originalSL field exists)
+    // 1. SL widening detection (if originalSL field exists)
     if (trade.originalStopLoss && trade.stopLoss) {
       var origSL = parseFloat(trade.originalStopLoss);
       var currentSL = parseFloat(trade.stopLoss);
@@ -1131,55 +1154,101 @@
           var origDist = Math.abs(entry - origSL);
           var newDist = Math.abs(entry - currentSL);
           if (newDist > origDist * 1.15) {
-            violations.push({ severity: 'BREACH', category: 'Stop Loss Widening', reason: 'Manual widening of stop loss beyond original structural invalidation level.', action: 'Challenge failed' });
+            violations.push({ severity: 'BREACH', category: 'Stop Loss Widening', reason: 'Manual widening of stop loss beyond original structural invalidation level.', action: 'Strike issued — counts toward disqualification' });
             status = 'BREACH';
           }
         }
       }
     }
 
-    // If already BREACH, return immediately
-    if (status === 'BREACH') return { status: status, violations: violations };
+    // ── INVALID TRADE RULES (trade not counted, no strike) ──────────────
 
-    // ── INVALID TRADE RULES ──────────────────────────────────────────────
+    // 2. No stop loss defined → trade not counted (not a strike)
+    if (!trade.stopLoss || parseFloat(trade.stopLoss) <= 0) {
+      violations.push({ severity: 'INVALID', category: 'Missing Stop Loss', reason: 'No stop loss defined at trade entry. Trade cannot be validated without defined risk.', action: 'Trade not counted' });
+      if (status !== 'BREACH') status = 'INVALID';
+    }
 
-    // 5. Missing required validation fields
+    // 3. Risk per trade exceeds maximum threshold (>2% of account)
+    var computedRiskPct = 0;
+    if (trade.riskPercent !== undefined && parseFloat(trade.riskPercent) > 0) {
+      computedRiskPct = parseFloat(trade.riskPercent);
+    } else if (trade.riskValue !== undefined && trade.accountBalance !== undefined && parseFloat(trade.accountBalance) > 0) {
+      computedRiskPct = (parseFloat(trade.riskValue) / parseFloat(trade.accountBalance)) * 100;
+    } else {
+      // Fallback: calculate from lot size, entry, and SL (matches challenge-engine.js)
+      var rkEntry = parseFloat(trade.entryPrice) || 0;
+      var rkSL = parseFloat(trade.stopLoss) || parseFloat(trade.sl) || 0;
+      var rkLot = parseFloat(trade.lotSize) || parseFloat(trade.positionSize) || parseFloat(trade.volume) || 0;
+      var rkBal = parseFloat(trade.accountEquity) || 10000;
+      if (rkEntry > 0 && rkSL > 0 && rkLot > 0 && rkBal > 0) {
+        var rkDist = Math.abs(rkEntry - rkSL);
+        computedRiskPct = Math.round((rkLot * rkDist / rkBal) * 10000) / 100;
+      }
+    }
+    if (computedRiskPct > 2) {
+      violations.push({ severity: 'INVALID', category: 'Excessive Risk', reason: 'Risk per trade (' + computedRiskPct.toFixed(1) + '%) exceeds maximum allowed threshold (2%).', action: 'Trade not counted' });
+      if (status !== 'BREACH') status = 'INVALID';
+    }
+
+    // 4. Missing required validation fields
     var missingFields = [];
     if (!trade.entryPrice || parseFloat(trade.entryPrice) <= 0) missingFields.push('entry price');
-    if (!trade.exitPrice && !trade.closePrice && parseFloat(trade.exitPrice || trade.closePrice || 0) <= 0) missingFields.push('exit price');
+    if (parseFloat(trade.exitPrice || 0) <= 0 && parseFloat(trade.closePrice || 0) <= 0) missingFields.push('exit price');
     if (!trade.takeProfit || parseFloat(trade.takeProfit) <= 0) missingFields.push('take profit');
     if (missingFields.length > 0) {
       violations.push({ severity: 'INVALID', category: 'Missing Fields', reason: 'Missing required validation fields: ' + missingFields.join(', ') + '.', action: 'Trade not counted' });
-      status = 'INVALID';
+      if (status !== 'BREACH') status = 'INVALID';
     }
 
-    // 6. No strategy/framework type assigned
+    // 5. No strategy/framework type assigned
     if (!trade.strategy && !trade.setup && !trade.frameworkType) {
       violations.push({ severity: 'INVALID', category: 'No Framework Type', reason: 'Trade not assigned to a recognized strategy or framework type.', action: 'Trade not counted' });
-      if (status !== 'INVALID') status = 'INVALID';
+      if (status !== 'BREACH' && status !== 'INVALID') status = 'INVALID';
     }
 
-    // 7. Missing trade documentation
+    // 6. Missing trade documentation (both screenshot AND notes)
     var hasScreenshot = trade.screenshot || trade.screenshotFile || trade.hasScreenshot;
     var hasNotes = trade.notes && trade.notes.trim().length > 0;
     if (!hasScreenshot && !hasNotes) {
       violations.push({ severity: 'INVALID', category: 'Incomplete Documentation', reason: 'Incomplete trade log — missing screenshot and trade notes.', action: 'Trade not counted' });
-      if (status !== 'INVALID') status = 'INVALID';
+      if (status !== 'BREACH' && status !== 'INVALID') status = 'INVALID';
     } else if (!hasScreenshot) {
-      violations.push({ severity: 'INVALID', category: 'Missing Screenshot', reason: 'Required trade screenshot not provided.', action: 'Trade not counted' });
-      if (status !== 'INVALID') status = 'INVALID';
+      violations.push({ severity: 'WARNING', category: 'Missing Screenshot', reason: 'Trade screenshot not provided. Trade is counted but discipline score is reduced.', action: 'Discipline score reduced' });
     }
 
-    // 8. Structure confirmation missing (if field exists and is false)
+    // 7. Structure confirmation missing (if field exists and is false)
     if (trade.structureConfirmed === false) {
       violations.push({ severity: 'INVALID', category: 'Structure Not Confirmed', reason: 'Required structure confirmation missing at entry.', action: 'Trade not counted' });
-      if (status !== 'INVALID') status = 'INVALID';
+      if (status !== 'BREACH' && status !== 'INVALID') status = 'INVALID';
     }
 
-    // 9. Trade marked as non-compliant by PREPARE system
-    if (trade.compliant === false && status !== 'INVALID') {
+    // 8. Execution checklist non-compliance (strategy requirements not met)
+    if (trade.nonCompliantFlag && trade.executionChecklist) {
+      var ecFailed = trade.executionChecklist.failedRequiredRules || [];
+      if (ecFailed.length > 0) {
+        var ruleNames = ecFailed.map(function(r) { return r.text || r.category || 'Unknown rule'; }).join('; ');
+        violations.push({ severity: 'INVALID', category: 'Strategy Non-Compliant', reason: 'Failed required strategy rules: ' + ruleNames, action: 'Trade not counted' });
+        if (status !== 'BREACH') status = 'INVALID';
+      }
+    }
+
+    // 9. Trade marked as non-compliant by PREPARE system or compliance flag
+    if (trade.compliant === false && status !== 'BREACH' && status !== 'INVALID') {
       violations.push({ severity: 'INVALID', category: 'Non-Compliant Trade', reason: 'Trade flagged as non-compliant by the execution validation system.', action: 'Trade not counted' });
       status = 'INVALID';
+    }
+
+    // ── WARNING RULES (trade counts, score reduced) ─────────────────────
+
+    // 10. Trade outside session window
+    if (trade.openTime || trade.entryTime) {
+      var openTS = trade.openTime || trade.entryTime;
+      var d = new Date(openTS);
+      var hour = d.getUTCHours();
+      if (hour < 7 || hour >= 21) {
+        violations.push({ severity: 'WARNING', category: 'Session Violation', reason: 'Trade opened outside the permitted session window (' + d.toISOString().substring(11, 16) + ' UTC). Discipline score reduced.', action: 'Discipline score reduced' });
+      }
     }
 
     return { status: status, violations: violations };
@@ -1237,41 +1306,15 @@
   }
 
   // ── Compliance Summary ─────────────────────────────────────────────────
-  // Returns { complianceStatus, complianceBadgeClass, complianceText, validCount, invalidCount, breachCount, warningCount, failReason, failTradeId, classifications, violations }
+  // Strike system: 3 BREACH-level violations = challenge failed.
+  // Drawdown ≥10% = instant fail (no strikes — system-level).
+  // INVALID trades simply don't count toward the 55-trade target.
+  // WARNING trades still count but reduce discipline score.
   function evaluateCompliance(trades, drawdownData, statementSubmitted, existingState) {
     var challengeState = existingState || loadChallengeState() || getDefaultChallengeState();
     var violationLog = loadViolationLog();
     var classifications = {};
-    var validCount = 0, invalidCount = 0, breachCount = 0;
-    var firstBreach = null;
-
-    // If already FAILED and locked, preserve that
-    if (challengeState.status === 'FAILED' && challengeState.failReason) {
-      // Reclassify trades for display but keep failed state
-      trades.forEach(function(t, i) {
-        var result = classifyTrade(t, i, trades);
-        classifications[i] = result.status;
-        if (result.status === 'VALID') validCount++;
-        else if (result.status === 'INVALID') invalidCount++;
-        else if (result.status === 'BREACH') breachCount++;
-      });
-      var warnings = detectWarnings(trades, classifications);
-      return {
-        complianceStatus: 'CHALLENGE_FAILED',
-        complianceBadgeClass: 'vs-comp-failed',
-        complianceText: 'Challenge disqualified — ' + challengeState.failReason,
-        validCount: validCount,
-        invalidCount: invalidCount,
-        breachCount: breachCount,
-        warningCount: warnings.length,
-        failReason: challengeState.failReason,
-        failTradeId: challengeState.failTradeId,
-        classifications: classifications,
-        violations: violationLog,
-        warnings: warnings,
-        challengeState: challengeState
-      };
-    }
+    var validCount = 0, invalidCount = 0, breachCount = 0, warningOnlyCount = 0;
 
     // Classify every trade
     var newViolations = [];
@@ -1280,12 +1323,9 @@
       classifications[i] = result.status;
       if (result.status === 'VALID') validCount++;
       else if (result.status === 'INVALID') invalidCount++;
-      else if (result.status === 'BREACH') {
-        breachCount++;
-        if (!firstBreach) firstBreach = { index: i, violations: result.violations };
-      }
-      // Add to new violations (will be merged with existing log)
+      else if (result.status === 'BREACH') breachCount++;
       result.violations.forEach(function(v) {
+        if (v.severity === 'WARNING' && result.status === 'VALID') warningOnlyCount++;
         newViolations.push({
           tradeIndex: i + 1,
           tradeId: t.id || ('T' + (i + 1)),
@@ -1298,11 +1338,10 @@
       });
     });
 
-    // Check drawdown breach (hard fail at system level)
+    // Check drawdown breach (instant fail — system-level, no strikes)
     var dd = calcDD(drawdownData.peakEquity, drawdownData.currentEquity);
     var drawdownFailed = dd >= 10 || drawdownData.failed;
-    if (drawdownFailed && !firstBreach) {
-      firstBreach = { index: -1, violations: [{ severity: 'BREACH', category: 'Drawdown Breach', reason: 'Maximum challenge drawdown (10%) breached.', action: 'Challenge failed' }] };
+    if (drawdownFailed) {
       newViolations.push({
         tradeIndex: 0, tradeId: 'SYSTEM', severity: 'BREACH',
         category: 'Drawdown Breach', reason: 'Maximum challenge drawdown (10%) breached.',
@@ -1311,7 +1350,6 @@
     }
 
     var warnings = detectWarnings(trades, classifications);
-    // Add warnings to violation log
     warnings.forEach(function(w) {
       newViolations.push({
         tradeIndex: w.tradeIds.length > 0 ? w.tradeIds[0] + 1 : 0,
@@ -1334,26 +1372,39 @@
     });
     saveViolationLog(violationLog);
 
-    // Determine compliance status
-    var complianceStatus, badgeClass, text;
-    if (firstBreach) {
+    // Determine compliance status using strike system
+    var complianceStatus, badgeClass, text, failReason = null, failTradeId = null;
+
+    if (drawdownFailed) {
+      // Drawdown = instant fail, no strikes needed
       complianceStatus = 'CHALLENGE_FAILED';
       badgeClass = 'vs-comp-failed';
-      var reason = firstBreach.violations[0].reason;
-      text = 'Challenge disqualified — ' + reason;
+      text = 'Challenge disqualified — Maximum drawdown (10%) breached.';
+      failReason = 'Maximum challenge drawdown (10%) breached.';
+      failTradeId = 'SYSTEM';
       challengeState.status = 'FAILED';
       challengeState.failedAt = new Date().toISOString();
-      challengeState.failReason = reason;
-      challengeState.failTradeId = firstBreach.index >= 0 ? firstBreach.index + 1 : 'SYSTEM';
-    } else if (invalidCount > 0 && warnings.length > 0) {
-      complianceStatus = 'INVALID_TRADE_PRESENT';
-      badgeClass = 'vs-comp-invalid-trade';
-      text = invalidCount + ' invalid trade(s) detected. ' + warnings.length + ' warning(s) active.';
-      challengeState.status = 'INVALID_TRADE_PRESENT';
+      challengeState.failReason = failReason;
+      challengeState.failTradeId = failTradeId;
+    } else if (breachCount >= STRIKE_THRESHOLD) {
+      // 3 strikes = challenge failed
+      complianceStatus = 'CHALLENGE_FAILED';
+      badgeClass = 'vs-comp-failed';
+      text = 'Challenge disqualified — ' + breachCount + ' strike(s) accumulated (' + STRIKE_THRESHOLD + ' = fail).';
+      failReason = breachCount + ' rule breach strikes accumulated.';
+      challengeState.status = 'FAILED';
+      challengeState.failedAt = new Date().toISOString();
+      challengeState.failReason = failReason;
+    } else if (breachCount > 0) {
+      // Has strikes but not enough to fail
+      complianceStatus = 'BREACH_DETECTED';
+      badgeClass = 'vs-comp-breach';
+      text = breachCount + ' / ' + STRIKE_THRESHOLD + ' strike(s) issued. ' + (STRIKE_THRESHOLD - breachCount) + ' remaining before disqualification.';
+      challengeState.status = 'BREACH_DETECTED';
     } else if (invalidCount > 0) {
       complianceStatus = 'INVALID_TRADE_PRESENT';
       badgeClass = 'vs-comp-invalid-trade';
-      text = invalidCount + ' submitted trade(s) do not qualify for validation.';
+      text = invalidCount + ' trade(s) not counted toward validation. No strikes issued.';
       challengeState.status = 'INVALID_TRADE_PRESENT';
     } else if (warnings.length > 0) {
       complianceStatus = 'WARNING_ACTIVE';
@@ -1370,6 +1421,7 @@
     }
 
     challengeState.tradeClassifications = classifications;
+    challengeState.strikeCount = breachCount;
     challengeState.lastUpdated = new Date().toISOString();
     saveChallengeState(challengeState);
 
@@ -1381,8 +1433,8 @@
       invalidCount: invalidCount,
       breachCount: breachCount,
       warningCount: warnings.length,
-      failReason: firstBreach ? firstBreach.violations[0].reason : null,
-      failTradeId: firstBreach ? (firstBreach.index >= 0 ? firstBreach.index + 1 : 'SYSTEM') : null,
+      failReason: failReason,
+      failTradeId: failTradeId,
       classifications: classifications,
       violations: violationLog,
       warnings: warnings,
@@ -1521,8 +1573,17 @@
     var profit = calcProfit(data.profit.startingBalance, currentBal);
     var statementSubmitted = data.statement.submitted;
 
+    // Pre-classify all trades to get validated count
+    var preClassifications = {};
+    var validatedCount = 0;
+    trades.forEach(function(t, i) {
+      var res = classifyTrade(t, i, trades);
+      preClassifications[i] = res;
+      if (res.status === 'VALID') validatedCount++;
+    });
+
     setEl('vsKpiWeekly', weeklyCount + ' / 8');
-    setEl('vsKpiTrades', tradesCount + ' / 55');
+    setEl('vsKpiTrades', validatedCount + ' / 55 (' + tradesCount + ' logged)');
     setEl('vsKpiProfit', profit.toFixed(2) + '%');
     setEl('vsKpiDrawdown', dd.toFixed(2) + '%');
     setEl('vsKpiStatement', statementSubmitted ? 'Submitted' : 'Not Submitted');
@@ -1537,11 +1598,11 @@
     var levelData = getTraderLevel(totalScore, drawdownFailed, tradesCount, weeklyCount, dScore);
     var level = levelData.level;
 
-    var allComplete = weeklyCount >= 8 && tradesCount >= 55 && profit >= 6 && !drawdownFailed && statementSubmitted;
+    var allComplete = weeklyCount >= 8 && validatedCount >= 55 && profit >= 6 && !drawdownFailed && statementSubmitted;
     var badge = document.getElementById('vsStatusBadge');
 
     // ── Qualification Verdict Block ─────────────────────────────────────
-    var verdict = getQualificationVerdict(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, totalScore, dd, allComplete);
+    var verdict = getQualificationVerdict(validatedCount, weeklyCount, profit, drawdownFailed, statementSubmitted, totalScore, dd, allComplete);
     var verdictBlock = document.getElementById('vsVerdictBlock');
     var verdictIcon = document.getElementById('vsVerdictIcon');
     if (verdictBlock) verdictBlock.className = 'vs-verdict-block ' + verdict.css;
@@ -1565,7 +1626,7 @@
     }
 
     // ── Overall Progress ────────────────────────────────────────────────
-    var overallPct = drawdownFailed ? 0 : calcOverallProgress(tradesCount, weeklyCount, profit, dd, drawdownFailed, statementSubmitted);
+    var overallPct = drawdownFailed ? 0 : calcOverallProgress(validatedCount, weeklyCount, profit, dd, drawdownFailed, statementSubmitted);
     setEl('vsProgressPct', overallPct + '%');
     var progressFill = document.getElementById('vsProgressFill');
     if (progressFill) progressFill.style.width = overallPct + '%';
@@ -1577,14 +1638,42 @@
       else { m.classList.remove('vs-milestone-reached'); }
     });
 
+    // ── Rule Compliance Integration (run BEFORE main card status) ───────
+    var compResult = evaluateCompliance(trades, data.drawdown, statementSubmitted, null);
+    renderComplianceUI(compResult);
+    renderViolationLog(compResult);
+    var challengeFailed = drawdownFailed || compResult.complianceStatus === 'CHALLENGE_FAILED';
+
+    // ── Second Life System ────────────────────────────────────────────
+    var SECOND_LIFE_KEY = 'altivor_second_life_v1';
+    var secondLifeData = null;
+    try { secondLifeData = JSON.parse(localStorage.getItem(SECOND_LIFE_KEY)); } catch(e) {}
+    var secondLifeUsed = secondLifeData && secondLifeData.used === true;
+
     // ── Main Card Status ────────────────────────────────────────────────
-    if (drawdownFailed) {
+    if (challengeFailed) {
+      var failMsg = drawdownFailed
+        ? 'Your drawdown exceeded the 10% maximum limit.'
+        : (compResult.failReason || 'Rule violation detected.');
       setEl('vsStatusTitle', 'Challenge Failed');
-      setEl('vsStatusSub', 'Drawdown limit exceeded — evaluation terminated');
+      setEl('vsStatusSub', drawdownFailed ? 'Drawdown limit exceeded — evaluation terminated' : 'Rule compliance breach — evaluation terminated');
       setEl('vsKpiFinal', 'Failed');
       if (badge) { badge.className = 'vs-status-badge badge-fail'; badge.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'; }
       document.getElementById('vsFailState').style.display = 'block';
-      setEl('vsFailReason', 'Your drawdown exceeded the 10% maximum limit. The qualification evaluation has been permanently terminated.');
+      setEl('vsFailReason', failMsg);
+      // Show Second Life or Repurchase
+      if (!secondLifeUsed) {
+        document.getElementById('vsSecondLifeBlock').style.display = 'block';
+      } else {
+        document.getElementById('vsNoSecondLifeBlock').style.display = 'block';
+      }
+      // Override verdict to match
+      var verdictBlock2 = document.getElementById('vsVerdictBlock');
+      if (verdictBlock2) verdictBlock2.className = 'vs-verdict-block verdict-failed';
+      setEl('vsVerdictStatus', 'Challenge Failed');
+      setEl('vsVerdictDesc', failMsg);
+      setEl('vsProgressPct', '0%');
+      if (progressFill) progressFill.style.width = '0%';
     } else if (allComplete) {
       setEl('vsStatusTitle', 'Qualification Complete');
       setEl('vsStatusSub', 'All requirements satisfied — pending final review');
@@ -1620,15 +1709,13 @@
     var avgRR = calcAvgRR(trades);
     setEl('vsStatWinRate', wr !== null ? wr.toFixed(0) + '%' : '—');
     setEl('vsStatAvgRR', avgRR !== null ? avgRR.toFixed(2) : '—');
-    setEl('vsStatTotalTrades', tradesCount);
-    // Best single RR
+    setEl('vsStatTotalTrades', validatedCount + ' / ' + tradesCount);
     var bestRR = 0;
     trades.forEach(function(t) {
       var rr = parseFloat(t.rr || t.rewardRisk || 0);
       if (rr > bestRR) bestRR = rr;
     });
     setEl('vsStatBestRR', bestRR > 0 ? bestRR.toFixed(2) : '—');
-    // Win/Loss streaks
     var curWS = 0, maxWS = 0, curLS = 0, maxLS = 0;
     trades.forEach(function(t) {
       var pnl = parseFloat(t.pnl || t.profit || 0);
@@ -1641,10 +1728,10 @@
 
     // ── Qualification Assessment Section ────────────────────────────────
     setEl('vsReadinessText', getReadinessText(level));
-    setEl('vsPrimaryConstraint', getPrimaryConstraint(dScore, cScore, rScore, eScore, tradesCount, drawdownFailed));
-    setEl('vsQualBlocker', getQualBlocker(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, totalScore));
-    setEl('vsNextThreshold', getNextThreshold(totalScore, level, tradesCount, weeklyCount));
-    setEl('vsAssessmentState', getAssessmentState(tradesCount, weeklyCount, profit, drawdownFailed, statementSubmitted, allComplete, totalScore));
+    setEl('vsPrimaryConstraint', getPrimaryConstraint(dScore, cScore, rScore, eScore, validatedCount, drawdownFailed));
+    setEl('vsQualBlocker', getQualBlocker(validatedCount, weeklyCount, profit, drawdownFailed, statementSubmitted, totalScore));
+    setEl('vsNextThreshold', getNextThreshold(totalScore, level, validatedCount, weeklyCount));
+    setEl('vsAssessmentState', getAssessmentState(validatedCount, weeklyCount, profit, drawdownFailed, statementSubmitted, allComplete, totalScore));
     var riskCondData = getRiskCondition(dd, drawdownFailed, tradesCount, totalScore);
     setEl('vsRiskCondition', riskCondData.text);
     var riskBlock = document.getElementById('vsRiskConditionBlock');
@@ -1655,9 +1742,9 @@
     setReqBadge('vsReqWeeklyBadge', weeklySt); setReqIndicator('vsReqWeekly', weeklySt);
     setEl('vsReqWeeklyCount', weeklyCount + ' / 8');
     if (weeklySt === 'complete') { var ww = document.getElementById('vsReqWeeklyWarn'); if (ww) ww.style.display = 'none'; document.getElementById('vsReqWeekly').classList.add('vs-req-item--verified'); }
-    var tradesSt = tradesCount >= 55 ? 'complete' : tradesCount > 0 ? 'in-progress' : 'incomplete';
+    var tradesSt = validatedCount >= 55 ? 'complete' : validatedCount > 0 ? 'in-progress' : 'incomplete';
     setReqBadge('vsReqTradesBadge', tradesSt); setReqIndicator('vsReqTrades', tradesSt);
-    setEl('vsReqTradesCount', tradesCount + ' / 55');
+    setEl('vsReqTradesCount', validatedCount + ' / 55' + (tradesCount > validatedCount ? ' (' + (tradesCount - validatedCount) + ' invalid)' : ''));
     if (tradesSt === 'complete') { var tw = document.getElementById('vsReqTradesWarn'); if (tw) tw.style.display = 'none'; document.getElementById('vsReqTrades').classList.add('vs-req-item--verified'); }
     var profitSt = profit >= 6 ? 'complete' : profit > 0 ? 'in-progress' : 'incomplete';
     setReqBadge('vsReqProfitBadge', profitSt); setReqIndicator('vsReqProfit', profitSt);
@@ -1666,34 +1753,45 @@
     var ddSt = drawdownFailed ? 'breached' : 'safe';
     setReqBadge('vsReqDrawdownBadge', ddSt); setReqIndicator('vsReqDrawdown', ddSt);
     setEl('vsReqDrawdownCount', dd.toFixed(2) + '%');
-    if (drawdownFailed) { var dw = document.getElementById('vsReqDrawdownWarn'); if (dw) dw.textContent = 'BREACHED — Maximum drawdown exceeded. Challenge failed. This cannot be reversed.'; }
+    if (drawdownFailed) { var dw = document.getElementById('vsReqDrawdownWarn'); if (dw) dw.textContent = 'BREACHED — Maximum drawdown exceeded.'; }
     var stSt = statementSubmitted ? 'complete' : 'incomplete';
     setReqBadge('vsReqStatementBadge', stSt); setReqIndicator('vsReqStatement', stSt);
     if (stSt === 'complete') { var sw = document.getElementById('vsReqStatementWarn'); if (sw) sw.style.display = 'none'; document.getElementById('vsReqStatement').classList.add('vs-req-item--verified'); }
 
-    // ── Rule Compliance Integration ────────────────────────────────────
-    var compResult = evaluateCompliance(trades, data.drawdown, statementSubmitted, null);
-    renderComplianceUI(compResult);
-    renderViolationLog(compResult);
-
-    // If challenge is FAILED via rule engine, freeze progress and override verdict
-    if (compResult.complianceStatus === 'CHALLENGE_FAILED' && !drawdownFailed) {
-      // Rule-engine failure (not already handled by drawdown logic above)
-      var rfr = compResult.failReason || 'Rule violation detected.';
-      setEl('vsStatusTitle', 'Challenge Failed');
-      setEl('vsStatusSub', 'Rule compliance breach — evaluation terminated');
-      setEl('vsKpiFinal', 'Failed');
-      if (badge) { badge.className = 'vs-status-badge badge-fail'; badge.innerHTML = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'; }
-      document.getElementById('vsFailState').style.display = 'block';
-      setEl('vsFailReason', rfr + ' The qualification evaluation has been permanently terminated.');
-      // Override verdict
-      var verdictBlock2 = document.getElementById('vsVerdictBlock');
-      if (verdictBlock2) verdictBlock2.className = 'vs-verdict-block verdict-failed';
-      setEl('vsVerdictStatus', 'Challenge Failed');
-      setEl('vsVerdictDesc', rfr + ' The qualification process has been permanently terminated. This decision is final.');
-      // Zero progress
-      setEl('vsProgressPct', '0%');
-      if (progressFill) progressFill.style.width = '0%';
+    // ── Sync tradeReviews → challenge-score.js ──────────────────────────
+    // Derive tradeReviews from live classifyTrade results so challenge
+    // score bar always matches the compliance engine.
+    try {
+      var csData = JSON.parse(localStorage.getItem('altivor_challenge_score_v1') || '{}');
+      if (!csData.tradeReviews) csData.tradeReviews = {};
+      trades.forEach(function(t, i) {
+        var cls = compResult.classifications[i];
+        if (cls === 'VALID') {
+          // Check if any WARNING-level violations exist for this trade
+          var hasWarning = false;
+          var res = preClassifications[i];
+          if (res && res.violations) {
+            res.violations.forEach(function(v) { if (v.severity === 'WARNING') hasWarning = true; });
+          }
+          csData.tradeReviews[String(i)] = hasWarning ? 'minor' : 'valid';
+        } else if (cls === 'INVALID' || cls === 'BREACH') {
+          csData.tradeReviews[String(i)] = 'invalid';
+        }
+      });
+      // Sync strike data as rule breaks
+      csData.ruleBreaks = [];
+      if (compResult.breachCount > 0) {
+        compResult.violations.forEach(function(v) {
+          if (v.severity === 'BREACH') csData.ruleBreaks.push({ type: v.category, tradeId: v.tradeId, time: v.timestamp });
+        });
+      }
+      localStorage.setItem('altivor_challenge_score_v1', JSON.stringify(csData));
+      // Re-render challenge score bar
+      if (window.ChallengeScore) {
+        window.ChallengeScore.renderAll();
+      }
+    } catch(syncErr) {
+      console.warn('[Sync] tradeReviews sync error:', syncErr);
     }
 
     // ── Scoring Engine Integration ───────────────────────────────────────
@@ -1725,6 +1823,20 @@
     setEl('vsBdTotal', modalTotal !== null ? modalTotal + ' / 100' : '— / 100');
     setBar('vsBdBarRisk', modalRisk); setBar('vsBdBarDiscipline', modalDisc);
     setBar('vsBdBarConsistency', modalCons); setBar('vsBdBarPerformance', modalPerf);
+
+    // ── Challenge Engine Sync ─────────────────────────────────────────
+    if (window.ChallengeEngine) {
+      try {
+        var ceState = window.ChallengeEngine.evaluateChallenge();
+        // Use engine's traderScore if available for more accurate discipline display
+        if (ceState && ceState.traderScore !== undefined) {
+          setEl('vsTraderScore', ceState.traderScore + ' / 100');
+          setEl('vsTraderLevel', ceState.disciplineRating || '—');
+        }
+      } catch (ceErr) {
+        console.warn('[ChallengeEngine] Status page sync error:', ceErr);
+      }
+    }
   }
 
   // ═══ SCORING ENGINE UI RENDERING ═════════════════════════════════════════
@@ -1852,6 +1964,40 @@
     }
   }
 
+  // ── Second Life Restart Handler ──────────────────────────────────────
+  var secondLifeBtn = document.getElementById('vsSecondLifeBtn');
+  if (secondLifeBtn) {
+    secondLifeBtn.addEventListener('click', function() {
+      if (!confirm('Are you sure you want to use your Second Life?\n\nThis will clear all your current trades and restart the challenge from zero. You can only do this ONCE.')) return;
+
+      // Use ChallengeEngine if available (handles archiving, proper state reset)
+      if (window.ChallengeEngine && window.ChallengeEngine.activateSecondLife) {
+        window.ChallengeEngine.activateSecondLife();
+      } else {
+        // Fallback manual clear
+        localStorage.setItem('altivor_second_life_v1', JSON.stringify({ used: true, usedAt: new Date().toISOString() }));
+        localStorage.removeItem('altivor_verification_trades_v1');
+        localStorage.removeItem('altivor_challenge_state_v1');
+        localStorage.removeItem('altivor_challenge_score_v1');
+        localStorage.removeItem('altivor_violation_log_v1');
+        localStorage.removeItem('altivor_daily_log_v1');
+        localStorage.removeItem('altivor_challenge_engine_v1');
+      }
+
+      // Always clear remaining data stores for a clean restart
+      localStorage.removeItem('altivor_verification_weekly_v1');
+      localStorage.removeItem('altivor_verification_drawdown_v1');
+      localStorage.removeItem('altivor_verification_profit_v1');
+      localStorage.removeItem('altivor_verification_statement_v1');
+      localStorage.removeItem('altivor_scoring_engine_v1');
+      localStorage.removeItem('altivor_trade_evaluations_v1');
+      localStorage.removeItem('altivor_scoring_evaluation_v1');
+
+      // Reload page
+      window.location.reload();
+    });
+  }
+
   var scoreBtn = document.getElementById('vsScoreBtn');
   var modal = document.getElementById('vsScoreModal');
   var modalClose = document.getElementById('vsModalClose');
@@ -1920,6 +2066,7 @@
 </script>
 <script src="verification-behavior.js"></script>
 <script src="challenge-score.js"></script>
+<script src="supabase-backend.js"></script>
 <script src="footer-widgets.js"></script>
 </body>
 </html>

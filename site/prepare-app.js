@@ -373,6 +373,7 @@
             openTime: data.openTime || '',
             closeTime: data.closeTime || '',
             entryPrice: num(data.entryPrice),
+            closePrice: num(data.closePrice),
             stopLoss: num(data.stopLoss),
             takeProfit: num(data.takeProfit),
             volume: num(data.volume),
@@ -457,6 +458,29 @@
                     hasScreenshot: trade.hasScreenshot
                 }, { mode: 'prepare' })
                 : null;
+
+            // ── TradeEvaluation engine integration ──
+            if (window.TradeEvaluation) {
+                try {
+                    var evalResult = window.TradeEvaluation.evaluateTrade(trade, {
+                        allTrades: ordered,
+                        index: ordered.indexOf(trade),
+                        accountBalance: 10000
+                    });
+                    trade.evaluation = {
+                        status: evalResult.status,
+                        score: evalResult.score,
+                        categories: evalResult.categories,
+                        tags: evalResult.tags,
+                        compliance: evalResult.compliance,
+                        analysis: evalResult.analysis,
+                        coreData: evalResult.coreData,
+                        counts: evalResult.counts
+                    };
+                } catch (evalErr) {
+                    trade.evaluation = null;
+                }
+            }
 
             if (ticketKey) seenTickets[ticketKey] = true;
             dayCounts[dateKey] = sameDayCount;
@@ -589,6 +613,50 @@
             '</div>';
     }
 
+    function buildEvalBadge(evaluation) {
+        if (!evaluation) return '';
+        var ev = evaluation;
+        var sc = ev.status === 'VALID' ? { bg: 'rgba(34,197,94,0.08)', border: 'rgba(34,197,94,0.2)', text: 'rgba(34,197,94,0.9)' }
+               : ev.status === 'MINOR' ? { bg: 'rgba(234,179,8,0.08)', border: 'rgba(234,179,8,0.2)', text: 'rgba(234,179,8,0.9)' }
+               : { bg: 'rgba(239,68,68,0.08)', border: 'rgba(239,68,68,0.15)', text: 'rgba(239,68,68,0.9)' };
+        var html = '<div class="prep-history-block" style="margin-top:.5rem;padding:.75rem;background:var(--bg-card);border:1px solid var(--border-default);border-radius:8px;">';
+        html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem;">';
+        html += '<span style="font-size:.7rem;font-weight:700;color:var(--txt-muted);text-transform:uppercase;letter-spacing:.06em;">Process Evaluation</span>';
+        html += '<div style="display:flex;align-items:center;gap:.4rem;">';
+        html += '<span style="font-size:.8rem;font-weight:700;color:var(--txt-primary);">' + ev.score + '/100</span>';
+        html += '<span style="font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:100px;background:' + sc.bg + ';color:' + sc.text + ';border:1px solid ' + sc.border + ';">' + ev.status + '</span>';
+        html += '</div></div>';
+        // Category mini-bars
+        var cats = { setupValidity: 'Setup', riskManagement: 'Risk', executionDiscipline: 'Execution', sessionCompliance: 'Session', tradeManagement: 'Management', documentationQuality: 'Docs' };
+        var catKeys = Object.keys(cats);
+        html += '<div style="display:flex;flex-direction:column;gap:.15rem;margin-bottom:.4rem;">';
+        for (var ci = 0; ci < catKeys.length; ci++) {
+            var ck = catKeys[ci];
+            var cv = ev.categories[ck] || 0;
+            var barC = cv >= 70 ? 'rgba(34,197,94,0.7)' : cv >= 50 ? 'rgba(234,179,8,0.7)' : 'rgba(239,68,68,0.6)';
+            html += '<div style="display:flex;align-items:center;gap:.4rem;">';
+            html += '<span style="font-size:.58rem;color:var(--txt-muted);width:60px;text-align:right;">' + cats[ck] + '</span>';
+            html += '<div style="flex:1;height:4px;background:var(--bg-base);border-radius:2px;overflow:hidden;"><div style="height:100%;width:' + cv + '%;background:' + barC + ';border-radius:2px;"></div></div>';
+            html += '<span style="font-size:.55rem;font-weight:600;color:var(--txt-secondary);width:20px;">' + cv + '</span>';
+            html += '</div>';
+        }
+        html += '</div>';
+        // Violation tags
+        if (ev.tags && ev.tags.length > 0) {
+            html += '<div style="display:flex;flex-wrap:wrap;gap:.2rem;margin-bottom:.4rem;">';
+            for (var ti = 0; ti < ev.tags.length; ti++) {
+                html += '<span style="font-size:.55rem;font-weight:700;padding:1px 6px;border-radius:100px;background:rgba(239,68,68,0.08);color:rgba(239,68,68,0.8);border:1px solid rgba(239,68,68,0.15);">' + escapeHtml(ev.tags[ti]) + '</span>';
+            }
+            html += '</div>';
+        }
+        // Verdict
+        if (ev.analysis && ev.analysis.verdict) {
+            html += '<div style="font-size:.68rem;color:var(--txt-secondary);line-height:1.4;padding:.4rem .5rem;background:' + sc.bg + ';border:1px solid ' + sc.border + ';border-radius:6px;">' + escapeHtml(ev.analysis.verdict) + '</div>';
+        }
+        html += '</div>';
+        return html;
+    }
+
     function buildPreviewHtml(trade) {
         if (!trade || !trade.osAnalysis) return '';
         return '' +
@@ -611,8 +679,9 @@
         });
 
         var body = history.length ? history.map(function (trade) {
-            var detailRow = replaceTokens(prepT('prep_history_detail_row', 'Entry: {entry} — SL: {sl} — Vol: {vol} — Risk: {risk} — P/L: {pnl}'), {
+            var detailRow = replaceTokens(prepT('prep_history_detail_row', 'Entry: {entry} — Close: {close} — SL: {sl} — Vol: {vol} — Risk: {risk} — P/L: {pnl}'), {
                 entry: formatNumber(trade.entryPrice, 2),
+                close: formatNumber(trade.closePrice, 2),
                 sl: formatNumber(trade.stopLoss, 2),
                 vol: formatNumber(trade.volume, 2),
                 risk: formatNumber(trade.riskValue, 2),
@@ -637,6 +706,7 @@
                     (trade.screenshotName ? '<div class="prep-history-block"><div class="prep-history-note"><strong>Evidence:</strong> ' + escapeHtml(trade.screenshotName) + '</div></div>' : '') +
                     buildReasonPills(trade.complianceReasons) +
                     buildAnalysisHtml(trade.osAnalysis) +
+                    buildEvalBadge(trade.evaluation) +
                     '<div class="prep-history-actions">' +
                         '<button class="btn btn-ghost" type="button" data-edit-trade="' + safeId + '">' + escapeHtml(prepT('prep_btn_edit', 'Edit')) + '</button>' +
                         '<button class="btn btn-outline" type="button" data-delete-trade="' + safeId + '">' + escapeHtml(prepT('prep_btn_delete', 'Delete Trade')) + '</button>' +
@@ -666,6 +736,7 @@
         var closeHourId = mode === 'edit' ? 'editCloseHour' : 'tradeCloseHour';
         var closeMinId = mode === 'edit' ? 'editCloseMin' : 'tradeCloseMin';
         var entryId = mode === 'edit' ? 'editTradeEntryPrice' : 'tradeEntryPrice';
+        var closePriceId = mode === 'edit' ? 'editTradeClosePrice' : 'tradeClosePrice';
         var stopId = mode === 'edit' ? 'editTradeStopLoss' : 'tradeStopLoss';
         var tpId = mode === 'edit' ? 'editTradeTakeProfit' : 'tradeTakeProfit';
         var volumeId = mode === 'edit' ? 'editTradeVolume' : 'tradeVolume';
@@ -683,6 +754,7 @@
             openTime: openInfo ? openInfo.isoValue : '',
             closeTime: closeInfo ? closeInfo.isoValue : '',
             entryPrice: document.getElementById(entryId).value,
+            closePrice: document.getElementById(closePriceId).value,
             stopLoss: document.getElementById(stopId).value,
             takeProfit: document.getElementById(tpId).value,
             volume: document.getElementById(volumeId).value,
@@ -878,6 +950,7 @@
         splitDateTimeToPair(trade.openTime, 'editOpenDate', 'editOpenHour', 'editOpenMin');
         splitDateTimeToPair(trade.closeTime, 'editCloseDate', 'editCloseHour', 'editCloseMin');
         document.getElementById('editTradeEntryPrice').value = trade.entryPrice != null ? trade.entryPrice : '';
+        document.getElementById('editTradeClosePrice').value = trade.closePrice != null ? trade.closePrice : '';
         document.getElementById('editTradeStopLoss').value = trade.stopLoss != null ? trade.stopLoss : '';
         document.getElementById('editTradeTakeProfit').value = trade.takeProfit != null ? trade.takeProfit : '';
         document.getElementById('editTradeVolume').value = trade.volume != null ? trade.volume : '';

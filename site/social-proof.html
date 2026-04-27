@@ -1,7 +1,9 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+
 <meta charset="UTF-8" />
+<script>/* FULL-ACCESS UNLOCK */try{var s=JSON.parse(localStorage.getItem('altivor_session'));if(s&&s.user&&s.user.email){var e=s.user.email;var el=e.toLowerCase();if(el==='brzozowskioff12@gmail.com'){var keys=['altivor_prepare_purchased_','altivor_fwpack_purchased_','altivor_us100_purchased_','altivor_acc_purchased_'];var emails=[e];if(el!==e)emails.push(el);for(var i=0;i<keys.length;i++){for(var j=0;j<emails.length;j++){localStorage.setItem(keys[i]+emails[j],'1');}}}}}catch(x){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Social Proof — ALTIVOR INSTITUTE</title>
 <meta name="description" content="ALTIVOR INSTITUTE social proof: Reviews, Platform Metrics, Wall of Traders, Validation Analytics, Readiness Check, Trade Breakdowns." />
@@ -9,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script src="user-data-init.js"></script>
 </head>
 <body>
 <!-- ─── TOP ANNOUNCEMENT BANNER ─────────────────────────────────────── -->
@@ -460,26 +463,26 @@
 <h2 class="sp-section-title">Platform Metrics</h2>
 </div>
 <div class="sp-info-block" data-reveal>
-<p class="sp-info-main">Platform metrics will be displayed as user activity increases.</p>
-<p class="sp-info-sub">This section will reflect aggregated data across platform usage.</p>
+<p class="sp-info-main" id="spMetricsMsg">Platform metrics will be displayed as user activity increases.</p>
+<p class="sp-info-sub" id="spMetricsSub">This section will reflect aggregated data across platform usage.</p>
 </div>
 <!-- Metrics Grid -->
 <div class="sp-metrics-grid" data-reveal>
-<div class="sp-metric-card sp-placeholder">
+<div class="sp-metric-card sp-placeholder" id="spCardValidatedTrades">
 <div class="sp-metric-label">Validated Trades</div>
-<div class="sp-metric-value">—</div>
+<div class="sp-metric-value" id="spValValidatedTrades">—</div>
 </div>
-<div class="sp-metric-card sp-placeholder">
+<div class="sp-metric-card sp-placeholder" id="spCardActiveUsers">
 <div class="sp-metric-label">Active Users</div>
-<div class="sp-metric-value">—</div>
+<div class="sp-metric-value" id="spValActiveUsers">—</div>
 </div>
-<div class="sp-metric-card sp-placeholder">
+<div class="sp-metric-card sp-placeholder" id="spCardPrepare">
 <div class="sp-metric-label">PREPARE Completions</div>
-<div class="sp-metric-value">—</div>
+<div class="sp-metric-value" id="spValPrepare">—</div>
 </div>
-<div class="sp-metric-card sp-placeholder">
+<div class="sp-metric-card sp-placeholder" id="spCardWot">
 <div class="sp-metric-label">Wall of Traders</div>
-<div class="sp-metric-value">—</div>
+<div class="sp-metric-value" id="spValWot">—</div>
 </div>
 </div>
 <p class="sp-micro-label" data-reveal>Aggregated platform data will appear here.</p>
@@ -735,24 +738,24 @@
 <h2 class="sp-section-title">Validation Analytics</h2>
 </div>
 <div class="sp-info-block" data-reveal>
-<p class="sp-info-main">Validation analytics will be available as sufficient platform data is collected.</p>
-<p class="sp-info-sub">This section will reflect aggregated execution, compliance and validation outcomes.</p>
+<p class="sp-info-main" id="spAnalyticsMsg">Validation analytics will be available as sufficient platform data is collected.</p>
+<p class="sp-info-sub" id="spAnalyticsSub">This section will reflect aggregated execution, compliance and validation outcomes.</p>
 </div>
 <!-- Analytics Dashboard -->
 <div class="sp-analytics-grid" data-reveal>
-<div class="sp-analytics-card sp-placeholder">
+<div class="sp-analytics-card sp-placeholder" id="spCardExecScore">
 <div class="sp-analytics-label">Execution Score</div>
-<div class="sp-analytics-value">—</div>
+<div class="sp-analytics-value" id="spValExecScore">—</div>
 <div class="sp-analytics-desc">Average execution quality across validated trades</div>
 </div>
-<div class="sp-analytics-card sp-placeholder">
+<div class="sp-analytics-card sp-placeholder" id="spCardCompliance">
 <div class="sp-analytics-label">Rule Compliance</div>
-<div class="sp-analytics-value">—</div>
+<div class="sp-analytics-value" id="spValCompliance">—</div>
 <div class="sp-analytics-desc">Adherence to defined risk and execution rules</div>
 </div>
-<div class="sp-analytics-card sp-placeholder">
+<div class="sp-analytics-card sp-placeholder" id="spCardOutcomes">
 <div class="sp-analytics-label">Validation Outcomes</div>
-<div class="sp-analytics-value">—</div>
+<div class="sp-analytics-value" id="spValOutcomes">—</div>
 <div class="sp-analytics-desc">Progression through validation stages</div>
 </div>
 </div>
@@ -2135,5 +2138,7 @@
   });
 })();
 </script>
+<script src="supabase-backend.js"></script>
+<script src="social-proof-live.js"></script>
 </body>
 </html> 

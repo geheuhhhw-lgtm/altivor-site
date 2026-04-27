@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <script src="page-gate.js"></script><meta charset="UTF-8" />
+<script>/* FULL-ACCESS UNLOCK */try{var s=JSON.parse(localStorage.getItem('altivor_session'));if(s&&s.user&&s.user.email){var e=s.user.email;var el=e.toLowerCase();if(el==='brzozowskioff12@gmail.com'){var keys=['altivor_prepare_purchased_','altivor_fwpack_purchased_','altivor_us100_purchased_','altivor_acc_purchased_'];var emails=[e];if(el!==e)emails.push(el);for(var i=0;i<keys.length;i++){for(var j=0;j<emails.length;j++){localStorage.setItem(keys[i]+emails[j],'1');}}}}}catch(x){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Broker Statement ALTIVOR INSTITUTE</title>
 <meta name="description" content="Upload your official broker statement for final ALTIVOR Challenge verification." />
@@ -10,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="verification.css" />
+<script src="user-data-init.js"></script>
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -409,6 +411,7 @@
 <strong>Account:</strong> ' + data.account + '</div>' + '<div>
 <strong>Period:</strong> ' + data.periodStart + ' to ' + data.periodEnd + '</div>' + '<div>
 <strong>Submitted:</strong> ' + new Date(data.submittedAt).toLocaleString() + '</div>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('statementUploadArea'); const fileInput = document.getElementById('statementFileInput'); const fileInfo = document.getElementById('statementFileInfo'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (file.size > 10 * 1024 * 1024) return alert('File too large. Max 10MB.'); selectedFile = file; fileInfo.innerHTML = '<strong>Selected:</strong> ' + file.name + ' (' + (file.size / 1024).toFixed(1) + ' KB)'; fileInfo.style.display = 'block'; } // Submit document.getElementById('statementSubmitBtn').addEventListener('click', () => { const broker = document.getElementById('statementBroker').value; const account = document.getElementById('statementAccount').value; const periodStart = document.getElementById('statementPeriodStart').value; const periodEnd = document.getElementById('statementPeriodEnd').value; if (!broker || !account || !periodStart || !periodEnd) { return alert('Please fill in all required fields.'); } if (!selectedFile) return alert('Please upload your broker statement.'); const data = { submitted: true, broker: broker, account: account, periodStart: periodStart, periodEnd: periodEnd, fileName: selectedFile.name, submittedAt: new Date().toISOString() }; saveData(data); updateUI(); alert('Broker statement submitted successfully!'); }); updateUI(); })(); </script>
+<script src="supabase-backend.js"></script>
 <script src="footer-widgets.js"></script>
 </body>
 </html>

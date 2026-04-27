@@ -734,40 +734,9 @@
   function syncToVerificationStores() {
     try {
       // ── Trades ──────────────────────────────────────────────────────────
-      var mappedTrades = (challengeData.trades || []).map(function(t) {
-        var rr = null;
-        if (t.entryPrice && t.stopLoss && t.takeProfit) {
-          var risk = Math.abs(t.entryPrice - t.stopLoss);
-          var reward = Math.abs(t.takeProfit - t.entryPrice);
-          if (risk > 0) rr = parseFloat((reward / risk).toFixed(2));
-        }
-        return {
-          id: t.id,
-          tradeNumber: t.tradeNumber,
-          date: t.date,
-          entryTime: t.entryTime || t.date,
-          exitTime: t.exitTime || t.date,
-          direction: t.direction,
-          lotSize: t.positionSize,
-          entryPrice: t.entryPrice,
-          exitPrice: t.exitPrice,
-          stopLoss: t.stopLoss,
-          takeProfit: t.takeProfit,
-          sl: t.stopLoss,
-          tp: t.takeProfit,
-          positionSize: t.positionSize,
-          pnl: t.pnl,
-          pl: t.pnl,
-          pnlPercent: t.pnlPercent,
-          rr: rr,
-          screenshot: t.screenshot,
-          hasScreenshot: !!t.screenshot,
-          notes: t.notes,
-          compliant: t.compliant,
-          _scoring: t._scoring || undefined
-        };
-      });
-      localStorage.setItem('altivor_verification_trades_v1', JSON.stringify({ trades: mappedTrades }));
+      // Do NOT overwrite altivor_verification_trades_v1 — user enters trades
+      // directly via the 55 Trade Cycle form. This store is owned by
+      // verification-trades.html, not by verification-app.js.
 
       // ── Drawdown ────────────────────────────────────────────────────────
       var startBal = challengeData.initialBalance || 10000;

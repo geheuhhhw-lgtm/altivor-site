@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+
 <meta charset="UTF-8" />
+<script>/* FULL-ACCESS UNLOCK */try{var s=JSON.parse(localStorage.getItem('altivor_session'));if(s&&s.user&&s.user.email){var e=s.user.email;var el=e.toLowerCase();if(el==='brzozowskioff12@gmail.com'){var keys=['altivor_prepare_purchased_','altivor_fwpack_purchased_','altivor_us100_purchased_','altivor_acc_purchased_'];var emails=[e];if(el!==e)emails.push(el);for(var i=0;i<keys.length;i++){for(var j=0;j<emails.length;j++){localStorage.setItem(keys[i]+emails[j],'1');}}}}}catch(x){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="PREPARE Procedural Qualification System. Mandatory procedural gate for ALTIVOR INSTITUTE Challenge access." data-i18n-content="prep_meta_description" />
 <title data-i18n="prep_meta_title">PREPARE Procedural Qualification System | ALTIVOR INSTITUTE</title>
@@ -53,6 +55,7 @@
 .prep-hero-unlock-btn.prep-btn-purchased{background:linear-gradient(135deg,rgba(34,197,94,0.85) 0%,rgba(22,163,74,0.9) 100%);pointer-events:none}
 .prep-hero-cta.prep-purchased .prep-hero-unlock-note{color:rgba(34,197,94,0.7)}
 @media(max-width:600px){.prep-purchase-gate{padding:2.5rem 1rem;min-height:auto}.prep-gate-card{padding:2rem 1.5rem}.prep-gate-btn-content{padding:.9rem 1.5rem;font-size:.82rem}.prep-hero-unlock-btn{padding:.85rem 1.5rem;font-size:.85rem}} </style>
+<script src="user-data-init.js"></script>
 </head>
 <body>
 <!-- === ANNOUNCEMENT BANNER (FTMO-style) === -->
@@ -813,6 +816,11 @@
 <input type="number" id="tradeEntryPrice" step="0.01" required data-i18n-placeholder="prep_ph_entry_price" placeholder="e.g. 18250.50" />
 </div>
 <div class="prep-field">
+<label for="tradeClosePrice" data-i18n="prep_label_close_price">Close Price <span class="req">*</span>
+</label>
+<input type="number" id="tradeClosePrice" step="0.01" required data-i18n-placeholder="prep_ph_close_price" placeholder="e.g. 18310.00" />
+</div>
+<div class="prep-field">
 <label for="tradeStopLoss" data-i18n="prep_label_stop_loss">Stop Loss <span class="req">*</span>
 </label>
 <input type="number" id="tradeStopLoss" step="0.01" required data-i18n-placeholder="prep_ph_stop_loss" placeholder="e.g. 18225.50" />
@@ -1001,6 +1009,11 @@
 <input type="number" id="editTradeEntryPrice" step="0.01" required data-i18n-placeholder="prep_ph_entry_price" placeholder="e.g. 18250.50" />
 </div>
 <div class="prep-field">
+<label for="editTradeClosePrice" data-i18n="prep_label_close_price">Close Price <span class="req">*</span>
+</label>
+<input type="number" id="editTradeClosePrice" step="0.01" required data-i18n-placeholder="prep_ph_close_price" placeholder="e.g. 18310.00" />
+</div>
+<div class="prep-field">
 <label for="editTradeStopLoss" data-i18n="prep_label_stop_loss">Stop Loss <span class="req">*</span>
 </label>
 <input type="number" id="editTradeStopLoss" step="0.01" required data-i18n-placeholder="prep_ph_stop_loss" placeholder="e.g. 18225.50" />
@@ -1135,6 +1148,8 @@
 <script src="cookie-consent.js">
 </script>
 <script src="trader-os.js">
+</script>
+<script src="trade-evaluation-engine.js">
 </script>
 <script src="prepare-app.js">
 </script>
@@ -1804,5 +1819,6 @@
 </div>
 </div>
 </div>
+<script src="supabase-backend.js"></script>
 </body>
 </html>

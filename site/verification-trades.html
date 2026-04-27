@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+
 <script src="page-gate.js"></script><meta charset="UTF-8" />
+<script>/* FULL-ACCESS UNLOCK */try{var s=JSON.parse(localStorage.getItem('altivor_session'));if(s&&s.user&&s.user.email){var e=s.user.email;var el=e.toLowerCase();if(el==='brzozowskioff12@gmail.com'){var keys=['altivor_prepare_purchased_','altivor_fwpack_purchased_','altivor_us100_purchased_','altivor_acc_purchased_'];var emails=[e];if(el!==e)emails.push(el);for(var i=0;i<keys.length;i++){for(var j=0;j<emails.length;j++){localStorage.setItem(keys[i]+emails[j],'1');}}}}}catch(x){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>55 trade Cycle ALTIVOR INSTITUTE</title>
 <meta name="description" content="Log and verify your 55 trade Cycle for the ALTIVOR Challenge. Each trade must include entry/exit data and screenshots." />
@@ -10,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="verification.css" />
+<script src="user-data-init.js"></script>
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -530,6 +533,10 @@ Discipline Rules
 <input type="number" id="tradeExitPrice" placeholder="e.g., 18550.00" step="0.01" />
 </div>
 <div class="verif-field">
+<label for="tradeClosePrice">Close Price</label>
+<input type="number" id="tradeClosePrice" placeholder="e.g., 18560.00" step="0.01" />
+</div>
+<div class="verif-field">
 <label for="tradeSL">Stop Loss</label>
 <input type="number" id="tradeSL" placeholder="e.g., 18550.00" step="0.01" />
 </div>
@@ -542,12 +549,22 @@ Discipline Rules
 <input type="number" id="tradePL" placeholder="e.g., 50.00 or -25.00" step="0.01" />
 </div>
 <div class="verif-field full-width">
-<label for="tradeEntryTime">Entry Time</label>
-<input type="datetime-local" id="tradeEntryTime" />
+<label>Entry Time</label>
+<div style="display:flex;gap:0.5rem;align-items:center;">
+<input type="date" id="tradeEntryDate" style="flex:1;" />
+<select id="tradeEntryHour" style="width:70px;padding:0.75rem 0.4rem;font-size:0.9rem;color:var(--txt-primary);background:var(--bg-base);border:1px solid var(--border-default);border-radius:8px;"></select>
+<span style="color:var(--txt-secondary);font-weight:600;">:</span>
+<select id="tradeEntryMin" style="width:70px;padding:0.75rem 0.4rem;font-size:0.9rem;color:var(--txt-primary);background:var(--bg-base);border:1px solid var(--border-default);border-radius:8px;"></select>
+</div>
 </div>
 <div class="verif-field full-width">
-<label for="tradeExitTime">Exit Time</label>
-<input type="datetime-local" id="tradeExitTime" />
+<label>Exit Time</label>
+<div style="display:flex;gap:0.5rem;align-items:center;">
+<input type="date" id="tradeExitDate" style="flex:1;" />
+<select id="tradeExitHour" style="width:70px;padding:0.75rem 0.4rem;font-size:0.9rem;color:var(--txt-primary);background:var(--bg-base);border:1px solid var(--border-default);border-radius:8px;"></select>
+<span style="color:var(--txt-secondary);font-weight:600;">:</span>
+<select id="tradeExitMin" style="width:70px;padding:0.75rem 0.4rem;font-size:0.9rem;color:var(--txt-primary);background:var(--bg-base);border:1px solid var(--border-default);border-radius:8px;"></select>
+</div>
 </div>
 <div class="verif-field full-width">
 <label>TradingView Screenshot</label>
@@ -572,6 +589,10 @@ Discipline Rules
 </textarea>
 </div>
 </div>
+<!-- Execution Checklist Layer 1: Strategy-Specific Validation -->
+<div id="ecLayer1" style="display:none;margin-top:1.5rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;"></div>
+<!-- Execution Checklist Layer 2: Standard 6-Point Checklist -->
+<div id="ecLayer2" style="display:none;margin-top:1rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;"></div>
 <button class="btn btn-primary" id="tradeSubmitBtn" style="width:100%;margin-top:1.5rem;">
 <span>Log Trade</span>
 </button>
@@ -590,7 +611,15 @@ Discipline Rules
 </div>
 <div id="complianceChecks" style="display:flex;flex-direction:column;gap:.25rem;"></div>
 </div>
+<!-- Trade Evaluation Analysis (rendered by trade-evaluation-engine.js) -->
+<div id="tradeEvalPanel" style="display:none;margin-top:1.5rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;"></div>
+<!-- Post-Trade Audit Summary (rendered by challenge-engine.js) -->
+<div id="tradeAuditPanel" style="display:none;margin-top:1.5rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;"></div>
 </div>
+<!-- Challenge Dashboard (rendered by challenge-engine.js) -->
+<div id="challengeDashboard" style="display:none;margin-top:2rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;"></div>
+<!-- Evaluation Dashboard Summary -->
+<div id="evalDashboard" style="display:none;margin-top:2rem;background:var(--bg-elevated);border:1px solid var(--border-default);border-radius:12px;padding:1.25rem 1.5rem;"></div>
 <!-- Trade History -->
 <div class="verif-history" style="margin-top:3rem;">
 <h4 class="verif-history-title">Trade Log</h4>
@@ -661,14 +690,497 @@ Discipline Rules
 </script>
 <script src="verification-behavior.js">
 </script>
+<script src="challenge-engine.js">
+</script>
+<script src="trade-evaluation-engine.js">
+</script>
 <script src="challenge-score.js">
 </script>
+<script src="supabase-backend.js"></script>
 <script src="strategy-compliance.js">
 </script>
-<script> (function() { const STRAT_KEY = 'altivor_strategies_v1'; function loadStrategies() { try { return JSON.parse(localStorage.getItem(STRAT_KEY)) || []; } catch(e) { return []; } } function populateStrategySelect() { var sel = document.getElementById('tradeStrategy'); if (!sel) return; var strats = loadStrategies(); var val = sel.value; sel.innerHTML = '<option value="">— Select Strategy —</option>'; strats.forEach(function(s) { var opt = document.createElement('option'); opt.value = s.id; opt.textContent = s.name + ' (' + (s.type||'core') + ')'; sel.appendChild(opt); }); if (val) sel.value = val; } populateStrategySelect(); window.addEventListener('focus', populateStrategySelect); const STORAGE_KEY = 'altivor_verification_trades_v1'; function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { trades: [] }; } catch(e) { return { trades: [] }; } } function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } function updateUI() { const data = loadData(); const trades = data.trades; const count = trades.length; const total = 55; document.getElementById('tradesProgressValue').textContent = count + ' / ' + total; document.getElementById('tradesProgressBar').style.width = (count / total * 100) + '%'; document.getElementById('currentTradeNum').textContent = Math.min(count + 1, total); document.getElementById('statsTradesLeft').textContent = Math.max(0, total - count); // Calculate stats if (count > 0) { const wins = trades.filter(t => t.pl > 0).length; const totalPL = trades.reduce((sum, t) => sum + t.pl, 0); const avgRR = trades.filter(t => t.rr).reduce((sum, t) => sum + t.rr, 0) / count; document.getElementById('statsWinRate').textContent = ((wins / count) * 100).toFixed(1) + '%'; document.getElementById('statsTotalPL').textContent = (totalPL >= 0 ? '+' : '') + '$' + totalPL.toFixed(2); document.getElementById('statsTotalPL').style.color = totalPL >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)'; document.getElementById('statsAvgRR').textContent = avgRR.toFixed(2) + 'R'; } // Render history const historyList = document.getElementById('tradesHistoryList'); if (count === 0) { historyList.innerHTML = '<p style="color:var(--txt-muted);font-size:0.85rem;text-align:center;padding:2rem;">No trades logged yet.</p>'; } else { historyList.innerHTML = trades.map((t, i) => { const date = new Date(t.entryTime).toLocaleDateString(); const plClass = t.pl >= 0 ? 'item-complete' : 'item-failed'; const plColor = t.pl >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)'; return '<div class="verif-history-item ' + plClass + '">' + '<span class="verif-history-num">#' + (i + 1) + '</span>' + '<div class="verif-history-info">' + '<span class="verif-history-date">' + t.symbol + ' ' + t.direction.toUpperCase() + ' ' + date + '</span>' + '<span class="verif-history-meta">Entry: ' + t.entryPrice + ' Exit: ' + t.exitPrice + '</span>' + '</div>' + '<span style="font-weight:600;color:' + plColor + ';">' + (t.pl >= 0 ? '+' : '') + '$' + t.pl.toFixed(2) + '</span>' + '</div>'; }).reverse().join(''); } if (count >= total) { document.querySelector('.verif-form-section').innerHTML = '<div style="text-align:center;padding:3rem;">' + '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2">
-<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-<polyline points="22 4 12 14.01 9 11.01"/>
-</svg>' + '<h3 style="color:rgba(34,197,94,0.9);margin-top:1rem;">55 trade Cycle Complete!</h3>' + '<p style="color:var(--txt-secondary);margin-top:0.5rem;">You have successfully logged all 55 trades.</p>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('tradeUploadArea'); const fileInput = document.getElementById('tradeFileInput'); const preview = document.getElementById('tradePreview'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (!file.type.startsWith('image/')) return alert('Please upload an image file.'); if (file.size > 5 * 1024 * 1024) return alert('File too large. Max 5MB.'); selectedFile = file; const reader = new FileReader(); reader.onload = (e) => { preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:100%;border-radius:8px;border:1px solid var(--border-default);" />'; preview.style.display = 'block'; }; reader.readAsDataURL(file); } // Submit document.getElementById('tradeSubmitBtn').addEventListener('click', () => { const lotSize = parseFloat(document.getElementById('tradeLotSize').value); const entryPrice = parseFloat(document.getElementById('tradeEntryPrice').value); const exitPrice = parseFloat(document.getElementById('tradeExitPrice').value); const sl = parseFloat(document.getElementById('tradeSL').value); const tp = parseFloat(document.getElementById('tradeTP').value); const pl = parseFloat(document.getElementById('tradePL').value); const strategy = document.getElementById('tradeStrategy').value; const entryTime = document.getElementById('tradeEntryTime').value; const exitTime = document.getElementById('tradeExitTime').value; if (!lotSize || !entryPrice || !exitPrice || isNaN(pl) || !entryTime || !exitTime) { return alert('Please fill in all required fields.'); } if (!selectedFile) return alert('Please upload a TradingView screenshot.'); const data = loadData(); if (data.trades.length >= 55) return alert('All 55 trades already logged.'); // Calculate RR const direction = document.getElementById('tradeDirection').value; let rr = 0; if (sl && entryPrice) { const risk = Math.abs(entryPrice - sl); const reward = Math.abs(exitPrice - entryPrice); rr = risk > 0 ? reward / risk : 0; } data.trades.push({ symbol: document.getElementById('tradeSymbol').value, direction: direction, strategy: strategy, lotSize: lotSize, entryPrice: entryPrice, exitPrice: exitPrice, sl: sl, tp: tp, pl: pl, rr: rr, entryTime: entryTime, exitTime: exitTime, notes: document.getElementById('tradeNotes').value || '' }); saveData(data); updateUI(); if (window.AltivorBehavior) window.AltivorBehavior.onTradeSubmitted(); // Reset form document.getElementById('tradeLotSize').value = ''; document.getElementById('tradeEntryPrice').value = ''; document.getElementById('tradeExitPrice').value = ''; document.getElementById('tradeSL').value = ''; document.getElementById('tradeTP').value = ''; document.getElementById('tradePL').value = ''; document.getElementById('tradeEntryTime').value = ''; document.getElementById('tradeExitTime').value = ''; document.getElementById('tradeNotes').value = ''; preview.style.display = 'none'; selectedFile = null; fileInput.value = ''; alert('Trade #' + data.trades.length + ' logged successfully!'); }); updateUI(); if (window.AltivorBehavior) window.AltivorBehavior.renderAll(); })(); </script>
+<script src="execution-checklist-engine.js">
+</script>
+<script>
+(function() {
+  var STRAT_KEY = 'altivor_strategies_v1';
+  function loadStrategies() { try { return JSON.parse(localStorage.getItem(STRAT_KEY)) || []; } catch(e) { return []; } }
+  function populateStrategySelect() {
+    var sel = document.getElementById('tradeStrategy'); if (!sel) return;
+    var strats = loadStrategies(); var val = sel.value;
+    sel.innerHTML = '<option value="">— Select Strategy —</option>';
+    strats.forEach(function(s) {
+      var opt = document.createElement('option');
+      opt.value = s.id; opt.textContent = s.name + ' (' + (s.type||'core') + ')';
+      sel.appendChild(opt);
+    });
+    if (val) sel.value = val;
+  }
+  populateStrategySelect();
+
+  // ── Execution Checklist State ──────────────────────────────────────
+  var ecLayer1Passed = false;
+  var ecLayer2Passed = false;
+  var ecLayer1Answers = {};
+  var ecLayer2Answers = {};
+  var ecLayer1Result = null;
+  var ecLayer2Result = null;
+  var ecNonCompliantOverride = false;
+
+  function initExecutionChecklist(stratId) {
+    ecLayer1Passed = false;
+    ecLayer2Passed = false;
+    ecLayer1Answers = {};
+    ecLayer2Answers = {};
+    ecLayer1Result = null;
+    ecLayer2Result = null;
+    ecNonCompliantOverride = false;
+
+    var l1 = document.getElementById('ecLayer1');
+    var l2 = document.getElementById('ecLayer2');
+
+    if (!stratId || !window.ExecutionChecklist) {
+      if (l1) l1.style.display = 'none';
+      if (l2) l2.style.display = 'none';
+      return;
+    }
+
+    // Render Layer 1
+    window.ExecutionChecklist.renderLayer1('ecLayer1', stratId, function (passed, answers, result) {
+      ecLayer1Passed = passed;
+      ecLayer1Answers = answers;
+      ecLayer1Result = result;
+      ecNonCompliantOverride = passed && result && !result.passed;
+
+      if (passed) {
+        window.ExecutionChecklist.unlockLayer2('ecLayer2');
+      } else {
+        window.ExecutionChecklist.lockLayer2('ecLayer2');
+        ecLayer2Passed = false;
+      }
+    });
+
+    // Render Layer 2 (locked initially)
+    window.ExecutionChecklist.renderLayer2('ecLayer2', true, function (passed, answers, result) {
+      ecLayer2Passed = passed;
+      ecLayer2Answers = answers;
+      ecLayer2Result = result;
+    });
+  }
+
+  // Strategy selector change — trigger checklist
+  var stratSel = document.getElementById('tradeStrategy');
+  if (stratSel) {
+    stratSel.addEventListener('change', function () {
+      initExecutionChecklist(stratSel.value);
+    });
+  }
+
+  // Populate hour/minute selects
+  function populateTimeSelects(hourId, minId) {
+    var hourEl = document.getElementById(hourId);
+    var minEl = document.getElementById(minId);
+    if (hourEl && hourEl.options.length === 0) {
+      hourEl.innerHTML = '<option value="" disabled selected>HH</option>';
+      for (var h = 0; h < 24; h++) {
+        var hv = String(h).padStart(2, '0');
+        hourEl.innerHTML += '<option value="' + hv + '">' + hv + '</option>';
+      }
+    }
+    if (minEl && minEl.options.length === 0) {
+      minEl.innerHTML = '<option value="" disabled selected>MM</option>';
+      for (var m = 0; m < 60; m++) {
+        var mv = String(m).padStart(2, '0');
+        minEl.innerHTML += '<option value="' + mv + '">' + mv + '</option>';
+      }
+    }
+  }
+  populateTimeSelects('tradeEntryHour', 'tradeEntryMin');
+  populateTimeSelects('tradeExitHour', 'tradeExitMin');
+
+  // Combine date + hour + minute into ISO string
+  function combineDateTime(dateId, hourId, minId) {
+    var d = document.getElementById(dateId).value;
+    var h = document.getElementById(hourId).value;
+    var m = document.getElementById(minId).value;
+    if (!d || !h || !m) return '';
+    return d + 'T' + h + ':' + m + ':00';
+  }
+
+  var STORAGE_KEY = 'altivor_verification_trades_v1';
+  function loadData() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || { trades: [] }; } catch(e) { return { trades: [] }; } }
+  function saveData(data) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+
+
+  function updateUI() {
+    var data = loadData();
+    var trades = data.trades;
+    var count = trades.length;
+    var total = 55;
+
+    // Classify trades via ChallengeEngine if available
+    var tradeResults = [];
+    var validatedCount = count;
+    var invalidCount = 0;
+    var warningCount = 0;
+    var strikeCount = 0;
+    var traderScore = 100;
+    if (window.ChallengeEngine) {
+      try {
+        var ceState = window.ChallengeEngine.loadState();
+        if (ceState && ceState.tradeResults && ceState.tradeResults.length === count) {
+          tradeResults = ceState.tradeResults;
+          validatedCount = ceState.validatedTradeCount;
+          invalidCount = ceState.invalidTradeCount;
+          warningCount = ceState.warningCount;
+          strikeCount = ceState.strikeCount;
+          traderScore = ceState.traderScore;
+        } else if (count > 0) {
+          // Re-evaluate if stale
+          ceState = window.ChallengeEngine.evaluateChallenge();
+          tradeResults = ceState.tradeResults || [];
+          validatedCount = ceState.validatedTradeCount;
+          invalidCount = ceState.invalidTradeCount;
+          warningCount = ceState.warningCount;
+          strikeCount = ceState.strikeCount;
+          traderScore = ceState.traderScore;
+        }
+      } catch (e) {}
+    }
+
+    // Progress based on VALIDATED trades only
+    document.getElementById('tradesProgressValue').textContent = validatedCount + ' / ' + total + (invalidCount > 0 ? ' (' + invalidCount + ' invalid)' : '');
+    document.getElementById('tradesProgressBar').style.width = (validatedCount / total * 100) + '%';
+    document.getElementById('currentTradeNum').textContent = Math.min(count + 1, total);
+    document.getElementById('statsTradesLeft').textContent = Math.max(0, total - validatedCount);
+    if (count > 0) {
+      var wins = trades.filter(function(t) { return (t.pl || t.pnl || 0) > 0; }).length;
+      var totalPL = trades.reduce(function(sum, t) { return sum + (t.pl || t.pnl || 0); }, 0);
+      var rrSum = 0, rrCnt = 0;
+      trades.forEach(function(t) { if (t.rr) { rrSum += t.rr; rrCnt++; } });
+      var avgRR = rrCnt > 0 ? rrSum / rrCnt : 0;
+      document.getElementById('statsWinRate').textContent = ((wins / count) * 100).toFixed(1) + '%';
+      document.getElementById('statsTotalPL').textContent = (totalPL >= 0 ? '+' : '') + '$' + totalPL.toFixed(2);
+      document.getElementById('statsTotalPL').style.color = totalPL >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)';
+      document.getElementById('statsAvgRR').textContent = avgRR.toFixed(2) + 'R';
+    }
+    // Render history with validation status badges
+    var historyList = document.getElementById('tradesHistoryList');
+    if (count === 0) {
+      historyList.innerHTML = '<p style="color:var(--txt-muted);font-size:0.85rem;text-align:center;padding:2rem;">No trades logged yet.</p>';
+    } else {
+      historyList.innerHTML = trades.map(function(t, i) {
+        var pnl = t.pl || t.pnl || 0;
+        var date = new Date(t.entryTime || t.openTime).toLocaleDateString();
+        var plColor = pnl >= 0 ? 'rgba(34,197,94,0.9)' : 'rgba(239,68,68,0.9)';
+
+        // Validation status from ChallengeEngine
+        var tr = tradeResults[i] || null;
+        var statusBadge = '';
+        if (tr) {
+          var badgeColor, badgeBg, badgeBorder, badgeText;
+          if (tr.finalStatus === 'VALIDATED') {
+            badgeColor = 'rgba(34,197,94,0.9)'; badgeBg = 'rgba(34,197,94,0.08)'; badgeBorder = 'rgba(34,197,94,0.2)'; badgeText = 'VALIDATED';
+          } else if (tr.finalStatus === 'VALIDATED WITH WARNINGS') {
+            badgeColor = 'rgba(234,179,8,0.9)'; badgeBg = 'rgba(234,179,8,0.08)'; badgeBorder = 'rgba(234,179,8,0.2)'; badgeText = 'WARNING';
+          } else if (tr.finalStatus === 'STRIKE ISSUED') {
+            badgeColor = 'rgba(168,85,247,0.9)'; badgeBg = 'rgba(168,85,247,0.08)'; badgeBorder = 'rgba(168,85,247,0.2)'; badgeText = 'STRIKE';
+          } else {
+            badgeColor = 'rgba(239,68,68,0.9)'; badgeBg = 'rgba(239,68,68,0.08)'; badgeBorder = 'rgba(239,68,68,0.15)'; badgeText = 'NOT COUNTED';
+          }
+          statusBadge = '<span style="font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:100px;background:' + badgeBg + ';color:' + badgeColor + ';border:1px solid ' + badgeBorder + ';margin-left:.4rem;">' + badgeText + '</span>';
+        }
+
+        // Warning/invalid reason tags
+        var reasonTags = '';
+        if (tr && (tr.invalidReasons.length > 0 || tr.warnings.length > 0)) {
+          var reasons = tr.invalidReasons.concat(tr.warnings.map(function(w) { return w.category; }));
+          reasonTags = '<div style="display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.2rem;">' +
+            reasons.map(function(r) {
+              return '<span style="font-size:.5rem;font-weight:600;padding:1px 5px;border-radius:100px;background:rgba(239,68,68,0.06);color:rgba(239,68,68,0.7);border:1px solid rgba(239,68,68,0.1);">' + r + '</span>';
+            }).join('') + '</div>';
+        }
+
+        return '<div class="verif-history-item" style="border-left:3px solid ' + (tr ? (tr.isValid ? 'rgba(34,197,94,0.5)' : 'rgba(239,68,68,0.5)') : 'transparent') + ';">' +
+          '<span class="verif-history-num">#' + (i + 1) + '</span>' +
+          '<div class="verif-history-info" style="flex:1;">' +
+          '<div style="display:flex;align-items:center;flex-wrap:wrap;gap:.2rem;">' +
+          '<span class="verif-history-date">' + (t.symbol||'US100') + ' ' + (t.direction||'').toUpperCase() + ' ' + date + '</span>' +
+          statusBadge +
+          '</div>' +
+          '<span class="verif-history-meta">Entry: ' + t.entryPrice + ' Exit: ' + t.exitPrice + (t.stopLoss ? ' SL: ' + t.stopLoss : '') + '</span>' +
+          reasonTags +
+          '</div>' +
+          '<span style="font-weight:600;color:' + plColor + ';">' + (pnl >= 0 ? '+' : '') + '$' + pnl.toFixed(2) + '</span>' +
+          '</div>';
+      }).reverse().join('');
+    }
+    if (validatedCount >= total) {
+      document.querySelector('.verif-form-section').innerHTML = '<div style="text-align:center;padding:3rem;">' +
+        '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(34,197,94,0.8)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+        '<h3 style="color:rgba(34,197,94,0.9);margin-top:1rem;">55 trade Cycle Complete!</h3>' +
+        '<p style="color:var(--txt-secondary);margin-top:0.5rem;">You have successfully logged all 55 validated trades.</p>' +
+        '</div>';
+    }
+  }
+
+  // Upload area
+  var uploadArea = document.getElementById('tradeUploadArea');
+  var fileInput = document.getElementById('tradeFileInput');
+  var preview = document.getElementById('tradePreview');
+  var selectedFile = null;
+  var screenshotDataUrl = null;
+
+  uploadArea.addEventListener('click', function() { fileInput.click(); });
+  uploadArea.addEventListener('dragover', function(e) { e.preventDefault(); uploadArea.classList.add('dragover'); });
+  uploadArea.addEventListener('dragleave', function() { uploadArea.classList.remove('dragover'); });
+  uploadArea.addEventListener('drop', function(e) {
+    e.preventDefault(); uploadArea.classList.remove('dragover');
+    if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', function() { if (fileInput.files.length) handleFile(fileInput.files[0]); });
+
+  function handleFile(file) {
+    if (!file.type.startsWith('image/')) return alert('Please upload an image file.');
+    if (file.size > 5 * 1024 * 1024) return alert('File too large. Max 5MB.');
+    selectedFile = file;
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      screenshotDataUrl = e.target.result;
+      preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:100%;border-radius:8px;border:1px solid var(--border-default);" />';
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  // Submit
+  document.getElementById('tradeSubmitBtn').addEventListener('click', function() {
+    var lotSize = parseFloat(document.getElementById('tradeLotSize').value);
+    var entryPrice = parseFloat(document.getElementById('tradeEntryPrice').value);
+    var exitPrice = parseFloat(document.getElementById('tradeExitPrice').value);
+    var sl = parseFloat(document.getElementById('tradeSL').value);
+    var tp = parseFloat(document.getElementById('tradeTP').value);
+    var pl = parseFloat(document.getElementById('tradePL').value);
+    var strategy = document.getElementById('tradeStrategy').value;
+    var entryTime = combineDateTime('tradeEntryDate', 'tradeEntryHour', 'tradeEntryMin');
+    var exitTime = combineDateTime('tradeExitDate', 'tradeExitHour', 'tradeExitMin');
+
+    if (!lotSize || !entryPrice || !exitPrice || isNaN(pl) || !entryTime || !exitTime) {
+      return alert('Please fill in all required fields (lot size, entry, exit, P/L, entry time, exit time).');
+    }
+    // Screenshot is optional — missing screenshot is just a WARNING in classification
+    var data = loadData();
+    if (data.trades.length >= 55) return alert('All 55 trades already logged.');
+
+    // Calculate RR
+    var direction = document.getElementById('tradeDirection').value;
+    var rr = 0;
+    if (sl && entryPrice) {
+      var risk = Math.abs(entryPrice - sl);
+      var reward = Math.abs(exitPrice - entryPrice);
+      rr = risk > 0 ? reward / risk : 0;
+    }
+
+    // Look up strategy name for frameworkType
+    var stratName = '';
+    if (strategy) {
+      var allStrats = loadStrategies();
+      for (var si = 0; si < allStrats.length; si++) {
+        if (allStrats[si].id === strategy) { stratName = allStrats[si].name; break; }
+      }
+    }
+
+    var hasScreenshot = !!selectedFile;
+    var tradeObj = {
+      id: 'T' + (data.trades.length + 1),
+      tradeNumber: data.trades.length + 1,
+      symbol: document.getElementById('tradeSymbol').value,
+      direction: direction,
+      strategy: strategy || undefined,
+      setup: stratName || strategy || undefined,
+      frameworkType: stratName || strategy || undefined,
+      lotSize: lotSize,
+      positionSize: lotSize,
+      entryPrice: entryPrice,
+      exitPrice: exitPrice,
+      closePrice: parseFloat(document.getElementById('tradeClosePrice').value) || 0,
+      stopLoss: sl || 0,
+      sl: sl || 0,
+      takeProfit: tp || 0,
+      tp: tp || 0,
+      pnl: pl,
+      pl: pl,
+      pnlPercent: 0,
+      rr: parseFloat(rr.toFixed(2)),
+      entryTime: entryTime,
+      openTime: entryTime,
+      exitTime: exitTime,
+      date: entryTime,
+      notes: document.getElementById('tradeNotes').value || '',
+      hasScreenshot: hasScreenshot,
+      screenshot: hasScreenshot ? ('trade_' + (data.trades.length + 1) + '.png') : null,
+      screenshotFile: hasScreenshot ? ('trade_' + (data.trades.length + 1) + '.png') : null,
+      screenshotData: screenshotDataUrl || null,
+      compliant: true,
+      instrument: 'US100',
+      session: 'new_york'
+    };
+
+    // ── Attach Execution Checklist data ──
+    if (window.ExecutionChecklist && strategy) {
+      var l1El = document.getElementById('ecLayer1');
+      var l2El = document.getElementById('ecLayer2');
+      var l1Sections = l1El && l1El._ecSections ? l1El._ecSections : [];
+      var l1Ans = l1El && l1El._ecGetAnswers ? l1El._ecGetAnswers() : ecLayer1Answers;
+      var l2Ans = l2El && l2El._ecGetAnswers ? l2El._ecGetAnswers() : ecLayer2Answers;
+      var l1Res = l1El && l1El._ecGetResult ? l1El._ecGetResult() : ecLayer1Result;
+      var l2Res = l2El && l2El._ecGetResult ? l2El._ecGetResult() : ecLayer2Result;
+      tradeObj.executionChecklist = window.ExecutionChecklist.buildChecklistSnapshot(
+        strategy, l1Sections, l1Ans, l2Ans, l1Res, l2Res
+      );
+      // Non-compliant flag
+      if (tradeObj.executionChecklist && tradeObj.executionChecklist.nonCompliantFlag) {
+        tradeObj.compliant = false;
+        tradeObj.nonCompliantFlag = true;
+        tradeObj.failedStrategyRules = tradeObj.executionChecklist.failedRequiredRules;
+      }
+    }
+
+    data.trades.push(tradeObj);
+    saveData(data);
+
+    // ── Challenge Engine — process trade BEFORE updateUI so badges are ready ──
+    var processResult = null;
+    if (window.ChallengeEngine) {
+      try {
+        processResult = window.ChallengeEngine.processTrade(tradeObj);
+      } catch (ceErr) {
+        console.warn('[ChallengeEngine] Error:', ceErr);
+      }
+    }
+
+    updateUI();
+    if (window.AltivorBehavior) window.AltivorBehavior.onTradeSubmitted();
+
+    // ── Render audit summary and dashboard after updateUI ──
+    if (processResult && window.ChallengeEngine) {
+      try {
+        window.ChallengeEngine.renderAuditSummary('tradeAuditPanel', processResult);
+        window.ChallengeEngine.renderChallengeDashboard('challengeDashboard');
+      } catch (ceErr2) {
+        console.warn('[ChallengeEngine] Render error:', ceErr2);
+      }
+    }
+
+    // ── Trade Evaluation Engine (supplementary per-trade analysis) ──
+    if (window.TradeEvaluation) {
+      try {
+        var allResult = window.TradeEvaluation.evaluateAllTrades(data.trades);
+        var lastEval = allResult.evaluations[allResult.evaluations.length - 1];
+        window.TradeEvaluation.renderAnalysis('tradeEvalPanel', lastEval);
+        window.TradeEvaluation.renderDashboard('evalDashboard', allResult);
+        window.TradeEvaluation.saveEvaluations(allResult);
+      } catch (evalErr) {
+        console.warn('[TradeEvaluation] Error:', evalErr);
+      }
+    }
+
+    // ── Backend persistence — save trade to Supabase ──
+    if (window.AltivorBackend) {
+      try {
+        var backendTrade = Object.assign({}, tradeObj);
+        if (processResult) {
+          backendTrade.finalStatus = processResult.tradeResult ? processResult.tradeResult.finalStatus : null;
+          backendTrade.countsTowardChallenge = processResult.tradeResult ? processResult.tradeResult.isValid : false;
+        }
+        window.AltivorBackend.saveTrade(backendTrade)
+          .then(function () { return window.AltivorBackend.triggerChallengeSync(); })
+          .catch(function (err) { console.warn('[Backend] Trade save error:', err); });
+      } catch (backendErr) { console.warn('[Backend] Trade persist error:', backendErr); }
+    }
+
+    // Reset form
+    document.getElementById('tradeLotSize').value = '';
+    document.getElementById('tradeEntryPrice').value = '';
+    document.getElementById('tradeExitPrice').value = '';
+    document.getElementById('tradeClosePrice').value = '';
+    document.getElementById('tradeSL').value = '';
+    document.getElementById('tradeTP').value = '';
+    document.getElementById('tradePL').value = '';
+    document.getElementById('tradeEntryDate').value = '';
+    document.getElementById('tradeEntryHour').selectedIndex = 0;
+    document.getElementById('tradeEntryMin').selectedIndex = 0;
+    document.getElementById('tradeExitDate').value = '';
+    document.getElementById('tradeExitHour').selectedIndex = 0;
+    document.getElementById('tradeExitMin').selectedIndex = 0;
+    document.getElementById('tradeNotes').value = '';
+    document.getElementById('tradeStrategy').value = '';
+    preview.style.display = 'none';
+    selectedFile = null;
+    screenshotDataUrl = null;
+    fileInput.value = '';
+    // Reset execution checklist
+    initExecutionChecklist('');
+    ecLayer1Passed = false; ecLayer2Passed = false;
+    ecLayer1Answers = {}; ecLayer2Answers = {};
+    ecLayer1Result = null; ecLayer2Result = null;
+    ecNonCompliantOverride = false;
+
+    var complianceNote = (tradeObj.nonCompliantFlag) ? '\n\nNote: This trade was flagged as NON-COMPLIANT due to failed strategy requirements.' : '';
+    alert('Trade #' + data.trades.length + ' logged successfully!' + (hasScreenshot ? '' : ' (No screenshot — trade will still count if notes are provided)') + complianceNote);
+  });
+
+  updateUI();
+  if (window.AltivorBehavior) window.AltivorBehavior.renderAll();
+
+  // ── Challenge Engine: evaluate all trades on page load ──
+  if (window.ChallengeEngine) {
+    try {
+      var ceState = window.ChallengeEngine.evaluateChallenge();
+      window.ChallengeEngine.renderChallengeDashboard('challengeDashboard');
+      // Show last trade audit
+      if (ceState.tradeResults && ceState.tradeResults.length > 0) {
+        var lastTR = ceState.tradeResults[ceState.tradeResults.length - 1];
+        var auditData = { state: ceState, tradeResult: lastTR, audit: null };
+        // Re-generate audit for last trade
+        auditData.audit = (function() {
+          var a = { resultLabel: '', impact: {}, correct: [], wrong: [], ruleMatrix: [], nextActions: [] };
+          if (lastTR.isStrike) a.resultLabel = 'STRIKE ISSUED';
+          else if (lastTR.isInvalid) a.resultLabel = 'INVALID / NOT COUNTED';
+          else if (lastTR.warnings.length > 0) a.resultLabel = 'VALIDATED WITH WARNINGS';
+          else a.resultLabel = 'VALIDATED';
+          a.impact = { counted: lastTR.counts, progress: ceState.validatedTradeCount + ' / 55', strikes: ceState.strikeCount + ' / 3', warnings: ceState.warningCount, status: ceState.status, traderScore: ceState.traderScore + ' / 100', disciplineRating: ceState.disciplineRating };
+          if (lastTR.isValid) a.correct.push('Trade meets all validation requirements.');
+          lastTR.violations.forEach(function(v) { a.wrong.push(v.reason); });
+          lastTR.warnings.forEach(function(w) { a.wrong.push(w.reason); });
+          a.ruleMatrix.push({ rule: 'Valid trade requirements', result: lastTR.isValid ? 'MET' : 'NOT MET' });
+          a.ruleMatrix.push({ rule: 'Invalid trade conditions', result: lastTR.isInvalid ? 'TRIGGERED' : 'CLEAR' });
+          a.ruleMatrix.push({ rule: 'Warning conditions', result: lastTR.warnings.length > 0 ? lastTR.warnings.length + ' WARNING(S)' : 'CLEAR' });
+          a.ruleMatrix.push({ rule: 'Strike condition', result: lastTR.isStrike ? 'STRIKE ISSUED' : 'CLEAR' });
+          a.ruleMatrix.push({ rule: 'Instant fail (drawdown)', result: ceState.maxDrawdown >= 10 ? 'TRIGGERED' : 'CLEAR (' + ceState.maxDrawdown.toFixed(2) + '%)' });
+          a.nextActions.push('Continue logging trades. ' + (55 - ceState.validatedTradeCount) + ' validated trades remaining.');
+          return a;
+        })();
+        window.ChallengeEngine.renderAuditSummary('tradeAuditPanel', auditData);
+      }
+    } catch (e) { console.warn('[ChallengeEngine] Init error:', e); }
+  }
+
+  // ── Trade Evaluation Engine: supplementary analysis on page load ──
+  if (window.TradeEvaluation) {
+    try {
+      var initData = loadData();
+      if (initData.trades.length > 0) {
+        var initResult = window.TradeEvaluation.evaluateAllTrades(initData.trades);
+        window.TradeEvaluation.renderDashboard('evalDashboard', initResult);
+        window.TradeEvaluation.saveEvaluations(initResult);
+        var lastEval = initResult.evaluations[initResult.evaluations.length - 1];
+        window.TradeEvaluation.renderAnalysis('tradeEvalPanel', lastEval);
+      }
+    } catch (e) { console.warn('[TradeEvaluation] Init error:', e); }
+  }
+})();
+</script>
 <script src="footer-widgets.js"></script>
 <script>
 /* ═══ Trade Compliance Scanner ═══ */

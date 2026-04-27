@@ -2,6 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <script src="page-gate.js"></script><meta charset="UTF-8" />
+<script>/* FULL-ACCESS UNLOCK */try{var s=JSON.parse(localStorage.getItem('altivor_session'));if(s&&s.user&&s.user.email){var e=s.user.email;var el=e.toLowerCase();if(el==='brzozowskioff12@gmail.com'){var keys=['altivor_prepare_purchased_','altivor_fwpack_purchased_','altivor_us100_purchased_','altivor_acc_purchased_'];var emails=[e];if(el!==e)emails.push(el);for(var i=0;i<keys.length;i++){for(var j=0;j<emails.length;j++){localStorage.setItem(keys[i]+emails[j],'1');}}}}}catch(x){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Weekly Equity Check-in ALTIVOR INSTITUTE</title>
 <meta name="description" content="Upload weekly equity curve screenshots for the ALTIVOR Challenge verification. 8 weekly check-ins required over the 2-month evaluation period." />
@@ -10,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="verification.css" />
+<script src="user-data-init.js"></script>
 </head>
 <body>
 <!-- NAVIGATION -->
@@ -360,6 +362,7 @@
 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
 <polyline points="22 4 12 14.01 9 11.01"/>
 </svg>' + '<h3 style="color:rgba(34,197,94,0.9);margin-top:1rem;">All Weekly Check-ins Complete!</h3>' + '<p style="color:var(--txt-secondary);margin-top:0.5rem;">You have successfully submitted all 8 weekly equity check-ins.</p>' + '</div>'; } } // Upload area const uploadArea = document.getElementById('weeklyUploadArea'); const fileInput = document.getElementById('weeklyFileInput'); const preview = document.getElementById('weeklyPreview'); let selectedFile = null; uploadArea.addEventListener('click', () => fileInput.click()); uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.classList.add('dragover'); }); uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('dragover')); uploadArea.addEventListener('drop', (e) => { e.preventDefault(); uploadArea.classList.remove('dragover'); if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]); }); fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); }); function handleFile(file) { if (!file.type.startsWith('image/')) return alert('Please upload an image file.'); if (file.size > 5 * 1024 * 1024) return alert('File too large. Max 5MB.'); selectedFile = file; const reader = new FileReader(); reader.onload = (e) => { preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:100%;border-radius:8px;border:1px solid var(--border-default);" />'; preview.style.display = 'block'; }; reader.readAsDataURL(file); } // Submit document.getElementById('weeklySubmitBtn').addEventListener('click', () => { const equity = parseFloat(document.getElementById('weeklyEquityValue').value); if (!equity || equity <= 0) return alert('Please enter a valid equity balance.'); if (!selectedFile) return alert('Please upload an equity curve screenshot.'); const data = loadData(); if (data.checkins.length >= 8) return alert('All 8 check-ins already submitted.'); data.checkins.push({ date: new Date().toISOString(), equity: equity, notes: document.getElementById('weeklyNotes').value || '' }); if (!data.startDate) data.startDate = new Date().toISOString(); saveData(data); updateUI(); // Reset form document.getElementById('weeklyEquityValue').value = ''; document.getElementById('weeklyNotes').value = ''; preview.style.display = 'none'; selectedFile = null; fileInput.value = ''; alert('Week ' + data.checkins.length + ' check-in submitted successfully!'); }); updateUI(); })(); </script>
+<script src="supabase-backend.js"></script>
 <script src="footer-widgets.js"></script>
 </body>
 </html>
