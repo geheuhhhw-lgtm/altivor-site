@@ -1863,9 +1863,9 @@ document.addEventListener('click', function (e) {
   var ACC_KEY = 'altivor_acc_purchased_';
   var FWPACK_KEY = 'altivor_fwpack_purchased_';
   var US100_KEY = 'altivor_us100_purchased_';
-  var ACC_STRIPE = 'https://buy.stripe.com/aFa6oI5s5a7QdoFgaMdby03';
-  var FWPACK_STRIPE = 'https://buy.stripe.com/4gM9AUdYBbbUfwN4s4dby02';
-  var US100_STRIPE = 'https://buy.stripe.com/00wdRabQt93M5Wde2Edby00';
+  var ACC_STRIPE = 'https://buy.stripe.com/test_8x29AVafIaaR27J9ig28801';
+  var FWPACK_STRIPE = 'https://buy.stripe.com/test_eVqdRb5Zser74fR9ig28803';
+  var US100_STRIPE = 'https://buy.stripe.com/test_fZubJ387AfvbeUveCA28802';
 
   var VERIFICATION_PAGES = ['verification.html','verification-trades.html','verification-status.html','verification-drawdown.html','verification-profit.html','verification-statement.html','verification-weekly.html'];
   var ACCESSORIES_PAGES = ['accessories.html','trading-log.html','pnl.html','calendar.html','symbols.html','execution-checklist.html','calculators.html','trading-wiki.html','strategy-builder.html'];
