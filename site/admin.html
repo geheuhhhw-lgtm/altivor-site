@@ -874,7 +874,7 @@ function renderAnalytics(){
 /* Revenue */
 function renderRevenue(){
   var products=[{name:'Altivor PREPARE',price:'\u20ac29',type:'One-time',stripe:'prepare'},{name:'Accessories Suite',price:'\u20ac79/mo',type:'Subscription',stripe:'accessories'},{name:'Framework Pack',price:'\u20ac59',type:'One-time',stripe:'frameworkPack'},{name:'US100 Framework',price:'\u20ac129',type:'One-time',stripe:'us100Framework'}];
-  var links={prepare:'https://buy.stripe.com/8x25kEf2F93M3O50bOdby01',accessories:'https://buy.stripe.com/aFa6oI5s5a7QdoFgaMdby03',frameworkPack:'https://buy.stripe.com/4gM9AUdYBbbUfwN4s4dby02',us100Framework:'https://buy.stripe.com/00wdRabQt93M5Wde2Edby00'};
+  var links={prepare:'https://buy.stripe.com/test_14AeVfbjM5UBdQr7a828800',accessories:'https://buy.stripe.com/test_8x29AVafIaaR27J9ig28801',frameworkPack:'https://buy.stripe.com/test_eVqdRb5Zser74fR9ig28803',us100Framework:'https://buy.stripe.com/test_fZubJ387AfvbeUveCA28802'};
   var ph='';products.forEach(function(p){ph+='<div class="a-row"><span class="a-row-lbl"><strong style="color:var(--a-txt)">'+esc(p.name)+'</strong><br><span style="font-size:.62rem">'+p.type+'</span></span><span class="a-row-val" style="font-family:DM Serif Display,serif;font-size:1rem">'+p.price+'</span></div>'});
   $('revenueProducts').innerHTML=ph;
   var lh='';products.forEach(function(p){var url=links[p.stripe]||'';lh+='<div class="a-row"><span class="a-row-lbl">'+esc(p.name)+'</span><span class="a-row-val mono" style="font-size:.6rem;max-width:260px;overflow:hidden;text-overflow:ellipsis">'+(url?'<a href="'+url+'" target="_blank" style="color:var(--a-accent)">'+url.slice(0,45)+'\u2026</a>':'Not configured')+'</span></div>'});
